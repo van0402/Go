@@ -70,19 +70,8 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const { totalDocs } = await payload.count({
-    collection: 'posts',
-    overrideAccess: false,
-  })
-
-  const totalPages = Math.ceil(totalDocs / 10)
-
-  const pages: { pageNumber: string }[] = []
-
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push({ pageNumber: String(i) })
-  }
-
-  return pages
+  // Intentionally empty: avoids querying the database at Docker build time
+  // (env vars like DATABASE_URL/PAYLOAD_SECRET aren't available there on Render).
+  // Pages render on-demand instead, since dynamicParams defaults to true.
+  return []
 }

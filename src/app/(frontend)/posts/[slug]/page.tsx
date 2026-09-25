@@ -16,23 +16,10 @@ import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const posts = await payload.find({
-    collection: 'posts',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  const params = posts.docs.map(({ slug }) => {
-    return { slug }
-  })
-
-  return params
+  // Intentionally empty: avoids querying the database at Docker build time
+  // (env vars like DATABASE_URL/PAYLOAD_SECRET aren't available there on Render).
+  // Pages render on-demand instead, since dynamicParams defaults to true.
+  return []
 }
 
 type Args = {
