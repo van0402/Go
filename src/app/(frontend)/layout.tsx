@@ -16,6 +16,12 @@ import { draftMode } from 'next/headers'
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
+// Renders every frontend page on-demand instead of statically at build time,
+// since Footer/Header pull from Payload and need DATABASE_URL/PAYLOAD_SECRET,
+// which are only available at container runtime on Render, not during
+// `docker build`.
+export const dynamic = 'force-dynamic'
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
