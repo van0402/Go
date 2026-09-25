@@ -36,7 +36,6 @@ export function Faq() {
             <div className="section-kicker">09 · Câu Hỏi Thường Gặp</div>
             <h2>Giải đáp thắc mắc.</h2>
           </div>
-          <p>Những câu hỏi thường gặp nhất từ buyer quốc tế trước khi đặt đơn hàng đầu tiên.</p>
         </div>
 
         <div className="faq-list reveal">

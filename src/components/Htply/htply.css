@@ -187,11 +187,8 @@
   margin-bottom:52px;
 }
 .htply-page .section-kicker{
-  display:inline-flex; align-items:center; gap:9px;
-  text-transform:uppercase;font-size:12px;letter-spacing:.2em;color:var(--clay);font-weight:750
-}
-.htply-page .section-kicker:before{
-  content:"";width:9px;height:9px;background:var(--clay);flex:none;
+  display:inline-flex; align-items:center;
+  text-transform:uppercase;font-size:15px;letter-spacing:.2em;color:var(--clay);font-weight:750
 }
 .htply-page .section-head h2{
   font-size:clamp(28px,3vw,44px);line-height:1.05;letter-spacing:-.03em;margin:14px 0 0;
@@ -319,8 +316,8 @@
 .htply-page .factory{
   position:relative;border-radius:38px;overflow:hidden;min-height:620px;
   background:
-    linear-gradient(180deg,rgba(40,30,20,.35),rgba(40,30,20,.78)),
-    url('/images/go.jpg') center/cover no-repeat;
+    linear-gradient(180deg,rgba(40,38,36,.12),rgba(40,38,36,.68)),
+    linear-gradient(135deg,#CBB096,#745844);
   color:white;display:flex;flex-direction:column;justify-content:flex-end;
 }
 .htply-page .factory-gallery{
