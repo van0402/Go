@@ -19,7 +19,7 @@ export function About() {
             </div>
           </div>
           <div className="about-card dark">
-            <h3>Three values that shape how we work.</h3>
+            <h3>What shapes how we work.</h3>
             <div className="value-list">
               <div className="value">
                 <span>01</span>
@@ -40,6 +40,26 @@ export function About() {
                 <div>
                   <b>Global</b>
                   <div>Tư duy sản phẩm và dịch vụ theo chuẩn thị trường quốc tế.</div>
+                </div>
+              </div>
+              <div className="value">
+                <span>04</span>
+                <div>
+                  <b>Máy móc &amp; công nghệ</b>
+                  <div>
+                    Dây chuyền ép nóng, cắt và kiểm định hiện đại, tối ưu độ chính xác kích thước
+                    và chất lượng bề mặt.
+                  </div>
+                </div>
+              </div>
+              <div className="value">
+                <span>05</span>
+                <div>
+                  <b>Chứng nhận sản xuất</b>
+                  <div>
+                    Đạt chứng nhận FSC, tuân thủ tiêu chuẩn phát thải formaldehyde E0/E0.5 theo yêu
+                    cầu xuất khẩu Châu Âu.
+                  </div>
                 </div>
               </div>
             </div>
