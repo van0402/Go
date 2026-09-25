@@ -342,7 +342,7 @@
   display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center;
 }
 .htply-page .map{
-  min-height:520px;border-radius:32px;border:1px solid var(--line);position:relative;overflow:hidden;
+  min-height:340px;border-radius:32px;border:1px solid var(--line);position:relative;overflow:hidden;
   background:
     linear-gradient(rgba(83,62,50,.03) 1px,transparent 1px),
     linear-gradient(90deg,rgba(83,62,50,.03) 1px,transparent 1px);
@@ -353,7 +353,7 @@
 @keyframes htply-dash{to{stroke-dashoffset:-180}}
 .htply-page .map-dot{fill:var(--coffee)}
 .htply-page .global-copy h2{font-size:clamp(52px,6.5vw,92px);line-height:.9;letter-spacing:-.06em}
-.htply-page .global-copy p{color:var(--muted);max-width:470px}
+.htply-page .global-copy p{color:var(--muted);max-width:470px;font-size:16px;line-height:1.6}
 
 /* Testimonials */
 .htply-page .testimonials{background:#E8DACB;border-radius:42px;padding:70px 40px}
