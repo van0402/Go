@@ -9,6 +9,9 @@ export function GlobalMarkets() {
             Hiện định hướng trọng tâm là Châu Âu và Trung Đông. Phần bản đồ có thể nâng cấp thành
             route animation từ Việt Nam đến từng thị trường xuất khẩu thực tế.
           </p>
+          <div className="eyebrow" style={{ marginTop: '18px', marginBottom: 0 }}>
+            <span className="dot"></span> Ưu tiên 6–12 tháng tới: Châu Âu
+          </div>
         </div>
 
         <div className="map">
