@@ -181,7 +181,7 @@
 .htply-page .stat strong{display:block;font-size:38px;letter-spacing:-.05em;margin:8px 0 4px}
 .htply-page .stat span{opacity:.76;font-size:13px}
 
-.htply-page section{padding:110px 0}
+.htply-page section{padding:44px 0}
 .htply-page .section-head{
   display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:end;
   margin-bottom:52px;
@@ -434,7 +434,7 @@
   .htply-page nav{padding:12px 12px 12px 15px}
   .htply-page .nav-cta{padding:10px 12px}
   .htply-page h1{font-size:58px}
-  .htply-page section{padding:78px 0}
+  .htply-page section{padding:32px 0}
   .htply-page .stats{grid-template-columns:1fr}
   .htply-page .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}
   .htply-page .p3-grid{grid-template-columns:1fr}

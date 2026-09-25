@@ -39,7 +39,10 @@ export function QuoteForm() {
               <label>Product</label>
               <select>
                 <option>Film Faced Plywood</option>
-                <option>Anti-Slip Plywood</option>
+                <option>Anti-Slip Plywood — Wiremesh</option>
+                <option>Anti-Slip Plywood — Hexaply</option>
+                <option>Raw Plywood</option>
+                <option>LVL</option>
                 <option>Other</option>
               </select>
             </div>
