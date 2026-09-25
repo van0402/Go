@@ -23,7 +23,7 @@ export function QualityGrid() {
         <div className="section-head reveal">
           <div>
             <div className="section-kicker">05 · Chất Lượng</div>
-            <h2>Quality is measured. Not claimed.</h2>
+            <h2>Chất lượng của sản phẩm</h2>
           </div>
         </div>
         <div className="quality-grid reveal">

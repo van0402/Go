@@ -28,10 +28,6 @@ export function Testimonials() {
             <div className="section-kicker">08 · Testimonials</div>
             <h2>Trusted by buyers who ship at scale.</h2>
           </div>
-          <p>
-            Phản hồi từ các đối tác nhập khẩu đã làm việc lâu dài với HTPLY Vietnam trên nhiều
-            tuyến hàng khác nhau.
-          </p>
         </div>
 
         <div className="testimonials reveal">
@@ -43,7 +39,7 @@ export function Testimonials() {
                   <p>&ldquo;{t.quote}&rdquo;</p>
                 </div>
                 <div className="testi-who">
-                  <span className="testi-avatar"></span>
+                  <span className="testi-avatar">{t.name.charAt(0)}</span>
                   <div>
                     <b>{t.name}</b>
                     <span>{t.role}</span>
