@@ -1,9 +1,9 @@
 const items = [
-  { n: '01', label: 'Thickness', note: 'Controlled tolerance' },
-  { n: '02', label: 'Moisture', note: 'Monitored level' },
-  { n: '03', label: 'Bonding', note: 'Checked adhesion' },
-  { n: '04', label: 'Dimension', note: 'Verified size' },
-  { n: '05', label: 'Surface', note: 'Visual inspection' },
+  { n: '01', label: 'Độ chính xác độ dày', note: 'Kiểm soát sai số' },
+  { n: '02', label: 'Kiểm soát độ ẩm', note: 'Duy trì mức ổn định' },
+  { n: '03', label: 'Độ bền liên kết', note: 'Kiểm tra độ bám dính' },
+  { n: '04', label: 'Độ chính xác kích thước', note: 'Kiểm tra kích thước & độ vuông' },
+  { n: '05', label: 'Chất lượng bề mặt', note: 'Kiểm tra độ phẳng & hoàn thiện' },
 ]
 
 export function QualityGrid() {
