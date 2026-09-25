@@ -15,10 +15,6 @@ export function QualityGrid() {
             <div className="section-kicker">05 · Quality Control</div>
             <h2>Quality is measured. Not claimed.</h2>
           </div>
-          <p>
-            Cách trình bày ưu tiên ngôn ngữ kỹ thuật, giúp website có cảm giác là công cụ bán hàng
-            B2B chứ không chỉ là brochure online.
-          </p>
         </div>
         <div className="quality-grid reveal">
           {items.map((item) => (

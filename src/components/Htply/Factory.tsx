@@ -24,6 +24,12 @@ export function Factory() {
               ))}
             </div>
           </div>
+
+          <div className="factory-gallery">
+            <img src="/images/dd.jpg" alt="HTPLY material" />
+            <img src="/images/l1.jpg" alt="HTPLY log cross-section" />
+            <img src="/images/l2.jpg" alt="HTPLY timber stock" />
+          </div>
         </div>
       </div>
     </section>

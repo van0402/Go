@@ -197,7 +197,7 @@
   font-size:clamp(28px,3vw,44px);line-height:1.05;letter-spacing:-.03em;margin:14px 0 0;
   white-space:nowrap;
 }
-.htply-page .section-head p{color:var(--muted);max-width:620px;margin:14px 0 6px 0}
+.htply-page .section-head p{color:var(--muted);max-width:620px;margin:14px 0 6px 0;font-size:17px;line-height:1.6}
 
 .htply-page .about{
   display:grid;grid-template-columns:1.15fr .85fr; gap:22px;
@@ -315,7 +315,15 @@
   background:
     linear-gradient(180deg,rgba(40,38,36,.12),rgba(40,38,36,.68)),
     linear-gradient(135deg,#CBB096,#745844);
-  color:white;display:flex;align-items:flex-end;
+  color:white;display:flex;flex-direction:column;justify-content:flex-end;
+}
+.htply-page .factory-gallery{
+  position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;padding:0 46px 46px;
+}
+.htply-page .factory-gallery img{
+  width:100%;height:130px;object-fit:cover;border-radius:14px;
+  border:1px solid rgba(255,255,255,.25);
 }
 .htply-page .factory:before,.htply-page .factory:after{
   content:"";position:absolute;bottom:0;background:rgba(255,255,255,.1);
@@ -442,6 +450,7 @@
   .htply-page .factory{min-height:700px}
   .htply-page .factory-content{padding:28px}
   .htply-page .factory-stats{grid-template-columns:1fr 1fr}
+  .htply-page .factory-gallery{grid-template-columns:1fr;padding:0 28px 28px}
   .htply-page .map{min-height:360px}
   .htply-page .quote{padding:28px;border-radius:28px}
   .htply-page .testimonials{padding:40px 18px;border-radius:28px}
