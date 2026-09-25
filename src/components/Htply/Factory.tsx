@@ -1,8 +1,8 @@
 const stats = [
-  { value: '5,000 m²', label: 'Factory footprint' },
-  { value: '60', label: 'Containers / month production' },
-  { value: '80', label: 'Containers / month supply' },
-  { value: '30 days', label: 'Average lead time' },
+  { value: '5,000 m²', label: 'Diện tích nhà xưởng' },
+  { value: '60', label: 'Container / tháng (sản xuất)' },
+  { value: '80', label: 'Container / tháng (cung ứng)' },
+  { value: '30 ngày', label: 'Thời gian giao hàng trung bình' },
 ]
 
 export function Factory() {
@@ -12,9 +12,9 @@ export function Factory() {
         <div className="factory">
           <div className="factory-content">
             <div className="section-kicker" style={{ color: '#E7CFBC' }}>
-              06 · Factory &amp; Capacity
+              06 · Nhà Xưởng &amp; Năng Lực
             </div>
-            <h2>Built to deliver at scale.</h2>
+            <h2>Sẵn sàng đáp ứng quy mô lớn.</h2>
             <div className="factory-stats">
               {stats.map((stat) => (
                 <div className="factory-stat" key={stat.label}>

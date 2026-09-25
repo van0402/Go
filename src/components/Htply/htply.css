@@ -319,8 +319,8 @@
 .htply-page .factory{
   position:relative;border-radius:38px;overflow:hidden;min-height:620px;
   background:
-    linear-gradient(180deg,rgba(40,38,36,.12),rgba(40,38,36,.68)),
-    linear-gradient(135deg,#CBB096,#745844);
+    linear-gradient(180deg,rgba(40,30,20,.35),rgba(40,30,20,.78)),
+    url('/images/go.jpg') center/cover no-repeat;
   color:white;display:flex;flex-direction:column;justify-content:flex-end;
 }
 .htply-page .factory-gallery{
@@ -361,11 +361,8 @@
   position:relative;border-radius:42px;padding:70px 40px;overflow:hidden;isolation:isolate;
 }
 .htply-page .testimonials:before{
-  content:"";position:absolute;inset:0;z-index:-2;
+  content:"";position:absolute;inset:0;z-index:-1;
   background:url('/images/Conty.jpg') center/cover no-repeat;
-}
-.htply-page .testimonials:after{
-  content:"";position:absolute;inset:0;z-index:-1;background:rgba(232,218,203,.88);
 }
 .htply-page .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px}
 .htply-page .testi-card{
