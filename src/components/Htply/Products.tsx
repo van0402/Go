@@ -27,6 +27,34 @@ const PRODUCTS = [
     tags: ['Structural', 'Packaging'],
     img: '/images/v2.jpg',
   },
+  {
+    key: 'marine',
+    title: 'Marine Plywood',
+    desc: 'Product category demo. Thông số chịu ẩm/chịu nước cần xác nhận chính thức với HTPLY.',
+    tags: ['Marine', 'Outdoor'],
+    img: '/images/v1.jpg',
+  },
+  {
+    key: 'melamine',
+    title: 'Melamine Plywood',
+    desc: 'Product category demo. Bề mặt phủ melamine, nội dung ứng dụng cần xác nhận trước khi public.',
+    tags: ['Furniture', 'Interior'],
+    img: '/images/v2.jpg',
+  },
+  {
+    key: 'blockboard',
+    title: 'Block Board',
+    desc: 'Product category demo. Cấu tạo lõi gỗ cần xác nhận chính thức trước khi đưa lên website.',
+    tags: ['Furniture', 'Doors'],
+    img: '/images/v1.jpg',
+  },
+  {
+    key: 'packing',
+    title: 'Packing Plywood',
+    desc: 'Product category demo. Quy cách đóng gói/xuất khẩu cần xác nhận trước khi public.',
+    tags: ['Packaging', 'Export'],
+    img: '/images/v2.jpg',
+  },
 ]
 
 export function Products() {
