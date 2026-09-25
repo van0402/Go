@@ -25,8 +25,8 @@ export function Testimonials() {
       <div className="container">
         <div className="section-head reveal">
           <div>
-            <div className="section-kicker">08 · Testimonials</div>
-            <h2>Trusted by buyers who ship at scale.</h2>
+            <div className="section-kicker">08 · Đánh Giá Khách Hàng</div>
+            <h2>Được tin cậy bởi các đối tác nhập khẩu quy mô lớn.</h2>
           </div>
         </div>
 
