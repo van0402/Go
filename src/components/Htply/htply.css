@@ -342,18 +342,13 @@
   display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center;
 }
 .htply-page .map{
-  min-height:340px;border-radius:32px;border:1px solid var(--line);position:relative;overflow:hidden;
-  background:
-    linear-gradient(rgba(83,62,50,.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(83,62,50,.03) 1px,transparent 1px);
-  background-size:32px 32px;
+  min-height:400px;border-radius:32px;border:1px solid var(--line);position:relative;overflow:hidden;
 }
-.htply-page .map svg{position:absolute;inset:7%;width:86%;height:86%;opacity:.78}
-.htply-page .route{fill:none;stroke:var(--clay);stroke-width:2.3;stroke-dasharray:8 9;animation:htply-dash 12s linear infinite}
-@keyframes htply-dash{to{stroke-dashoffset:-180}}
-.htply-page .map-dot{fill:var(--coffee)}
+.htply-page .map img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
 .htply-page .global-copy h2{font-size:clamp(52px,6.5vw,92px);line-height:.9;letter-spacing:-.06em}
-.htply-page .global-copy p{color:var(--muted);max-width:470px;font-size:16px;line-height:1.6}
+.htply-page .global-copy p{color:var(--muted);max-width:470px;font-size:19px;line-height:1.6}
 
 /* Testimonials */
 .htply-page .testimonials{background:#E8DACB;border-radius:42px;padding:70px 40px}
