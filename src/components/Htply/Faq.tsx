@@ -33,8 +33,8 @@ export function Faq() {
       <div className="container">
         <div className="section-head reveal">
           <div>
-            <div className="section-kicker">09 · FAQ</div>
-            <h2>Questions, answered.</h2>
+            <div className="section-kicker">09 · Câu Hỏi Thường Gặp</div>
+            <h2>Giải đáp thắc mắc.</h2>
           </div>
           <p>Những câu hỏi thường gặp nhất từ buyer quốc tế trước khi đặt đơn hàng đầu tiên.</p>
         </div>
