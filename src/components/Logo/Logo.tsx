@@ -7,6 +7,6 @@ interface Props {
   priority?: 'auto' | 'high' | 'low'
 }
 
-export const Logo = () => {
+export const Logo = (_props: Props) => {
   return null
 }
