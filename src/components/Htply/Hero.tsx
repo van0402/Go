@@ -14,7 +14,7 @@ export function Hero() {
             BUILT FOR THE WORLD. */}
           </h1>
           <div className="actions">
-            <a className="btn primary" href="#products">
+            <a className="btn primary" href="/products">
               Explore Products ↗
             </a>
             <a className="btn secondary" href="#quote">

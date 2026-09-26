@@ -1,0 +1,191 @@
+.htply-products-page{
+  --cream:#F3EEE7;
+  --brown-dark:#463229;
+  --copper:#A87852;
+  --text:#4D382E;
+  --muted:#7B665A;
+  --line:rgba(77,56,46,.14);
+  background:var(--cream);
+  color:var(--text);
+}
+
+.htply-products-page *{box-sizing:border-box}
+
+.htply-products-page .products-container{
+  width:min(1180px,calc(100% - 48px));
+  margin:auto;
+}
+
+.htply-products-page .product-index-section{
+  padding:96px 0 110px;
+  background:
+    radial-gradient(circle at 15% 0%,rgba(255,255,255,.95),transparent 30%),
+    var(--cream);
+}
+
+.htply-products-page .product-section-head{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:50px;
+}
+
+.htply-products-page .product-section-kicker{
+  color:var(--copper);
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.htply-products-page .product-section-head h2{
+  margin:0;
+  font-size:clamp(38px,4.5vw,60px);
+  line-height:1.04;
+  letter-spacing:-.04em;
+  font-weight:500;
+}
+
+.htply-products-page .product-section-head > p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:16px;
+}
+
+.htply-products-page .product-index-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+  align-items:start;
+}
+
+.htply-products-page .product-list{
+  border-top:1px solid var(--line);
+}
+
+.htply-products-page .product-row{
+  width:100%;
+  position:relative;
+  display:grid;
+  grid-template-columns:58px 1fr auto;
+  gap:16px;
+  align-items:center;
+  padding:18px 0;
+  border:0;
+  border-bottom:1px solid var(--line);
+  background:transparent;
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+}
+
+.htply-products-page .product-row::before{
+  content:"";
+  position:absolute;
+  left:-18px; right:-18px; top:4px; bottom:4px;
+  border-radius:16px;
+  background:transparent;
+  transition:.22s ease;
+}
+
+.htply-products-page .product-row > *{
+  position:relative;
+  z-index:1;
+}
+
+.htply-products-page .product-row:hover::before,
+.htply-products-page .product-row.active::before{
+  background:rgba(255,255,255,.68);
+  box-shadow:0 10px 26px rgba(68,48,37,.06);
+}
+
+.htply-products-page .product-num{
+  color:#AF9687;
+  font-size:12px;
+  letter-spacing:.12em;
+  font-weight:800;
+}
+
+.htply-products-page .product-row.active .product-num{color:var(--copper)}
+
+.htply-products-page .product-row-main{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+
+.htply-products-page .product-row-title{
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:-.02em;
+}
+
+.htply-products-page .product-row-tag{
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.11em;
+  color:var(--copper);
+  border:1px solid rgba(168,120,82,.24);
+  padding:5px 7px;
+  border-radius:999px;
+}
+
+.htply-products-page .product-row-arrow{
+  width:32px;height:32px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(70,50,41,.08);
+  color:var(--brown-dark);
+  transition:.22s;
+}
+
+.htply-products-page .product-row:hover .product-row-arrow,
+.htply-products-page .product-row.active .product-row-arrow{
+  background:var(--brown-dark);
+  color:#fff;
+}
+
+.htply-products-page .product-preview-wrap{
+  position:sticky;
+  top:100px;
+}
+
+.htply-products-page .product-preview-card{
+  overflow:hidden;
+  border-radius:28px;
+  background:#EFE4D9;
+  border:1px solid var(--line);
+  box-shadow:0 24px 54px rgba(58,40,30,.10);
+}
+
+.htply-products-page .product-preview-media{
+  position:relative;
+  height:430px;
+  overflow:hidden;
+  background:#d9cec2;
+}
+
+.htply-products-page .product-preview-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.htply-products-page .product-preview-badge{
+  position:absolute;
+  top:18px; left:18px;
+  z-index:2;
+  padding:8px 11px;
+  border-radius:999px;
+  background:rgba(245,238,231,.88);
+  color:var(--brown-dark);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-weight:800;
+}
