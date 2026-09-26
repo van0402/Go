@@ -414,17 +414,33 @@
   padding:16px 18px;border-radius:14px;cursor:pointer;font-weight:700
 }
 
-.htply-page footer{padding:70px 0 40px}
+.htply-page footer{
+  margin-top:20px;padding:64px 0 32px;background:var(--coffee);color:var(--paper);
+  border-radius:42px 42px 0 0;
+}
 .htply-page .footer-top{
   display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px;
-  padding-bottom:44px;border-bottom:1px solid var(--line);
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.14);
 }
-.htply-page .footer-brand .footer-big{font-size:30px;font-weight:800;letter-spacing:-.05em;margin-bottom:12px}
-.htply-page .footer-brand p{color:var(--muted);max-width:280px;font-size:14px}
-.htply-page .footer-col b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--clay);margin-bottom:16px}
-.htply-page .footer-col a{display:block;color:var(--muted);font-size:14px;padding:6px 0}
-.htply-page .footer-col a:hover{color:var(--coffee)}
-.htply-page .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center;padding-top:24px;font-size:13px;color:var(--muted)}
+.htply-page .footer-brand .footer-big{
+  font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.htply-page .footer-brand .footer-big img{width:34px;height:34px;object-fit:contain}
+.htply-page .footer-brand p{color:rgba(255,248,240,.68);max-width:280px;font-size:14px;line-height:1.6}
+.htply-page .footer-col b{
+  display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;
+  color:#E7CFBC;margin-bottom:18px;
+}
+.htply-page .footer-col a{
+  display:inline-flex;align-items:center;gap:6px;color:rgba(255,248,240,.72);
+  font-size:14px;padding:7px 0;transition:.2s ease;
+}
+.htply-page .footer-col a:hover{color:var(--paper);transform:translateX(3px)}
+.htply-page .footer-row{
+  display:flex;justify-content:space-between;gap:20px;align-items:center;
+  padding-top:24px;font-size:13px;color:rgba(255,248,240,.55);
+}
 
 .htply-page .reveal{opacity:0;transform:translateY(20px);transition:.7s ease}
 .htply-page .reveal.show{opacity:1;transform:none}
