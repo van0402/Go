@@ -1,5 +1,5 @@
 import './htply.css'
-// import { Nav } from './Nav'
+import { Nav } from './Nav'
 import { Hero } from './Hero'
 import { StatStrip } from './StatStrip'
 import { About } from './About'
@@ -18,7 +18,7 @@ export function HtplyDemo() {
   return (
     <div className="htply-page">
       <RevealOnScroll />
-      {/* <Nav /> */}
+      <Nav />
       <main id="top">
         <Hero />
         <StatStrip />

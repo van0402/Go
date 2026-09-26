@@ -222,3 +222,39 @@ html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
 }
+
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+.page-curtain-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 25%;
+  background: #533e32;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.page-curtain-panel:nth-child(1) {
+  left: 0%;
+  transition-delay: 0s;
+}
+.page-curtain-panel:nth-child(2) {
+  left: 25%;
+  transition-delay: 0.06s;
+}
+.page-curtain-panel:nth-child(3) {
+  left: 50%;
+  transition-delay: 0.12s;
+}
+.page-curtain-panel:nth-child(4) {
+  left: 75%;
+  transition-delay: 0.18s;
+}
+.page-curtain-closing .page-curtain-panel,
+.page-curtain-closed .page-curtain-panel {
+  transform: translateY(0);
+}

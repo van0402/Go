@@ -6,6 +6,7 @@ import { GeistSans } from 'geist/font/sans'
 import React from 'react'
 
 import { AdminBar } from '@/components/AdminBar'
+import { PageTransition } from '@/components/PageTransition'
 import { Footer } from '@/Footer/Component'
 // import { Header } from '@/Header/Component'
 import { Providers } from '@/providers'
@@ -34,6 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
+          <PageTransition />
           <AdminBar
             adminBarProps={{
               preview: isEnabled,

@@ -7,7 +7,7 @@ const stats = [
 
 export function Factory() {
   return (
-    <section>
+    <section id="factory">
       <div className="container reveal">
         <div className="factory">
           <div className="factory-content">

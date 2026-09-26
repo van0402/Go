@@ -3,10 +3,6 @@
 export function Hero() {
   return (
     <section className="hero">
-      <div className="brand-mini">
-  <img src="/images/Layer.png" alt="HTPLY Vietnam" />
-  HTPLY VIETNAM
-</div>
       <div className="container hero-grid">
         <div className="reveal">
           <div className="eyebrow">
