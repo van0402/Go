@@ -20,7 +20,7 @@ export function HtplyAbout() {
             <a className="active" href="/about">
               About
             </a>
-            <a href="/#products">Products</a>
+            <a href="/products">Products</a>
             <a href="/#factory">Factory</a>
             <a href="/#quality">Quality</a>
             <a href="/#markets">Markets</a>
