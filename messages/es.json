@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "products": "Productos",
+    "factory": "Fábrica",
+    "quality": "Calidad",
+    "requestQuote": "Solicitar cotización"
+  }
+}

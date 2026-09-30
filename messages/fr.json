@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "products": "Produits",
+    "factory": "Usine",
+    "quality": "Qualité",
+    "requestQuote": "Demander un devis"
+  }
+}

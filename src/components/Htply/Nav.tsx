@@ -15,12 +15,7 @@ export function Nav() {
             <a href="#quality">Quality</a>
           </div>
           <div className="nav-actions">
-            <a className="nav-cta" href="#quote">
-              Request a Quote
-            </a>
-            <a className="nav-icon-btn" href="#quote" aria-label="Request a Quote">
-              ↗
-            </a>
+            
           </div>
         </nav>
       </div>

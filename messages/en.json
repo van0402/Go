@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "factory": "Factory",
+    "quality": "Quality",
+    "requestQuote": "Request a Quote"
+  }
+}

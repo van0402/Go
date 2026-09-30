@@ -9,6 +9,7 @@ import { QualityGrid } from './QualityGrid'
 import { Factory } from './Factory'
 import { Testimonials } from './Testimonials'
 import { Faq } from './Faq'
+import { QcGallery } from './QcGallery'
 import { SiteFooter } from './SiteFooter'
 import { RevealOnScroll } from './RevealOnScroll'
 
@@ -27,6 +28,7 @@ export function HtplyDemo() {
         <Factory />
         <Testimonials />
         <Faq />
+        <QcGallery />
       </main>
       <SiteFooter />
     </div>
