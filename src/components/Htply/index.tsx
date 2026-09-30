@@ -1,14 +1,12 @@
 import './htply.css'
 import { Nav } from './Nav'
 import { Hero } from './Hero'
-import { StatStrip } from './StatStrip'
 import { About } from './About'
 import { Products } from './Products'
 // import { InsideBoard } from './InsideBoard'
 // import { ProcessSteps } from './ProcessSteps'
 import { QualityGrid } from './QualityGrid'
 import { Factory } from './Factory'
-import { GlobalMarkets } from './GlobalMarkets'
 import { Testimonials } from './Testimonials'
 import { Faq } from './Faq'
 import { SiteFooter } from './SiteFooter'
@@ -21,14 +19,12 @@ export function HtplyDemo() {
       <Nav />
       <main id="top">
         <Hero />
-        <StatStrip />
         <About />
         <Products />
         {/* <InsideBoard /> */}
         {/* <ProcessSteps /> */}
         <QualityGrid />
         <Factory />
-        <GlobalMarkets />
         <Testimonials />
         <Faq />
       </main>

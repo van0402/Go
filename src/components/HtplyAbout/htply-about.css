@@ -42,7 +42,7 @@
 .htply-about-page a{text-decoration:none;color:inherit}
 
 .htply-about-page .container{
-  width:min(1180px,calc(100% - 48px));
+  width:min(1500px,calc(100% - 80px));
   margin:auto;
 }
 
@@ -160,6 +160,7 @@
   background:
     linear-gradient(90deg,rgba(59,44,36,.74) 0%,rgba(62,45,36,.35) 42%,rgba(31,25,21,.13) 72%),
     url('/images/nui3.jpg') center/cover no-repeat;
+  background-position: 0 0, center calc(50% + var(--parallax-y, 0px));
 }
 
 .htply-about-page .hero::after{
@@ -225,8 +226,8 @@
 
 .htply-about-page .intro-grid{
   display:grid;
-  grid-template-columns:.85fr 1.15fr;
-  gap:70px;
+  grid-template-columns:1fr;
+  gap:18px;
   align-items:start;
 }
 
@@ -244,9 +245,9 @@
 .htply-about-page .values h2,
 .htply-about-page .promise h2{
   margin:0;
-  font-size:clamp(38px,4.4vw,62px);
-  line-height:1.04;
-  letter-spacing:-.04em;
+  font-size:clamp(30px,3.6vw,48px);
+  line-height:1.08;
+  letter-spacing:-.035em;
   font-weight:500;
 }
 
@@ -272,15 +273,50 @@
 }
 
 .htply-about-page .metric{
+  position:relative;
   padding:26px 22px;
   border-radius:22px;
-  background:rgba(255,255,255,.54);
   border:1px solid var(--line);
   box-shadow:0 14px 34px rgba(65,45,34,.06);
+  overflow:hidden;
+  isolation:isolate;
+  color:#fff;
+  transition:transform .35s ease, box-shadow .35s ease;
 }
 
+.htply-about-page .metric:hover{
+  transform:scale(1.045);
+  box-shadow:0 24px 48px rgba(50,30,20,.28);
+  z-index:5;
+}
+
+.htply-about-page .metric:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background-size:cover;
+  background-position:center;
+  transition:transform .5s ease;
+}
+
+.htply-about-page .metric:hover:before{ transform:scale(1.12); }
+
+.htply-about-page .metric:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(180deg, rgba(40,30,20,.35), rgba(40,30,20,.78));
+}
+
+.htply-about-page .metric:nth-child(1):before{ background-image:url('/images/stat-factory.jpg'); }
+.htply-about-page .metric:nth-child(2):before{ background-image:url('/images/stat-production.jpg'); }
+.htply-about-page .metric:nth-child(3):before{ background-image:url('/images/stat-supply.jpg'); }
+.htply-about-page .metric:nth-child(4):before{ background-image:url('/images/stat-markets.jpg'); }
+
 .htply-about-page .metric small{
-  color:var(--copper);
+  color:#E7CFBC;
   font-size:11px;
   letter-spacing:.12em;
   text-transform:uppercase;
@@ -296,7 +332,7 @@
 }
 
 .htply-about-page .metric span{
-  color:var(--muted);
+  color:rgba(255,248,240,.85);
   font-size:14px;
   line-height:1.5;
 }
@@ -325,6 +361,13 @@
   object-fit:cover;
   border-radius:28px;
   box-shadow:0 28px 60px rgba(62,42,31,.12);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.htply-about-page .story-media .main:hover{
+  transform:scale(1.035);
+  box-shadow:0 34px 70px rgba(62,42,31,.2);
+  z-index:2;
 }
 
 .htply-about-page .story-media .secondary{
@@ -334,9 +377,16 @@
   object-fit:cover;
   right:0;
   bottom:-18px;
+  transition:transform .4s ease, box-shadow .4s ease;
   border-radius:22px;
   border:8px solid var(--paper);
   box-shadow:0 22px 50px rgba(62,42,31,.14);
+}
+
+.htply-about-page .story-media .secondary:hover{
+  transform:scale(1.06);
+  box-shadow:0 28px 56px rgba(62,42,31,.22);
+  z-index:3;
 }
 
 .htply-about-page .story-copy p{
@@ -388,16 +438,13 @@
 }
 
 .htply-about-page .values-head{
-  display:flex;
-  justify-content:space-between;
-  gap:40px;
-  align-items:end;
+  display:block;
   margin-bottom:42px;
 }
 
 .htply-about-page .values-head p{
-  width:min(440px,100%);
-  margin:0;
+  width:min(690px,100%);
+  margin:14px 0 0;
   color:var(--muted);
   line-height:1.75;
 }
@@ -578,8 +625,6 @@
   .htply-about-page .intro-grid,.htply-about-page .story-grid{grid-template-columns:1fr;gap:38px}
   .htply-about-page .metric-grid{grid-template-columns:1fr 1fr}
   .htply-about-page .values-grid{grid-template-columns:1fr}
-  .htply-about-page .values-head{display:block}
-  .htply-about-page .values-head p{margin-top:18px}
   .htply-about-page .story-media{min-height:500px}
 }
 
@@ -593,3 +638,6 @@
   .htply-about-page .story-media .secondary{height:190px}
   .htply-about-page .footer-row{flex-direction:column;align-items:flex-start}
 }
+
+.htply-about-page .reveal{transition:opacity .7s ease, transform .7s ease !important; opacity:0; transform:translateY(20px)}
+.htply-about-page .reveal.show{opacity:1; transform:none}

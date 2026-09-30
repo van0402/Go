@@ -52,7 +52,7 @@ export function PageTransition() {
         router.push(pendingHref.current)
         pendingHref.current = null
       }
-    }, 720)
+    }, 750)
     return () => clearTimeout(t)
   }, [phase, router])
 
@@ -67,12 +67,13 @@ export function PageTransition() {
 
   useEffect(() => {
     if (phase !== 'opening') return
-    const t = setTimeout(() => setPhase('idle'), 720)
+    const t = setTimeout(() => setPhase('idle'), 750)
     return () => clearTimeout(t)
   }, [phase])
 
   return (
     <div className={`page-curtain page-curtain-${phase}`} aria-hidden="true">
+      <span className="page-curtain-panel" />
       <span className="page-curtain-panel" />
       <span className="page-curtain-panel" />
       <span className="page-curtain-panel" />

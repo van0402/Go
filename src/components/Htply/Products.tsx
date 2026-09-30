@@ -59,7 +59,7 @@ const PRODUCTS = [
 
 export function Products() {
   return (
-    <section id="products">
+    <section id="products" className="products-section">
       <div className="container">
         <div className="section-head reveal">
           <div>
@@ -68,9 +68,16 @@ export function Products() {
           </div>
         </div>
 
-        <div className="p3-grid reveal">
-          {PRODUCTS.map((p) => (
-            <article className="p3-card" key={p.key}>
+        <div className="p3-grid">
+          {PRODUCTS.map((p, i) => (
+            <article
+              className="p3-card reveal"
+              key={p.key}
+              style={{
+                transitionDelay: `${(i % 3) * 90}ms`,
+                ['--slide-x' as string]: i % 2 === 0 ? '-70px' : '70px',
+              }}
+            >
               <div className="p3-visual">
                 <img src={p.img} alt={p.title} />
               </div>
