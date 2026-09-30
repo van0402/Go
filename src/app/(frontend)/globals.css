@@ -223,47 +223,143 @@ html[data-theme='light'] {
   opacity: initial;
 }
 
-.page-curtain {
+.spiral-overlay {
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-}
-.page-curtain-panel {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 20%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
   background:
     linear-gradient(rgba(30, 20, 14, 0.55), rgba(30, 20, 14, 0.55)),
-    url('/images/nen.jpg');
+    url('/images/loading.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-  transform: translateY(-100%);
-  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
-.page-curtain-panel:nth-child(1) {
-  left: 0%;
+.spiral-overlay-closing,
+.spiral-overlay-closed {
+  opacity: 1;
+  transition: opacity 0.18s ease;
+}
+.spiral-overlay-opening {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.15s;
+}
+
+.spiral-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.spiral-svg {
+  width: 145vmax;
+  height: 145vmax;
+  overflow: visible;
+  transform: rotate(-30deg) scale(0.72);
+  transition: transform 0.75s cubic-bezier(0.68, 0, 0.18, 1);
+}
+.spiral-overlay-closing .spiral-svg,
+.spiral-overlay-closed .spiral-svg {
+  transform: rotate(155deg) scale(1.02);
+}
+.spiral-overlay-opening .spiral-svg {
+  transform: rotate(350deg) scale(0.52);
+  transition: transform 0.75s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.spiral-path {
+  fill: none;
+  stroke: #e8d8c8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 24;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  vector-effect: non-scaling-stroke;
+  transition:
+    stroke-dashoffset 0.7s cubic-bezier(0.65, 0, 0.15, 1),
+    opacity 0.5s ease;
+}
+.spiral-path-1 {
+  stroke-width: 24;
+}
+.spiral-path-2 {
+  stroke-width: 18;
+}
+.spiral-path-3 {
+  stroke-width: 13;
+}
+.spiral-path-4 {
+  stroke-width: 9;
+}
+.spiral-overlay-closing .spiral-path,
+.spiral-overlay-closed .spiral-path {
+  stroke-dashoffset: 0;
+}
+.spiral-overlay-closing .spiral-path-1,
+.spiral-overlay-closed .spiral-path-1 {
+  opacity: 0.98;
   transition-delay: 0s;
 }
-.page-curtain-panel:nth-child(2) {
-  left: 20%;
-  transition-delay: 0.06s;
+.spiral-overlay-closing .spiral-path-2,
+.spiral-overlay-closed .spiral-path-2 {
+  opacity: 0.66;
+  transition-delay: 0.05s;
 }
-.page-curtain-panel:nth-child(3) {
-  left: 40%;
+.spiral-overlay-closing .spiral-path-3,
+.spiral-overlay-closed .spiral-path-3 {
+  opacity: 0.46;
+  transition-delay: 0.1s;
+}
+.spiral-overlay-closing .spiral-path-4,
+.spiral-overlay-closed .spiral-path-4 {
+  opacity: 0.3;
+  transition-delay: 0.15s;
+}
+.spiral-overlay-opening .spiral-path {
+  stroke-dashoffset: -1;
+  opacity: 0;
+  transition:
+    stroke-dashoffset 0.6s cubic-bezier(0.7, 0, 0.2, 1),
+    opacity 0.5s ease;
+}
+.spiral-overlay-opening .spiral-path-2 {
+  transition-delay: 0.04s;
+}
+.spiral-overlay-opening .spiral-path-3 {
+  transition-delay: 0.08s;
+}
+.spiral-overlay-opening .spiral-path-4 {
   transition-delay: 0.12s;
 }
-.page-curtain-panel:nth-child(4) {
-  left: 60%;
-  transition-delay: 0.18s;
+
+.spiral-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e8d8c8;
+  box-shadow: 0 0 0 10px rgba(232, 216, 200, 0.08);
+  transform: scale(0);
+  opacity: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s,
+    opacity 0.3s ease 0.25s;
 }
-.page-curtain-panel:nth-child(5) {
-  left: 80%;
-  transition-delay: 0.24s;
+.spiral-overlay-closing .spiral-dot,
+.spiral-overlay-closed .spiral-dot {
+  transform: scale(1);
+  opacity: 1;
 }
-.page-curtain-closing .page-curtain-panel,
-.page-curtain-closed .page-curtain-panel {
-  transform: translateY(0);
+.spiral-overlay-opening .spiral-dot {
+  transform: scale(0);
+  opacity: 0;
+  transition:
+    transform 0.3s ease-in,
+    opacity 0.3s ease-in;
 }

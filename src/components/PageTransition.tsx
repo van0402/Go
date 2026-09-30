@@ -5,6 +5,32 @@ import { usePathname, useRouter } from 'next/navigation'
 
 type Phase = 'idle' | 'closing' | 'closed' | 'opening'
 
+function spiralPath(turns = 5.6, points = 300, phase = 0, radialOffset = 0) {
+  const cx = 500
+  const cy = 500
+  const maxR = 455
+  let d = ''
+  for (let i = 0; i < points; i++) {
+    const t = i / (points - 1)
+    const angle = phase + t * turns * Math.PI * 2
+    const eased = Math.pow(t, 1.02)
+    const r = 18 + eased * (maxR + radialOffset)
+    const wobble = Math.sin(angle * 1.45) * 3.2 + Math.sin(angle * 0.47) * 2.1
+    const rr = r + wobble
+    const x = cx + Math.cos(angle) * rr
+    const y = cy + Math.sin(angle) * rr
+    d += (i === 0 ? 'M' : 'L') + x.toFixed(2) + ' ' + y.toFixed(2) + ' '
+  }
+  return d
+}
+
+const SPIRAL_PATHS = [
+  spiralPath(5.7, 300, 0, 0),
+  spiralPath(5.45, 300, 0.32, -28),
+  spiralPath(5.2, 300, 0.66, -54),
+  spiralPath(4.95, 300, 0.94, -78),
+]
+
 export function PageTransition() {
   const router = useRouter()
   const pathname = usePathname()
@@ -72,12 +98,15 @@ export function PageTransition() {
   }, [phase])
 
   return (
-    <div className={`page-curtain page-curtain-${phase}`} aria-hidden="true">
-      <span className="page-curtain-panel" />
-      <span className="page-curtain-panel" />
-      <span className="page-curtain-panel" />
-      <span className="page-curtain-panel" />
-      <span className="page-curtain-panel" />
+    <div className={`spiral-overlay spiral-overlay-${phase}`} aria-hidden="true">
+      <div className="spiral-stage">
+        <svg className="spiral-svg" viewBox="0 0 1000 1000">
+          {SPIRAL_PATHS.map((d, i) => (
+            <path key={i} d={d} pathLength={1} className={`spiral-path spiral-path-${i + 1}`} />
+          ))}
+        </svg>
+        <div className="spiral-dot" />
+      </div>
     </div>
   )
 }
