@@ -30,12 +30,7 @@ export function HtplyAbout() {
           </nav>
 
           <div className="header-actions">
-            <a className="quote-btn" href="/#quote">
-              Request a Quote
-            </a>
-            <a className="arrow-btn" href="/#quote">
-              ↗
-            </a>
+          
           </div>
 
           <button className="menu-toggle" onClick={() => setMenuOpen((v) => !v)}>
@@ -58,21 +53,17 @@ export function HtplyAbout() {
         </section>
 
         <section className="intro">
-          <div className="container intro-grid reveal">
-            <div>
-              <div className="section-kicker">01 · Who we are</div>
-              <h2>Không chỉ cung cấp plywood. Chúng tôi xây dựng sự an tâm trong mỗi lô hàng.</h2>
+          <div className="container story-grid reveal">
+            <div className="story-media">
+              <img className="main" src="/images/sp8.jpg" alt="HTPLY factory overview" />
+              <img className="secondary" src="/images/spp2.jpg" alt="HTPLY timber stock" />
             </div>
-            <div className="intro-copy">
+
+            <div className="story-copy">
+              <div className="section-kicker">01 · Who we are</div>
+              <h2>Một thương hiệu plywood Việt Nam hướng ra thị trường toàn cầu</h2>
               <p>
-                HTPLY Vietnam là doanh nghiệp tập trung vào sản xuất và xuất khẩu ván ép công
-                nghiệp cho nhóm khách hàng B2B tại Châu Âu, Trung Đông và các thị trường có yêu cầu
-                cao về tính ổn định của sản phẩm.
-              </p>
-              <p>
-                Chúng tôi theo đuổi cách làm rõ ràng từ vật liệu đầu vào, kiểm soát sản xuất, đóng
-                gói đến giao hàng, để mỗi đơn hàng không chỉ đạt yêu cầu kỹ thuật mà còn tạo ra sự
-                tin cậy trong hợp tác dài hạn.
+                HTPLY VIETNAM được thành lập năm 2024, chuyên cung cấp plywood và ván gỗ công nghiệp cho thị trường B2B quốc tế. Với nhà xưởng khoảng 5.000 m² và năng lực cung ứng lên tới 80 container/tháng, HTPLY tập trung phát triển các dòng Film Faced Plywood, Anti-Slip Plywood và plywood công nghiệp, đồng thời hướng tới các thị trường Châu Âu và Trung Đông. Doanh nghiệp lấy chất lượng ổn định, năng lực cung ứng và phát triển bền vững làm nền tảng cho chiến lược mở rộng toàn cầu
               </p>
             </div>
           </div>
@@ -200,10 +191,84 @@ export function HtplyAbout() {
           </div>
         </section>
 
+        <section className="history">
+          <div className="container">
+            <div className="history-head reveal">
+              <div className="section-kicker">04 · History</div>
+              <h2>Từ nền tảng ban đầu đến năng lực cung ứng toàn cầu.</h2>
+            </div>
+
+            <div className="history-list">
+              <div className="history-row reveal" style={{ transitionDelay: '0ms' }}>
+                <div className="history-year">2024</div>
+                <div className="history-title">Thành lập</div>
+                <div className="history-desc">
+                  HTPLY VIETNAM ra đời, mở rộng năng lực sang thị trường plywood kỹ thuật.
+                </div>
+              </div>
+
+              <div className="history-row reveal" style={{ transitionDelay: '60ms' }}>
+                <div className="history-year">2024</div>
+                <div className="history-title">Phát triển sản phẩm</div>
+                <div className="history-desc">
+                  Xây dựng danh mục Film Faced, Anti-Slip và Commercial Plywood cho thị trường
+                  quốc tế.
+                </div>
+              </div>
+
+              <div className="history-row reveal" style={{ transitionDelay: '120ms' }}>
+                <div className="history-year">2025</div>
+                <div className="history-title">Củng cố năng lực</div>
+                <div className="history-desc">
+                  Hoàn thiện năng lực sản xuất và cung ứng với quy mô 5.000 m², hướng tới 80
+                  container/tháng.
+                </div>
+              </div>
+
+              <div className="history-row reveal" style={{ transitionDelay: '180ms' }}>
+                <div className="history-year">25–26</div>
+                <div className="history-title">Chuẩn hóa chất lượng</div>
+                <div className="history-desc">
+                  Tăng cường kiểm soát nguyên liệu, ép, độ ổn định và truy xuất nguồn gốc.
+                </div>
+              </div>
+
+              <div className="history-row reveal" style={{ transitionDelay: '240ms' }}>
+                <div className="history-year">2026</div>
+                <div className="history-title">Vươn ra toàn cầu</div>
+                <div className="history-desc">
+                  Mở rộng thị trường B2B tại Châu Âu, Trung Đông và quốc tế.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mission-vision">
+          <div className="container mv-grid">
+            <div className="mv-col reveal" style={{ transitionDelay: '0ms' }}>
+              <div className="section-kicker">05A · Mission</div>
+              <h2>Sứ mệnh</h2>
+              <p>
+                Cung cấp plywood chất lượng cao với sự ổn định, tin cậy và trách nhiệm trong từng
+                đơn hàng, đồng hành cùng khách hàng B2B trên thị trường quốc tế.
+              </p>
+            </div>
+            <div className="mv-col reveal" style={{ transitionDelay: '90ms' }}>
+              <div className="section-kicker">05B · Vision</div>
+              <h2>Tầm nhìn</h2>
+              <p>
+                Trở thành thương hiệu plywood Việt Nam uy tín, bền vững và có năng lực cạnh tranh
+                quốc tế, từng bước mở rộng vị thế trên chuỗi cung ứng toàn cầu.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="promise">
           <div className="container">
             <div className="promise-inner reveal">
-              <div className="section-kicker">04 · Our promise</div>
+              <div className="section-kicker">06 · Our promise</div>
               <h2>Reliability, built into every sheet.</h2>
               <p>
                 Mỗi tấm plywood rời nhà máy phải đại diện cho cùng một điều: chất lượng có thể

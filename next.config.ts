@@ -1,7 +1,10 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 import type { NextConfig } from 'next'
+import createNextIntlPlugin from 'next-intl/plugin'
 import path from 'path'
 import { fileURLToPath } from 'url'
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
 const __filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(__filename)
@@ -52,4 +55,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+export default withNextIntl(withPayload(nextConfig, { devBundleServerPackages: false }))

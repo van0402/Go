@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { RevealOnScroll } from '@/components/RevealOnScroll'
+import { QcGallery } from './QcGallery'
 import './HtplyProduct.css'
 
 const products = [
@@ -103,6 +105,7 @@ export function HtplyProduct() {
 
   return (
     <main className="htply-products-page">
+        <RevealOnScroll scope=".htply-products-page" />
 
         <header className="site-header">
   <div className="container header-inner">
@@ -133,13 +136,7 @@ export function HtplyProduct() {
     </nav>
 
     <div className="header-actions">
-      <a className="quote-btn" href="/#quote">
-        Request a Quote
-      </a>
-
-      <a className="arrow-btn" href="/#quote">
-        ↗
-      </a>
+     
     </div>
 
     <button
@@ -155,7 +152,7 @@ export function HtplyProduct() {
       <section className="product-hero">
         <div className="products-container product-hero-content">
 
-          <h1>
+          <h1 className="reveal">
             Ổn định từ cấu trúc đến chất lượng.
           </h1>
 
@@ -166,7 +163,7 @@ export function HtplyProduct() {
 
         <div className="products-container">
 
-          <div className="product-section-head">
+          <div className="product-section-head reveal">
 
             <div>
               <div className="product-section-kicker">
@@ -188,9 +185,13 @@ export function HtplyProduct() {
                 <button
                   type="button"
                   key={product.code}
-                  className={`product-row ${
+                  className={`product-row reveal ${
                     activeIndex === index ? 'active' : ''
                   }`}
+                  style={{
+                    transitionDelay: `${(index % 4) * 70}ms`,
+                    ['--slide-x' as string]: index % 2 === 0 ? '-70px' : '70px',
+                  }}
                   onMouseEnter={() => setActiveIndex(index)}
                   onFocus={() => setActiveIndex(index)}
                   onClick={() => setActiveIndex(index)}
@@ -294,29 +295,60 @@ export function HtplyProduct() {
 
           </div>
 
-          <div className="product-cta-band">
-
-            <div>
-              <h3>
-                Need a project-specific configuration?
-              </h3>
-
-              <p>
-                HTPLY có thể xử lý thickness, core, glue,
-                face/back và packing theo yêu cầu riêng
-                của từng thị trường hoặc đơn hàng OEM.
-              </p>
-            </div>
-
-            <a href="#">
-              Request Custom Quote ↗
-            </a>
-
-          </div>
-
         </div>
 
       </section>
+
+      <QcGallery />
+
+      <footer>
+        <div className="products-container">
+          <div className="footer-top">
+            <div className="footer-brand">
+              <div className="footer-big">
+                <img src="/images/Layer.png" alt="HTPLY Vietnam" />
+                HTPLY VIETNAM
+              </div>
+              <p>
+                Industrial engineered plywood, produced in Vietnam and supplied to construction,
+                formwork and industrial buyers worldwide.
+              </p>
+            </div>
+            <div className="footer-col">
+              <b>Company</b>
+              <a href="/about">About</a>
+              <a href="/factory">Production</a>
+              <a href="/#quality">Quality</a>
+            </div>
+            <div className="footer-col">
+              <b>Products</b>
+              <a href="/products">Film Faced Plywood</a>
+              <a href="/products">Anti-Slip Plywood</a>
+              <a href="/products">Raw Plywood</a>
+              <a href="/products">LVL</a>
+              <a href="/#quote">Request a Quote</a>
+            </div>
+            <div className="footer-col">
+              <b>Contact</b>
+              <a href="mailto:info@htplywood.net">info@htplywood.net</a>
+              <a href="tel:+84931152468">+84 931 152 468 (Zalo/WhatsApp)</a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61589328285469"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Facebook
+              </a>
+              <span style={{ fontSize: '12px', opacity: 0.75, marginTop: '6px' }}>
+                5th Floor, PTP Building, 564 Nguyen Van Cu, Bo De, Hanoi, Vietnam
+              </span>
+            </div>
+          </div>
+          <div className="footer-row">
+            <span>© 2026 HTPLY Vietnam. All rights reserved.</span>
+          </div>
+        </div>
+      </footer>
 
     </main>
   )

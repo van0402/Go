@@ -9,22 +9,22 @@ export function Hero() {
     <section className="hero" ref={parallaxRef}>
       <div className="container hero-grid">
         <div className="reveal" style={{ ['--slide-x' as string]: '-70px' }}>
-          <div className="eyebrow">
+          {/* <div className="eyebrow">
             <span className="dot"></span> Industrial plywood · Vietnam → Global
-          </div>
+          </div> */}
           <h1>
             HTPLY - PLywood Supplier with EU's Standards
             {/* <br />
             BUILT FOR THE WORLD. */}
           </h1>
-          <div className="actions">
+          {/* <div className="actions">
             <a className="btn primary" href="/products">
               Explore Products ↗
             </a>
             <a className="btn secondary" href="#quote">
               Request a Quote
             </a>
-          </div>
+          </div> */}
         </div>
 
         <div className="board-stage reveal" style={{ ['--slide-x' as string]: '70px' }}>

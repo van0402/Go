@@ -24,9 +24,9 @@ export function RevealOnScroll() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('show')
+            entry.target.setAttribute('data-show', 'true')
           } else if (direction.current === 'up') {
-            entry.target.classList.remove('show')
+            entry.target.removeAttribute('data-show')
           }
         })
       },
