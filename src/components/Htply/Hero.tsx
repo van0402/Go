@@ -1,10 +1,14 @@
+'use client'
 
+import { useParallax } from '@/hooks/useParallax'
 
 export function Hero() {
+  const parallaxRef = useParallax<HTMLElement>(0.12, 36)
+
   return (
-    <section className="hero">
+    <section className="hero" ref={parallaxRef}>
       <div className="container hero-grid">
-        <div className="reveal">
+        <div className="reveal" style={{ ['--slide-x' as string]: '-70px' }}>
           <div className="eyebrow">
             <span className="dot"></span> Industrial plywood · Vietnam → Global
           </div>
@@ -23,7 +27,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="board-stage reveal">
+        <div className="board-stage reveal" style={{ ['--slide-x' as string]: '70px' }}>
           <div className="halo"></div>
           <div className="board" aria-label="HTPLY plywood product">
             <img src="/images/h.png" alt="HTPLY plywood product" />

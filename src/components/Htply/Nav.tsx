@@ -11,9 +11,8 @@ export function Nav() {
             <a href="#top">Home</a>
             <a href="/about">About</a>
             <a href="/products">Products</a>
-            <a href="#factory">Factory</a>
+            <a href="/factory">Factory</a>
             <a href="#quality">Quality</a>
-            <a href="#markets">Markets</a>
           </div>
           <div className="nav-actions">
             <a className="nav-cta" href="#quote">

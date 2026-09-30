@@ -122,7 +122,7 @@ export function HtplyProduct() {
         Products
       </a>
 
-      <a href="/#factory">
+      <a href="/factory">
         Factory
       </a>
 
@@ -130,9 +130,6 @@ export function HtplyProduct() {
         Quality
       </a>
 
-      <a href="/#markets">
-        Markets
-      </a>
     </nav>
 
     <div className="header-actions">

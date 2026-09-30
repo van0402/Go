@@ -38,11 +38,15 @@ export function Faq() {
           </div>
         </div>
 
-        <div className="faq-list reveal">
+        <div className="faq-list">
           {faqs.map((item, index) => (
             <details
-              className="faq-item"
+              className="faq-item reveal"
               key={item.q}
+              style={{
+                transitionDelay: `${index * 70}ms`,
+                ['--slide-x' as string]: index % 2 === 0 ? '-70px' : '70px',
+              }}
               open={openIndex === index}
               onToggle={(e) => {
                 if ((e.target as HTMLDetailsElement).open) setOpenIndex(index)

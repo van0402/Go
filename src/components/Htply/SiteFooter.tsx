@@ -18,7 +18,6 @@ export function SiteFooter() {
             <a href="#about">About</a>
             <a href="#process">Production</a>
             <a href="#quality">Quality</a>
-            <a href="#markets">Markets</a>
           </div>
           <div className="footer-col">
             <b>Products</b>

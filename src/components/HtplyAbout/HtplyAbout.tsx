@@ -1,13 +1,17 @@
 'use client'
 
 import { useState } from 'react'
+import { useParallax } from '@/hooks/useParallax'
+import { RevealOnScroll } from '@/components/RevealOnScroll'
 import './htply-about.css'
 
 export function HtplyAbout() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const heroParallaxRef = useParallax<HTMLElement>(0.12, 36)
 
   return (
     <div className="htply-about-page">
+      <RevealOnScroll scope=".htply-about-page" />
       <header className="site-header">
         <div className="container header-inner">
           <a className="brand" href="/">
@@ -21,9 +25,8 @@ export function HtplyAbout() {
               About
             </a>
             <a href="/products">Products</a>
-            <a href="/#factory">Factory</a>
+            <a href="/factory">Factory</a>
             <a href="/#quality">Quality</a>
-            <a href="/#markets">Markets</a>
           </nav>
 
           <div className="header-actions">
@@ -42,7 +45,7 @@ export function HtplyAbout() {
       </header>
 
       <main>
-        <section className="hero">
+        <section className="hero" ref={heroParallaxRef}>
           <div className="container hero-content">
             <div className="eyebrow">About HTPLY Vietnam</div>
             <h1>Built on reliability. Shaped for global supply.</h1>
@@ -55,7 +58,7 @@ export function HtplyAbout() {
         </section>
 
         <section className="intro">
-          <div className="container intro-grid">
+          <div className="container intro-grid reveal">
             <div>
               <div className="section-kicker">01 · Who we are</div>
               <h2>Không chỉ cung cấp plywood. Chúng tôi xây dựng sự an tâm trong mỗi lô hàng.</h2>
@@ -77,22 +80,22 @@ export function HtplyAbout() {
 
         <section className="metrics">
           <div className="container metric-grid">
-            <article className="metric">
+            <article className="metric reveal" style={{ transitionDelay: '0ms' }}>
               <small>Factory footprint</small>
               <strong>5,000 m²</strong>
               <span>Khu vực sản xuất và kho vận được tổ chức cho hoạt động xuất khẩu.</span>
             </article>
-            <article className="metric">
+            <article className="metric reveal" style={{ transitionDelay: '90ms' }}>
               <small>Production</small>
               <strong>60</strong>
               <span>Containers / month với khả năng duy trì nguồn cung ổn định.</span>
             </article>
-            <article className="metric">
+            <article className="metric reveal" style={{ transitionDelay: '180ms' }}>
               <small>Supply capacity</small>
               <strong>80</strong>
               <span>Containers / month theo kế hoạch cung ứng mở rộng.</span>
             </article>
-            <article className="metric">
+            <article className="metric reveal" style={{ transitionDelay: '270ms' }}>
               <small>Main markets</small>
               <strong>EU · ME</strong>
               <span>Định hướng các thị trường Châu Âu và Trung Đông.</span>
@@ -102,12 +105,12 @@ export function HtplyAbout() {
 
         <section className="story">
           <div className="container story-grid">
-            <div className="story-media">
+            <div className="story-media reveal">
               <img className="main" src="/images/d4.jpg" alt="HTPLY production" />
               <img className="secondary" src="/images/d6.jpg" alt="HTPLY log cross-section" />
             </div>
 
-            <div className="story-copy">
+            <div className="story-copy reveal" style={{ transitionDelay: '120ms' }}>
               <div className="section-kicker">02 · Our approach</div>
               <h2>Từ gỗ đầu vào đến một hệ thống cung ứng đáng tin cậy.</h2>
               <p>
@@ -153,7 +156,7 @@ export function HtplyAbout() {
 
         <section className="values">
           <div className="container">
-            <div className="values-head">
+            <div className="values-head reveal">
               <div>
                 <div className="section-kicker">03 · What we value</div>
                 <h2>Ba giá trị giữ cho HTPLY đi đúng hướng.</h2>
@@ -165,7 +168,7 @@ export function HtplyAbout() {
             </div>
 
             <div className="values-grid">
-              <article className="value-card">
+              <article className="value-card reveal" style={{ transitionDelay: '0ms' }}>
                 <div className="value-num">01 / RELIABILITY</div>
                 <div>
                   <h3>Ổn định</h3>
@@ -173,7 +176,7 @@ export function HtplyAbout() {
                 </div>
               </article>
 
-              <article className="value-card">
+              <article className="value-card reveal" style={{ transitionDelay: '90ms' }}>
                 <div className="value-num">02 / PRECISION</div>
                 <div>
                   <h3>Chính xác</h3>
@@ -183,7 +186,7 @@ export function HtplyAbout() {
                 </div>
               </article>
 
-              <article className="value-card">
+              <article className="value-card reveal" style={{ transitionDelay: '180ms' }}>
                 <div className="value-num">03 / PARTNERSHIP</div>
                 <div>
                   <h3>Dài hạn</h3>
@@ -199,7 +202,7 @@ export function HtplyAbout() {
 
         <section className="promise">
           <div className="container">
-            <div className="promise-inner">
+            <div className="promise-inner reveal">
               <div className="section-kicker">04 · Our promise</div>
               <h2>Reliability, built into every sheet.</h2>
               <p>

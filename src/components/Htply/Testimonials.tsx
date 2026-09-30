@@ -1,3 +1,7 @@
+'use client'
+
+import { useParallax } from '@/hooks/useParallax'
+
 const testimonials = [
   {
     quote:
@@ -20,6 +24,8 @@ const testimonials = [
 ]
 
 export function Testimonials() {
+  const parallaxRef = useParallax<HTMLDivElement>(0.12, 36)
+
   return (
     <section id="testimonials">
       <div className="container">
@@ -30,10 +36,17 @@ export function Testimonials() {
           </div>
         </div>
 
-        <div className="testimonials reveal">
+        <div className="testimonials reveal" ref={parallaxRef}>
           <div className="testi-grid">
-            {testimonials.map((t) => (
-              <div className="testi-card" key={t.name}>
+            {testimonials.map((t, i) => (
+              <div
+                className="testi-card reveal"
+                key={t.name}
+                style={{
+                  transitionDelay: `${i * 90}ms`,
+                  ['--slide-x' as string]: i % 2 === 0 ? '-70px' : '70px',
+                }}
+              >
                 <div>
                   <div className="testi-rating">5.0 / 5</div>
                   <p>&ldquo;{t.quote}&rdquo;</p>

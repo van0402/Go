@@ -26,12 +26,16 @@ export function QualityGrid() {
             <h2>Chất lượng của sản phẩm</h2>
           </div>
         </div>
-        <div className="quality-grid reveal">
-          {items.map((item) => (
+        <div className="quality-grid">
+          {items.map((item, i) => (
             <div
-              className="quality-item"
+              className="quality-item reveal"
               key={item.n}
-              style={{ backgroundImage: `url(${item.img})` }}
+              style={{
+                backgroundImage: `url(${item.img})`,
+                transitionDelay: `${i * 90}ms`,
+                ['--slide-x' as string]: i % 2 === 0 ? '-70px' : '70px',
+              }}
             >
               <span>{item.n}</span>
               <b>{item.label}</b>
