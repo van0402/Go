@@ -15,6 +15,7 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   color:var(--text);
   background:var(--cream);
   scroll-behavior:smooth;
+  overflow-x:clip;
   animation:htply-about-in .7s cubic-bezier(.22,1,.36,1) both;
 }
 
@@ -778,6 +779,15 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   .htply-about-page .story-media .main{height:390px;width:86%}
   .htply-about-page .story-media .secondary{height:190px}
   .htply-about-page .footer-row{flex-direction:column;align-items:flex-start}
+}
+
+@media(max-width:560px){
+  .htply-about-page .hero h1{font-size:clamp(34px,11vw,50px)}
+  .htply-about-page .promise{padding:60px 0}
+  .htply-about-page .values{padding:60px 0}
+  .htply-about-page .story{padding:60px 0}
+  .htply-about-page .history{padding:60px 0}
+  .htply-about-page .mission-vision{padding:50px 0}
 }
 
 .htply-about-page .reveal{

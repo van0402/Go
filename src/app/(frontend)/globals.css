@@ -231,6 +231,7 @@ html[data-theme='light'] {
   display: grid;
   place-items: center;
   overflow: hidden;
+  contain: strict;
   background:
     linear-gradient(rgba(30, 20, 14, 0.55), rgba(30, 20, 14, 0.55)),
     url('/images/loading.jpg');
