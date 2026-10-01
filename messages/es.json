@@ -6,5 +6,200 @@
     "factory": "Fábrica",
     "quality": "Calidad",
     "requestQuote": "Solicitar cotización"
+  },
+  "home": {
+    "heroTitle": "Proveedor de contrachapado según normas europeas",
+    "about": {
+      "stats": {
+        "factory": { "label": "Fábrica", "desc": "Superficie de producción y almacén" },
+        "production": { "label": "Producción", "desc": "Contenedores / mes" },
+        "supply": { "label": "Suministro", "desc": "Contenedores / mes" },
+        "markets": { "label": "Mercados", "desc": "Europa y Oriente Medio" }
+      },
+      "title": "Confianza integrada en cada tablero",
+      "intro": "HTPLY Vietnam es un exportador de contrachapado industrial, enfocado en el segmento medio-alto para clientes B2B internacionales. Con una planta de aproximadamente 5.000 m² y una capacidad de suministro de hasta 80 contenedores/mes, HTPLY desarrolla sus líneas de contrachapado fenólico, antideslizante e industrial, dirigidas a los mercados europeo y de Oriente Medio. La empresa basa su estrategia de expansión global en una calidad constante, capacidad de suministro fiable y desarrollo sostenible.",
+      "quote": "No solo suministramos contrachapado — HTPLY aporta fiabilidad a cada envío",
+      "values": [
+        { "title": "Fiable", "desc": "Calidad constante, comunicación clara y planes de suministro predecibles." },
+        { "title": "Sostenible", "desc": "Orientado hacia un desarrollo responsable y respetuoso con el medio ambiente." },
+        { "title": "Global", "desc": "Productos y servicios diseñados según los estándares de los mercados internacionales." },
+        { "title": "Maquinaria y tecnología", "desc": "Líneas modernas de prensado en caliente, corte y control, optimizadas para precisión dimensional y calidad de superficie." },
+        { "title": "Certificación de producción", "desc": "Certificado FSC, conforme a los estándares de emisión de formaldehído E0/E0.5 para exportación a la UE." }
+      ]
+    },
+    "products": {
+      "kicker": "02 · Productos",
+      "title": "Desarrollados para rendir en condiciones reales de uso.",
+      "items": [
+        { "desc": "Contrachapado fenólico para encofrado y aplicaciones de construcción que requieren una superficie estable, resistente y reutilizable." },
+        { "desc": "Superficie antideslizante de malla tejida, alta adherencia incluso en condiciones húmedas o con aceite. Film Dynea de hasta 240g/m², núcleo de Acacia/Eucalipto, cola WBP/Fenólica." },
+        { "desc": "Superficie con patrón hexagonal grabado de precisión, antideslizante y de estética moderna, para escenarios de eventos y espacios públicos." },
+        { "desc": "Contrachapado crudo para fabricación de muebles y embalaje industrial. Madera de Acacia/Magnolia/Eucalipto, chapa de Okoumé/Bintangor/Pino/Álamo, certificado FSC, bajas emisiones de formaldehído E0/E0.5." },
+        { "desc": "Alta capacidad de carga, resistente al agua y al alabeo, longitudes flexibles, ecológico. Usado para vigas estructurales, muebles, palés y cajas de embalaje industrial." },
+        { "desc": "Demostración de categoría de producto. Especificaciones de resistencia a la humedad/agua por confirmar oficialmente con HTPLY." },
+        { "desc": "Demostración de categoría de producto. Superficie recubierta de melamina, detalles de aplicación por confirmar antes de su publicación." },
+        { "desc": "Demostración de categoría de producto. Composición del núcleo por confirmar oficialmente antes de publicarse en el sitio web." }
+      ]
+    },
+    "quality": {
+      "kicker": "03 · Calidad",
+      "title": "Calidad del producto",
+      "items": [
+        { "label": "Precisión de espesor", "note": "Control de tolerancias" },
+        { "label": "Control de humedad", "note": "Mantenimiento de un nivel estable" },
+        { "label": "Resistencia del encolado", "note": "Prueba de adherencia" },
+        { "label": "Precisión dimensional", "note": "Control de tamaño y escuadría" },
+        { "label": "Calidad de superficie", "note": "Control de planitud y acabado" }
+      ]
+    },
+    "factory": {
+      "kicker": "04 · Fábrica y Capacidad",
+      "title": "Listos para atender demanda a gran escala.",
+      "stats": [
+        { "value": "5.000 m²", "label": "Superficie de la fábrica" },
+        { "value": "60", "label": "Contenedores / mes (producción)" },
+        { "value": "80", "label": "Contenedores / mes (suministro)" },
+        { "value": "30 días", "label": "Tiempo de entrega promedio" }
+      ]
+    },
+    "testimonials": {
+      "kicker": "05 · Opiniones de clientes",
+      "title": "La confianza de grandes socios importadores.",
+      "items": [
+        { "quote": "Calidad constante del tablero en cada lote, documentación de exportación clara y contenedores puntuales cada mes." },
+        { "quote": "Equipo receptivo, especificaciones técnicas transparentes — nos ayuda a planificar las importaciones para toda la temporada de construcción." },
+        { "quote": "Los tableros antideslizantes cumplen exactamente los requisitos de carga para remolques, con un control de calidad estricto antes de cargar el contenedor." }
+      ]
+    },
+    "faq": {
+      "kicker": "06 · Preguntas frecuentes",
+      "title": "Resolvemos tus dudas.",
+      "items": [
+        { "q": "¿Cuál es el pedido mínimo (MOQ)?", "a": "El MOQ estándar es un contenedor de 20 o 40 pies por pedido. Para pedidos más pequeños, contáctenos directamente para discutir opciones de consolidación." },
+        { "q": "¿Cuánto tiempo tardan la producción y la entrega?", "a": "El tiempo promedio desde la confirmación del pedido hasta la carga es de unos 30 días, según las especificaciones y la cantidad de contenedores." },
+        { "q": "¿HTPLY ofrece certificados de calidad/exportación?", "a": "Sí. Los registros de calidad, las pruebas de espesor/humedad/adherencia y los documentos de exportación se entregan completos en cada envío." },
+        { "q": "¿Se pueden personalizar tamaños y espesores?", "a": "Sí, es posible personalizar según los requisitos técnicos del comprador. Envíe sus especificaciones a través del formulario \"Solicitar cotización\" para una cotización precisa." },
+        { "q": "¿A qué mercados exporta HTPLY?", "a": "Actualmente centrado en los mercados europeo y de Oriente Medio, con posibilidad de ampliación según requisitos específicos de rutas de envío." }
+      ]
+    },
+    "qc": {
+      "kicker": "07 · Control de calidad",
+      "title": "Inspección del producto terminado.",
+      "desc": "Cada tablero se inspecciona directamente en la fábrica antes del embalaje, garantizando que la superficie, las dimensiones y la calidad cumplan los estándares antes de salir del almacén.",
+      "imageAlt": "Inspección de producto terminado en la fábrica"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "intro": "Desde la capacidad de producción en Vietnam hasta los estrictos estándares de los mercados internacionales, HTPLY construye confianza mediante una calidad constante, procesos claros y una capacidad de suministro a largo plazo."
+    },
+    "intro": {
+      "title": "Una marca vietnamita de contrachapado orientada al mercado global",
+      "text": "HTPLY VIETNAM se fundó en 2024, especializada en contrachapado y tableros de madera industrial para el mercado B2B internacional. Con una planta de aproximadamente 5.000 m² y una capacidad de suministro de hasta 80 contenedores/mes, HTPLY desarrolla sus líneas de contrachapado fenólico, antideslizante e industrial, dirigidas a los mercados europeo y de Oriente Medio. La empresa basa su estrategia de expansión global en una calidad constante, capacidad de suministro y desarrollo sostenible."
+    },
+    "metrics": {
+      "factory": "Superficie de producción y almacén organizada para la actividad de exportación.",
+      "production": "Contenedores / mes con capacidad para mantener un suministro estable.",
+      "supply": "Contenedores / mes según el plan de expansión del suministro.",
+      "markets": "Enfocados en los mercados europeo y de Oriente Medio."
+    },
+    "approach": {
+      "title": "De la madera bruta a un sistema de suministro fiable.",
+      "text": "HTPLY no concibe el producto como un simple tablero aislado. Cada pedido es el resultado de una cadena operativa que incluye selección de materia prima, prensado, tratamiento de superficie, control de calidad, embalaje y logística.",
+      "points": [
+        { "title": "Control de materia prima", "desc": "Prioridad a la homogeneidad y trazabilidad de la materia prima de entrada." },
+        { "title": "Estandarización de procesos", "desc": "Control de etapas clave para reducir variaciones entre lotes de producción." },
+        { "title": "Orientación a la exportación", "desc": "Producción según los requisitos técnicos, de embalaje y documentación de cada mercado." }
+      ]
+    },
+    "values": {
+      "title": "Tres valores que mantienen a HTPLY en el rumbo correcto.",
+      "text": "Una marca industrial no necesita decir demasiado. Lo importante es que los clientes puedan prever la calidad, los plazos y nuestra forma de trabajar.",
+      "items": [
+        { "title": "Fiable", "desc": "Calidad constante, información clara y planes de suministro predecibles." },
+        { "title": "Preciso", "desc": "Atención a las especificaciones, control de procesos y menor variación en cada pedido." },
+        { "title": "A largo plazo", "desc": "No solo vender un lote, sino construir una relación de suministro capaz de crecer junto al cliente." }
+      ]
+    },
+    "history": {
+      "title": "De los primeros pasos a una capacidad de suministro global.",
+      "items": [
+        { "title": "Fundación", "desc": "Nace HTPLY VIETNAM, ampliando su actividad al mercado del contrachapado técnico." },
+        { "title": "Desarrollo de producto", "desc": "Construcción de una gama Film Faced, Anti-Slip y Commercial Plywood para mercados internacionales." },
+        { "title": "Consolidación de capacidad", "desc": "Capacidad de producción y suministro consolidada a escala de 5.000 m², con el objetivo de 80 contenedores/mes." },
+        { "title": "Estandarización de calidad", "desc": "Mayor control de materia prima, prensado, estabilidad y trazabilidad." },
+        { "title": "Expansión global", "desc": "Ampliación de mercados B2B en Europa, Oriente Medio e internacionalmente." }
+      ]
+    },
+    "mission": {
+      "title": "Misión",
+      "text": "Suministrar contrachapado de alta calidad con estabilidad, fiabilidad y responsabilidad en cada pedido, acompañando a los clientes B2B en el mercado internacional."
+    },
+    "vision": {
+      "title": "Visión",
+      "text": "Convertirse en una marca vietnamita de contrachapado confiable, sostenible y competitiva a nivel internacional, ampliando progresivamente su posición en la cadena de suministro global."
+    },
+    "promise": {
+      "text": "Cada tablero de contrachapado que sale de la fábrica debe representar una sola cosa: calidad verificable, un suministro en el que se puede confiar y un socio dispuesto a ir hasta el final."
+    }
+  },
+  "factoryPage": {
+    "hero": {
+      "title": "Donde la calidad comienza con el proceso.",
+      "text": "Desde la materia prima hasta el embalaje de exportación, cada etapa está organizada para mantener la consistencia entre lotes."
+    },
+    "overview": {
+      "title": "Un sistema de producción organizado para la exportación.",
+      "text1": "La fábrica de HTPLY está organizada para optimizar el flujo de materiales, la producción, la inspección y el embalaje.",
+      "text2": "Cada área tiene un rol específico para reducir variaciones en la operación y mantener la consistencia del producto."
+    },
+    "flow": {
+      "title": "De la chapa al producto terminado.",
+      "steps": [
+        { "title": "Selección de materia prima", "desc": "Inspección de la chapa y la materia prima antes de entrar en producción." },
+        { "title": "Procesamiento de la chapa", "desc": "Disposición y tratamiento de las capas de chapa para garantizar una estructura de núcleo estable." },
+        { "title": "Aplicación de cola", "desc": "Control del tipo y cantidad de cola según los requisitos de cada producto." },
+        { "title": "Prensado en frío y en caliente", "desc": "Control de temperatura, presión y tiempo para crear una unión resistente entre capas." },
+        { "title": "Acabado de superficie", "desc": "Corte de bordes, lijado y tratamiento de superficie según las especificaciones requeridas." },
+        { "title": "Inspección y embalaje", "desc": "Verificación de dimensiones y superficie, luego embalaje para envío en contenedor." }
+      ]
+    },
+    "inside": {
+      "card1": { "title": "Control de presión, temperatura y tiempo.", "text": "La etapa de prensado determina la resistencia de unión y la estabilidad estructural del contrachapado." },
+      "card2": { "title": "Estandarizado desde la capa central." },
+      "card3": { "title": "Acabado con alta precisión." }
+    },
+    "quality": {
+      "title": "Calidad controlada durante todo el proceso.",
+      "text": "No esperamos al final de la línea para inspeccionar. Los criterios clave se monitorean de forma continua para reducir variaciones entre lotes.",
+      "items": [
+        { "desc": "Control del espesor y las tolerancias según las especificaciones del pedido." },
+        { "desc": "Monitoreo de los niveles de humedad adecuados para cada grupo de productos." },
+        { "desc": "Control de la resistencia del encolado entre capas de chapa." },
+        { "desc": "Inspección de la superficie antes del embalaje y almacenamiento." }
+      ]
+    },
+    "supply": {
+      "title": "Capacidad de producción diseñada para un suministro estable.",
+      "text": "Para los clientes B2B, la calidad es solo una parte. La capacidad de mantener plazos, volumen y consistencia entre envíos es la base de una relación de suministro a largo plazo."
+    },
+    "cta": {
+      "title": "Fabricado en Vietnam. Listo para el mercado global.",
+      "text": "Hable con HTPLY sobre especificaciones técnicas, volumen, configuración de producto y requisitos de embalaje para su mercado."
+    }
+  },
+  "productsPage": {
+    "heroTitle": "Estabilidad, de la estructura a la calidad.",
+    "items": [
+      { "desc": "Una línea de contrachapado comercial versátil para muebles, fabricación y aplicaciones que requieren una superficie estable." },
+      { "desc": "Adecuado para pedidos que requieren mejor resistencia a la humedad y mayor estabilidad en uso." },
+      { "desc": "Estructura de núcleo duro, adecuada para aplicaciones que requieren estabilidad y buena capacidad de carga." },
+      { "desc": "Una línea de contrachapado con núcleo de eucalipto, con buena dureza y mecanizado estable." },
+      { "desc": "Una línea fenólica para encofrado y aplicaciones de construcción que requieren reutilización." },
+      { "desc": "Superficie recubierta de film negro, adecuada para entornos de construcción y proyectos que requieren alta durabilidad." },
+      { "desc": "Superficie antideslizante para suelos industriales, vehículos y aplicaciones que requieren agarre." },
+      { "desc": "Contrachapado estructural orientado a aplicaciones que requieren alta rigidez y estabilidad." },
+      { "desc": "Una solución de embalaje industrial para cajas, embalajes y mercancía de exportación." }
+    ]
   }
 }

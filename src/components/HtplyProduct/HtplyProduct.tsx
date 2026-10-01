@@ -1,7 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { RevealOnScroll } from '@/components/RevealOnScroll'
+import { Link } from '@/i18n/routing'
+import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { QcGallery } from './QcGallery'
 import './HtplyProduct.css'
 
@@ -14,7 +17,6 @@ const products = [
     thickness: '3–25 mm',
     core: 'Acacia',
     glue: 'MR',
-    desc: 'Dòng plywood thương mại linh hoạt cho nội thất, gia công và các ứng dụng cần bề mặt ổn định.',
   },
   {
     name: 'Commercial Plywood Melamine',
@@ -24,7 +26,6 @@ const products = [
     thickness: '6–25 mm',
     core: 'Acacia / Eucalyptus',
     glue: 'Melamine',
-    desc: 'Phù hợp các đơn hàng yêu cầu khả năng chống ẩm tốt hơn và độ ổn định cao hơn trong sử dụng.',
   },
   {
     name: 'Hardwood Plywood',
@@ -34,7 +35,6 @@ const products = [
     thickness: '6–25 mm',
     core: 'Hardwood',
     glue: 'MR / WBP',
-    desc: 'Cấu trúc lõi cứng, phù hợp các ứng dụng cần độ ổn định và khả năng chịu tải tốt.',
   },
   {
     name: 'Eucalyptus Plywood',
@@ -44,7 +44,6 @@ const products = [
     thickness: '6–25 mm',
     core: 'Eucalyptus',
     glue: 'MR / Melamine',
-    desc: 'Dòng plywood lõi bạch đàn với độ cứng tốt và khả năng gia công ổn định.',
   },
   {
     name: 'Film Faced Plywood Brown',
@@ -54,7 +53,6 @@ const products = [
     thickness: '9–21 mm',
     core: 'Acacia / Eucalyptus',
     glue: 'WBP',
-    desc: 'Dòng phủ phim dành cho cốp pha và các ứng dụng thi công cần khả năng tái sử dụng.',
   },
   {
     name: 'Film Faced Plywood Black',
@@ -64,7 +62,6 @@ const products = [
     thickness: '9–21 mm',
     core: 'Hardwood',
     glue: 'WBP',
-    desc: 'Bề mặt phủ phim đen, phù hợp môi trường thi công và các dự án yêu cầu độ bền cao.',
   },
   {
     name: 'Anti-Slip Plywood',
@@ -74,7 +71,6 @@ const products = [
     thickness: '12–21 mm',
     core: 'Hardwood',
     glue: 'WBP',
-    desc: 'Bề mặt chống trượt cho sàn công nghiệp, phương tiện và các ứng dụng cần độ bám.',
   },
   {
     name: 'Structural Plywood',
@@ -84,7 +80,6 @@ const products = [
     thickness: '9–25 mm',
     core: 'Hardwood',
     glue: 'WBP',
-    desc: 'Plywood kết cấu hướng tới các ứng dụng cần độ cứng và độ ổn định cao.',
   },
   {
     name: 'Packing Plywood Standard',
@@ -94,7 +89,6 @@ const products = [
     thickness: '3–18 mm',
     core: 'Mixed',
     glue: 'MR',
-    desc: 'Giải pháp đóng gói công nghiệp cho thùng, kiện và hàng xuất khẩu.',
   }
 ]
 
@@ -102,6 +96,10 @@ export function HtplyProduct() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const active = products[activeIndex]
+  const t = useTranslations('nav')
+  const tp = useTranslations('productsPage')
+  const items = tp.raw('items') as { desc: string }[]
+  const activeDesc = items[activeIndex]?.desc
 
   return (
     <main className="htply-products-page">
@@ -109,34 +107,34 @@ export function HtplyProduct() {
 
         <header className="site-header">
   <div className="container header-inner">
-    <a className="brand" href="/">
+    <Link className="brand" href="/">
       <span className="brand-mark">HTP</span>
       <span className="brand-text">HTPLY VIETNAM</span>
-    </a>
+    </Link>
 
     <nav className={`nav${menuOpen ? ' mobile-open' : ''}`}>
-      <a href="/">Home</a>
+      <Link href="/">{t('home')}</Link>
 
-      <a href="/about">
-        About
-      </a>
+      <Link href="/about">
+        {t('about')}
+      </Link>
 
-      <a className="active" href="/products">
-        Products
-      </a>
+      <Link className="active" href="/products">
+        {t('products')}
+      </Link>
 
-      <a href="/factory">
-        Factory
-      </a>
+      <Link href="/factory">
+        {t('factory')}
+      </Link>
 
-      <a href="/#quality">
-        Quality
-      </a>
+      <Link href="/#quality">
+        {t('quality')}
+      </Link>
 
     </nav>
 
     <div className="header-actions">
-     
+      <LocaleSwitcher />
     </div>
 
     <button
@@ -153,7 +151,7 @@ export function HtplyProduct() {
         <div className="products-container product-hero-content">
 
           <h1 className="reveal">
-            Ổn định từ cấu trúc đến chất lượng.
+            {tp('heroTitle')}
           </h1>
 
         </div>
@@ -253,7 +251,7 @@ export function HtplyProduct() {
                   </div>
 
                   <p className="product-preview-desc">
-                    {active.desc}
+                    {activeDesc}
                   </p>
 
                   <div className="product-preview-specs">
@@ -316,17 +314,17 @@ export function HtplyProduct() {
             </div>
             <div className="footer-col">
               <b>Company</b>
-              <a href="/about">About</a>
-              <a href="/factory">Production</a>
-              <a href="/#quality">Quality</a>
+              <Link href="/about">About</Link>
+              <Link href="/factory">Production</Link>
+              <Link href="/#quality">Quality</Link>
             </div>
             <div className="footer-col">
               <b>Products</b>
-              <a href="/products">Film Faced Plywood</a>
-              <a href="/products">Anti-Slip Plywood</a>
-              <a href="/products">Raw Plywood</a>
-              <a href="/products">LVL</a>
-              <a href="/#quote">Request a Quote</a>
+              <Link href="/products">Film Faced Plywood</Link>
+              <Link href="/products">Anti-Slip Plywood</Link>
+              <Link href="/products">Raw Plywood</Link>
+              <Link href="/products">LVL</Link>
+              <Link href="/#quote">Request a Quote</Link>
             </div>
             <div className="footer-col">
               <b>Contact</b>

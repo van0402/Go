@@ -1,43 +1,34 @@
-const items = [
-  { n: '01', label: 'Độ chính xác độ dày', note: 'Kiểm soát sai số', img: '/images/g1.jpg' },
-  { n: '02', label: 'Kiểm soát độ ẩm', note: 'Duy trì mức ổn định', img: '/images/g2.jpg' },
-  { n: '03', label: 'Độ bền liên kết', note: 'Kiểm tra độ bám dính', img: '/images/g3.jpg' },
-  {
-    n: '04',
-    label: 'Độ chính xác kích thước',
-    note: 'Kiểm tra kích thước & độ vuông',
-    img: '/images/g4.jpg',
-  },
-  {
-    n: '05',
-    label: 'Chất lượng bề mặt',
-    note: 'Kiểm tra độ phẳng & hoàn thiện',
-    img: '/images/g5.jpg',
-  },
-]
+'use client'
+
+import { useTranslations } from 'next-intl'
+
+const IMAGES = ['/images/g1.jpg', '/images/g2.jpg', '/images/g3.jpg', '/images/g4.jpg', '/images/g5.jpg']
 
 export function QualityGrid() {
+  const t = useTranslations('home.quality')
+  const items = t.raw('items') as { label: string; note: string }[]
+
   return (
     <section id="quality">
       <div className="container">
         <div className="section-head reveal">
           <div>
-            <div className="section-kicker">05 · Chất Lượng</div>
-            <h2>Chất lượng của sản phẩm</h2>
+            <div className="section-kicker">{t('kicker')}</div>
+            <h2>{t('title')}</h2>
           </div>
         </div>
         <div className="quality-grid">
           {items.map((item, i) => (
             <div
               className="quality-item reveal"
-              key={item.n}
+              key={item.label}
               style={{
-                backgroundImage: `url(${item.img})`,
+                backgroundImage: `url(${IMAGES[i]})`,
                 transitionDelay: `${i * 90}ms`,
                 ['--slide-x' as string]: i % 2 === 0 ? '-70px' : '70px',
               }}
             >
-              <span>{item.n}</span>
+              <span>{String(i + 1).padStart(2, '0')}</span>
               <b>{item.label}</b>
               <small>{item.note}</small>
             </div>
