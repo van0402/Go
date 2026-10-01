@@ -5,12 +5,13 @@ import { useTranslations } from 'next-intl'
 import { useParallax } from '@/hooks/useParallax'
 import { useScrollShrink } from '@/hooks/useScrollShrink'
 
+// offset = tỉ lệ so với chiều cao chữ (26px / 230px ≈ 0.11), tự co giãn theo màn hình
 const LETTERS = [
   { src: '/images/h.png', alt: 'H', offset: 0, delay: 0 },
-  { src: '/images/t-letter.png', alt: 'T', offset: 26, delay: 0.25 },
-  { src: '/images/p-letter.png', alt: 'P', offset: -6, delay: 0.5 },
-  { src: '/images/l-letter.png', alt: 'L', offset: 20, delay: 0.75 },
-  { src: '/images/y-letter.png', alt: 'Y', offset: -10, delay: 1 },
+  { src: '/images/t-letter.png', alt: 'T', offset: 0.11, delay: 0.25 },
+  { src: '/images/p-letter.png', alt: 'P', offset: -0.03, delay: 0.5 },
+  { src: '/images/l-letter.png', alt: 'L', offset: 0.09, delay: 0.75 },
+  { src: '/images/y-letter.png', alt: 'Y', offset: -0.04, delay: 1 },
 ]
 
 const HERO_IMAGES = ['/images/hi.jpg', '/images/lantaikayu-biz-floor-6990002_1920.jpg']
@@ -48,8 +49,8 @@ export function Hero() {
               <div
                 className="wordmark-letter"
                 key={l.alt}
-                style={{
-                  marginBottom: l.offset,
+                                style={{
+                  ['--offset' as string]: l.offset,
                   ['--delay' as string]: `${l.delay}s`,
                 }}
               >

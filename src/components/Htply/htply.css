@@ -145,7 +145,9 @@
 }
 .htply-page .wordmark-letter{
   position:relative; z-index:1;
-  height:clamp(120px, 15vw, 230px);
+  --h:clamp(120px, 15vw, 230px);
+  height:var(--h);
+  margin-bottom:calc(var(--offset, 0) * var(--h));
 }
 .htply-page .wordmark-letter img{
   height:100%; width:auto; display:block;
@@ -521,7 +523,7 @@
   .htply-page .section-head h2{white-space:normal}
   .htply-page .hero{padding-top:120px}
   .htply-page .wordmark{min-height:240px}
-  .htply-page .wordmark-letter{height:clamp(70px,14vw,140px)}
+  .htply-page .wordmark-letter{--h:clamp(70px,14vw,140px)}
   .htply-page .stats{grid-template-columns:1fr 1fr}
   .htply-page .stat:nth-child(2){border-right:none}
   .htply-page .quality-grid{grid-template-columns:1fr 1fr}
@@ -789,7 +791,12 @@
   .htply-page .section-kicker{font-size:14px;letter-spacing:.08em}
 
   .htply-page .wordmark{min-height:180px;gap:3px}
-  .htply-page .wordmark-letter{height:clamp(50px,11vw,100px)}
+    .htply-page .wordmark-scale{gap:0}
+  .htply-page .wordmark-letter{
+    --h:clamp(100px,22vw,180px);
+    /* ảnh có ~19% viền trong suốt mỗi bên → cho chồng 15% để nét chữ sát lại, còn khe nhỏ */
+    margin-inline:calc(var(--h) * -0.15);
+  }
 
   .htply-page .about-card{padding:28px}
   .htply-page .about-card h3{font-size:26px}
@@ -810,7 +817,7 @@
 @media(max-width:620px){
   .htply-page h1{font-size:clamp(30px,9vw,42px);max-width:100%}
   .htply-page .wordmark{min-height:140px;gap:2px}
-  .htply-page .wordmark-letter{height:clamp(40px,10vw,80px)}
+  .htply-page .wordmark-letter{--h:clamp(80px,25vw,130px)}
   .htply-page .value b{font-size:20px}
   .htply-page .faq-item summary{font-size:16px}
   .htply-page .factory-content h2{font-size:clamp(28px,8vw,40px)}

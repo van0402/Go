@@ -805,3 +805,13 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   font-size:12px;font-weight:700;cursor:pointer;
 }
 .htply-about-page .locale-switcher button.active{background:rgba(255,255,255,.15);color:#fff}
+/* Mobile: luôn hiện nút đổi ngôn ngữ cạnh nút menu */
+@media(max-width:900px){
+  .htply-about-page .header-inner{gap:8px}
+  .htply-about-page .header-actions{display:flex;margin-left:auto}
+  .htply-about-page .menu-toggle{margin-left:0;flex-shrink:0}
+  .htply-about-page .brand-text{white-space:nowrap}
+}
+@media(max-width:420px){
+  .htply-about-page .locale-switcher button{padding:5px 7px;font-size:11px}
+}
