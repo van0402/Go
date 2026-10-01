@@ -7,6 +7,7 @@
   --muted:#7B665A;
   --line:rgba(77,56,46,.14);
 
+  overflow-x:clip;
   background:var(--cream);
   color:var(--text);
   font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
@@ -1107,4 +1108,34 @@ span:last-child{
 }
 @media(max-width:620px){
   .htply-products-page .qc-item{width:86vw}
+}
+
+/* ===== Mobile overhaul (desktop untouched above this point) ===== */
+
+@media(max-width:780px){
+  .htply-products-page .product-hero h1{
+    font-size:clamp(30px,9vw,42px);
+    max-width:100%;
+  }
+  .htply-products-page .product-hero p{font-size:15px}
+
+  .htply-products-page .product-section-head h2{font-size:clamp(26px,8vw,36px)}
+
+  .htply-products-page .product-index-section{padding:50px 0 50px}
+  .htply-products-page .qc-section{padding:50px 0 40px}
+
+  .htply-products-page .product-preview-media{height:280px}
+  .htply-products-page .product-preview-title-row h3{font-size:26px}
+  .htply-products-page .product-preview-body{padding:22px}
+
+  .htply-products-page .footer-top{
+    grid-template-columns:1fr 1fr;
+    gap:30px 20px;
+  }
+}
+
+@media(max-width:600px){
+  .htply-products-page .footer-top{grid-template-columns:1fr}
+  .htply-products-page .footer-row{display:block}
+  .htply-products-page .footer-row > *{margin-bottom:8px}
 }
