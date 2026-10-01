@@ -62,12 +62,13 @@ export function PageTransition() {
       if (url.pathname === pathname) return
 
       e.preventDefault()
+      e.stopPropagation()
       pendingHref.current = href
       setPhase('closing')
     }
 
-    document.addEventListener('click', onClick)
-    return () => document.removeEventListener('click', onClick)
+    document.addEventListener('click', onClick, true)
+    return () => document.removeEventListener('click', onClick, true)
   }, [pathname, router])
 
   useEffect(() => {

@@ -1,20 +1,20 @@
-const stats = [
-  { value: '5,000 m²', label: 'Diện tích nhà xưởng' },
-  { value: '60', label: 'Container / tháng (sản xuất)' },
-  { value: '80', label: 'Container / tháng (cung ứng)' },
-  { value: '30 ngày', label: 'Thời gian giao hàng trung bình' },
-]
+'use client'
+
+import { useTranslations } from 'next-intl'
 
 export function Factory() {
+  const t = useTranslations('home.factory')
+  const stats = t.raw('stats') as { value: string; label: string }[]
+
   return (
     <section id="factory">
       <div className="container reveal">
         <div className="factory">
           <div className="factory-content">
             <div className="section-kicker" style={{ color: '#E7CFBC' }}>
-              06 · Nhà Xưởng &amp; Năng Lực
+              {t('kicker')}
             </div>
-            <h2>Sẵn sàng đáp ứng quy mô lớn.</h2>
+            <h2>{t('title')}</h2>
             <div className="factory-stats">
               {stats.map((stat) => (
                 <div className="factory-stat" key={stat.label}>

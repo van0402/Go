@@ -907,3 +907,11 @@
   will-change:opacity, transform;
 }
 .htply-factory-page .reveal[data-show="true"]{opacity:1; transform:translateX(0)}
+
+.htply-factory-page .locale-switcher{display:flex;gap:4px}
+.htply-factory-page .locale-switcher button{
+  background:transparent;border:1px solid rgba(255,255,255,.3);
+  color:rgba(255,255,255,.7);padding:6px 10px;border-radius:8px;
+  font-size:12px;font-weight:700;cursor:pointer;
+}
+.htply-factory-page .locale-switcher button.active{background:rgba(255,255,255,.15);color:#fff}

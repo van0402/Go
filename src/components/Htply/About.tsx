@@ -1,6 +1,12 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import { CountUp } from './CountUp'
 
 export function About() {
+  const t = useTranslations('home.about')
+  const values = t.raw('values') as { title: string; desc: string }[]
+
   return (
     <section id="about" className="about-section">
       <div className="container stats-grid">
@@ -18,11 +24,11 @@ export function About() {
                 <path d="M17 21v-4l2-1v5"></path>
               </svg>
             </div>
-            <div className="stat-label">Factory</div>
+            <div className="stat-label">{t('stats.factory.label')}</div>
             <div className="stat-value">
               <CountUp end={5000} /> m<sup>2</sup>
             </div>
-            <div className="stat-desc">Production &amp; warehouse footprint</div>
+            <div className="stat-desc">{t('stats.factory.desc')}</div>
           </div>
 
           <div
@@ -39,11 +45,11 @@ export function About() {
                 <path d="M16 4v16"></path>
               </svg>
             </div>
-            <div className="stat-label">Production</div>
+            <div className="stat-label">{t('stats.production.label')}</div>
             <div className="stat-value">
               <CountUp end={60} />
             </div>
-            <div className="stat-desc">Containers / month</div>
+            <div className="stat-desc">{t('stats.production.desc')}</div>
           </div>
 
           <div
@@ -60,11 +66,11 @@ export function About() {
                 <circle cx="18" cy="18" r="1.5"></circle>
               </svg>
             </div>
-            <div className="stat-label">Supply</div>
+            <div className="stat-label">{t('stats.supply.label')}</div>
             <div className="stat-value">
               <CountUp end={80} />
             </div>
-            <div className="stat-desc">Containers / month</div>
+            <div className="stat-desc">{t('stats.supply.desc')}</div>
           </div>
 
           <div
@@ -81,9 +87,9 @@ export function About() {
                 <path d="M12 3a15 15 0 0 0 0 18"></path>
               </svg>
             </div>
-            <div className="stat-label">Markets</div>
+            <div className="stat-label">{t('stats.markets.label')}</div>
             <div className="stat-value">EU · ME</div>
-            <div className="stat-desc">Europe &amp; Middle East</div>
+            <div className="stat-desc">{t('stats.markets.desc')}</div>
           </div>
         </div>
 
@@ -91,63 +97,27 @@ export function About() {
           <div className="section-head reveal">
             <div>
               <div className="section-kicker">01 · About HTPLY</div>
-              <h2>Sự tin cậy được tạo nên trong từng tấm ván</h2>
-              <p>
-                HTPLY Vietnam là doanh nghiệp xuất khẩu ván ép công nghiệp, tập trung vào phân khúc trung và cao cấp cho khách hàng B2B tại Châu Âu và Trung Đông. Chúng tôi hướng tới xây dựng một hệ thống cung ứng ổn định, bền vững và theo tiêu chuẩn quốc tế.
-              </p>
+              <h2>{t('title')}</h2>
+              <p>{t('intro')}</p>
             </div>
           </div>
 
           <div className="about reveal">
             <div className="about-card">
-              <div className="big-quote">
-                &ldquo;Không chỉ cung cấp ván ép, HTPLY mang đến sự tin cậy trong từng lô hàng&rdquo;
-              </div>
+              <div className="big-quote">&ldquo;{t('quote')}&rdquo;</div>
             </div>
             <div className="about-card dark">
               <h3>What shapes how we work.</h3>
               <div className="value-list">
-                <div className="value">
-                  <span>01</span>
-                  <div>
-                    <b>Reliable</b>
-                    <div>Ổn định về chất lượng, tiến độ và cam kết.</div>
-                  </div>
-                </div>
-                <div className="value">
-                  <span>02</span>
-                  <div>
-                    <b>Sustainable</b>
-                    <div>Định hướng phát triển xanh và có trách nhiệm.</div>
-                  </div>
-                </div>
-                <div className="value">
-                  <span>03</span>
-                  <div>
-                    <b>Global</b>
-                    <div>Tư duy sản phẩm và dịch vụ theo chuẩn thị trường quốc tế.</div>
-                  </div>
-                </div>
-                <div className="value">
-                  <span>04</span>
-                  <div>
-                    <b>Máy móc &amp; công nghệ</b>
+                {values.map((v, i) => (
+                  <div className="value" key={v.title}>
+                    <span>{String(i + 1).padStart(2, '0')}</span>
                     <div>
-                      Dây chuyền ép nóng, cắt và kiểm định hiện đại, tối ưu độ chính xác kích thước
-                      và chất lượng bề mặt.
+                      <b>{v.title}</b>
+                      <div>{v.desc}</div>
                     </div>
                   </div>
-                </div>
-                <div className="value">
-                  <span>05</span>
-                  <div>
-                    <b>Chứng nhận sản xuất</b>
-                    <div>
-                      Đạt chứng nhận FSC, tuân thủ tiêu chuẩn phát thải formaldehyde E0/E0.5 theo yêu
-                      cầu xuất khẩu Châu Âu.
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

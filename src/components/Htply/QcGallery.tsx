@@ -1,22 +1,25 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+
 const QC_COUNT = 41
 
-const qcImages = Array.from({ length: QC_COUNT }, (_, i) => ({
-  src: `/images/qc${i + 1}.jpg`,
-  alt: `Kiểm tra thành phẩm tại xưởng ${i + 1}`,
-}))
-
 export function QcGallery() {
+  const t = useTranslations('home.qc')
+  const imageAlt = t('imageAlt')
+  const qcImages = Array.from({ length: QC_COUNT }, (_, i) => ({
+    src: `/images/qc${i + 1}.jpg`,
+    alt: `${imageAlt} ${i + 1}`,
+  }))
+
   return (
     <section className="qc-section">
       <div className="container">
         <div className="section-head reveal">
           <div>
-            <div className="section-kicker">10 · Kiểm tra thành phẩm</div>
-            <h2>Công đoạn kiểm tra thành phẩm.</h2>
-            <p>
-              Mỗi tấm ván được kiểm tra trực tiếp tại xưởng trước khi đóng gói, đảm bảo bề mặt,
-              kích thước và chất lượng đạt đúng tiêu chuẩn trước khi xuất kho.
-            </p>
+            <div className="section-kicker">{t('kicker')}</div>
+            <h2>{t('title')}</h2>
+            <p>{t('desc')}</p>
           </div>
         </div>
       </div>

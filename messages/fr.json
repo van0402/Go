@@ -6,5 +6,200 @@
     "factory": "Usine",
     "quality": "Qualité",
     "requestQuote": "Demander un devis"
+  },
+  "home": {
+    "heroTitle": "Fournisseur de contreplaqué aux normes européennes",
+    "about": {
+      "stats": {
+        "factory": { "label": "Usine", "desc": "Surface de production et d'entreposage" },
+        "production": { "label": "Production", "desc": "Conteneurs / mois" },
+        "supply": { "label": "Approvisionnement", "desc": "Conteneurs / mois" },
+        "markets": { "label": "Marchés", "desc": "Europe et Moyen-Orient" }
+      },
+      "title": "La confiance intégrée à chaque panneau",
+      "intro": "HTPLY Vietnam est un exportateur de contreplaqué industriel, positionné sur le segment moyen et haut de gamme pour des clients B2B internationaux. Avec une usine d'environ 5 000 m² et une capacité d'approvisionnement allant jusqu'à 80 conteneurs/mois, HTPLY développe ses gammes de contreplaqué filmé, antidérapant et industriel, en ciblant les marchés européen et moyen-oriental. L'entreprise fonde sa stratégie d'expansion internationale sur une qualité constante, une capacité d'approvisionnement fiable et un développement durable.",
+      "quote": "Fournir du contreplaqué ne suffit pas — HTPLY apporte la fiabilité à chaque expédition",
+      "values": [
+        { "title": "Fiable", "desc": "Qualité constante, communication claire et plans d'approvisionnement prévisibles." },
+        { "title": "Durable", "desc": "Orienté vers un développement responsable et respectueux de l'environnement." },
+        { "title": "Global", "desc": "Produits et services conçus selon les normes des marchés internationaux." },
+        { "title": "Machines & technologie", "desc": "Lignes modernes de pressage à chaud, de découpe et de contrôle, optimisées pour la précision dimensionnelle et la qualité de surface." },
+        { "title": "Certification de production", "desc": "Certifié FSC, conforme aux normes d'émission de formaldéhyde E0/E0.5 pour l'exportation vers l'UE." }
+      ]
+    },
+    "products": {
+      "kicker": "02 · Produits",
+      "title": "Conçus pour répondre aux exigences d'utilisation réelles.",
+      "items": [
+        { "desc": "Contreplaqué filmé pour le coffrage et les applications de construction nécessitant une surface stable, porteuse et réutilisable." },
+        { "desc": "Surface antidérapante à motif tissé, forte adhérence même humide ou grasse. Film Dynea jusqu'à 240g/m², âme Acacia/Eucalyptus, colle WBP/Phénolique." },
+        { "desc": "Surface à motif hexagonal gaufré de précision, antidérapante et esthétique moderne, pour scènes d'événements et espaces publics." },
+        { "desc": "Contreplaqué brut pour la fabrication de meubles et l'emballage industriel. Bois Acacia/Magnolia/Eucalyptus, placage Okoumé/Bintangor/Pin/Peuplier, certifié FSC, faibles émissions de formaldéhyde E0/E0.5." },
+        { "desc": "Haute capacité de charge, résistant à l'eau et au gauchissement, longueurs flexibles, écologique. Utilisé pour poutres de construction, mobilier, palettes et caisses d'emballage industriel." },
+        { "desc": "Démonstration de catégorie de produit. Spécifications de résistance à l'humidité/eau à confirmer officiellement avec HTPLY." },
+        { "desc": "Démonstration de catégorie de produit. Surface mélaminée, détails d'application à confirmer avant publication." },
+        { "desc": "Démonstration de catégorie de produit. Composition de l'âme à confirmer officiellement avant publication sur le site." }
+      ]
+    },
+    "quality": {
+      "kicker": "03 · Qualité",
+      "title": "Qualité des produits",
+      "items": [
+        { "label": "Précision de l'épaisseur", "note": "Contrôle des tolérances" },
+        { "label": "Contrôle de l'humidité", "note": "Maintien d'un niveau stable" },
+        { "label": "Résistance du collage", "note": "Test d'adhérence" },
+        { "label": "Précision dimensionnelle", "note": "Contrôle des dimensions et de l'équerrage" },
+        { "label": "Qualité de surface", "note": "Contrôle de la planéité et de la finition" }
+      ]
+    },
+    "factory": {
+      "kicker": "04 · Usine & Capacité",
+      "title": "Prêts à répondre à une demande à grande échelle.",
+      "stats": [
+        { "value": "5 000 m²", "label": "Surface de l'usine" },
+        { "value": "60", "label": "Conteneurs / mois (production)" },
+        { "value": "80", "label": "Conteneurs / mois (approvisionnement)" },
+        { "value": "30 jours", "label": "Délai de livraison moyen" }
+      ]
+    },
+    "testimonials": {
+      "kicker": "05 · Avis clients",
+      "title": "La confiance de grands partenaires importateurs.",
+      "items": [
+        { "quote": "Qualité constante des panneaux à chaque lot, documentation d'export claire et conteneurs livrés à temps chaque mois." },
+        { "quote": "Équipe réactive, spécifications techniques transparentes — cela nous aide à planifier nos importations pour toute la saison de construction." },
+        { "quote": "Les panneaux antidérapants répondent exactement aux exigences de charge pour les remorques, avec un contrôle qualité strict avant la mise en conteneur." }
+      ]
+    },
+    "faq": {
+      "kicker": "06 · FAQ",
+      "title": "Vos questions, nos réponses.",
+      "items": [
+        { "q": "Quelle est la quantité minimale de commande (MOQ) ?", "a": "Le MOQ standard est d'un conteneur de 20 ou 40 pieds par commande. Pour des commandes plus petites, veuillez nous contacter directement pour discuter d'un groupage." },
+        { "q": "Combien de temps prennent la production et la livraison ?", "a": "Le délai moyen entre la confirmation de commande et le chargement est d'environ 30 jours, selon les spécifications et le nombre de conteneurs." },
+        { "q": "HTPLY fournit-il des certificats de qualité/export ?", "a": "Oui. Les dossiers qualité, les tests d'épaisseur/humidité/adhérence et les documents d'export sont fournis intégralement pour chaque expédition." },
+        { "q": "Les dimensions et épaisseurs peuvent-elles être personnalisées ?", "a": "Oui, une personnalisation est possible selon les exigences techniques de l'acheteur. Merci d'envoyer vos spécifications via le formulaire « Demander un devis » pour un devis précis." },
+        { "q": "Vers quels marchés HTPLY exporte-t-il ?", "a": "Actuellement centré sur les marchés européen et moyen-oriental, avec une possibilité d'extension selon les besoins de routes d'expédition spécifiques." }
+      ]
+    },
+    "qc": {
+      "kicker": "07 · Contrôle qualité",
+      "title": "Contrôle des produits finis.",
+      "desc": "Chaque panneau est inspecté directement à l'usine avant l'emballage, garantissant que la surface, les dimensions et la qualité respectent les normes avant la sortie d'entrepôt.",
+      "imageAlt": "Contrôle des produits finis à l'usine"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "intro": "Des capacités de production au Vietnam aux normes exigeantes des marchés internationaux, HTPLY construit la confiance par une qualité constante, des processus clairs et une capacité d'approvisionnement durable."
+    },
+    "intro": {
+      "title": "Une marque vietnamienne de contreplaqué tournée vers le marché mondial",
+      "text": "HTPLY VIETNAM a été fondée en 2024, spécialisée dans le contreplaqué et les panneaux de bois industriels pour le marché B2B international. Avec une usine d'environ 5 000 m² et une capacité d'approvisionnement allant jusqu'à 80 conteneurs/mois, HTPLY développe ses gammes de contreplaqué filmé, antidérapant et industriel, tout en ciblant les marchés européen et moyen-oriental. L'entreprise fonde sa stratégie d'expansion internationale sur une qualité constante, une capacité d'approvisionnement fiable et un développement durable."
+    },
+    "metrics": {
+      "factory": "Surface de production et d'entreposage organisée pour l'activité export.",
+      "production": "Conteneurs / mois avec une capacité à maintenir un approvisionnement stable.",
+      "supply": "Conteneurs / mois selon le plan d'expansion de l'approvisionnement.",
+      "markets": "Orientés vers les marchés européen et moyen-oriental."
+    },
+    "approach": {
+      "title": "Du bois brut à un système d'approvisionnement fiable.",
+      "text": "HTPLY ne considère pas le produit comme un simple panneau isolé. Chaque commande est le résultat d'une chaîne opérationnelle comprenant la sélection des matières premières, le pressage, le traitement de surface, le contrôle qualité, l'emballage et la logistique.",
+      "points": [
+        { "title": "Contrôle des matières premières", "desc": "Priorité à l'homogénéité et à la traçabilité des matières premières entrantes." },
+        { "title": "Standardisation des processus", "desc": "Contrôle des étapes clés pour réduire les écarts entre les lots de production." },
+        { "title": "Orientation export", "desc": "Fabrication selon les exigences techniques, d'emballage et documentaires de chaque marché." }
+      ]
+    },
+    "values": {
+      "title": "Trois valeurs qui guident HTPLY.",
+      "text": "Une marque industrielle n'a pas besoin d'en dire trop. L'essentiel est que les clients puissent prévoir la qualité, les délais et notre façon de travailler.",
+      "items": [
+        { "title": "Fiable", "desc": "Qualité constante, information claire et plans d'approvisionnement prévisibles." },
+        { "title": "Précis", "desc": "Attention portée aux spécifications, contrôle des étapes et réduction des écarts à chaque commande." },
+        { "title": "Durable", "desc": "Pas seulement vendre un lot, mais construire une relation d'approvisionnement capable d'évoluer avec le client." }
+      ]
+    },
+    "history": {
+      "title": "Des fondations initiales à une capacité d'approvisionnement mondiale.",
+      "items": [
+        { "title": "Fondation", "desc": "HTPLY VIETNAM voit le jour, élargissant son activité au marché du contreplaqué technique." },
+        { "title": "Développement produit", "desc": "Construction d'un portefeuille Film Faced, Anti-Slip et Commercial Plywood pour les marchés internationaux." },
+        { "title": "Renforcement des capacités", "desc": "Capacité de production et d'approvisionnement finalisée à l'échelle de 5 000 m², avec un objectif de 80 conteneurs/mois." },
+        { "title": "Standardisation qualité", "desc": "Renforcement du contrôle des matières, du pressage, de la stabilité et de la traçabilité." },
+        { "title": "Expansion mondiale", "desc": "Élargissement des marchés B2B en Europe, au Moyen-Orient et à l'international." }
+      ]
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "Fournir un contreplaqué de haute qualité avec stabilité, fiabilité et responsabilité à chaque commande, aux côtés des clients B2B sur le marché international."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "Devenir une marque vietnamienne de contreplaqué fiable, durable et compétitive à l'international, en renforçant progressivement sa position dans la chaîne d'approvisionnement mondiale."
+    },
+    "promise": {
+      "text": "Chaque panneau de contreplaqué qui quitte l'usine doit représenter une seule chose : une qualité vérifiable, un approvisionnement fiable et un partenaire prêt à s'engager sur la durée."
+    }
+  },
+  "factoryPage": {
+    "hero": {
+      "title": "Là où la qualité commence par le processus.",
+      "text": "Des matières premières à l'emballage export, chaque étape est organisée pour garantir la constance entre les lots."
+    },
+    "overview": {
+      "title": "Un système de production organisé pour l'export.",
+      "text1": "L'usine HTPLY est organisée pour optimiser le flux des matières, la production, le contrôle et l'emballage.",
+      "text2": "Chaque zone a un rôle distinct afin de réduire les écarts dans les opérations et maintenir la constance du produit."
+    },
+    "flow": {
+      "title": "Du placage au produit fini.",
+      "steps": [
+        { "title": "Sélection des matières", "desc": "Inspection du placage et des matières premières avant leur entrée en production." },
+        { "title": "Traitement du placage", "desc": "Agencement et traitement des couches de placage pour garantir une structure de lame stable." },
+        { "title": "Application de la colle", "desc": "Contrôle du type et de la quantité de colle selon les exigences de chaque produit." },
+        { "title": "Pressage à froid et à chaud", "desc": "Contrôle de la température, de la pression et du temps pour créer une liaison solide entre les couches." },
+        { "title": "Finition de surface", "desc": "Découpe des bords, ponçage et traitement de surface selon les spécifications requises." },
+        { "title": "Contrôle et emballage", "desc": "Vérification des dimensions et de la surface, puis emballage pour l'expédition en conteneur." }
+      ]
+    },
+    "inside": {
+      "card1": { "title": "Contrôle de la pression, de la température et du temps.", "text": "L'étape de pressage détermine la force de liaison et la stabilité structurelle du contreplaqué." },
+      "card2": { "title": "Standardisé dès la couche centrale." },
+      "card3": { "title": "Finition à haute précision." }
+    },
+    "quality": {
+      "title": "Qualité contrôlée tout au long du processus.",
+      "text": "Nous n'attendons pas la fin de la chaîne pour inspecter. Les critères clés sont surveillés en continu pour réduire les écarts entre les lots.",
+      "items": [
+        { "desc": "Contrôle de l'épaisseur et des tolérances selon les spécifications de la commande." },
+        { "desc": "Suivi des niveaux d'humidité adaptés à chaque groupe de produits." },
+        { "desc": "Contrôle de la résistance du collage entre les couches de placage." },
+        { "desc": "Inspection de la surface avant l'emballage et la mise en entrepôt." }
+      ]
+    },
+    "supply": {
+      "title": "Une capacité de production conçue pour un approvisionnement stable.",
+      "text": "Pour les clients B2B, la qualité n'est qu'une partie de l'équation. La capacité à tenir les délais, les volumes et la constance entre les expéditions est le fondement d'une relation d'approvisionnement durable."
+    },
+    "cta": {
+      "title": "Fabriqué au Vietnam. Prêt pour le marché mondial.",
+      "text": "Échangez avec HTPLY sur les spécifications techniques, les volumes, les configurations produits et les exigences d'emballage pour votre marché."
+    }
+  },
+  "productsPage": {
+    "heroTitle": "De la structure à la qualité, une stabilité constante.",
+    "items": [
+      { "desc": "Une gamme de contreplaqué commercial polyvalent pour le mobilier, la fabrication et les applications nécessitant une surface stable." },
+      { "desc": "Adapté aux commandes nécessitant une meilleure résistance à l'humidité et une stabilité accrue à l'usage." },
+      { "desc": "Structure à âme dure, adaptée aux applications nécessitant stabilité et forte capacité de charge." },
+      { "desc": "Une gamme de contreplaqué à âme d'eucalyptus avec une bonne dureté et une usinabilité stable." },
+      { "desc": "Une gamme filmée pour le coffrage et les applications de construction nécessitant réutilisabilité." },
+      { "desc": "Surface filmée noire, adaptée aux environnements de chantier et aux projets exigeant une haute durabilité." },
+      { "desc": "Surface antidérapante pour sols industriels, véhicules et applications nécessitant de l'adhérence." },
+      { "desc": "Contreplaqué structurel destiné aux applications nécessitant rigidité et stabilité élevées." },
+      { "desc": "Une solution d'emballage industriel pour caisses, cagettes et marchandises d'exportation." }
+    ]
   }
 }

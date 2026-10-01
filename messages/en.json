@@ -6,5 +6,200 @@
     "factory": "Factory",
     "quality": "Quality",
     "requestQuote": "Request a Quote"
+  },
+  "home": {
+    "heroTitle": "Plywood Supplier with EU's Standards",
+    "about": {
+      "stats": {
+        "factory": { "label": "Factory", "desc": "Production & warehouse footprint" },
+        "production": { "label": "Production", "desc": "Containers / month" },
+        "supply": { "label": "Supply", "desc": "Containers / month" },
+        "markets": { "label": "Markets", "desc": "Europe & Middle East" }
+      },
+      "title": "Trust built into every sheet",
+      "intro": "HTPLY Vietnam is an industrial plywood exporter focused on the mid-to-premium segment for international B2B customers. With a factory footprint of around 5,000 m² and a supply capacity of up to 80 containers/month, HTPLY focuses on developing Film Faced Plywood, Anti-Slip Plywood and industrial plywood lines, targeting the European and Middle Eastern markets. The company builds its global expansion strategy on consistent quality, supply capacity and sustainable development.",
+      "quote": "Not just supplying plywood — HTPLY brings reliability to every shipment",
+      "values": [
+        { "title": "Reliable", "desc": "Consistent quality, clear communication and predictable supply plans." },
+        { "title": "Sustainable", "desc": "Oriented toward green, responsible development." },
+        { "title": "Global", "desc": "Products and services built to international market standards." },
+        { "title": "Machinery & technology", "desc": "Modern hot-pressing, cutting and testing lines, optimized for dimensional precision and surface quality." },
+        { "title": "Production certification", "desc": "FSC certified, compliant with E0/E0.5 formaldehyde emission standards for EU export." }
+      ]
+    },
+    "products": {
+      "kicker": "02 · Products",
+      "title": "Developed to meet real-world performance.",
+      "items": [
+        { "desc": "Film-faced plywood for formwork and construction applications requiring a stable, load-bearing, reusable surface." },
+        { "desc": "Woven mesh anti-slip surface with high grip even when wet or oily. Dynea film coating up to 240g/m², Acacia/Eucalyptus core, WBP/Phenolic glue." },
+        { "desc": "Precision-embossed hexagonal pattern surface, effective anti-slip with a modern look for event stages and public spaces." },
+        { "desc": "Raw plywood for furniture manufacturing and industrial packaging. Acacia/Magnolia/Eucalyptus wood, Okoumé/Bintangor/Pine/Poplar veneer, FSC certified, low E0/E0.5 formaldehyde emissions." },
+        { "desc": "High load capacity, water/warp resistant, flexible lengths, eco-friendly. Used for structural beams, furniture, pallets & industrial packaging crates." },
+        { "desc": "Product category demo. Water/moisture resistance specs to be confirmed officially with HTPLY." },
+        { "desc": "Product category demo. Melamine-coated surface, application details to be confirmed before publishing." },
+        { "desc": "Product category demo. Core wood composition to be confirmed officially before publishing on the website." }
+      ]
+    },
+    "quality": {
+      "kicker": "03 · Quality",
+      "title": "Product quality",
+      "items": [
+        { "label": "Thickness precision", "note": "Tolerance control" },
+        { "label": "Moisture control", "note": "Maintaining a stable level" },
+        { "label": "Bond strength", "note": "Adhesion testing" },
+        { "label": "Dimensional accuracy", "note": "Size & squareness check" },
+        { "label": "Surface quality", "note": "Flatness & finish check" }
+      ]
+    },
+    "factory": {
+      "kicker": "04 · Factory & Capacity",
+      "title": "Ready to meet large-scale demand.",
+      "stats": [
+        { "value": "5,000 m²", "label": "Factory footprint" },
+        { "value": "60", "label": "Containers / month (production)" },
+        { "value": "80", "label": "Containers / month (supply)" },
+        { "value": "30 days", "label": "Average delivery time" }
+      ]
+    },
+    "testimonials": {
+      "kicker": "05 · Customer Reviews",
+      "title": "Trusted by large-scale importing partners.",
+      "items": [
+        { "quote": "Consistent board quality across every batch, clear export documentation and on-time containers every month." },
+        { "quote": "Responsive team, transparent specifications — it helps us plan imports for the whole construction season." },
+        { "quote": "Anti-slip boards meet the exact load requirements for trailers, with strict quality control before container loading." }
+      ]
+    },
+    "faq": {
+      "kicker": "06 · FAQ",
+      "title": "Your questions, answered.",
+      "items": [
+        { "q": "What is the minimum order quantity (MOQ)?", "a": "The standard MOQ is one 20ft/40ft container per order. For smaller orders, please contact us directly to discuss consolidation options." },
+        { "q": "How long does production and delivery take?", "a": "The average time from order confirmation to loading is about 30 days, depending on specifications and container quantity." },
+        { "q": "Does HTPLY support quality/export certificates?", "a": "Yes. Quality records, thickness/moisture/bond-strength testing and export documents are provided in full for every shipment." },
+        { "q": "Can sizes and thicknesses be customized?", "a": "Yes, customization is available based on the buyer's technical requirements. Please send specific specs via the \"Request a Quote\" form for an accurate quotation." },
+        { "q": "Which markets does HTPLY ship to?", "a": "Currently focused on the European and Middle Eastern markets, with the possibility to expand based on specific shipping route requirements." }
+      ]
+    },
+    "qc": {
+      "kicker": "07 · Quality Inspection",
+      "title": "Finished product inspection.",
+      "desc": "Every board is inspected directly at the factory before packaging, ensuring surface, dimensions and quality meet standards before leaving the warehouse.",
+      "imageAlt": "Finished product inspection at the factory"
+    }
+  },
+  "aboutPage": {
+    "hero": {
+      "intro": "From manufacturing capacity in Vietnam to the strict standards of international markets, HTPLY builds trust through consistent quality, clear processes and long-term supply capability."
+    },
+    "intro": {
+      "title": "A Vietnamese plywood brand built for the global market",
+      "text": "HTPLY VIETNAM was founded in 2024, specializing in plywood and engineered wood panels for the international B2B market. With a factory of around 5,000 m² and a supply capacity of up to 80 containers/month, HTPLY focuses on developing Film Faced Plywood, Anti-Slip Plywood and industrial plywood lines, while targeting the European and Middle Eastern markets. The company builds its global expansion strategy on consistent quality, supply capacity and sustainable development."
+    },
+    "metrics": {
+      "factory": "Production and warehouse area organized for export operations.",
+      "production": "Containers / month with the capacity to maintain a stable supply.",
+      "supply": "Containers / month under the expansion supply plan.",
+      "markets": "Focused on the European and Middle Eastern markets."
+    },
+    "approach": {
+      "title": "From raw timber to a reliable supply system.",
+      "text": "HTPLY doesn't see a product as a single, standalone board. Every order is the result of an operational chain covering material selection, pressing, surface treatment, quality inspection, packaging and logistics.",
+      "points": [
+        { "title": "Material control", "desc": "Prioritizing consistency and traceability of incoming raw materials." },
+        { "title": "Standardized processes", "desc": "Controlling key stages to reduce variation between production batches." },
+        { "title": "Export-oriented", "desc": "Manufactured to meet the technical, packaging and documentation requirements of each market." }
+      ]
+    },
+    "values": {
+      "title": "Three values that keep HTPLY on track.",
+      "text": "An industrial brand doesn't need to say too much. What matters is that customers can predict the quality, schedule and how we handle the work.",
+      "items": [
+        { "title": "Reliable", "desc": "Consistent quality, clear information and predictable supply plans." },
+        { "title": "Precise", "desc": "Attention to specifications, process control and reduced variation in every order." },
+        { "title": "Long-term", "desc": "Not just selling one shipment, but building a supply relationship that can grow with the customer." }
+      ]
+    },
+    "history": {
+      "title": "From early foundations to global supply capability.",
+      "items": [
+        { "title": "Founded", "desc": "HTPLY VIETNAM is established, expanding into the technical plywood market." },
+        { "title": "Product development", "desc": "Built a portfolio of Film Faced, Anti-Slip and Commercial Plywood for international markets." },
+        { "title": "Capacity building", "desc": "Completed production and supply capacity at a scale of 5,000 m², targeting 80 containers/month." },
+        { "title": "Quality standardization", "desc": "Strengthened control over materials, pressing, stability and traceability." },
+        { "title": "Going global", "desc": "Expanding B2B markets in Europe, the Middle East and internationally." }
+      ]
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "To supply high-quality plywood with stability, reliability and responsibility in every order, partnering with B2B customers in the international market."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "To become a trusted, sustainable and internationally competitive Vietnamese plywood brand, steadily expanding its position in the global supply chain."
+    },
+    "promise": {
+      "text": "Every plywood sheet that leaves the factory must represent one thing: verifiable quality, a supply you can rely on, and a partner ready to go the distance."
+    }
+  },
+  "factoryPage": {
+    "hero": {
+      "title": "Where quality begins with process.",
+      "text": "From raw materials to export packaging, every stage is organized to maintain consistency across batches."
+    },
+    "overview": {
+      "title": "A production system organized for export.",
+      "text1": "The HTPLY factory is organized to optimize material flow, production, inspection and packaging.",
+      "text2": "Each area has a distinct role to reduce variation in operations and maintain product consistency."
+    },
+    "flow": {
+      "title": "From veneer to finished product.",
+      "steps": [
+        { "title": "Material selection", "desc": "Inspecting veneer and raw materials before they enter production." },
+        { "title": "Veneer processing", "desc": "Arranging and treating veneer layers to ensure a stable core structure." },
+        { "title": "Glue application", "desc": "Controlling glue type and quantity to match each product's requirements." },
+        { "title": "Cold & hot pressing", "desc": "Controlling temperature, pressure and time to create a strong bond between layers." },
+        { "title": "Surface finishing", "desc": "Edge trimming, sanding and surface treatment to the required specifications." },
+        { "title": "Inspection & packaging", "desc": "Checking dimensions and surface, then packaging for container shipping." }
+      ]
+    },
+    "inside": {
+      "card1": { "title": "Controlling pressure, temperature and time.", "text": "The pressing stage determines the bond strength and structural stability of the plywood." },
+      "card2": { "title": "Standardized from the core layer." },
+      "card3": { "title": "Finished to precise tolerances." }
+    },
+    "quality": {
+      "title": "Quality controlled throughout the entire process.",
+      "text": "We don't wait until the end of the line to inspect. Key criteria are monitored continuously to reduce variation between batches.",
+      "items": [
+        { "desc": "Controlling thickness and tolerance against order specifications." },
+        { "desc": "Monitoring moisture levels appropriate to each product group." },
+        { "desc": "Controlling the bond strength between veneer layers." },
+        { "desc": "Inspecting the surface before packaging and warehousing." }
+      ]
+    },
+    "supply": {
+      "title": "Production capacity built for stable supply.",
+      "text": "For B2B customers, quality is only part of the equation. The ability to maintain schedule, volume and consistency across shipments is the foundation of a long-term supply relationship."
+    },
+    "cta": {
+      "title": "Made in Vietnam. Ready for the global market.",
+      "text": "Talk to HTPLY about technical specifications, volume, product configuration and packaging requirements for your market."
+    }
+  },
+  "productsPage": {
+    "heroTitle": "Stability from structure to quality.",
+    "items": [
+      { "desc": "A flexible commercial plywood line for furniture, fabrication and applications requiring a stable surface." },
+      { "desc": "Suited to orders requiring better moisture resistance and higher stability in use." },
+      { "desc": "Hard core structure, suited to applications requiring stability and strong load-bearing capacity." },
+      { "desc": "A eucalyptus-core plywood line with good hardness and stable workability." },
+      { "desc": "A film-faced line for formwork and construction applications requiring reusability." },
+      { "desc": "Black film-coated surface, suited to construction environments and projects requiring high durability." },
+      { "desc": "Anti-slip surface for industrial flooring, vehicles and applications requiring grip." },
+      { "desc": "Structural plywood for applications requiring high stiffness and stability." },
+      { "desc": "An industrial packaging solution for crates, cases and export goods." }
+    ]
   }
 }
