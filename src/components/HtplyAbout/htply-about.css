@@ -11,12 +11,22 @@
   --line:rgba(78,54,43,.14);
   --white:#FFFDF9;
 
-font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
+font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   color:var(--text);
   background:var(--cream);
   scroll-behavior:smooth;
   overflow-x:clip;
-  animation:htply-about-in .7s cubic-bezier(.22,1,.36,1) both;
+}
+.htply-about-page h1,
+.htply-about-page h2,
+.htply-about-page h3,
+.htply-about-page h4,
+.htply-about-page h5,
+.htply-about-page h6,
+.htply-about-page .section-kicker,
+.htply-about-page b,
+.htply-about-page strong{
+  font-family:var(--font-choplin),var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
 }
 
 @keyframes htply-about-in{
@@ -50,9 +60,10 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
 /* HEADER */
 .htply-about-page .site-header{
   position:fixed;
-  inset:0 0 auto 0;
-  z-index:100;
-  padding:18px 0;
+  top:18px;
+  left:0;
+  right:0;
+  z-index:99;
 }
 
 .htply-about-page .header-inner{
@@ -764,9 +775,61 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   .htply-about-page .values-grid{grid-template-columns:1fr}
   .htply-about-page .story-media{min-height:500px}
 }
-
 @media(max-width:620px){
-  .htply-about-page .brand-logo{height:26px}
+
+  .htply-about-page .site-header{
+    top:10px;
+  }
+
+  .htply-about-page .container{
+    width:calc(100% - 20px);
+  }
+
+  .htply-about-page .header-inner{
+    min-height:54px;
+    padding:7px 8px 7px 12px;
+    border-radius:16px;
+    gap:6px;
+  }
+
+  .htply-about-page .brand{
+    min-width:0;
+    flex:1;
+  }
+
+  .htply-about-page .brand-logo{
+    height:22px;
+    width:auto;
+  }
+
+  .htply-about-page .header-actions{
+    display:flex;
+    align-items:center;
+    margin-left:auto;
+    gap:4px;
+  }
+
+  .htply-about-page .locale-switcher{
+    display:flex;
+    gap:3px;
+  }
+
+  .htply-about-page .locale-switcher button{
+    width:30px;
+    height:30px;
+    padding:0;
+    border-radius:9px;
+    font-size:10px;
+  }
+
+  .htply-about-page .menu-toggle{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    font-size:18px;
+    margin-left:2px;
+    padding:0;
+  }
 }
 
 @media(max-width:560px){

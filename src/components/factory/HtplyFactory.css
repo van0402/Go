@@ -11,11 +11,23 @@
   overflow-x:clip;
   background:var(--cream);
   color:var(--text);
-  font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-amelia), var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
 }
 
 .htply-factory-page *{
   box-sizing:border-box;
+}
+
+.htply-factory-page h1,
+.htply-factory-page h2,
+.htply-factory-page h3,
+.htply-factory-page h4,
+.htply-factory-page h5,
+.htply-factory-page h6,
+.htply-factory-page .section-kicker,
+.htply-factory-page b,
+.htply-factory-page strong{
+  font-family: var(--font-choplin), var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
 }
 
 .htply-factory-page .container{
@@ -26,12 +38,11 @@
 /* HEADER */
 
 .htply-factory-page .site-header{
-  position:absolute;
-  top:0;
+  position:fixed;
+  top:18px;
   left:0;
   right:0;
-  z-index:50;
-  padding:18px 0;
+  z-index:99;
 }
 
 .htply-factory-page .header-inner{
