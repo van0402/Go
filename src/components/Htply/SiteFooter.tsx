@@ -5,8 +5,7 @@ export function SiteFooter() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-big">
-              <img src="/images/Layer.png" alt="HTPLY Vietnam" />
-              HTPLY VIETNAM
+              <img src="/images/logoo.png" alt="HTPLY Vietnam" />
             </div>
             <p>
               Industrial engineered plywood, produced in Vietnam and supplied to construction,

@@ -3,6 +3,14 @@
 import { useTranslations } from 'next-intl'
 import { CountUp } from './CountUp'
 
+const VALUE_ICONS = [
+  '/images/icon-resistance.png',
+  '/images/icon-recyclable.png',
+  '/images/icon-presence.png',
+  '/images/icon-innovation.png',
+  '/images/icon-formaldehyde.png',
+]
+
 export function About() {
   const t = useTranslations('home.about')
   const values = t.raw('values') as { title: string; desc: string }[]
@@ -111,7 +119,10 @@ export function About() {
               <div className="value-list">
                 {values.map((v, i) => (
                   <div className="value" key={v.title}>
-                    <span>{String(i + 1).padStart(2, '0')}</span>
+                    <div className="value-icon-wrap">
+                      <span>{String(i + 1).padStart(2, '0')}</span>
+                      <img className="value-icon" src={VALUE_ICONS[i]} alt="" />
+                    </div>
                     <div>
                       <b>{v.title}</b>
                       <div>{v.desc}</div>

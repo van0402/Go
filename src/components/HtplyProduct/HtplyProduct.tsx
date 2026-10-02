@@ -108,8 +108,7 @@ export function HtplyProduct() {
         <header className="site-header">
   <div className="container header-inner">
     <Link className="brand" href="/">
-      <span className="brand-mark">HTP</span>
-      <span className="brand-text">HTPLY VIETNAM</span>
+      <img src="/images/logoo.png" alt="HTPLY Vietnam" className="brand-logo" />
     </Link>
 
     <nav className={`nav${menuOpen ? ' mobile-open' : ''}`}>
@@ -304,8 +303,7 @@ export function HtplyProduct() {
           <div className="footer-top">
             <div className="footer-brand">
               <div className="footer-big">
-                <img src="/images/Layer.png" alt="HTPLY Vietnam" />
-                HTPLY VIETNAM
+                <img src="/images/logoo.png" alt="HTPLY Vietnam" />
               </div>
               <p>
                 Industrial engineered plywood, produced in Vietnam and supplied to construction,

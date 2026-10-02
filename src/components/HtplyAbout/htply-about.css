@@ -62,8 +62,8 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   gap:24px;
   padding:12px 14px 12px 18px;
   border-radius:18px;
-  background:rgba(65,49,41,.36);
-  border:1px solid rgba(255,255,255,.24);
+  background:rgba(251,248,243,.92);
+  border:1px solid rgba(78,54,43,.12);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
   box-shadow:0 14px 44px rgba(44,31,24,.10);
@@ -73,25 +73,13 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   display:flex;
   align-items:center;
   gap:10px;
-  color:#fff;
   min-width:180px;
 }
 
-.htply-about-page .brand-mark{
-  width:34px;height:34px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:rgba(255,255,255,.93);
-  color:#6f8990;
-  font-size:10px;
-  font-weight:900;
-}
-
-.htply-about-page .brand-text{
-  font-weight:800;
-  letter-spacing:.02em;
-  font-size:15px;
+.htply-about-page .brand-logo{
+  height:38px;
+  width:auto;
+  display:block;
 }
 
 .htply-about-page .nav{
@@ -105,9 +93,14 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
 .htply-about-page .nav a{
   position:relative;
   padding:8px 0;
-  color:rgba(255,255,255,.9);
+  color:rgba(78,54,43,.78);
   font-size:14px;
   font-weight:600;
+}
+
+.htply-about-page .nav a:hover,
+.htply-about-page .nav a.active{
+  color:var(--brown-dark);
 }
 
 .htply-about-page .nav a::after{
@@ -115,7 +108,7 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   position:absolute;
   left:0;bottom:0;
   width:0;height:1.5px;
-  background:#F0DDD0;
+  background:var(--copper);
   transition:.25s;
 }
 
@@ -735,6 +728,7 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   gap:20px;
   align-items:center;
 }
+.htply-about-page .footer-logo{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
 
 .htply-about-page .menu-toggle{display:none}
 
@@ -746,9 +740,9 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
     margin-left:auto;
     width:42px;height:42px;
     border-radius:12px;
-    border:1px solid rgba(255,255,255,.25);
-    background:rgba(255,255,255,.10);
-    color:#fff;
+    border:1px solid rgba(78,54,43,.2);
+    background:rgba(78,54,43,.08);
+    color:var(--brown-dark);
     font-size:20px;
   }
   .htply-about-page .nav.mobile-open{
@@ -757,7 +751,8 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
     left:14px;right:14px;top:82px;
     padding:14px 18px;
     border-radius:16px;
-    background:rgba(64,47,39,.97);
+    background:rgba(251,248,243,.98);
+    box-shadow:0 18px 40px rgba(36,25,19,.18);
     flex-direction:column;
     align-items:flex-start;
     gap:0;
@@ -768,6 +763,10 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   .htply-about-page .metric-grid{grid-template-columns:1fr 1fr}
   .htply-about-page .values-grid{grid-template-columns:1fr}
   .htply-about-page .story-media{min-height:500px}
+}
+
+@media(max-width:620px){
+  .htply-about-page .brand-logo{height:26px}
 }
 
 @media(max-width:560px){
@@ -800,11 +799,11 @@ font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
 
 .htply-about-page .locale-switcher{display:flex;gap:4px}
 .htply-about-page .locale-switcher button{
-  background:transparent;border:1px solid rgba(255,255,255,.3);
-  color:rgba(255,255,255,.7);padding:6px 10px;border-radius:8px;
+  background:transparent;border:1px solid rgba(78,54,43,.25);
+  color:rgba(78,54,43,.75);padding:6px 10px;border-radius:8px;
   font-size:12px;font-weight:700;cursor:pointer;
 }
-.htply-about-page .locale-switcher button.active{background:rgba(255,255,255,.15);color:#fff}
+.htply-about-page .locale-switcher button.active{background:rgba(78,54,43,.1);color:var(--brown-dark)}
 /* Mobile: luôn hiện nút đổi ngôn ngữ cạnh nút menu */
 @media(max-width:900px){
   .htply-about-page .header-inner{gap:8px}
