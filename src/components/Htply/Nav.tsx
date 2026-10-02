@@ -13,8 +13,7 @@ export function Nav() {
       <div className="container">
          <nav>
           <a className="brand" href="#top">
-            <img src="/images/logo.png" alt="HTPLY Vietnam" className="brand-mark" />
-            HTPLY VIETNAM
+            <img src="/images/logoo.png" alt="HTPLY Vietnam" className="brand-logo" />
           </a>
           <div className={`nav-links${open ? ' mobile-open' : ''}`}>
             <a href="#top" onClick={() => setOpen(false)}>

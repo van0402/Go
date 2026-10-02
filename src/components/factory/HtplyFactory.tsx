@@ -10,6 +10,14 @@ import './HtplyFactory.css'
 
 const QUALITY_TITLES = ['Thickness', 'Moisture', 'Bonding', 'Surface']
 
+const SAFETY_ICONS = [
+  '/images/icon-helmet.png',
+  '/images/icon-glasses.png',
+  '/images/icon-gloves.png',
+  '/images/icon-earprotection.png',
+  '/images/icon-workwear.png',
+]
+
 export function HtplyFactory() {
   const [menuOpen, setMenuOpen] = useState(false)
   const heroParallaxRef = useParallax<HTMLElement>(0.12, 36)
@@ -17,6 +25,7 @@ export function HtplyFactory() {
   const tf = useTranslations('factoryPage')
   const steps = tf.raw('flow.steps') as { title: string; desc: string }[]
   const qualityDescs = tf.raw('quality.items') as { desc: string }[]
+  const safetyItems = tf.raw('safety.items') as { title: string; desc: string }[]
 
   return (
     <div className="htply-factory-page">
@@ -24,8 +33,7 @@ export function HtplyFactory() {
       <header className="site-header">
         <div className="container header-inner">
           <Link className="brand" href="/">
-            <span className="brand-mark">HTP</span>
-            <span className="brand-text">HTPLY VIETNAM</span>
+            <img src="/images/logoo.png" alt="HTPLY Vietnam" className="brand-logo" />
           </Link>
 
           <nav className={`nav${menuOpen ? ' mobile-open' : ''}`}>
@@ -150,11 +158,37 @@ export function HtplyFactory() {
           </div>
         </section>
 
+        <section className="safety-section">
+          <div className="container">
+            <div className="safety-head reveal">
+              <div>
+                <div className="section-kicker">04 · Safety &amp; Working Environment</div>
+                <h2>{tf('safety.title')}</h2>
+              </div>
+              <p>{tf('safety.text')}</p>
+            </div>
+
+            <div className="safety-grid">
+              {safetyItems.map((item, i) => (
+                <article
+                  className="safety-card reveal"
+                  key={item.title}
+                  style={{ transitionDelay: `${i * 90}ms` }}
+                >
+                  <img className="safety-icon" src={SAFETY_ICONS[i]} alt={item.title} />
+                  <strong>{item.title}</strong>
+                  <span>{item.desc}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="quality-control">
           <div className="container">
             <div className="quality-head reveal">
               <div>
-                <div className="section-kicker">04 · Quality Control</div>
+                <div className="section-kicker">05 · Quality Control</div>
                 <h2>{tf('quality.title')}</h2>
               </div>
 
@@ -180,7 +214,7 @@ export function HtplyFactory() {
         <section className="supply-capacity">
           <div className="container supply-grid">
             <div className="supply-copy reveal">
-              <div className="section-kicker">05 · Supply Capacity</div>
+              <div className="section-kicker">06 · Supply Capacity</div>
 
               <h2>{tf('supply.title')}</h2>
 
@@ -201,7 +235,7 @@ export function HtplyFactory() {
         <section className="factory-cta">
           <div className="container">
             <div className="factory-cta-box reveal">
-              <div className="section-kicker">06 · Global Supply</div>
+              <div className="section-kicker">07 · Global Supply</div>
 
               <h2>{tf('cta.title')}</h2>
 
@@ -226,8 +260,7 @@ export function HtplyFactory() {
           <div className="footer-top">
             <div className="footer-brand">
               <div className="footer-big">
-                <img src="/images/Layer.png" alt="HTPLY Vietnam" />
-                HTPLY VIETNAM
+                <img src="/images/logoo.png" alt="HTPLY Vietnam" />
               </div>
               <p>
                 Industrial engineered plywood, produced in Vietnam and supplied to construction,

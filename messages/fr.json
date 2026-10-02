@@ -169,6 +169,17 @@
       "card2": { "title": "Standardisé dès la couche centrale." },
       "card3": { "title": "Finition à haute précision." }
     },
+    "safety": {
+      "title": "La sécurité fait partie du processus.",
+      "text": "Chaque collaborateur sur la ligne de production est équipé de la protection adaptée, car une qualité constante commence par un environnement de travail sûr et organisé.",
+      "items": [
+        { "title": "Protection de la tête", "desc": "Le port du casque est obligatoire dans toutes les zones de production et de manutention." },
+        { "title": "Protection des yeux", "desc": "Des lunettes de sécurité sont utilisées partout où la découpe, le ponçage ou le pressage génèrent des débris." },
+        { "title": "Protection des mains", "desc": "Les gants protègent contre les arêtes coupantes, la chaleur et l'exposition chimique lors de la manutention." },
+        { "title": "Protection auditive", "desc": "Une protection auditive est requise à proximité des machines de pressage et de découpe." },
+        { "title": "Vêtements de protection", "desc": "Les tenues de travail sont adaptées aux risques spécifiques de chaque zone de production." }
+      ]
+    },
     "quality": {
       "title": "Qualité contrôlée tout au long du processus.",
       "text": "Nous n'attendons pas la fin de la chaîne pour inspecter. Les critères clés sont surveillés en continu pour réduire les écarts entre les lots.",

@@ -169,6 +169,17 @@
       "card2": { "title": "Standardized from the core layer." },
       "card3": { "title": "Finished to precise tolerances." }
     },
+    "safety": {
+      "title": "Safety is part of the process.",
+      "text": "Every worker on the production floor is equipped with the right protective gear, because consistent quality starts with a safe, well-organized working environment.",
+      "items": [
+        { "title": "Head protection", "desc": "Helmets are mandatory in all production and material handling areas." },
+        { "title": "Eye protection", "desc": "Safety glasses are used wherever cutting, sanding or pressing generates debris." },
+        { "title": "Hand protection", "desc": "Gloves protect against sharp edges, heat and chemical exposure during handling." },
+        { "title": "Hearing protection", "desc": "Ear protection is required near pressing and cutting machinery." },
+        { "title": "Protective clothing", "desc": "Workwear is matched to each production area's specific risks." }
+      ]
+    },
     "quality": {
       "title": "Quality controlled throughout the entire process.",
       "text": "We don't wait until the end of the line to inspect. Key criteria are monitored continuously to reduce variation between batches.",

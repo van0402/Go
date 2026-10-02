@@ -169,6 +169,17 @@
       "card2": { "title": "Estandarizado desde la capa central." },
       "card3": { "title": "Acabado con alta precisión." }
     },
+    "safety": {
+      "title": "La seguridad forma parte del proceso.",
+      "text": "Cada trabajador en la línea de producción cuenta con el equipo de protección adecuado, porque una calidad constante comienza con un entorno de trabajo seguro y organizado.",
+      "items": [
+        { "title": "Protección de la cabeza", "desc": "El uso de casco es obligatorio en todas las áreas de producción y manejo de materiales." },
+        { "title": "Protección ocular", "desc": "Se utilizan gafas de seguridad donde el corte, lijado o prensado genera residuos." },
+        { "title": "Protección de manos", "desc": "Los guantes protegen contra bordes afilados, calor y exposición química durante la manipulación." },
+        { "title": "Protección auditiva", "desc": "Se requiere protección auditiva cerca de las máquinas de prensado y corte." },
+        { "title": "Ropa de protección", "desc": "La indumentaria de trabajo se adapta a los riesgos específicos de cada área de producción." }
+      ]
+    },
     "quality": {
       "title": "Calidad controlada durante todo el proceso.",
       "text": "No esperamos al final de la línea para inspeccionar. Los criterios clave se monitorean de forma continua para reducir variaciones entre lotes.",

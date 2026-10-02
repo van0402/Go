@@ -8,6 +8,7 @@
   --muted:#7B665A;
   --line:rgba(77,56,46,.14);
 
+  overflow-x:clip;
   background:var(--cream);
   color:var(--text);
   font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
@@ -40,9 +41,9 @@
   justify-content:space-between;
   gap:24px;
   padding:12px 14px 12px 18px;
-  border:1px solid rgba(255,255,255,.20);
+  border:1px solid rgba(77,56,46,.12);
   border-radius:18px;
-  background:rgba(67,49,40,.38);
+  background:rgba(251,248,243,.92);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
   box-shadow:0 14px 40px rgba(32,22,17,.12);
@@ -53,28 +54,13 @@
   align-items:center;
   gap:10px;
   flex-shrink:0;
-  color:#fff;
   text-decoration:none;
 }
 
-.htply-factory-page .brand-mark{
-  width:36px;
-  height:36px;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  background:#f6f1eb;
-  color:#71898d;
-  font-size:10px;
-  font-weight:900;
-}
-
-.htply-factory-page .brand-text{
-  color:#fff;
-  font-size:14px;
-  font-weight:800;
-  letter-spacing:.02em;
-  white-space:nowrap;
+.htply-factory-page .brand-logo{
+  height:38px;
+  width:auto;
+  display:block;
 }
 
 .htply-factory-page .nav{
@@ -89,7 +75,7 @@
   position:relative;
   display:block;
   padding:9px 0;
-  color:rgba(255,255,255,.78);
+  color:rgba(77,56,46,.75);
   text-decoration:none;
   font-size:13px;
   font-weight:600;
@@ -98,7 +84,7 @@
 
 .htply-factory-page .nav a:hover,
 .htply-factory-page .nav a.active{
-  color:#fff;
+  color:var(--brown-dark);
 }
 
 .htply-factory-page .nav a::after{
@@ -108,7 +94,7 @@
   bottom:2px;
   width:0;
   height:1px;
-  background:#ead5c5;
+  background:var(--copper);
   transform:translateX(-50%);
   transition:width .25s ease;
 }
@@ -492,6 +478,67 @@
 
 /* QUALITY */
 
+.htply-factory-page .safety-section{
+  padding:90px 0;
+}
+
+.htply-factory-page .safety-head{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:46px;
+}
+
+.htply-factory-page .safety-head p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.htply-factory-page .safety-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.htply-factory-page .safety-card{
+  padding:24px 18px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--paper);
+  text-align:left;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.htply-factory-page .safety-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(77,56,46,.12);
+}
+
+.htply-factory-page .safety-icon{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  border-radius:12px;
+  margin-bottom:16px;
+}
+
+.htply-factory-page .safety-card strong{
+  display:block;
+  margin-bottom:6px;
+  font-size:15px;
+  font-weight:700;
+  color:var(--text);
+}
+
+.htply-factory-page .safety-card span{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+
 .htply-factory-page .quality-control{
   padding:110px 0;
   margin-bottom:60px;
@@ -762,7 +809,7 @@
   font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:14px;
   display:flex;align-items:center;gap:10px;
 }
-.htply-factory-page .footer-brand .footer-big img{width:34px;height:34px;object-fit:contain}
+.htply-factory-page .footer-brand .footer-big img{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
 .htply-factory-page .footer-brand p{color:rgba(255,248,240,.68);max-width:280px;font-size:14px;line-height:1.6}
 .htply-factory-page .footer-col b{
   display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;
@@ -798,8 +845,8 @@
     gap:0;
     padding:12px;
     border-radius:16px;
-    background:#4B372D;
-    box-shadow:0 18px 40px rgba(36,25,19,.24);
+    background:rgba(251,248,243,.98);
+    box-shadow:0 18px 40px rgba(36,25,19,.18);
   }
 
   .htply-factory-page .nav.mobile-open{
@@ -827,13 +874,15 @@
   .htply-factory-page .overview-grid,
   .htply-factory-page .flow-head,
   .htply-factory-page .quality-head,
+  .htply-factory-page .safety-head,
   .htply-factory-page .supply-grid,
   .htply-factory-page .editorial-grid{
     grid-template-columns:1fr;
   }
 .htply-factory-page .overview-grid h2{ white-space:normal }
   .htply-factory-page .stats-grid,
-  .htply-factory-page .quality-grid{
+  .htply-factory-page .quality-grid,
+  .htply-factory-page .safety-grid{
     grid-template-columns:1fr 1fr;
   }
 
@@ -858,6 +907,10 @@
 
 /* MOBILE */
 
+@media(max-width:620px){
+  .htply-factory-page .brand-logo{height:26px}
+}
+
 @media(max-width:600px){
 
   .htply-factory-page .container{
@@ -873,7 +926,8 @@
   }
 
   .htply-factory-page .stats-grid,
-  .htply-factory-page .quality-grid{
+  .htply-factory-page .quality-grid,
+  .htply-factory-page .safety-grid{
     grid-template-columns:1fr;
   }
 
@@ -910,11 +964,11 @@
 
 .htply-factory-page .locale-switcher{display:flex;gap:4px}
 .htply-factory-page .locale-switcher button{
-  background:transparent;border:1px solid rgba(255,255,255,.3);
-  color:rgba(255,255,255,.7);padding:6px 10px;border-radius:8px;
+  background:transparent;border:1px solid rgba(77,56,46,.25);
+  color:rgba(77,56,46,.75);padding:6px 10px;border-radius:8px;
   font-size:12px;font-weight:700;cursor:pointer;
 }
-.htply-factory-page .locale-switcher button.active{background:rgba(255,255,255,.15);color:#fff}
+.htply-factory-page .locale-switcher button.active{background:rgba(77,56,46,.1);color:var(--brown-dark)}
 /* Mobile: luôn hiện nút đổi ngôn ngữ cạnh nút menu */
 @media(max-width:900px){
   .htply-factory-page .header-inner{gap:8px}

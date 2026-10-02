@@ -24,8 +24,7 @@ export function HtplyAbout() {
       <header className="site-header">
         <div className="container header-inner">
           <Link className="brand" href="/">
-            <span className="brand-mark">HTP</span>
-            <span className="brand-text">HTPLY VIETNAM</span>
+            <img src="/images/logoo.png" alt="HTPLY Vietnam" className="brand-logo" />
           </Link>
 
           <nav className={`nav${menuOpen ? ' mobile-open' : ''}`}>
@@ -213,7 +212,7 @@ export function HtplyAbout() {
 
       <footer>
         <div className="container footer-row">
-          <div>HTPLY VIETNAM</div>
+          <img src="/images/logoo.png" alt="HTPLY Vietnam" className="footer-logo" />
           <div>Industrial Plywood · Vietnam → Global</div>
         </div>
       </footer>
