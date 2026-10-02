@@ -10,7 +10,19 @@
   overflow-x:clip;
   background:var(--cream);
   color:var(--text);
-  font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-amelia), var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
+}
+
+.htply-products-page h1,
+.htply-products-page h2,
+.htply-products-page h3,
+.htply-products-page h4,
+.htply-products-page h5,
+.htply-products-page h6,
+.htply-products-page .section-kicker,
+.htply-products-page b,
+.htply-products-page strong{
+  font-family: var(--font-choplin), var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
 }
 
 .htply-products-page footer{
@@ -741,13 +753,11 @@ span:last-child{
 ========================= */
 
 .htply-products-page .site-header{
-  position:absolute;
-  top:0;
+  position:fixed;
+  top:18px;
   left:0;
   right:0;
-  z-index:100;
-
-  padding:18px 0;
+  z-index:99;
 }
 
 .htply-products-page .site-header .container{

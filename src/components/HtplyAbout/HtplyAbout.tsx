@@ -7,6 +7,7 @@ import { RevealOnScroll } from '@/components/RevealOnScroll'
 import { Link } from '@/i18n/routing'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import './htply-about.css'
+import { Nav } from '@/components/Htply/Nav'
 
 export function HtplyAbout() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -21,32 +22,7 @@ export function HtplyAbout() {
   return (
     <div className="htply-about-page">
       <RevealOnScroll scope=".htply-about-page" />
-      <header className="site-header">
-        <div className="container header-inner">
-          <Link className="brand" href="/">
-            <img src="/images/logoo.png" alt="HTPLY Vietnam" className="brand-logo" />
-          </Link>
-
-          <nav className={`nav${menuOpen ? ' mobile-open' : ''}`}>
-            <Link href="/">{t('home')}</Link>
-            <Link className="active" href="/about">
-              {t('about')}
-            </Link>
-            <Link href="/products">{t('products')}</Link>
-            <Link href="/factory">{t('factory')}</Link>
-            <Link href="/#quality">{t('quality')}</Link>
-          </nav>
-
-          <div className="header-actions">
-            <LocaleSwitcher />
-          </div>
-
-          <button className="menu-toggle" onClick={() => setMenuOpen((v) => !v)}>
-            ☰
-          </button>
-        </div>
-      </header>
-
+       <Nav />
       <main>
         <section className="hero" ref={heroParallaxRef}>
           <div className="container hero-content">

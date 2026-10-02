@@ -4,40 +4,71 @@ import { useState } from 'react'
 import { Link } from '@/i18n/routing'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { useTranslations } from 'next-intl'
+import './Nav.css'
 
 export function Nav() {
   const [open, setOpen] = useState(false)
   const t = useTranslations('nav')
+
   return (
-    <div className="nav-wrap">
-      <div className="container">
-         <nav>
-          <a className="brand" href="#top">
-            <img src="/images/logoo.png" alt="HTPLY Vietnam" className="brand-logo" />
-          </a>
-          <div className={`nav-links${open ? ' mobile-open' : ''}`}>
-            <a href="#top" onClick={() => setOpen(false)}>
+    <div className="htply-nav-wrap">
+      <div className="htply-nav-container">
+
+        <nav className="htply-nav">
+
+          <Link
+            className="htply-nav-brand"
+            href="/"
+            onClick={() => setOpen(false)}
+          >
+            <img
+              src="/images/logoo.png"
+              alt="HTPLY Vietnam"
+              className="htply-nav-logo"
+            />
+          </Link>
+
+          <div className={`htply-nav-links${open ? ' mobile-open' : ''}`}>
+
+            <Link href="/" onClick={() => setOpen(false)}>
               {t('home')}
-            </a>
-            <Link href="/about">{t('about')}</Link>
-            <Link href="/products">{t('products')}</Link>
-            <Link href="/factory">{t('factory')}</Link>
-            <a href="#quality" onClick={() => setOpen(false)}>
+            </Link>
+
+            <Link href="/about" onClick={() => setOpen(false)}>
+              {t('about')}
+            </Link>
+
+            <Link href="/products" onClick={() => setOpen(false)}>
+              {t('products')}
+            </Link>
+
+            <Link href="/factory" onClick={() => setOpen(false)}>
+              {t('factory')}
+            </Link>
+
+            <Link href="/#quality" onClick={() => setOpen(false)}>
               {t('quality')}
-            </a>
+            </Link>
+
           </div>
-          <div className="nav-actions">
+
+          <div className="htply-nav-actions">
+
             <LocaleSwitcher />
+
             <button
               type="button"
-              className="menu-toggle"
+              className="htply-menu-toggle"
               aria-label="Toggle navigation"
-              onClick={() => setOpen((v) => !v)}
+              onClick={() => setOpen(v => !v)}
             >
               {open ? '✕' : '☰'}
             </button>
+
           </div>
+
         </nav>
+
       </div>
     </div>
   )

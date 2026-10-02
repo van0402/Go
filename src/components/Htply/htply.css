@@ -13,13 +13,24 @@
   position: relative;
   background: var(--ivory);
   color: var(--coffee);
-  font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-amelia), var(--font-be-vietnam-pro), ui-sans-serif, system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 .htply-page *{box-sizing:border-box}
+.htply-page h1,
+.htply-page h2,
+.htply-page h3,
+.htply-page h4,
+.htply-page h5,
+.htply-page h6,
+.htply-page .section-kicker,
+.htply-page b,
+.htply-page strong{
+  font-family: var(--font-choplin), var(--font-be-vietnam-pro), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
 .htply-page:before{
   content:"";
   position:fixed; inset:0;
