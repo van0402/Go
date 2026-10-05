@@ -171,7 +171,6 @@
     },
     "safety": {
       "title": "Safety is part of the process.",
-      "text": "Every worker on the production floor is equipped with the right protective gear, because consistent quality starts with a safe, well-organized working environment.",
       "items": [
         { "title": "Head protection", "desc": "Helmets are mandatory in all production and material handling areas." },
         { "title": "Eye protection", "desc": "Safety glasses are used wherever cutting, sanding or pressing generates debris." },
@@ -182,7 +181,6 @@
     },
     "quality": {
       "title": "Quality controlled throughout the entire process.",
-      "text": "We don't wait until the end of the line to inspect. Key criteria are monitored continuously to reduce variation between batches.",
       "items": [
         { "desc": "Controlling thickness and tolerance against order specifications." },
         { "desc": "Monitoring moisture levels appropriate to each product group." },

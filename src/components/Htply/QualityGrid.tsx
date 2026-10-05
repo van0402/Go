@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 
-const IMAGES = ['/images/g1.jpg', '/images/g2.jpg', '/images/g3.jpg', '/images/g4.jpg', '/images/g5.jpg']
+const IMAGES = ['/images/hm8.jpg', '/images/hm13.jpg', '/images/hm12.jpg', '/images/hm11.jpg', '/images/hm10.jpg']
 
 export function QualityGrid() {
   const t = useTranslations('home.quality')

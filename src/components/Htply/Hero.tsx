@@ -7,14 +7,14 @@ import { useScrollShrink } from '@/hooks/useScrollShrink'
 
 // offset = tỉ lệ so với chiều cao chữ (26px / 230px ≈ 0.11), tự co giãn theo màn hình
 const LETTERS = [
-  { src: '/images/h.png', alt: 'H', offset: 0, delay: 0 },
-  { src: '/images/t-letter.png', alt: 'T', offset: 0.11, delay: 0.25 },
-  { src: '/images/p-letter.png', alt: 'P', offset: -0.03, delay: 0.5 },
-  { src: '/images/l-letter.png', alt: 'L', offset: 0.09, delay: 0.75 },
-  { src: '/images/y-letter.png', alt: 'Y', offset: -0.04, delay: 1 },
+  { src: '/images/h-gold.png', alt: 'H', offset: 0, delay: 0 },
+  { src: '/images/t-gold.png', alt: 'T', offset: 0.04, delay: 0.25 },
+  { src: '/images/p-gold.png', alt: 'P', offset: -0.02, delay: 0.5 },
+  { src: '/images/l-gold.png', alt: 'L', offset: 0.03, delay: 0.75 },
+  { src: '/images/y-gold.png', alt: 'Y', offset: -0.02, delay: 1 },
 ]
 
-const HERO_IMAGES = ['/images/hero.jpg', '/images/lantaikayu-biz-floor-6990002_1920.jpg']
+const HERO_IMAGES = ['/images/hero.jpg', '/images/nenn.jpg']
 
 export function Hero() {
   const parallaxRef = useParallax<HTMLElement>(0.12, 36)

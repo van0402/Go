@@ -137,7 +137,6 @@ export function HtplyFactory() {
                 <div className="section-kicker">04 · Safety &amp; Working Environment</div>
                 <h2>{tf('safety.title')}</h2>
               </div>
-              <p>{tf('safety.text')}</p>
             </div>
 
             <div className="safety-grid">
@@ -163,8 +162,6 @@ export function HtplyFactory() {
                 <div className="section-kicker">05 · Quality Control</div>
                 <h2>{tf('quality.title')}</h2>
               </div>
-
-              <p>{tf('quality.text')}</p>
             </div>
 
             <div className="quality-grid">
@@ -190,7 +187,6 @@ export function HtplyFactory() {
 
               <h2>{tf('supply.title')}</h2>
 
-              <p>{tf('supply.text')}</p>
 
               <div className="big-number">
                 60+
