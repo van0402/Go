@@ -1,13 +1,13 @@
 .htply-page {
-  --ivory: #f7f2ea;
-  --sand: #ddc8b3;
-  --clay: #a67f63;
-  --coffee: #533e32;
+  --ivory: #F8FBFC;
+  --sand: #CFE3EC;
+  --clay: #2E9DBE;
+  --coffee: #2F394C;
   --graphite: #282624;
-  --paper: #fcfaf7;
-  --line: rgba(83, 62, 50, 0.16);
-  --muted: #75685f;
-  --shadow: 0 30px 80px rgba(83, 62, 50, 0.12);
+  --paper: #FFFFFF;
+  --line: rgba(47, 57, 76, 0.14);
+  --muted: #718095;
+  --shadow: 0 30px 80px rgba(35, 48, 71, 0.12);
   --radius: 30px;
 
   position: relative;
@@ -141,7 +141,7 @@
 .htply-page .wordmark-scale{
   display:flex; align-items:flex-end; justify-content:center;
   flex-wrap:nowrap;
-  gap:clamp(4px, 1.4vw, 20px);
+  gap:clamp(20px, 3vw, 38px);
   width:100%; height:100%;
   transform:scale(var(--scroll-scale, 1));
   opacity:var(--scroll-opacity, 1);
@@ -167,7 +167,7 @@
   height:100%; width:auto; display:block;
   animation:htply-letter-float 5s ease-in-out infinite;
   animation-delay:var(--delay, 0s);
-  filter:drop-shadow(0 22px 20px rgba(83,62,50,.32));
+  filter:drop-shadow(0 14px 10px rgba(40,25,15,.28));
 }
 @keyframes htply-letter-float{
   0%,100%{transform:translateY(0)}
@@ -206,10 +206,10 @@
 .htply-page .section-head > div{grid-column:1/-1}
 .htply-page .section-kicker{
   display:inline-flex; align-items:center;
-  text-transform:uppercase;font-size:24px;letter-spacing:.1em;color:var(--clay);font-weight:750
+  text-transform:uppercase;font-size:24px;letter-spacing:.1em;color:#2F3B52;font-weight:750
 }
 .htply-page .section-head h2{
-  font-size:clamp(28px,3vw,44px);line-height:1.05;letter-spacing:-.03em;margin:14px 0 0;
+  font-size:clamp(28px,3vw,44px);line-height:1.05;letter-spacing:-.03em;margin:14px 0 0;color:#2F3B52;
   white-space:nowrap;
 }
 .htply-page .section-head p{color:var(--muted);max-width:none;margin:14px 0 6px 0;font-size:17px;line-height:1.6}
@@ -225,15 +225,15 @@
 }
 .htply-page .about-card::before{
   content:""; position:absolute; inset:0; z-index:-2;
-  background-image:url('/images/l1.jpg');
+  background-image:url('/images/hm15.jpg');
   background-size:cover; background-position:center;
 }
 .htply-page .about-card::after{
   content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(50,30,20,.35), rgba(50,30,20,.75));
+  background:linear-gradient(180deg, rgba(10,14,20,.06), rgba(10,14,20,.5));
 }
 .htply-page .about-card.dark::before{
-  background-image:url('/images/l2.jpg');
+  background-image:url('/images/hm3.jpg');
 }
 .htply-page .about-card.dark{color:var(--paper)}
 
@@ -251,8 +251,8 @@
   content:""; position:absolute; inset:0; z-index:-1;
   /* background:linear-gradient(180deg, rgba(36,25,19,.26), rgba(36,25,19,.4)); */
 }
-.htply-page .about-section .section-kicker{color:var(--clay)}
-.htply-page .about-section .section-head h2{color:var(--coffee)}
+.htply-page .about-section .section-kicker{color:#2F3B52}
+.htply-page .about-section .section-head h2{color:#2F3B52}
 .htply-page .about-section .section-head p{color:var(--muted)}
 
 .htply-page .products-section{
@@ -260,20 +260,17 @@
   overflow:hidden;
   isolation:isolate;
   padding:90px 0;
-  color:#fff;
+  color:var(--coffee);
+  background:linear-gradient(180deg, #EAF8FC 0%, #CBEBF6 55%, #AEE0F0 100%);
 }
-.htply-page .products-section::before{
-  content:""; position:absolute; inset:0; z-index:-2;
-  background:url('/images/sp6.jpg') center/cover no-repeat;
-}
-.htply-page .products-section::after{
-  content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(36,25,19,.88), rgba(36,25,19,.94));
-}
-.htply-page .products-section .section-kicker{color:#efc9a8}
-.htply-page .products-section .section-head p{color:rgba(255,255,255,.78)}
+.htply-page .products-section::before,
+.htply-page .products-section::after{display:none}
+.htply-page .products-section .section-kicker{color:#2F3B52}
+.htply-page .products-section .section-head h2{color:#2F3B52}
+.htply-page .products-section .section-head p{color:var(--muted)}
 .htply-page .about-card h3{font-size:34px;letter-spacing:-.04em;max-width:520px}
 .htply-page .big-quote{font-size:clamp(34px,4vw,58px);line-height:1;letter-spacing:-.045em;color:var(--paper)}
+.htply-page .about-card:not(.dark){display:flex;align-items:center;justify-content:center;text-align:center}
 .htply-page .value-list{display:grid;gap:14px;margin-top:34px}
 .htply-page .value{
   display:grid;grid-template-columns:48px 1fr;gap:18px;align-items:start;
@@ -309,7 +306,7 @@
 .htply-page .p3-tags{display:flex;flex-wrap:wrap;gap:6px}
 .htply-page .p3-tag{
   border:1px solid var(--line);border-radius:999px;padding:5px 8px;
-  font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:#6F5B50
+  font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:#525c6d
 }
 
 .htply-page .inside{
@@ -377,17 +374,17 @@
 }
 .htply-page .quality-item:before{
   content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;
-  background:linear-gradient(180deg, rgba(40,30,20,.35), rgba(40,30,20,.75));
+  background:linear-gradient(180deg, rgba(10,14,20,.04), rgba(10,14,20,.5));
 }
-.htply-page .quality-item span{font-size:12px;color:#E7CFBC;letter-spacing:.15em}
+.htply-page .quality-item span{font-size:12px;color:#c1cde2;letter-spacing:.15em}
 .htply-page .quality-item b{font-size:18px;letter-spacing:-.02em;line-height:1.25}
 .htply-page .quality-item small{color:rgba(255,248,240,.85)}
 
 .htply-page .factory{
   position:relative;border-radius:38px;overflow:hidden;min-height:620px;
   background:
-    linear-gradient(180deg,rgba(30,22,16,.5),rgba(18,13,9,.88)),
-    url('/images/sp5.jpg') center/cover no-repeat;
+    linear-gradient(180deg,rgba(10,14,20,.1),rgba(10,14,20,.55)),
+    url('/images/hm15.jpg') center/cover no-repeat;
   color:white;display:flex;flex-direction:column;justify-content:flex-end;
 }
 .htply-page .factory-gallery{
@@ -429,7 +426,7 @@
 }
 .htply-page .testimonials:before{
   content:"";position:absolute;inset:-40px;z-index:-1;
-  background:url('/images/Conty.jpg') center/cover no-repeat;
+  background:url('/images/hm2.jpg') center/cover no-repeat;
   transform:translateY(var(--parallax-y, 0px)) scale(1.08);
   will-change:transform;
 }
@@ -491,39 +488,39 @@
   position:relative;
   overflow:hidden;
   isolation:isolate;
-  margin-top:20px;padding:64px 0 32px;color:var(--paper);
+  margin-top:20px;padding:64px 0 32px;color:var(--coffee);
   border-radius:42px 42px 0 0;
 }
 .htply-page footer::before{
   content:""; position:absolute; inset:0; z-index:-2;
-  background:url('/images/nen.jpg') center/cover no-repeat;
+  background:url('/images/hm13.jpg') center/cover no-repeat;
 }
 .htply-page footer::after{
   content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(40,29,22,.88), rgba(40,29,22,.94));
+  background:linear-gradient(180deg, rgba(234,248,252,.78), rgba(174,224,240,.86));
 }
 .htply-page .footer-top{
   display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px;
-  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.14);
+  padding-bottom:40px;border-bottom:1px solid rgba(47,57,76,.18);
 }
 .htply-page .footer-brand .footer-big{
   font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:14px;
   display:flex;align-items:center;gap:10px;
 }
-.htply-page .footer-brand .footer-big img{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
-.htply-page .footer-brand p{color:rgba(255,248,240,.68);max-width:280px;font-size:14px;line-height:1.6}
+.htply-page .footer-brand .footer-big img{height:38px;width:auto;object-fit:contain}
+.htply-page .footer-brand p{color:var(--muted);max-width:280px;font-size:14px;line-height:1.6}
 .htply-page .footer-col b{
   display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;
-  color:#E7CFBC;margin-bottom:18px;
+  color:#000;margin-bottom:18px;
 }
 .htply-page .footer-col a{
-  display:block;color:rgba(255,248,240,.72);
+  display:block;color:var(--coffee);
   font-size:14px;padding:7px 0;transition:.2s ease;
 }
-.htply-page .footer-col a:hover{color:var(--paper);transform:translateX(3px)}
+.htply-page .footer-col a:hover{color:#000;transform:translateX(3px)}
 .htply-page .footer-row{
   display:flex;justify-content:space-between;gap:20px;align-items:center;
-  padding-top:24px;font-size:13px;color:rgba(255,248,240,.55);
+  padding-top:24px;font-size:13px;color:var(--muted);
 }
 
 .htply-page .reveal{
@@ -658,17 +655,17 @@
 .htply-page .stat-card:hover::before{ transform:scale(1.14); }
 .htply-page .stat-card::after{
   content:""; position:absolute; inset:0; z-index:-2;
-  background:linear-gradient(180deg, rgba(50,30,20,.12) 0%, rgba(50,30,20,.72) 100%);
+  background:linear-gradient(180deg, rgba(10,14,20,.02) 0%, rgba(10,14,20,.55) 100%);
 }
 .htply-page .stat-card .glass{
   position:absolute; inset:0; z-index:-1;
   background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
   backdrop-filter:blur(2px);
 }
-.htply-page .stat-card.factory::before{ background-image:url('/images/stat-factory.jpg'); }
-.htply-page .stat-card.production::before{ background-image:url('/images/stat-production.jpg'); }
-.htply-page .stat-card.supply::before{ background-image:url('/images/stat-supply.jpg'); }
-.htply-page .stat-card.markets::before{ background-image:url('/images/stat-markets.jpg'); }
+.htply-page .stat-card.factory::before{ background-image:url('/images/hm12.jpg'); }
+.htply-page .stat-card.production::before{ background-image:url('/images/hm10.jpg'); }
+.htply-page .stat-card.supply::before{ background-image:url('/images/hm14.jpg'); }
+.htply-page .stat-card.markets::before{ background-image:url('/images/hm15.jpg'); }
 .htply-page .stat-index{
   position:absolute; top:16px; left:18px;
   font-size:16px; font-weight:600; color:rgba(255,248,240,.5); letter-spacing:.04em;
@@ -707,7 +704,7 @@
 }
 .htply-page .locale-switcher button{
   border-color:rgba(83,62,50,.25);
-  color:rgba(83,62,50,.75);
+  color:rgba(52, 63, 81,.75);
 }
 .htply-page .locale-switcher button.active{
   background:rgba(83,62,50,.1);
@@ -816,11 +813,9 @@
   .htply-page .section-kicker{font-size:14px;letter-spacing:.08em}
 
   .htply-page .wordmark{min-height:180px;gap:3px}
-    .htply-page .wordmark-scale{gap:0}
+    .htply-page .wordmark-scale{gap:8px}
   .htply-page .wordmark-letter{
-    --h:clamp(100px,22vw,180px);
-    /* ảnh có ~19% viền trong suốt mỗi bên → cho chồng 15% để nét chữ sát lại, còn khe nhỏ */
-    margin-inline:calc(var(--h) * -0.15);
+    --h:clamp(70px,17vw,140px);
   }
 
   .htply-page .about-card{padding:28px}

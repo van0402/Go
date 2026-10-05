@@ -1,15 +1,15 @@
 .htply-about-page{
-  --cream:#F3EEE7;
-  --cream-2:#E8DDD1;
-  --paper:#FBF8F3;
-  --brown:#6E4F3E;
-  --brown-dark:#463229;
-  --copper:#A87852;
-  --copper-soft:#C29A78;
-  --text:#4C382E;
-  --muted:#7A665B;
-  --line:rgba(78,54,43,.14);
-  --white:#FFFDF9;
+  --cream:#F8FBFC;
+  --cream-2:#E6EEF2;
+  --paper:#FFFFFF;
+  --brown:#3F4A61;
+  --brown-dark:#233047;
+  --copper:#2E9DBE;
+  --copper-soft:#53C7E5;
+  --text:#2F394C;
+  --muted:#718095;
+  --line:rgba(47, 57, 76, .14);
+  --white:#FFFFFF;
 
 font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   color:var(--text);
@@ -104,7 +104,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 .htply-about-page .nav a{
   position:relative;
   padding:8px 0;
-  color:rgba(78,54,43,.78);
+  color:rgba(45, 56, 76,.78);
   font-size:14px;
   font-weight:600;
 }
@@ -189,7 +189,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
   padding:8px 12px;
   border-radius:999px;
   background:rgba(236,225,214,.66);
-  color:#5E4638;
+  color:#3a465c;
   font-size:11px;
   letter-spacing:.16em;
   font-weight:800;
@@ -237,7 +237,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 }
 
 .htply-about-page .section-kicker{
-  color:var(--copper);
+  color:#2F3B52;
   font-size:13px;
   text-transform:uppercase;
   letter-spacing:.15em;
@@ -245,6 +245,9 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
   margin-bottom:15px;
 }
 
+.htply-about-page .intro h2,
+.htply-about-page .story-copy h2,
+.htply-about-page .values h2{color:#2F3B52}
 .htply-about-page .intro h2,
 .htply-about-page .story-copy h2,
 .htply-about-page .values h2,
@@ -321,7 +324,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 .htply-about-page .metric:nth-child(4):before{ background-image:url('/images/stat-markets.jpg'); }
 
 .htply-about-page .metric small{
-  color:#E7CFBC;
+  color:#c1cde2;
   font-size:11px;
   letter-spacing:.12em;
   text-transform:uppercase;
@@ -464,15 +467,15 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 
 .htply-about-page .history::before{
   content:""; position:absolute; inset:0; z-index:-2;
-  background:url('/images/sp5.jpg') center/cover no-repeat;
+  background:url('/images/hm10.jpg') center/cover no-repeat;
 }
 
 .htply-about-page .history::after{
   content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(36,25,19,.82), rgba(36,25,19,.9));
+  background:linear-gradient(180deg, rgba(10,14,20,.42), rgba(10,14,20,.62));
 }
 
-.htply-about-page .history .section-kicker{color:#E1BA99}
+.htply-about-page .history .section-kicker{color:#9db4dd}
 
 .htply-about-page .history-head{
   margin-bottom:48px;
@@ -502,7 +505,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 .htply-about-page .history-year{
   font-size:clamp(24px,2.4vw,32px);
   font-weight:600;
-  color:#E1BA99;
+  color:#9db4dd;
   letter-spacing:-.02em;
 }
 
@@ -561,7 +564,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 .htply-about-page .mv-col:nth-child(1)::before{ background-image:url('/images/sp1.jpg'); }
 .htply-about-page .mv-col:nth-child(2)::before{ background-image:url('/images/bando.jpg'); }
 
-.htply-about-page .mv-col .section-kicker{color:#E1BA99}
+.htply-about-page .mv-col .section-kicker{color:#9db4dd}
 
 .htply-about-page .mv-col:first-child{
   border-right:1px solid rgba(255,255,255,.16);
@@ -658,7 +661,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 
 .htply-about-page .value-num{
   font-size:12px;
-  color:#f0c7a6;
+  color:#acc3ea;
   letter-spacing:.12em;
   font-weight:800;
 }
@@ -690,7 +693,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
   max-width:810px;
 }
 
-.htply-about-page .promise .section-kicker{color:#E1BA99}
+.htply-about-page .promise .section-kicker{color:#9db4dd}
 
 .htply-about-page .promise p{
   margin:22px 0 30px;
@@ -728,8 +731,8 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 /* FOOTER */
 .htply-about-page footer{
   padding:34px 0;
-  background:#3C2C24;
-  color:rgba(255,255,255,.72);
+  background:linear-gradient(180deg, rgba(234,248,252,.78), rgba(174,224,240,.86)), url('/images/hm13.jpg') center/cover no-repeat;
+  color:var(--text);
   font-size:13px;
 }
 
@@ -739,7 +742,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
   gap:20px;
   align-items:center;
 }
-.htply-about-page .footer-logo{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
+.htply-about-page .footer-logo{height:38px;width:auto;object-fit:contain}
 
 .htply-about-page .menu-toggle{display:none}
 
@@ -863,7 +866,7 @@ font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-s
 .htply-about-page .locale-switcher{display:flex;gap:4px}
 .htply-about-page .locale-switcher button{
   background:transparent;border:1px solid rgba(78,54,43,.25);
-  color:rgba(78,54,43,.75);padding:6px 10px;border-radius:8px;
+  color:rgba(45, 56, 76,.75);padding:6px 10px;border-radius:8px;
   font-size:12px;font-weight:700;cursor:pointer;
 }
 .htply-about-page .locale-switcher button.active{background:rgba(78,54,43,.1);color:var(--brown-dark)}

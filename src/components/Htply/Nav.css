@@ -49,7 +49,7 @@
 }
 
 .htply-nav-links a{
-  color:#533e32;
+  color:#343f51;
   opacity:.78;
   text-decoration:none;
 }
@@ -74,7 +74,7 @@
   border-radius:12px;
 
   background:rgba(83,62,50,.08);
-  color:#533e32;
+  color:#343f51;
 
   font-size:18px;
   cursor:pointer;
@@ -85,12 +85,12 @@
 
 .htply-nav-wrap .locale-switcher button{
   border-color:rgba(83,62,50,.25);
-  color:rgba(83,62,50,.75);
+  color:rgba(52, 63, 81,.75);
 }
 
 .htply-nav-wrap .locale-switcher button.active{
   background:rgba(83,62,50,.1);
-  color:#533e32;
+  color:#343f51;
 }
 
 

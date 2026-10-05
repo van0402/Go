@@ -1,12 +1,12 @@
 .htply-factory-page{
-  --cream:#F3EEE7;
-  --paper:#FBF8F3;
-  --brown:#6E4F3E;
-  --brown-dark:#463229;
-  --copper:#A87852;
-  --text:#4D382E;
-  --muted:#7B665A;
-  --line:rgba(77,56,46,.14);
+  --cream:#F8FBFC;
+  --paper:#FFFFFF;
+  --brown:#3F4A61;
+  --brown-dark:#233047;
+  --copper:#2E9DBE;
+  --text:#2F394C;
+  --muted:#718095;
+  --line:rgba(47, 57, 76, .14);
 
   overflow-x:clip;
   background:var(--cream);
@@ -86,7 +86,7 @@
   position:relative;
   display:block;
   padding:9px 0;
-  color:rgba(77,56,46,.75);
+  color:rgba(48, 58, 75,.75);
   text-decoration:none;
   font-size:13px;
   font-weight:600;
@@ -142,7 +142,7 @@
   place-items:center;
   border-radius:12px;
   background:#f5ede5;
-  color:#49352b;
+  color:#2d3648;
   text-decoration:none;
   font-size:18px;
 }
@@ -154,7 +154,7 @@
   border:0;
   border-radius:12px;
   background:#f5ede5;
-  color:#49352b;
+  color:#2d3648;
   font-size:20px;
   cursor:pointer;
 }
@@ -201,7 +201,7 @@
   padding:8px 12px;
   border-radius:999px;
   background:rgba(239,229,219,.76);
-  color:#604636;
+  color:#38465e;
   font-size:11px;
   font-weight:800;
   letter-spacing:.15em;
@@ -254,7 +254,7 @@
 .htply-factory-page .stat small{
   display:block;
   margin-bottom:10px;
-  color:#9a8274;
+  color:#768298;
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:.13em;
@@ -346,13 +346,13 @@
 }
 .htply-factory-page .production-flow::before{
   content:""; position:absolute; inset:0; z-index:-2;
-  background:url('/images/spp2.jpg') center/cover no-repeat;
+  background:url('/images/hm13.jpg') center/cover no-repeat;
 }
 .htply-factory-page .production-flow::after{
   content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(36,25,19,.86), rgba(36,25,19,.93));
+  background:linear-gradient(180deg, rgba(10,14,20,.34), rgba(10,14,20,.56));
 }
-.htply-factory-page .production-flow .section-kicker{color:#E1BA99}
+.htply-factory-page .production-flow .section-kicker{color:#9db4dd}
 
 .htply-factory-page .flow-head{
   display:grid;
@@ -382,7 +382,7 @@
 }
 
 .htply-factory-page .step-num{
-  color:#E1BA99;
+  color:#9db4dd;
   font-size:12px;
   font-weight:800;
   letter-spacing:.12em;
@@ -463,7 +463,7 @@
 .htply-factory-page .editorial-copy small{
   display:block;
   margin-bottom:10px;
-  color:#efc9a8;
+  color:#adc3ea;
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:.12em;
@@ -564,7 +564,7 @@
   position:absolute;
   inset:0;
   z-index:-2;
-  background:url('/images/sp4.jpg') center/cover no-repeat;
+  background:url('/images/hm13.jpg') center/cover no-repeat;
 }
 
 .htply-factory-page .quality-control::after{
@@ -572,7 +572,7 @@
   position:absolute;
   inset:0;
   z-index:-1;
-  background:linear-gradient(180deg, rgba(36,25,19,.88), rgba(36,25,19,.94));
+  background:linear-gradient(180deg, rgba(10,14,20,.26), rgba(10,14,20,.5));
 }
 
 .htply-factory-page .quality-head{
@@ -620,15 +620,15 @@
   background:linear-gradient(180deg, rgba(20,14,10,.3), rgba(20,14,10,.84));
 }
 
-.htply-factory-page .quality-card:nth-child(1)::before{ background-image:url('/images/g1.jpg'); }
-.htply-factory-page .quality-card:nth-child(2)::before{ background-image:url('/images/g2.jpg'); }
-.htply-factory-page .quality-card:nth-child(3)::before{ background-image:url('/images/g3.jpg'); }
-.htply-factory-page .quality-card:nth-child(4)::before{ background-image:url('/images/g5.jpg'); }
+.htply-factory-page .quality-card:nth-child(1)::before{ background-image:url('/images/hm8.jpg'); }
+.htply-factory-page .quality-card:nth-child(2)::before{ background-image:url('/images/hm10.jpg'); }
+.htply-factory-page .quality-card:nth-child(3)::before{ background-image:url('/images/hm11.jpg'); }
+.htply-factory-page .quality-card:nth-child(4)::before{ background-image:url('/images/hm12.jpg'); }
 
 .htply-factory-page .quality-card small{
   display:block;
   margin-bottom:22px;
-  color:#e8b990;
+  color:#94b1e4;
   font-size:10px;
   text-transform:uppercase;
   letter-spacing:.12em;
@@ -663,7 +663,7 @@
   position:absolute;
   inset:0;
   z-index:-2;
-  background:url('/images/lantaikayu-biz-floor-6990002_1920.jpg') center/cover no-repeat;
+  background:url('/images/hm7.jpg') center/cover no-repeat;
 }
 
 .htply-factory-page .supply-capacity::after{
@@ -671,11 +671,11 @@
   position:absolute;
   inset:0;
   z-index:-1;
-  background:linear-gradient(90deg, rgba(30,20,15,.93), rgba(30,20,15,.72) 55%, rgba(30,20,15,.4));
+  background:linear-gradient(90deg, rgba(10,14,20,.78), rgba(10,14,20,.5) 55%, rgba(10,14,20,.16));
 }
 
 .htply-factory-page .supply-capacity .section-kicker{
-  color:#efc9a8;
+  color:#adc3ea;
 }
 
 .htply-factory-page .supply-grid{
@@ -740,14 +740,14 @@
   background:
     linear-gradient(
       90deg,
-      rgba(63,46,37,.93),
-      rgba(86,61,47,.75)
+      rgba(10,14,20,.6),
+      rgba(10,14,20,.16)
     ),
-    url('/images/sp3.jpg') center/cover;
+    url('/images/hm3.jpg') center/cover;
 }
 
 .htply-factory-page .factory-cta-box .section-kicker{
-  color:#efc9a8;
+  color:#adc3ea;
 }
 
 .htply-factory-page .factory-cta-box h2{
@@ -782,7 +782,7 @@
 
 .htply-factory-page .btn-light{
   background:#F6EEE7;
-  color:#4A352C;
+  color:#2e3749;
 }
 
 .htply-factory-page .btn-ghost{
@@ -798,39 +798,39 @@
   isolation:isolate;
   margin-top:20px;
   padding:64px 0 32px;
-  color:var(--paper);
+  color:var(--text);
   border-radius:42px 42px 0 0;
 }
 .htply-factory-page footer::before{
   content:""; position:absolute; inset:0; z-index:-2;
-  background:url('/images/nen.jpg') center/cover no-repeat;
+  background:url('/images/hm13.jpg') center/cover no-repeat;
 }
 .htply-factory-page footer::after{
   content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(40,29,22,.88), rgba(40,29,22,.94));
+  background:linear-gradient(180deg, rgba(234,248,252,.78), rgba(174,224,240,.86));
 }
 .htply-factory-page .footer-top{
   display:grid;
   grid-template-columns:1.4fr repeat(3,1fr);
   gap:30px;
   padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,.14);
+  border-bottom:1px solid rgba(47,57,76,.18);
 }
 .htply-factory-page .footer-brand .footer-big{
   font-size:26px;font-weight:800;letter-spacing:-.04em;margin-bottom:14px;
   display:flex;align-items:center;gap:10px;
 }
-.htply-factory-page .footer-brand .footer-big img{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
-.htply-factory-page .footer-brand p{color:rgba(255,248,240,.68);max-width:280px;font-size:14px;line-height:1.6}
+.htply-factory-page .footer-brand .footer-big img{height:38px;width:auto;object-fit:contain}
+.htply-factory-page .footer-brand p{color:var(--muted);max-width:280px;font-size:14px;line-height:1.6}
 .htply-factory-page .footer-col b{
   display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;
-  color:#E7CFBC;margin-bottom:18px;
+  color:#000;margin-bottom:18px;
 }
 .htply-factory-page .footer-col a{
-  display:block;color:rgba(255,248,240,.72);
+  display:block;color:var(--text);
   font-size:14px;padding:7px 0;transition:.2s ease;
 }
-.htply-factory-page .footer-col a:hover{color:var(--paper);transform:translateX(3px)}
+.htply-factory-page .footer-col a:hover{color:#000;transform:translateX(3px)}
 .htply-factory-page .footer-row{
   display:flex;
   justify-content:space-between;
@@ -838,7 +838,7 @@
   align-items:center;
   padding-top:24px;
   font-size:13px;
-  color:rgba(255,248,240,.55);
+  color:var(--muted);
 }
 
 /* TABLET */
@@ -976,7 +976,7 @@
 .htply-factory-page .locale-switcher{display:flex;gap:4px}
 .htply-factory-page .locale-switcher button{
   background:transparent;border:1px solid rgba(77,56,46,.25);
-  color:rgba(77,56,46,.75);padding:6px 10px;border-radius:8px;
+  color:rgba(48, 58, 75,.75);padding:6px 10px;border-radius:8px;
   font-size:12px;font-weight:700;cursor:pointer;
 }
 .htply-factory-page .locale-switcher button.active{background:rgba(77,56,46,.1);color:var(--brown-dark)}
@@ -990,3 +990,8 @@
 @media(max-width:420px){
   .htply-factory-page .locale-switcher button{padding:5px 7px;font-size:11px}
 }
+.htply-factory-page .factory-overview .section-kicker,
+.htply-factory-page .inside-factory .section-kicker,
+.htply-factory-page .safety-section .section-kicker{color:#2F3B52}
+.htply-factory-page .overview-grid h2,
+.htply-factory-page .safety-head h2{color:#2F3B52}
