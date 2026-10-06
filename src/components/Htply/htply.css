@@ -153,7 +153,7 @@
   width:85%; max-width:900px; aspect-ratio:2.2/1;
   transform:translate(-50%,-50%);
   border-radius:50%;
-  background:radial-gradient(ellipse, rgba(221,200,179,.55), rgba(221,200,179,0) 70%);
+  background:none; display:none;
   filter:blur(10px);
   z-index:0;
 }
@@ -167,7 +167,7 @@
   height:100%; width:auto; display:block;
   animation:htply-letter-float 5s ease-in-out infinite;
   animation-delay:var(--delay, 0s);
-  filter:drop-shadow(0 14px 10px rgba(40,25,15,.28));
+  filter:drop-shadow(0 0 1.5px rgba(255,255,255,.95)) drop-shadow(0 0 3px rgba(255,255,255,.7)) drop-shadow(0 16px 12px rgba(10,20,35,.35));
 }
 @keyframes htply-letter-float{
   0%,100%{transform:translateY(0)}
@@ -604,13 +604,7 @@
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(
-  90deg,
-  rgba(59, 44, 36, 0.74) 0%,
-  rgba(62, 45, 36, 0.5) 42%,
-  rgba(31, 25, 21, 0.28) 72%,
-  rgba(31, 25, 21, 0.13) 100%
-);
+  background: linear-gradient(90deg, rgba(10, 14, 20, 0.32) 0%, rgba(10, 14, 20, 0.18) 45%, rgba(10, 14, 20, 0.06) 100%);
 
   z-index: 1;
 }
@@ -813,7 +807,7 @@
   .htply-page .section-kicker{font-size:14px;letter-spacing:.08em}
 
   .htply-page .wordmark{min-height:180px;gap:3px}
-    .htply-page .wordmark-scale{gap:8px}
+    .htply-page .wordmark-scale{gap:clamp(2px,1.2vw,8px)}
   .htply-page .wordmark-letter{
     --h:clamp(70px,17vw,140px);
   }
