@@ -8,7 +8,7 @@ import { Link } from '@/i18n/routing'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import './htply-about.css'
 import { Nav } from '@/components/Htply/Nav'
-
+import { SiteFooter } from '@/components/Htply/SiteFooter'
 export function HtplyAbout() {
   const [menuOpen, setMenuOpen] = useState(false)
   const heroParallaxRef = useParallax<HTMLElement>(0.12, 36)
@@ -167,31 +167,9 @@ export function HtplyAbout() {
           </div>
         </section>
 
-        <section className="promise">
-          <div className="container">
-            <div className="promise-inner reveal">
-              <div className="section-kicker">06 · Our promise</div>
-              <h2>Reliability, built into every sheet.</h2>
-              <p>{tp('promise.text')}</p>
-              <div className="promise-actions">
-                <Link className="promise-btn primary" href="/#products">
-                  Explore Products ↗
-                </Link>
-                <Link className="promise-btn secondary" href="/#factory">
-                  Visit Our Factory
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
-      <footer>
-        <div className="container footer-row">
-          <img src="/images/logoo.png" alt="HTPLY Vietnam" className="footer-logo" />
-          <div>Industrial Plywood · Vietnam → Global</div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

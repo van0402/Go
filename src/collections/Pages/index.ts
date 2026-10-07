@@ -20,6 +20,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { hiddenInAdmin } from '@/access/hiddenInAdmin'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -37,6 +38,8 @@ export const Pages: CollectionConfig<'pages'> = {
     slug: true,
   },
   admin: {
+    group: 'Content',
+    hidden: hiddenInAdmin,
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>

@@ -1,0 +1,40 @@
+.site-footer{
+  position:relative;overflow:hidden;isolation:isolate;
+  margin-top:20px;padding:64px 0 32px;color:#fff;
+  border-radius:42px 42px 0 0;
+}
+.site-footer::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:url('/images/hm13.jpg') center/cover no-repeat;
+}
+.site-footer::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(59,69,89,.96), rgba(44,52,68,.98));
+}
+.site-footer-inner{width:min(1500px, calc(100% - 80px));margin:0 auto}
+.site-footer .footer-top{
+  display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:30px;
+  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.14);
+}
+.site-footer .footer-big{margin-bottom:14px;display:flex;align-items:center}
+.site-footer .footer-big img{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
+.site-footer .footer-brand p{color:rgba(255,255,255,.62);max-width:280px;font-size:14px;line-height:1.6}
+.site-footer .footer-col b{
+  display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;
+  color:#59CBE8;margin-bottom:18px;
+}
+.site-footer .footer-col a{display:block;color:rgba(255,255,255,.72);font-size:14px;padding:7px 0;transition:.2s ease}
+.site-footer .footer-col a:hover{color:#fff;transform:translateX(3px)}
+.site-footer .footer-row{
+  display:flex;justify-content:space-between;gap:20px;align-items:center;
+  padding-top:24px;font-size:13px;color:rgba(255,255,255,.5);
+}
+@media(max-width:900px){
+  .site-footer .footer-top{grid-template-columns:1fr 1fr;gap:30px 20px}
+}
+@media(max-width:620px){
+  .site-footer-inner{width:calc(100% - 24px)}
+  .site-footer .footer-top{grid-template-columns:1fr}
+  .site-footer .footer-row{display:block}
+  .site-footer .footer-row > *{margin-bottom:8px}
+}

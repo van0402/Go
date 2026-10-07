@@ -5,7 +5,9 @@
     "products": "Products",
     "factory": "Factory",
     "quality": "Quality",
-    "requestQuote": "Request a Quote"
+    "requestQuote": "Request a Quote",
+    "contact": "Contact",
+    "news": "News"
   },
   "home": {
     "heroTitle": "Plywood Supplier with EU's Standards",
@@ -62,17 +64,8 @@
         { "value": "30 days", "label": "Average delivery time" }
       ]
     },
-    "testimonials": {
-      "kicker": "05 · Customer Reviews",
-      "title": "Trusted by large-scale importing partners.",
-      "items": [
-        { "quote": "Consistent board quality across every batch, clear export documentation and on-time containers every month." },
-        { "quote": "Responsive team, transparent specifications — it helps us plan imports for the whole construction season." },
-        { "quote": "Anti-slip boards meet the exact load requirements for trailers, with strict quality control before container loading." }
-      ]
-    },
     "faq": {
-      "kicker": "06 · FAQ",
+      "kicker": "05 · FAQ",
       "title": "Your questions, answered.",
       "items": [
         { "q": "What is the minimum order quantity (MOQ)?", "a": "The standard MOQ is one 20ft/40ft container per order. For smaller orders, please contact us directly to discuss consolidation options." },
@@ -83,7 +76,7 @@
       ]
     },
     "qc": {
-      "kicker": "07 · Quality Inspection",
+      "kicker": "06 · Quality Inspection",
       "title": "Finished product inspection.",
       "desc": "Every board is inspected directly at the factory before packaging, ensuring surface, dimensions and quality meet standards before leaving the warehouse.",
       "imageAlt": "Finished product inspection at the factory"
@@ -210,5 +203,145 @@
       { "desc": "Structural plywood for applications requiring high stiffness and stability." },
       { "desc": "An industrial packaging solution for crates, cases and export goods." }
     ]
-  }
+  },
+
+  "contactPage": {
+    "eyebrow": "Contact · Request a quote",
+    "heroTitle": "Let’s build a reliable supply plan.",
+    "heroText": "Tell us what you need, from product type and volume to target market. Our export team will review your requirements and respond within 24 hours.",
+    "badges": [
+      "B2B plywood supplier",
+      "Europe & Middle East",
+      "Custom specifications",
+      "24h response"
+    ],
+    "heroCardTitle": "From Vietnam to global markets.",
+    "heroCardText": "Reliable supply. Clear specifications. Export-ready documentation.",
+    "asideKicker": "HTPLY Vietnam",
+    "asideTitle": "Talk to our export team.",
+    "asideText": "We work with importers, distributors, contractors and industrial buyers who need stable product quality and predictable supply.",
+    "trust": [
+      {
+        "title": "International B2B focus",
+        "desc": "Built around export-oriented requirements."
+      },
+      {
+        "title": "Custom specifications",
+        "desc": "Thickness, dimensions, core and surface can be discussed."
+      },
+      {
+        "title": "Export documentation",
+        "desc": "Support for quality records and shipment documents."
+      },
+      {
+        "title": "Fast response",
+        "desc": "Typical initial reply within 24 hours."
+      }
+    ],
+    "quickKicker": "Need a faster response?",
+    "quickText": "Contact our team directly if your requirement is urgent or highly technical.",
+    "whatsapp": "WhatsApp",
+    "emailUs": "Email us",
+    "formTitle": "Request a quote",
+    "formSubtitle": "Tell us about your project and requirements.",
+    "required": "* Required fields",
+    "groupContact": "Contact information",
+    "groupProduct": "Product requirements",
+    "labels": {
+      "fullName": "Full name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone / WhatsApp",
+      "country": "Country",
+      "targetMarket": "Target market",
+      "product": "Product of interest",
+      "quantity": "Estimated quantity",
+      "incoterm": "Preferred Incoterm",
+      "timing": "Expected order timing",
+      "message": "Your requirements"
+    },
+    "placeholders": {
+      "fullName": "Your full name",
+      "company": "Company name",
+      "email": "name@company.com",
+      "phone": "+84 ...",
+      "country": "Country / region",
+      "targetMarket": "EU, Middle East, other...",
+      "message": "Please include thickness, dimensions, core material, glue type, surface, packaging, target market or any technical requirements..."
+    },
+    "choose": "Select...",
+    "productOptions": [
+      "Film Faced Plywood",
+      "Anti-Slip Plywood",
+      "Raw Plywood",
+      "LVL",
+      "Other"
+    ],
+    "quantityOptions": [
+      "Less than 1 container",
+      "1 – 3 containers",
+      "3 – 10 containers",
+      "More than 10 containers"
+    ],
+    "incotermOptions": [
+      "FOB",
+      "CIF",
+      "CFR",
+      "EXW"
+    ],
+    "timingOptions": [
+      "As soon as possible",
+      "Within 30 days",
+      "Within 60 days",
+      "Planning stage"
+    ],
+    "privacy": "By submitting this form, you agree that HTPLY may contact you regarding your request. Your information is used only for quotation and business communication.",
+    "submit": "SEND REQUEST →",
+    "sending": "SENDING...",
+    "success": "Thank you! We have received your request and will reply within 24 hours.",
+    "error": "Something went wrong. Please try again or email info@htplywood.net.",
+    "processEyebrow": "What happens next?",
+    "processTitle": "A clear B2B quotation process.",
+    "processText": "From your first message to a confirmed quotation, here is how we work.",
+    "steps": [
+      {
+        "tag": "01 · REVIEW",
+        "title": "We review your request",
+        "desc": "Our team checks product type, volume, technical requirements and target market."
+      },
+      {
+        "tag": "02 · CONFIRM",
+        "title": "We confirm specifications",
+        "desc": "If needed, we clarify thickness, core, glue, surface, packaging and shipping terms."
+      },
+      {
+        "tag": "03 · QUOTE",
+        "title": "You receive quotation & lead time",
+        "desc": "We return pricing, commercial terms and an estimated production or delivery schedule."
+      }
+    ],
+    "ctaText": "Talk directly with our export team before submitting a formal request.",
+    "ctaButton": "CONTACT EXPORT TEAM"
+  },
+  "newsPage": {
+  "eyebrow": "News & insights",
+  "title": "News from HTPLY",
+  "subtitle": "Updates on products, production and the Vietnamese supply chain.",
+  "searchPlaceholder": "Search articles...",
+  "searchButton": "Search",
+  "all": "All",
+  "featured": "Editor's pick",
+  "readMore": "Read more",
+  "empty": "No articles yet. Please check back soon.",
+  "noResults": "No articles match your search."
+},
+"newsPost": {
+  "back": "Back to News",
+  "share": "Share this article",
+  "ctaTitle": "Need a plywood quote?",
+  "ctaText": "Tell us your product, quantity and target market. We reply within one business day.",
+  "ctaButton": "Request a Quote",
+  "related": "Related articles",
+  "copyLink": "Copy link"
+}
 }

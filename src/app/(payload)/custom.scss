@@ -1,0 +1,153 @@
+:root,
+[data-theme='light'] {
+  --font-body: var(--font-be-vietnam-pro), Inter, Arial, sans-serif;
+  --theme-bg: #F5F8FA;
+  --theme-text: #344158;
+  --theme-input-bg: #FFFFFF;
+  --style-radius-s: 8px;
+  --style-radius-m: 12px;
+  --style-radius-l: 16px;
+  --theme-elevation-50:  #FBFCFD;
+  --theme-elevation-100: #F0F4F7;
+  --theme-elevation-150: #DCE7EE;
+  --theme-elevation-800: #344158;
+  --theme-elevation-1000: #233047;
+}
+
+/* menu bên trái màu navy */
+.nav { background: linear-gradient(180deg, #233047, #29384F); }
+.nav__link,
+.nav-group__toggle,
+.nav__label { color: rgba(255, 255, 255, 0.78); }
+.nav__link:hover,
+.nav__link--active { color: #fff; background: rgba(83, 199, 229, 0.15); border-radius: 10px; }
+.nav-group__toggle:hover { color: #fff; }
+.nav__link-indicator { background: #53C7E5; }
+
+/* nút chính màu navy, hover cyan */
+.btn--style-primary { background: #233047; border-color: #233047; color: #fff; }
+.btn--style-primary:hover { background: #53C7E5; border-color: #53C7E5; color: #233047; }
+
+/* nút "View Website" */
+.htply-view-site {
+  font-size: 12px; font-weight: 800; padding: 9px 13px; border-radius: 10px;
+  border: 1px solid #DCE7EE; background: #fff; color: #344158; text-decoration: none;
+}
+
+/* nhãn trạng thái (bước 4) */
+.htply-badge { display: inline-block; padding: 5px 9px; border-radius: 999px; font-size: 10px; font-weight: 900; letter-spacing: .5px; text-transform: uppercase; }
+.htply-badge--new { background: #EAF8FC; color: #2E8EAE; }
+.htply-badge--contacted { background: #FFF5E5; color: #D89A32; }
+.htply-badge--closed { background: #EEF2F5; color: #6F7B8A; }
+
+/* dashboard (bước 5) */
+.htply-dash { display: grid; gap: 18px; margin-bottom: 28px; }
+.htply-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.htply-metric { background: #fff; border: 1px solid #DCE7EE; border-radius: 16px; padding: 18px; border-top: 3px solid #53C7E5; }
+.htply-metric small { color: #7A8798; font-weight: 800; font-size: 10px; letter-spacing: 1px; }
+.htply-metric strong { display: block; font-size: 28px; color: #233047; margin: 8px 0 2px; }
+.htply-metric span { font-size: 11px; color: #8492A2; }
+.htply-dash-grid { display: grid; grid-template-columns: 1.6fr .8fr; gap: 18px; }
+.htply-card { background: #fff; border: 1px solid #DCE7EE; border-radius: 16px; overflow: hidden; }
+.htply-card h3 { margin: 0; padding: 16px 18px; border-bottom: 1px solid #DCE7EE; font-size: 15px; color: #233047; }
+.htply-card table { width: 100%; border-collapse: collapse; }
+.htply-card th, .htply-card td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #EDF2F5; font-size: 12px; }
+.htply-card th { font-size: 10px; color: #7C8999; text-transform: uppercase; background: #FBFCFD; }
+.htply-quick { padding: 16px; display: grid; gap: 10px; }
+.htply-quick a { padding: 12px; border: 1px solid #DCE7EE; border-radius: 10px; background: #FBFDFE; color: #233047; text-decoration: none; font-size: 12px; font-weight: 800; }
+.htply-quick a:hover { border-color: #53C7E5; background: #EAF8FC; }
+@media (max-width: 1000px) { .htply-metrics { grid-template-columns: repeat(2, 1fr); } .htply-dash-grid { grid-template-columns: 1fr; } }
+
+/* ===== Trang chi tiết khách (Inquiries) ===== */
+/* thẻ tiêu đề trên cùng */
+.htply-inq-head {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  background: #fff; border: 1px solid #DCE7EE; border-radius: 16px;
+  padding: 22px 26px; margin-bottom: 18px;
+}
+.htply-inq-head h2 { margin: 0; font-size: 26px; color: #233047; }
+.htply-inq-head p { margin: 6px 0 0; font-size: 12px; color: #7A8798; }
+
+/* mỗi nhóm gập thành một thẻ trắng bo góc */
+.document-fields__main .collapsible {
+  background: #fff; border: 1px solid #DCE7EE; border-radius: 16px; margin-bottom: 18px;
+}
+.document-fields__main .collapsible__toggle-wrap { padding: 8px 12px; }
+.document-fields__main .collapsible__content { padding: 0 20px 20px; }
+
+/* nhãn ô nhỏ, in hoa */
+.document-fields__main .field-label {
+  font-size: 10px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; color: #6E7B8C;
+}
+
+/* khung Summary ở cột phải */
+.htply-inq-summary {
+  background: #fff; border: 1px solid #DCE7EE; border-radius: 16px; padding: 18px;
+}
+.htply-inq-summary h3 { margin: 0 0 12px; font-size: 15px; color: #233047; }
+.htply-inq-summary div {
+  display: flex; justify-content: space-between; gap: 12px; padding: 9px 0;
+  border-bottom: 1px solid #EDF2F5; font-size: 12px;
+}
+.htply-inq-summary div:last-child { border-bottom: 0; }
+.htply-inq-summary span { color: #7A8798; }
+.htply-inq-summary b { color: #233047; text-align: right; }
+
+.htply-translate{border:1px solid var(--theme-elevation-150);border-radius:10px;padding:12px;margin-bottom:16px}
+.htply-translate b{display:block;margin-bottom:4px}
+.htply-translate p{margin:4px 0 10px;font-size:13px;color:var(--theme-elevation-600)}
+.htply-translate .htply-translate-err{color:#c0392b}
+
+/* Khung soạn thảo nội dung (Posts → Content) — viền rõ, vùng gõ cao, dễ nhận biết */
+.rich-text-lexical__wrap .fixed-toolbar {
+  background: #F5F8FA;
+  border: 1px solid #C9D8E2;
+  border-radius: 12px 12px 0 0;
+  padding: 6px 8px;
+}
+.rich-text-lexical__wrap .editor-container {
+  background: #fff;
+  border: 1px solid #C9D8E2;
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+  min-height: 360px;
+  cursor: text;
+  box-shadow: 0 1px 2px rgba(35, 48, 71, 0.04);
+}
+.rich-text-lexical__wrap .editor-container:focus-within {
+  border-color: #53C7E5;
+  box-shadow: 0 0 0 3px rgba(83, 199, 229, 0.18);
+}
+.rich-text-lexical__wrap .editor-container .editor-scroller,
+.rich-text-lexical__wrap .editor-container .editor {
+  min-height: 360px;
+}
+.rich-text-lexical__wrap .editor-container .ContentEditable__root {
+  min-height: 360px;
+  padding: 22px 26px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #233047;
+  outline: none;
+}
+.rich-text-lexical__wrap .editor-container .LexicalEditorTheme__placeholder {
+  top: 22px;
+  left: 26px;
+  font-size: 16px;
+  color: #8492A2;
+  pointer-events: none;
+}
+.rich-text-lexical__wrap .editor-container .ContentEditable__root table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 12px 0;
+}
+.rich-text-lexical__wrap .editor-container .ContentEditable__root th,
+.rich-text-lexical__wrap .editor-container .ContentEditable__root td {
+  border: 1px solid #C9D8E2;
+  padding: 8px 10px;
+  min-width: 60px;
+}
+.rich-text-lexical__wrap .editor-container .ContentEditable__root th {
+  background: #F0F4F7;
+}

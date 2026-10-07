@@ -1,7 +1,10 @@
+import './SiteFooter.css'
+import { Link } from '@/i18n/routing'
+
 export function SiteFooter() {
   return (
-    <footer>
-      <div className="container">
+    <footer className="site-footer">
+     < div className="site-footer-inner">
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-big">
@@ -14,17 +17,19 @@ export function SiteFooter() {
           </div>
           <div className="footer-col">
             <b>Company</b>
-            <a href="#about">About</a>
-            <a href="#process">Production</a>
-            <a href="#quality">Quality</a>
+            <Link href="/about">About</Link>
+            <Link href="/factory">Factory</Link>
+            <Link href="/#quality">Quality</Link>
+            <Link href="/products">Products</Link>
+            <Link href="/news">News</Link>
           </div>
           <div className="footer-col">
             <b>Products</b>
-            <a href="#products">Film Faced Plywood</a>
-            <a href="#products">Anti-Slip Plywood</a>
-            <a href="#products">Raw Plywood</a>
-            <a href="#products">LVL</a>
-            <a href="#quote">Request a Quote</a>
+            <Link href="/products">Film Faced Plywood</Link>
+            <Link href="/products">Anti-Slip Plywood</Link>
+            <Link href="/products">Raw Plywood</Link>
+            <Link href="/products">LVL</Link>
+            <Link href="/contact">Request a Quote</Link>
           </div>
           <div className="footer-col">
             <b>Contact</b>

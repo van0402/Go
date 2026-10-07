@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { CountUp } from './CountUp'
 
+
 const VALUE_ICONS = [
   '/images/icon-resistance.png',
   '/images/icon-recyclable.png',

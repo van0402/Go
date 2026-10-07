@@ -46,8 +46,12 @@ export function Nav() {
               {t('factory')}
             </Link>
 
-            <Link href="/#quality" onClick={() => setOpen(false)}>
-              {t('quality')}
+            <Link href="/news" onClick={() => setOpen(false)}>
+              {t('news')}
+            </Link>
+
+            <Link href="/contact" onClick={() => setOpen(false)}>
+              {t('contact')}
             </Link>
 
           </div>

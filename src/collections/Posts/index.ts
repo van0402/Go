@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import {
   BlocksFeature,
+  EXPERIMENTAL_TableFeature,
   FixedToolbarFeature,
   HeadingFeature,
   HorizontalRuleFeature,
@@ -15,9 +16,9 @@ import { Banner } from '../../blocks/Banner/config'
 import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
+import { translateLexical, translateTexts } from '../../utilities/translate'
 import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
-
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -48,6 +49,7 @@ export const Posts: CollectionConfig<'posts'> = {
     },
   },
   admin: {
+    group: 'Content',
     defaultColumns: ['title', 'slug', 'updatedAt'],
     livePreview: {
       url: ({ data, req }) =>
@@ -65,12 +67,78 @@ export const Posts: CollectionConfig<'posts'> = {
       }),
     useAsTitle: 'title',
   },
+  endpoints: [
+    {
+      // POST /api/posts/:id/translate — dịch bài tiếng Anh sang FR + ES bằng DeepL (lưu thành bản nháp)
+      path: '/:id/translate',
+      method: 'post',
+      handler: async (req) => {
+        if (!req.user) return Response.json({ error: 'Unauthorized' }, { status: 401 })
+        const id = req.routeParams?.id as string | undefined
+        if (!id) return Response.json({ error: 'Missing id' }, { status: 400 })
+        if (!process.env.DEEPL_API_KEY) {
+          return Response.json({ error: 'DEEPL_API_KEY is not set on the server' }, { status: 500 })
+        }
+
+        try {
+          const en = await req.payload.findByID({
+            collection: 'posts',
+            id,
+            locale: 'en',
+            draft: true,
+            depth: 0,
+            req,
+          })
+
+          for (const target of ['fr', 'es'] as const) {
+            const upper = target.toUpperCase() as 'FR' | 'ES'
+            const [title, excerpt] = await translateTexts(
+              [en.title || '', (en as { excerpt?: string }).excerpt || ''],
+              upper,
+            )
+            const content = en.content ? await translateLexical(en.content, upper) : en.content
+
+            await req.payload.update({
+              collection: 'posts',
+              id,
+              locale: target,
+              draft: true,
+              // generateSlug:false — slug dùng chung mọi ngôn ngữ, không để bản dịch ghi đè slug tiếng Anh
+              data: { title, excerpt, content, generateSlug: false },
+              req,
+            })
+          }
+          return Response.json({ ok: true })
+        } catch (err) {
+          return Response.json(
+            { error: err instanceof Error ? err.message : 'Translation failed' },
+            { status: 500 },
+          )
+        }
+      },
+    },
+  ],
   fields: [
     {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
+    {
+      name: 'translateButton',
+      type: 'ui',
+      admin: {
+        position: 'sidebar',
+        components: { Field: '@/components/admin/TranslateButton' },
+      },
+    },
+    {
+  name: 'excerpt',
+  type: 'textarea',
+  localized: true,
+  admin: { description: 'Short summary shown on news cards (1–2 sentences).' },
+},
     {
       type: 'tabs',
       tabs: [
@@ -84,6 +152,7 @@ export const Posts: CollectionConfig<'posts'> = {
             {
               name: 'content',
               type: 'richText',
+              localized: true,
               editor: lexicalEditor({
                 features: ({ rootFeatures }) => {
                   return [
@@ -93,6 +162,7 @@ export const Posts: CollectionConfig<'posts'> = {
                     FixedToolbarFeature(),
                     InlineToolbarFeature(),
                     HorizontalRuleFeature(),
+                    EXPERIMENTAL_TableFeature(),
                   ]
                 },
               }),
@@ -181,6 +251,15 @@ export const Posts: CollectionConfig<'posts'> = {
         ],
       },
     },
+    {
+  name: 'featured',
+  type: 'checkbox',
+  defaultValue: false,
+  admin: {
+    position: 'sidebar',
+    description: 'Show as Editor’s pick on the News page.',
+  },
+},
     {
       name: 'authors',
       type: 'relationship',

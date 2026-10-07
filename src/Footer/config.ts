@@ -2,9 +2,14 @@ import type { GlobalConfig } from 'payload'
 
 import { link } from '@/fields/link'
 import { revalidateFooter } from './hooks/revalidateFooter'
+import { hiddenInAdmin } from '@/access/hiddenInAdmin'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
+  admin: {
+    group: 'Settings',
+    hidden: hiddenInAdmin,
+  },
   access: {
     read: () => true,
   },

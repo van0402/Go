@@ -5,7 +5,9 @@
     "products": "Produits",
     "factory": "Usine",
     "quality": "Qualité",
-    "requestQuote": "Demander un devis"
+    "requestQuote": "Demander un devis",
+    "contact": "Contact",
+    "news": "Actualités"
   },
   "home": {
     "heroTitle": "Fournisseur de contreplaqué aux normes européennes",
@@ -62,17 +64,8 @@
         { "value": "30 jours", "label": "Délai de livraison moyen" }
       ]
     },
-    "testimonials": {
-      "kicker": "05 · Avis clients",
-      "title": "La confiance de grands partenaires importateurs.",
-      "items": [
-        { "quote": "Qualité constante des panneaux à chaque lot, documentation d'export claire et conteneurs livrés à temps chaque mois." },
-        { "quote": "Équipe réactive, spécifications techniques transparentes — cela nous aide à planifier nos importations pour toute la saison de construction." },
-        { "quote": "Les panneaux antidérapants répondent exactement aux exigences de charge pour les remorques, avec un contrôle qualité strict avant la mise en conteneur." }
-      ]
-    },
     "faq": {
-      "kicker": "06 · FAQ",
+      "kicker": "05 · FAQ",
       "title": "Vos questions, nos réponses.",
       "items": [
         { "q": "Quelle est la quantité minimale de commande (MOQ) ?", "a": "Le MOQ standard est d'un conteneur de 20 ou 40 pieds par commande. Pour des commandes plus petites, veuillez nous contacter directement pour discuter d'un groupage." },
@@ -83,7 +76,7 @@
       ]
     },
     "qc": {
-      "kicker": "07 · Contrôle qualité",
+      "kicker": "06 · Contrôle qualité",
       "title": "Contrôle des produits finis.",
       "desc": "Chaque panneau est inspecté directement à l'usine avant l'emballage, garantissant que la surface, les dimensions et la qualité respectent les normes avant la sortie d'entrepôt.",
       "imageAlt": "Contrôle des produits finis à l'usine"
@@ -212,5 +205,145 @@
       { "desc": "Contreplaqué structurel destiné aux applications nécessitant rigidité et stabilité élevées." },
       { "desc": "Une solution d'emballage industriel pour caisses, cagettes et marchandises d'exportation." }
     ]
-  }
+  },
+
+  "contactPage": {
+    "eyebrow": "Contact · Demande de devis",
+    "heroTitle": "Construisons un plan d’approvisionnement fiable.",
+    "heroText": "Dites-nous ce dont vous avez besoin : type de produit, volume et marché cible. Notre équipe export étudiera votre demande et répondra sous 24 heures.",
+    "badges": [
+      "Fournisseur B2B de contreplaqué",
+      "Europe et Moyen-Orient",
+      "Spécifications sur mesure",
+      "Réponse sous 24 h"
+    ],
+    "heroCardTitle": "Du Vietnam vers les marchés mondiaux.",
+    "heroCardText": "Approvisionnement fiable. Spécifications claires. Documents prêts pour l’export.",
+    "asideKicker": "HTPLY Vietnam",
+    "asideTitle": "Parlez à notre équipe export.",
+    "asideText": "Nous travaillons avec des importateurs, distributeurs, entrepreneurs et acheteurs industriels qui recherchent une qualité stable et un approvisionnement prévisible.",
+    "trust": [
+      {
+        "title": "Orientation B2B internationale",
+        "desc": "Conçu pour les exigences de l’export."
+      },
+      {
+        "title": "Spécifications sur mesure",
+        "desc": "Épaisseur, dimensions, âme et surface peuvent être discutées."
+      },
+      {
+        "title": "Documents d’export",
+        "desc": "Support pour les rapports qualité et les documents d’expédition."
+      },
+      {
+        "title": "Réponse rapide",
+        "desc": "Première réponse généralement sous 24 heures."
+      }
+    ],
+    "quickKicker": "Besoin d’une réponse plus rapide ?",
+    "quickText": "Contactez directement notre équipe si votre demande est urgente ou très technique.",
+    "whatsapp": "WhatsApp",
+    "emailUs": "Écrivez-nous",
+    "formTitle": "Demander un devis",
+    "formSubtitle": "Parlez-nous de votre projet et de vos besoins.",
+    "required": "* Champs obligatoires",
+    "groupContact": "Coordonnées",
+    "groupProduct": "Besoins produit",
+    "labels": {
+      "fullName": "Nom complet",
+      "company": "Société",
+      "email": "E-mail",
+      "phone": "Téléphone / WhatsApp",
+      "country": "Pays",
+      "targetMarket": "Marché cible",
+      "product": "Produit souhaité",
+      "quantity": "Quantité estimée",
+      "incoterm": "Incoterm souhaité",
+      "timing": "Délai de commande prévu",
+      "message": "Vos besoins"
+    },
+    "placeholders": {
+      "fullName": "Votre nom complet",
+      "company": "Nom de la société",
+      "email": "nom@societe.com",
+      "phone": "+33 ...",
+      "country": "Pays / région",
+      "targetMarket": "UE, Moyen-Orient, autre...",
+      "message": "Précisez l’épaisseur, les dimensions, l’âme, la colle, la surface, l’emballage, le marché cible ou toute exigence technique..."
+    },
+    "choose": "Sélectionner...",
+    "productOptions": [
+      "Contreplaqué filmé",
+      "Contreplaqué antidérapant",
+      "Contreplaqué brut",
+      "LVL",
+      "Autre"
+    ],
+    "quantityOptions": [
+      "Moins d’1 conteneur",
+      "1 à 3 conteneurs",
+      "3 à 10 conteneurs",
+      "Plus de 10 conteneurs"
+    ],
+    "incotermOptions": [
+      "FOB",
+      "CIF",
+      "CFR",
+      "EXW"
+    ],
+    "timingOptions": [
+      "Dès que possible",
+      "Sous 30 jours",
+      "Sous 60 jours",
+      "En phase de réflexion"
+    ],
+    "privacy": "En envoyant ce formulaire, vous acceptez que HTPLY vous contacte au sujet de votre demande. Vos informations sont utilisées uniquement pour le devis et la communication commerciale.",
+    "submit": "ENVOYER LA DEMANDE →",
+    "sending": "ENVOI...",
+    "success": "Merci ! Nous avons bien reçu votre demande et vous répondrons sous 24 heures.",
+    "error": "Une erreur est survenue. Veuillez réessayer ou écrire à info@htplywood.net.",
+    "processEyebrow": "Et ensuite ?",
+    "processTitle": "Un processus de devis B2B clair.",
+    "processText": "De votre premier message à un devis confirmé, voici comment nous travaillons.",
+    "steps": [
+      {
+        "tag": "01 · ANALYSE",
+        "title": "Nous étudions votre demande",
+        "desc": "Notre équipe vérifie le type de produit, le volume, les exigences techniques et le marché cible."
+      },
+      {
+        "tag": "02 · CONFIRMATION",
+        "title": "Nous confirmons les spécifications",
+        "desc": "Si besoin, nous précisons l’épaisseur, l’âme, la colle, la surface, l’emballage et les conditions d’expédition."
+      },
+      {
+        "tag": "03 · DEVIS",
+        "title": "Vous recevez le devis et le délai",
+        "desc": "Nous vous envoyons les prix, les conditions commerciales et un calendrier estimé de production ou de livraison."
+      }
+    ],
+    "ctaText": "Parlez directement à notre équipe export avant d’envoyer une demande officielle.",
+    "ctaButton": "CONTACTER L’ÉQUIPE EXPORT"
+  },
+  "newsPage": {
+  "eyebrow": "Actualités & analyses",
+  "title": "Actualités de HTPLY",
+  "subtitle": "Les dernières informations sur nos produits, notre production et la chaîne d’approvisionnement vietnamienne.",
+  "searchPlaceholder": "Rechercher des articles...",
+  "searchButton": "Rechercher",
+  "all": "Tous",
+  "featured": "Choix de la rédaction",
+  "readMore": "Lire la suite",
+  "empty": "Aucun article pour le moment. Revenez bientôt.",
+  "noResults": "Aucun article ne correspond à votre recherche."
+},
+"newsPost": {
+  "back": "Retour aux actualités",
+  "share": "Partager cet article",
+  "ctaTitle": "Besoin d’un devis pour du contreplaqué ?",
+  "ctaText": "Indiquez-nous le produit, la quantité et le marché cible. Nous vous répondrons sous un jour ouvré.",
+  "ctaButton": "Demander un devis",
+  "related": "Articles similaires",
+  "copyLink": "Copier le lien"
+}
 }

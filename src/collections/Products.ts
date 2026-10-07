@@ -10,6 +10,7 @@ import {
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
 import { slugField } from 'payload'
+import { hiddenInAdmin } from '@/access/hiddenInAdmin'
 
 export const Products: CollectionConfig = {
   slug: 'products',
@@ -20,6 +21,8 @@ export const Products: CollectionConfig = {
     update: authenticated,
   },
   admin: {
+    group: 'Catalog',
+    hidden: hiddenInAdmin,
     defaultColumns: ['name', 'price', 'category', 'updatedAt'],
     useAsTitle: 'name',
   },
