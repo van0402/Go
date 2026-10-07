@@ -65,7 +65,7 @@
       ]
     },
     "faq": {
-      "kicker": "05 · FAQ",
+      "kicker": "04 · FAQ",
       "title": "Vos questions, nos réponses.",
       "items": [
         { "q": "Quelle est la quantité minimale de commande (MOQ) ?", "a": "Le MOQ standard est d'un conteneur de 20 ou 40 pieds par commande. Pour des commandes plus petites, veuillez nous contacter directement pour discuter d'un groupage." },
@@ -76,7 +76,7 @@
       ]
     },
     "qc": {
-      "kicker": "06 · Contrôle qualité",
+      "kicker": "05 · Contrôle qualité",
       "title": "Contrôle des produits finis.",
       "desc": "Chaque panneau est inspecté directement à l'usine avant l'emballage, garantissant que la surface, les dimensions et la qualité respectent les normes avant la sortie d'entrepôt.",
       "imageAlt": "Contrôle des produits finis à l'usine"

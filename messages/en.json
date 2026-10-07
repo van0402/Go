@@ -65,7 +65,7 @@
       ]
     },
     "faq": {
-      "kicker": "05 · FAQ",
+      "kicker": "04 · FAQ",
       "title": "Your questions, answered.",
       "items": [
         { "q": "What is the minimum order quantity (MOQ)?", "a": "The standard MOQ is one 20ft/40ft container per order. For smaller orders, please contact us directly to discuss consolidation options." },
@@ -76,7 +76,7 @@
       ]
     },
     "qc": {
-      "kicker": "06 · Quality Inspection",
+      "kicker": "05 · Quality Inspection",
       "title": "Finished product inspection.",
       "desc": "Every board is inspected directly at the factory before packaging, ensuring surface, dimensions and quality meet standards before leaving the warehouse.",
       "imageAlt": "Finished product inspection at the factory"

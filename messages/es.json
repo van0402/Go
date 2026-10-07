@@ -65,7 +65,7 @@
       ]
     },
     "faq": {
-      "kicker": "05 · Preguntas frecuentes",
+      "kicker": "04 · Preguntas frecuentes",
       "title": "Resolvemos tus dudas.",
       "items": [
         { "q": "¿Cuál es el pedido mínimo (MOQ)?", "a": "El MOQ estándar es un contenedor de 20 o 40 pies por pedido. Para pedidos más pequeños, contáctenos directamente para discutir opciones de consolidación." },
@@ -76,7 +76,7 @@
       ]
     },
     "qc": {
-      "kicker": "06 · Control de calidad",
+      "kicker": "05 · Control de calidad",
       "title": "Inspección del producto terminado.",
       "desc": "Cada tablero se inspecciona directamente en la fábrica antes del embalaje, garantizando que la superficie, las dimensiones y la calidad cumplan los estándares antes de salir del almacén.",
       "imageAlt": "Inspección de producto terminado en la fábrica"

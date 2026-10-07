@@ -14,7 +14,7 @@ const LETTERS = [
   { src: '/images/y-navy.png', alt: 'Y', offset: 0, delay: 1 },
 ]
 
-const HERO_IMAGES = ['/images/hero.jpg', '/images/niemtin.jpg']
+const HERO_IMAGES = ['/images/hero.jpg', '/images/ner.jpg']
 
 export function Hero() {
   const parallaxRef = useParallax<HTMLElement>(0.12, 36)
