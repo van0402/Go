@@ -5,7 +5,9 @@
     "products": "Productos",
     "factory": "Fábrica",
     "quality": "Calidad",
-    "requestQuote": "Solicitar cotización"
+    "requestQuote": "Solicitar cotización",
+    "contact": "Contacto",
+    "news": "Noticias"
   },
   "home": {
     "heroTitle": "Proveedor de contrachapado según normas europeas",
@@ -62,17 +64,8 @@
         { "value": "30 días", "label": "Tiempo de entrega promedio" }
       ]
     },
-    "testimonials": {
-      "kicker": "05 · Opiniones de clientes",
-      "title": "La confianza de grandes socios importadores.",
-      "items": [
-        { "quote": "Calidad constante del tablero en cada lote, documentación de exportación clara y contenedores puntuales cada mes." },
-        { "quote": "Equipo receptivo, especificaciones técnicas transparentes — nos ayuda a planificar las importaciones para toda la temporada de construcción." },
-        { "quote": "Los tableros antideslizantes cumplen exactamente los requisitos de carga para remolques, con un control de calidad estricto antes de cargar el contenedor." }
-      ]
-    },
     "faq": {
-      "kicker": "06 · Preguntas frecuentes",
+      "kicker": "05 · Preguntas frecuentes",
       "title": "Resolvemos tus dudas.",
       "items": [
         { "q": "¿Cuál es el pedido mínimo (MOQ)?", "a": "El MOQ estándar es un contenedor de 20 o 40 pies por pedido. Para pedidos más pequeños, contáctenos directamente para discutir opciones de consolidación." },
@@ -83,7 +76,7 @@
       ]
     },
     "qc": {
-      "kicker": "07 · Control de calidad",
+      "kicker": "06 · Control de calidad",
       "title": "Inspección del producto terminado.",
       "desc": "Cada tablero se inspecciona directamente en la fábrica antes del embalaje, garantizando que la superficie, las dimensiones y la calidad cumplan los estándares antes de salir del almacén.",
       "imageAlt": "Inspección de producto terminado en la fábrica"
@@ -212,5 +205,145 @@
       { "desc": "Contrachapado estructural orientado a aplicaciones que requieren alta rigidez y estabilidad." },
       { "desc": "Una solución de embalaje industrial para cajas, embalajes y mercancía de exportación." }
     ]
-  }
+  },
+
+  "contactPage": {
+    "eyebrow": "Contacto · Solicitar cotización",
+    "heroTitle": "Construyamos un plan de suministro confiable.",
+    "heroText": "Cuéntenos qué necesita: tipo de producto, volumen y mercado de destino. Nuestro equipo de exportación revisará su solicitud y responderá en un plazo de 24 horas.",
+    "badges": [
+      "Proveedor B2B de contrachapado",
+      "Europa y Oriente Medio",
+      "Especificaciones a medida",
+      "Respuesta en 24 h"
+    ],
+    "heroCardTitle": "De Vietnam a los mercados globales.",
+    "heroCardText": "Suministro confiable. Especificaciones claras. Documentación lista para exportar.",
+    "asideKicker": "HTPLY Vietnam",
+    "asideTitle": "Hable con nuestro equipo de exportación.",
+    "asideText": "Trabajamos con importadores, distribuidores, contratistas y compradores industriales que necesitan calidad estable y un suministro predecible.",
+    "trust": [
+      {
+        "title": "Enfoque B2B internacional",
+        "desc": "Diseñado para los requisitos de exportación."
+      },
+      {
+        "title": "Especificaciones a medida",
+        "desc": "Se pueden acordar espesor, dimensiones, núcleo y superficie."
+      },
+      {
+        "title": "Documentación de exportación",
+        "desc": "Apoyo con registros de calidad y documentos de envío."
+      },
+      {
+        "title": "Respuesta rápida",
+        "desc": "Primera respuesta habitual en 24 horas."
+      }
+    ],
+    "quickKicker": "¿Necesita una respuesta más rápida?",
+    "quickText": "Contacte directamente con nuestro equipo si su solicitud es urgente o muy técnica.",
+    "whatsapp": "WhatsApp",
+    "emailUs": "Escríbanos",
+    "formTitle": "Solicitar cotización",
+    "formSubtitle": "Cuéntenos sobre su proyecto y sus requisitos.",
+    "required": "* Campos obligatorios",
+    "groupContact": "Información de contacto",
+    "groupProduct": "Requisitos del producto",
+    "labels": {
+      "fullName": "Nombre completo",
+      "company": "Empresa",
+      "email": "Correo electrónico",
+      "phone": "Teléfono / WhatsApp",
+      "country": "País",
+      "targetMarket": "Mercado de destino",
+      "product": "Producto de interés",
+      "quantity": "Cantidad estimada",
+      "incoterm": "Incoterm preferido",
+      "timing": "Plazo previsto del pedido",
+      "message": "Sus requisitos"
+    },
+    "placeholders": {
+      "fullName": "Su nombre completo",
+      "company": "Nombre de la empresa",
+      "email": "nombre@empresa.com",
+      "phone": "+34 ...",
+      "country": "País / región",
+      "targetMarket": "UE, Oriente Medio, otro...",
+      "message": "Indique espesor, dimensiones, material del núcleo, tipo de cola, superficie, embalaje, mercado de destino o cualquier requisito técnico..."
+    },
+    "choose": "Seleccionar...",
+    "productOptions": [
+      "Contrachapado fenólico",
+      "Contrachapado antideslizante",
+      "Contrachapado en bruto",
+      "LVL",
+      "Otro"
+    ],
+    "quantityOptions": [
+      "Menos de 1 contenedor",
+      "1 a 3 contenedores",
+      "3 a 10 contenedores",
+      "Más de 10 contenedores"
+    ],
+    "incotermOptions": [
+      "FOB",
+      "CIF",
+      "CFR",
+      "EXW"
+    ],
+    "timingOptions": [
+      "Lo antes posible",
+      "En 30 días",
+      "En 60 días",
+      "En fase de planificación"
+    ],
+    "privacy": "Al enviar este formulario, acepta que HTPLY se ponga en contacto con usted sobre su solicitud. Su información se utiliza únicamente para la cotización y la comunicación comercial.",
+    "submit": "ENVIAR SOLICITUD →",
+    "sending": "ENVIANDO...",
+    "success": "¡Gracias! Hemos recibido su solicitud y responderemos en un plazo de 24 horas.",
+    "error": "Algo salió mal. Inténtelo de nuevo o escriba a info@htplywood.net.",
+    "processEyebrow": "¿Qué ocurre después?",
+    "processTitle": "Un proceso de cotización B2B claro.",
+    "processText": "Desde su primer mensaje hasta una cotización confirmada, así trabajamos.",
+    "steps": [
+      {
+        "tag": "01 · REVISIÓN",
+        "title": "Revisamos su solicitud",
+        "desc": "Nuestro equipo comprueba el tipo de producto, el volumen, los requisitos técnicos y el mercado de destino."
+      },
+      {
+        "tag": "02 · CONFIRMACIÓN",
+        "title": "Confirmamos las especificaciones",
+        "desc": "Si es necesario, aclaramos espesor, núcleo, cola, superficie, embalaje y condiciones de envío."
+      },
+      {
+        "tag": "03 · COTIZACIÓN",
+        "title": "Recibe cotización y plazo",
+        "desc": "Le enviamos precios, condiciones comerciales y un calendario estimado de producción o entrega."
+      }
+    ],
+    "ctaText": "Hable directamente con nuestro equipo de exportación antes de enviar una solicitud formal.",
+    "ctaButton": "CONTACTAR AL EQUIPO DE EXPORTACIÓN"
+  },
+  "newsPage": {
+  "eyebrow": "Noticias y novedades",
+  "title": "Noticias de HTPLY",
+  "subtitle": "Novedades sobre productos, producción y la cadena de suministro de Vietnam.",
+  "searchPlaceholder": "Buscar artículos...",
+  "searchButton": "Buscar",
+  "all": "Todos",
+  "featured": "Selección del editor",
+  "readMore": "Leer más",
+  "empty": "Aún no hay artículos. Vuelve pronto.",
+  "noResults": "No hay artículos que coincidan con tu búsqueda."
+},
+"newsPost": {
+  "back": "Volver a Noticias",
+  "share": "Compartir este artículo",
+  "ctaTitle": "¿Necesitas una cotización de contrachapado?",
+  "ctaText": "Indícanos el producto, la cantidad y el mercado objetivo. Te responderemos en un día hábil.",
+  "ctaButton": "Solicitar una cotización",
+  "related": "Artículos relacionados",
+  "copyLink": "Copiar enlace"
+}
 }

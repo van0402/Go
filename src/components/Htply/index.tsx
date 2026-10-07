@@ -1,4 +1,5 @@
 import './htply.css'
+import './htply-theme-navy.css'
 import { Nav } from './Nav'
 import { Hero } from './Hero'
 import { About } from './About'
@@ -14,7 +15,7 @@ import { RevealOnScroll } from './RevealOnScroll'
 
 export function HtplyDemo() {
   return (
-    <div className="htply-page">
+    <div className="htply-page htply-navy">
       <RevealOnScroll />
       <Nav />
       <main id="top">

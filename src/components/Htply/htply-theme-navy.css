@@ -1,0 +1,51 @@
+/* THỬ NGHIỆM: tông navy xám theo file demo (chỉ áp dụng cho trang Home).
+   Muốn quay lại tông cũ: bỏ class "htply-navy" trong index.tsx và xóa import file này. */
+.htply-page.htply-navy{
+  --ivory:#FFFFFF;
+  --sand:#D7DEE5;
+  --clay:#59CBE8;
+  --coffee:#3C445C;
+  --muted:#5C6780;
+  --line:rgba(59,69,89,.14);
+  --shadow:0 30px 80px rgba(44,52,68,.12);
+}
+.htply-page.htply-navy .section-kicker,
+.htply-page.htply-navy .section-head h2,
+.htply-page.htply-navy .about-section .section-kicker,
+.htply-page.htply-navy .about-section .section-head h2{color:#3C445C}
+
+/* Products: nền navy đậm như demo, thẻ sản phẩm vẫn trắng */
+.htply-page.htply-navy .products-section{
+  color:#fff;
+  background:linear-gradient(180deg,#3B4559 0%,#2C3444 100%);
+}
+.htply-page.htply-navy .products-section .section-kicker{color:#fff}
+.htply-page.htply-navy .products-section .section-head h2{color:#fff}
+.htply-page.htply-navy .products-section .section-head p{color:rgba(255,255,255,.64)}
+.htply-page.htply-navy .p3-card:hover{box-shadow:0 24px 44px rgba(20,26,38,.4)}
+
+/* 2 khối ảnh lớn (trích dẫn + "What shapes how we work"): bỏ hẳn lớp phủ */
+.htply-page.htply-navy .about-card::after{background:none}
+/* Khối trích dẫn: lớp phủ navy để chữ trắng nổi bật trên ảnh trời/mây */
+.htply-page.htply-navy .about-card:not(.dark)::after{
+  background:linear-gradient(180deg, rgba(44,52,68,.50) 0%, rgba(44,52,68,.62) 100%);
+}
+.htply-page.htply-navy .about-card:not(.dark) .big-quote{text-shadow:0 2px 14px rgba(20,26,38,.45)}
+
+/* Thẻ số liệu: bỏ hẳn lớp phủ tối và lớp kính mờ để ảnh hiện rõ nét */
+.htply-page.htply-navy .stat-card::after{
+  /* lớp phủ navy đậm dần về phía đáy thẻ để chữ trắng nổi bật, ảnh phía trên vẫn rõ */
+  background:linear-gradient(180deg, rgba(44,52,68,0) 20%, rgba(44,52,68,.55) 55%, rgba(44,52,68,.85) 100%);
+}
+.htply-page.htply-navy .stat-card .glass{display:none}
+
+/* Thẻ số liệu: số thứ tự, icon, nhãn, con số, mô tả cùng nằm trên một lề trái.
+   Icon SVG có khoảng trống bên trong (3/24 khung) nên kéo lùi một chút để nét vẽ thẳng hàng với chữ. */
+.htply-page.htply-navy .stat-index{left:22px}
+.htply-page.htply-navy .stat-icon{margin-left:-3px}
+.htply-page.htply-navy .stat-card.supply .stat-icon{margin-left:-1.5px}
+
+/* Khối "04 · Factory & Capacity": bỏ ảnh nền, dùng nền gradient navy → teal giống cột trái trang Contact */
+.htply-page.htply-navy .factory{
+  background:linear-gradient(180deg, rgba(35,48,71,.96), rgba(45,83,105,.94));
+}

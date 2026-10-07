@@ -71,8 +71,9 @@ export interface Config {
     posts: Post;
     media: Media;
     categories: Category;
-    users: User;
     products: Product;
+    inquiries: Inquiry;
+    users: User;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -94,8 +95,9 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
-    users: UsersSelect<false> | UsersSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
+    inquiries: InquiriesSelect<false> | InquiriesSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -110,16 +112,18 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'fr' | 'es') | ('en' | 'fr' | 'es')[];
   globals: {
     header: Header;
     footer: Footer;
+    'contact-options': ContactOption;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    'contact-options': ContactOptionsSelect<false> | ContactOptionsSelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'fr' | 'es';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -229,6 +233,10 @@ export interface Page {
 export interface Post {
   id: number;
   title: string;
+  /**
+   * Short summary shown on news cards (1–2 sentences).
+   */
+  excerpt?: string | null;
   heroImage?: (number | null) | Media;
   content: {
     root: {
@@ -256,6 +264,10 @@ export interface Post {
     description?: string | null;
   };
   publishedAt?: string | null;
+  /**
+   * Show as Editor’s pick on the News page.
+   */
+  featured?: boolean | null;
   authors?: (number | User)[] | null;
   populatedAuthors?:
     | {
@@ -815,6 +827,32 @@ export interface Product {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiries".
+ */
+export interface Inquiry {
+  id: number;
+  fullName: string;
+  company: string;
+  email: string;
+  phone: string;
+  country: string;
+  targetMarket?: string | null;
+  product?: string | null;
+  quantity?: string | null;
+  incoterm?: string | null;
+  timing?: string | null;
+  message?: string | null;
+  status?: ('new' | 'contacted' | 'closed') | null;
+  /**
+   * Only visible to admin.
+   */
+  internalNote?: string | null;
+  locale?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1020,12 +1058,16 @@ export interface PayloadLockedDocument {
         value: number | Category;
       } | null)
     | ({
-        relationTo: 'users';
-        value: number | User;
-      } | null)
-    | ({
         relationTo: 'products';
         value: number | Product;
+      } | null)
+    | ({
+        relationTo: 'inquiries';
+        value: number | Inquiry;
+      } | null)
+    | ({
+        relationTo: 'users';
+        value: number | User;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1230,6 +1272,7 @@ export interface FormBlockSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  excerpt?: T;
   heroImage?: T;
   content?: T;
   relatedPosts?: T;
@@ -1242,6 +1285,7 @@ export interface PostsSelect<T extends boolean = true> {
         description?: T;
       };
   publishedAt?: T;
+  featured?: T;
   authors?: T;
   populatedAuthors?:
     | T
@@ -1371,6 +1415,45 @@ export interface CategoriesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
+export interface ProductsSelect<T extends boolean = true> {
+  name?: T;
+  price?: T;
+  gallery?: T;
+  shortDescription?: T;
+  description?: T;
+  category?: T;
+  featured?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inquiries_select".
+ */
+export interface InquiriesSelect<T extends boolean = true> {
+  fullName?: T;
+  company?: T;
+  email?: T;
+  phone?: T;
+  country?: T;
+  targetMarket?: T;
+  product?: T;
+  quantity?: T;
+  incoterm?: T;
+  timing?: T;
+  message?: T;
+  status?: T;
+  internalNote?: T;
+  locale?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
@@ -1392,23 +1475,6 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products_select".
- */
-export interface ProductsSelect<T extends boolean = true> {
-  name?: T;
-  price?: T;
-  gallery?: T;
-  shortDescription?: T;
-  description?: T;
-  category?: T;
-  featured?: T;
-  generateSlug?: T;
-  slug?: T;
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1745,6 +1811,67 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-options".
+ */
+export interface ContactOption {
+  id: number;
+  productOptions?:
+    | {
+        /**
+         * Code saved with each inquiry. No spaces or accents. Do not change after customers have used it.
+         */
+        value: string;
+        labelEn: string;
+        labelFr: string;
+        labelEs: string;
+        active?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  quantityOptions?:
+    | {
+        /**
+         * Code saved with each inquiry. No spaces or accents. Do not change after customers have used it.
+         */
+        value: string;
+        labelEn: string;
+        labelFr: string;
+        labelEs: string;
+        active?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  incotermOptions?:
+    | {
+        /**
+         * Code saved with each inquiry. No spaces or accents. Do not change after customers have used it.
+         */
+        value: string;
+        labelEn: string;
+        labelFr: string;
+        labelEs: string;
+        active?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  timingOptions?:
+    | {
+        /**
+         * Code saved with each inquiry. No spaces or accents. Do not change after customers have used it.
+         */
+        value: string;
+        labelEn: string;
+        labelFr: string;
+        labelEs: string;
+        active?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -1783,6 +1910,55 @@ export interface FooterSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-options_select".
+ */
+export interface ContactOptionsSelect<T extends boolean = true> {
+  productOptions?:
+    | T
+    | {
+        value?: T;
+        labelEn?: T;
+        labelFr?: T;
+        labelEs?: T;
+        active?: T;
+        id?: T;
+      };
+  quantityOptions?:
+    | T
+    | {
+        value?: T;
+        labelEn?: T;
+        labelFr?: T;
+        labelEs?: T;
+        active?: T;
+        id?: T;
+      };
+  incotermOptions?:
+    | T
+    | {
+        value?: T;
+        labelEn?: T;
+        labelFr?: T;
+        labelEs?: T;
+        active?: T;
+        id?: T;
+      };
+  timingOptions?:
+    | T
+    | {
+        value?: T;
+        labelEn?: T;
+        labelFr?: T;
+        labelEs?: T;
+        active?: T;
         id?: T;
       };
   updatedAt?: T;
