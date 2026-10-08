@@ -46,12 +46,33 @@
     "quality": {
       "kicker": "03 · Qualité",
       "title": "Qualité des produits",
+      "lead": "Chaque expédition est contrôlée selon les mêmes cinq points qualité, afin que les acheteurs reçoivent des panneaux constants, du premier au dernier conteneur.",
       "items": [
-        { "label": "Précision de l'épaisseur", "note": "Contrôle des tolérances" },
-        { "label": "Contrôle de l'humidité", "note": "Maintien d'un niveau stable" },
-        { "label": "Résistance du collage", "note": "Test d'adhérence" },
-        { "label": "Précision dimensionnelle", "note": "Contrôle des dimensions et de l'équerrage" },
-        { "label": "Qualité de surface", "note": "Contrôle de la planéité et de la finition" }
+        {
+          "label": "Précision de l'épaisseur",
+          "note": "Contrôle des tolérances",
+          "desc": "Les panneaux sont mesurés par rapport à l'épaisseur commandée afin de garder une tolérance constante d'un lot à l'autre."
+        },
+        {
+          "label": "Contrôle de l'humidité",
+          "note": "Maintien d'un niveau stable",
+          "desc": "Le taux d'humidité est surveillé pour limiter le gauchissement et garder les panneaux stables pendant le stockage et le transport."
+        },
+        {
+          "label": "Résistance du collage",
+          "note": "Test d'adhérence",
+          "desc": "L'adhérence du joint de colle est testée pour confirmer que les couches restent collées sous charge et humidité."
+        },
+        {
+          "label": "Précision dimensionnelle",
+          "note": "Contrôle des dimensions et de l'équerrage",
+          "desc": "La longueur, la largeur et l'équerrage sont vérifiés pour que les feuilles respectent les spécifications de l'acheteur."
+        },
+        {
+          "label": "Qualité de surface",
+          "note": "Contrôle de la planéité et de la finition",
+          "desc": "La planéité et la finition de surface sont inspectées pour détecter les défauts avant l'emballage."
+        }
       ]
     },
     "factory": {
@@ -64,8 +85,44 @@
         { "value": "30 jours", "label": "Délai de livraison moyen" }
       ]
     },
+    "export": {
+      "kicker": "05 · Export et emballage",
+      "title": "Prêt pour l'expédition internationale.",
+      "lead": "Le parcours du produit ne s'arrête pas à la production. HTPLY prépare la marchandise pour une manutention efficace, le chargement en conteneur et la livraison à l'export.",
+      "steps": [
+        {
+          "title": "Contrôle final",
+          "text": "Dernières vérifications avant l'emballage : surface, dimensions et conformité de la commande."
+        },
+        {
+          "title": "Emballage export",
+          "text": "Palettisé et filmé pour protéger la cargaison pendant le stockage et le transport."
+        },
+        {
+          "title": "Chargement en conteneur",
+          "text": "Chargement organisé pour optimiser l'espace et sécuriser la manutention à destination."
+        },
+        {
+          "title": "Documentation",
+          "text": "Documents d'exportation préparés selon les exigences de l'expédition et de la destination."
+        }
+      ],
+      "tags": [
+        "Palettisé",
+        "Emballage résistant à l'eau",
+        "Feuillard acier",
+        "Protection des angles",
+        "Prêt pour conteneur"
+      ],
+      "cta": {
+        "title": "Besoin d'une spécification de contreplaqué sur mesure ?",
+        "text": "Envoyez-nous l'épaisseur, l'âme, la colle, le film, la quantité et le marché cible.",
+        "button": "Demander un devis"
+      },
+      "imageAlt": "Stock de bois manipulé pour le chargement en conteneur"
+    },
     "faq": {
-      "kicker": "04 · FAQ",
+      "kicker": "06 · FAQ",
       "title": "Vos questions, nos réponses.",
       "items": [
         { "q": "Quelle est la quantité minimale de commande (MOQ) ?", "a": "Le MOQ standard est d'un conteneur de 20 ou 40 pieds par commande. Pour des commandes plus petites, veuillez nous contacter directement pour discuter d'un groupage." },
@@ -76,7 +133,7 @@
       ]
     },
     "qc": {
-      "kicker": "05 · Contrôle qualité",
+      "kicker": "07 · Contrôle qualité",
       "title": "Contrôle des produits finis.",
       "desc": "Chaque panneau est inspecté directement à l'usine avant l'emballage, garantissant que la surface, les dimensions et la qualité respectent les normes avant la sortie d'entrepôt.",
       "imageAlt": "Contrôle des produits finis à l'usine"

@@ -46,12 +46,33 @@
     "quality": {
       "kicker": "03 · Quality",
       "title": "Product quality",
+      "lead": "Every shipment is checked against the same five quality points, so buyers receive consistent boards from the first container to the last.",
       "items": [
-        { "label": "Thickness precision", "note": "Tolerance control" },
-        { "label": "Moisture control", "note": "Maintaining a stable level" },
-        { "label": "Bond strength", "note": "Adhesion testing" },
-        { "label": "Dimensional accuracy", "note": "Size & squareness check" },
-        { "label": "Surface quality", "note": "Flatness & finish check" }
+        {
+          "label": "Thickness precision",
+          "note": "Tolerance control",
+          "desc": "Boards are measured against the ordered thickness so tolerance stays consistent from batch to batch."
+        },
+        {
+          "label": "Moisture control",
+          "note": "Maintaining a stable level",
+          "desc": "Moisture content is monitored to reduce warping and keep boards stable during storage and transit."
+        },
+        {
+          "label": "Bond strength",
+          "note": "Adhesion testing",
+          "desc": "Glue-line adhesion is tested to confirm layers stay bonded under load and humidity."
+        },
+        {
+          "label": "Dimensional accuracy",
+          "note": "Size & squareness check",
+          "desc": "Length, width and squareness are checked so sheets fit buyer specifications."
+        },
+        {
+          "label": "Surface quality",
+          "note": "Flatness & finish check",
+          "desc": "Surface flatness and finish are inspected for defects before packing."
+        }
       ]
     },
     "factory": {
@@ -64,8 +85,44 @@
         { "value": "30 days", "label": "Average delivery time" }
       ]
     },
+    "export": {
+      "kicker": "05 · Export & Packaging",
+      "title": "Ready for international shipment.",
+      "lead": "The product journey does not stop at production. HTPLY prepares goods for efficient handling, container loading and export delivery.",
+      "steps": [
+        {
+          "title": "Final QC",
+          "text": "Final checks before packing, including surface, dimensions and order consistency."
+        },
+        {
+          "title": "Export Packing",
+          "text": "Palletized and wrapped to protect the shipment during storage and transit."
+        },
+        {
+          "title": "Container Loading",
+          "text": "Organized loading for better space use and safer handling at destination."
+        },
+        {
+          "title": "Documentation",
+          "text": "Export paperwork prepared according to shipment and destination requirements."
+        }
+      ],
+      "tags": [
+        "Palletized",
+        "Water-resistant wrapping",
+        "Steel straps",
+        "Corner protection",
+        "Container ready"
+      ],
+      "cta": {
+        "title": "Need a custom plywood specification?",
+        "text": "Send us your thickness, core, glue, film, quantity and target market.",
+        "button": "Request a Quote"
+      },
+      "imageAlt": "Timber stock being handled for container loading"
+    },
     "faq": {
-      "kicker": "04 · FAQ",
+      "kicker": "06 · FAQ",
       "title": "Your questions, answered.",
       "items": [
         { "q": "What is the minimum order quantity (MOQ)?", "a": "The standard MOQ is one 20ft/40ft container per order. For smaller orders, please contact us directly to discuss consolidation options." },
@@ -76,7 +133,7 @@
       ]
     },
     "qc": {
-      "kicker": "05 · Quality Inspection",
+      "kicker": "07 · Quality Inspection",
       "title": "Finished product inspection.",
       "desc": "Every board is inspected directly at the factory before packaging, ensuring surface, dimensions and quality meet standards before leaving the warehouse.",
       "imageAlt": "Finished product inspection at the factory"

@@ -207,3 +207,22 @@
     font-size:18px;
   }
 }
+
+/* Nút Request a Quote */
+.htply-nav-cta{
+  display:inline-flex;align-items:center;white-space:nowrap;
+  padding:10px 18px;border-radius:12px;background:#3C445C;color:#fff;
+  font-size:13px;font-weight:700;text-decoration:none;
+  transition:background .2s ease,color .2s ease,transform .2s ease;
+}
+.htply-nav-cta:hover{background:#59CBE8;color:#2C3444;transform:translateY(-1px)}
+.htply-nav-links .htply-nav-cta-mobile{display:none}
+@media(max-width:900px){
+  .htply-nav-actions .htply-nav-cta{display:none}
+  .htply-nav-links .htply-nav-cta-mobile{display:block;background:#3C445C;color:#fff;text-align:center;opacity:1}
+}
+
+/* Giữ màu chữ của nút (tránh bị quy tắc màu link của menu ghi đè) */
+.htply-nav-wrap .htply-nav .htply-nav-cta{color:#fff;opacity:1}
+.htply-nav-wrap .htply-nav .htply-nav-cta:hover{color:#2C3444}
+.htply-nav-wrap .htply-nav-links .htply-nav-cta-mobile{color:#fff}

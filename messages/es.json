@@ -46,12 +46,33 @@
     "quality": {
       "kicker": "03 · Calidad",
       "title": "Calidad del producto",
+      "lead": "Cada envío se revisa con los mismos cinco puntos de calidad, para que los compradores reciban tableros uniformes desde el primer hasta el último contenedor.",
       "items": [
-        { "label": "Precisión de espesor", "note": "Control de tolerancias" },
-        { "label": "Control de humedad", "note": "Mantenimiento de un nivel estable" },
-        { "label": "Resistencia del encolado", "note": "Prueba de adherencia" },
-        { "label": "Precisión dimensional", "note": "Control de tamaño y escuadría" },
-        { "label": "Calidad de superficie", "note": "Control de planitud y acabado" }
+        {
+          "label": "Precisión de espesor",
+          "note": "Control de tolerancias",
+          "desc": "Los tableros se miden respecto al espesor pedido para mantener una tolerancia constante de un lote a otro."
+        },
+        {
+          "label": "Control de humedad",
+          "note": "Mantenimiento de un nivel estable",
+          "desc": "Se controla la humedad para reducir alabeos y mantener la estabilidad de los tableros durante el almacenamiento y el transporte."
+        },
+        {
+          "label": "Resistencia del encolado",
+          "note": "Prueba de adherencia",
+          "desc": "Se prueba la adhesión de la línea de cola para confirmar que las capas permanecen unidas bajo carga y humedad."
+        },
+        {
+          "label": "Precisión dimensional",
+          "note": "Control de tamaño y escuadría",
+          "desc": "Se comprueban largo, ancho y escuadría para que las láminas cumplan las especificaciones del comprador."
+        },
+        {
+          "label": "Calidad de superficie",
+          "note": "Control de planitud y acabado",
+          "desc": "Se inspeccionan la planitud y el acabado de la superficie para detectar defectos antes del embalaje."
+        }
       ]
     },
     "factory": {
@@ -64,8 +85,44 @@
         { "value": "30 días", "label": "Tiempo de entrega promedio" }
       ]
     },
+    "export": {
+      "kicker": "05 · Exportación y embalaje",
+      "title": "Listo para el envío internacional.",
+      "lead": "El recorrido del producto no termina en la producción. HTPLY prepara la mercancía para una manipulación eficiente, la carga en contenedor y la entrega de exportación.",
+      "steps": [
+        {
+          "title": "Control final",
+          "text": "Revisiones finales antes del embalaje: superficie, dimensiones y coherencia del pedido."
+        },
+        {
+          "title": "Embalaje de exportación",
+          "text": "Paletizado y envuelto para proteger el envío durante el almacenamiento y el transporte."
+        },
+        {
+          "title": "Carga en contenedor",
+          "text": "Carga organizada para aprovechar mejor el espacio y manipular con más seguridad en destino."
+        },
+        {
+          "title": "Documentación",
+          "text": "Documentos de exportación preparados según los requisitos del envío y del destino."
+        }
+      ],
+      "tags": [
+        "Paletizado",
+        "Envoltura resistente al agua",
+        "Flejes de acero",
+        "Protección de esquinas",
+        "Listo para contenedor"
+      ],
+      "cta": {
+        "title": "¿Necesita una especificación de contrachapado a medida?",
+        "text": "Envíenos espesor, núcleo, cola, film, cantidad y mercado objetivo.",
+        "button": "Solicitar cotización"
+      },
+      "imageAlt": "Stock de madera manipulado para la carga en contenedor"
+    },
     "faq": {
-      "kicker": "04 · Preguntas frecuentes",
+      "kicker": "06 · Preguntas frecuentes",
       "title": "Resolvemos tus dudas.",
       "items": [
         { "q": "¿Cuál es el pedido mínimo (MOQ)?", "a": "El MOQ estándar es un contenedor de 20 o 40 pies por pedido. Para pedidos más pequeños, contáctenos directamente para discutir opciones de consolidación." },
@@ -76,7 +133,7 @@
       ]
     },
     "qc": {
-      "kicker": "05 · Control de calidad",
+      "kicker": "07 · Control de calidad",
       "title": "Inspección del producto terminado.",
       "desc": "Cada tablero se inspecciona directamente en la fábrica antes del embalaje, garantizando que la superficie, las dimensiones y la calidad cumplan los estándares antes de salir del almacén.",
       "imageAlt": "Inspección de producto terminado en la fábrica"

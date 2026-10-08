@@ -6,7 +6,7 @@ const IMAGES = ['/images/hm8.jpg', '/images/hm13.jpg', '/images/hm12.jpg', '/ima
 
 export function QualityGrid() {
   const t = useTranslations('home.quality')
-  const items = t.raw('items') as { label: string; note: string }[]
+  const items = t.raw('items') as { label: string; note: string; desc?: string }[]
 
   return (
     <section id="quality">
@@ -15,6 +15,7 @@ export function QualityGrid() {
           <div>
             <div className="section-kicker">{t('kicker')}</div>
             <h2>{t('title')}</h2>
+            <p className="quality-lead">{t('lead')}</p>
           </div>
         </div>
         <div className="quality-grid">
@@ -29,8 +30,11 @@ export function QualityGrid() {
               }}
             >
               <span>{String(i + 1).padStart(2, '0')}</span>
-              <b>{item.label}</b>
-              <small>{item.note}</small>
+              <div className="quality-text">
+                <b>{item.label}</b>
+                <small>{item.note}</small>
+                {item.desc && <p className="quality-desc">{item.desc}</p>}
+              </div>
             </div>
           ))}
         </div>
