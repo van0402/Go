@@ -54,9 +54,20 @@ export function Nav() {
               {t('contact')}
             </Link>
 
+            <Link href="/contact#quote" className="htply-nav-cta-mobile" onClick={() => setOpen(false)}>
+              {t('requestQuote')}
+            </Link>
+
           </div>
 
           <div className="htply-nav-actions">
+
+            <Link href="/contact#quote" className="htply-nav-cta" onClick={() => setOpen(false)}>
+
+              {t('requestQuote')}
+
+            </Link>
+
 
             <LocaleSwitcher />
 

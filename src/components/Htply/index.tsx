@@ -8,6 +8,7 @@ import { Products } from './Products'
 // import { ProcessSteps } from './ProcessSteps'
 import { QualityGrid } from './QualityGrid'
 import { Factory } from './Factory'
+import { ExportPackaging } from './ExportPackaging'
 import { Faq } from './Faq'
 import { QcGallery } from './QcGallery'
 import { SiteFooter } from './SiteFooter'
@@ -26,6 +27,7 @@ export function HtplyDemo() {
         {/* <ProcessSteps /> */}
         <QualityGrid />
         <Factory />
+        <ExportPackaging />
         <Faq />
         <QcGallery />
       </main>

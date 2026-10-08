@@ -136,3 +136,6 @@
   padding:7px 10px;border-radius:10px;font:inherit;font-weight:800;font-size:12px;cursor:pointer;
 }
 .htply-contact-page .locale-switcher button.active{background:#EEF1F5}
+
+/* Khi cuộn tới #quote từ nút Request a Quote, chừa chỗ cho menu cố định */
+.htply-contact-page .c-contact{scroll-margin-top:100px}

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
 import { useParallax } from '@/hooks/useParallax'
 import { useScrollShrink } from '@/hooks/useScrollShrink'
 
@@ -20,6 +21,7 @@ export function Hero() {
   const parallaxRef = useParallax<HTMLElement>(0.12, 36)
   const shrinkRef = useScrollShrink<HTMLDivElement>(450, 0.65)
   const t = useTranslations('home')
+  const tn = useTranslations('nav')
   const [bgIndex, setBgIndex] = useState(0)
 
   useEffect(() => {
@@ -64,6 +66,14 @@ export function Hero() {
           <h1>
             {t('heroTitle')}
           </h1>
+          <div className="hero-cta">
+            <Link href="/contact#quote" className="hero-cta-primary">
+              {tn('requestQuote')}
+            </Link>
+            <Link href="/products" className="hero-cta-secondary">
+              {tn('products')}
+            </Link>
+          </div>
         </div>
       </div>
     </section>

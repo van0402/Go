@@ -113,11 +113,25 @@
   max-width:640px;
   color:var(--paper);
 }
+/* Dịch cụm tiêu đề + nút xuống thấp hơn, tách khỏi chữ HTPLY */
+.htply-page .hero-grid > div:last-child{margin-top:clamp(40px,11vh,120px)}
 /* Tiêu đề hero nằm gọn trên một hàng; cỡ chữ co theo chiều rộng màn hình */
 .htply-page .hero h1{max-width:none;white-space:nowrap;font-size:clamp(16px,4.4vw,56px)}
 .htply-page .hero p{
   max-width:580px; color:var(--muted); font-size:10px; margin-bottom:30px;
 }
+/* Nút kêu gọi hành động ở hero */
+.htply-page .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.htply-page .hero-cta a{
+  display:inline-flex;align-items:center;justify-content:center;padding:14px 24px;border-radius:12px;
+  font-size:14px;font-weight:800;letter-spacing:.03em;text-decoration:none;
+  transition:background .2s ease,color .2s ease,transform .2s ease,border-color .2s ease;
+}
+.htply-page .hero-cta-primary{background:#3C445C;color:#fff;border:1px solid #3C445C}
+.htply-page .hero-cta-primary:hover{background:#59CBE8;border-color:#59CBE8;color:#2C3444;transform:translateY(-2px)}
+.htply-page .hero-cta-secondary{background:#3C445C;color:#fff;border:1px solid rgba(255,255,255,.45)}
+.htply-page .hero-cta-secondary:hover{background:#59CBE8;border-color:#59CBE8;color:#2C3444;transform:translateY(-2px)}
+@media(max-width:620px){.htply-page .hero-cta a{flex:1 1 100%}}
 .htply-page .actions{display:flex;gap:12px;flex-wrap:wrap}
 .htply-page .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -137,8 +151,8 @@
 
 .htply-page .wordmark{
   position:relative;
-  min-height:360px;
-  padding:30px 0 50px;
+  min-height:260px;
+  padding:24px 0 40px;
 }
 .htply-page .wordmark-scale{
   display:flex; align-items:flex-end; justify-content:center;
@@ -161,7 +175,7 @@
 }
 .htply-page .wordmark-letter{
   position:relative; z-index:1;
-  --h:clamp(120px, 15vw, 230px);
+  --h:clamp(84px, 10.5vw, 165px);
   height:var(--h);
   margin-bottom:calc(var(--offset, 0) * var(--h));
 }
@@ -227,7 +241,7 @@
 }
 .htply-page .about-card::before{
   content:""; position:absolute; inset:0; z-index:-2;
-  background-image:url('/images/xa4.jpg');
+  background-image:url('/images/goi.jpg');
   background-size:cover; background-position:center;
 }
 .htply-page .about-card::after{
@@ -235,7 +249,7 @@
   background:linear-gradient(180deg, rgba(10,14,20,.06), rgba(10,14,20,.5));
 }
 .htply-page .about-card.dark::before{
-  background-image:url('/images/anhnen2.jpg');
+  background-image:url('/images/nenmoi.jpg');
 }
 .htply-page .about-card.dark{color:var(--paper)}
 
@@ -364,7 +378,7 @@
   display:grid;grid-template-columns:repeat(5,1fr);gap:12px
 }
 .htply-page .quality-item{
-  position:relative;min-height:220px;padding:24px;border-radius:20px;border:1px solid var(--line);
+  position:relative;min-height:350px;padding:24px;border-radius:20px;border:1px solid var(--line);
   display:flex;flex-direction:column;justify-content:space-between;
   background-size:cover;background-position:center;isolation:isolate;color:var(--paper);
   transition:transform .35s ease, box-shadow .35s ease;
@@ -376,11 +390,14 @@
 }
 .htply-page .quality-item:before{
   content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;
-  background:linear-gradient(180deg, rgba(10,14,20,.04), rgba(10,14,20,.5));
+  background:linear-gradient(180deg, rgba(10,14,20,.04), rgba(10,14,20,.78));
 }
-.htply-page .quality-item span{font-size:12px;color:#c1cde2;letter-spacing:.15em}
-.htply-page .quality-item b{font-size:18px;letter-spacing:-.02em;line-height:1.25}
-.htply-page .quality-item small{color:rgba(255,248,240,.85)}
+.htply-page .quality-item span{font-size:14px;color:#c1cde2;letter-spacing:.15em}
+.htply-page .quality-item b{font-size:21px;letter-spacing:-.02em;line-height:1.25}
+.htply-page .quality-item small{font-size:14.5px;color:rgba(255,248,240,.9)}
+.htply-page .quality-text{display:flex;flex-direction:column;gap:4px}
+.htply-page .quality-desc{margin:10px 0 0;font-size:14px;line-height:1.55;color:rgba(255,255,255,.82)}
+.htply-page .quality-lead{max-width:760px;margin:14px 0 0;font-size:19px;line-height:1.6;color:var(--muted)}
 
 .htply-page .factory{
   position:relative;border-radius:38px;overflow:hidden;min-height:620px;
@@ -471,8 +488,8 @@
   .htply-page .hero-grid,.htply-page .section-head,.htply-page .about,.htply-page .inside,.htply-page .global,.htply-page .quote{grid-template-columns:1fr}
   .htply-page .section-head h2{white-space:normal}
   .htply-page .hero{padding-top:120px}
-  .htply-page .wordmark{min-height:240px}
-  .htply-page .wordmark-letter{--h:clamp(70px,14vw,140px)}
+  .htply-page .wordmark{min-height:190px}
+  .htply-page .wordmark-letter{--h:clamp(56px,10vw,100px)}
   .htply-page .stats{grid-template-columns:1fr 1fr}
   .htply-page .stat:nth-child(2){border-right:none}
   .htply-page .quality-grid{grid-template-columns:1fr 1fr}
@@ -749,7 +766,7 @@
   .htply-page .wordmark{min-height:180px;gap:3px}
     .htply-page .wordmark-scale{gap:clamp(2px,1.2vw,8px)}
   .htply-page .wordmark-letter{
-    --h:clamp(70px,17vw,140px);
+    --h:clamp(52px,12.5vw,100px);
   }
 
   .htply-page .about-card{padding:28px}
@@ -771,7 +788,7 @@
 @media(max-width:620px){
   .htply-page h1{font-size:clamp(30px,9vw,42px);max-width:100%}
   .htply-page .wordmark{min-height:140px;gap:2px}
-  .htply-page .wordmark-letter{--h:clamp(80px,25vw,130px)}
+  .htply-page .wordmark-letter{--h:clamp(60px,18vw,96px)}
   .htply-page .value b{font-size:20px}
   .htply-page .faq-item summary{font-size:16px}
   .htply-page .factory-content h2{font-size:clamp(28px,8vw,40px)}

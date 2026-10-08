@@ -49,3 +49,14 @@
 .htply-page.htply-navy .factory{
   background:linear-gradient(180deg, rgba(35,48,71,.96), rgba(45,83,105,.94));
 }
+
+/* "What shapes how we work": chữ giữ trắng #FFFFFF; thêm gradient navy đậm ở nửa trái ảnh
+   (vùng chứa 5 mục) mờ dần sang phải để ảnh bên phải vẫn rõ. */
+.htply-page.htply-navy .about-card.dark::after{
+  background:linear-gradient(90deg,
+    rgba(44,52,68,.90) 0%,
+    rgba(44,52,68,.80) 45%,
+    rgba(44,52,68,.45) 68%,
+    rgba(44,52,68,0) 100%);
+}
+.htply-page.htply-navy .about-card.dark{color:#FFFFFF}

@@ -1,0 +1,53 @@
+/* Mục "05 · Export & Packaging" của trang Home */
+.htply-page .export-section{padding:70px 0 40px}
+.htply-page .export-section .section-head p{max-width:700px}
+
+.htply-page .export-grid{
+  display:grid;grid-template-columns:.95fr 1.05fr;gap:34px;align-items:center;margin-top:30px;
+}
+.htply-page .export-img{
+  position:relative;min-height:410px;border-radius:24px;overflow:hidden;
+  background:#E1E7EE;box-shadow:var(--shadow);
+}
+.htply-page .export-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+.htply-page .export-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.htply-page .export-step{
+  border:1px solid var(--line);border-radius:16px;padding:20px;background:#F3F6F8;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.htply-page .export-step:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(44,52,68,.10)}
+.htply-page .export-step-num{font-size:12px;font-weight:800;letter-spacing:.08em;color:#59CBE8;margin-bottom:10px}
+.htply-page .export-step h3{margin:0 0 8px;font-size:18px;line-height:1.2;color:var(--coffee)}
+.htply-page .export-step p{margin:0;font-size:13.5px;line-height:1.6;color:var(--muted)}
+
+.htply-page .export-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.htply-page .export-tags span{
+  font-size:12px;font-weight:700;color:var(--coffee);padding:7px 12px;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+}
+
+.htply-page .export-cta{
+  margin-top:34px;padding:26px 30px;border-radius:22px;color:#fff;
+  background:linear-gradient(180deg,#3B4559,#2C3444);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  box-shadow:var(--shadow);
+}
+.htply-page .export-cta h3{margin:0 0 6px;font-size:clamp(20px,2.2vw,28px);line-height:1.2;color:#fff}
+.htply-page .export-cta p{margin:0;font-size:14px;line-height:1.6;color:rgba(255,255,255,.72)}
+.htply-page .export-cta-btn{
+  flex:none;padding:14px 22px;border-radius:12px;background:#59CBE8;color:#2C3444;
+  font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
+  transition:background .2s ease, transform .2s ease;
+}
+.htply-page .export-cta-btn:hover{background:#fff;transform:translateY(-2px)}
+
+@media(max-width:900px){
+  .htply-page .export-grid{grid-template-columns:1fr}
+  .htply-page .export-img{min-height:300px}
+}
+@media(max-width:620px){
+  .htply-page .export-steps{grid-template-columns:1fr}
+  .htply-page .export-cta{flex-direction:column;align-items:flex-start;padding:22px}
+  .htply-page .export-cta-btn{width:100%;text-align:center}
+}
