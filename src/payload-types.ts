@@ -795,28 +795,96 @@ export interface Product {
   id: number;
   name: string;
   /**
-   * Giá hiển thị, ví dụ "1.200.000đ" hoặc "Liên hệ"
+   * Dòng nhỏ, ví dụ "Structural LVL"
    */
-  price?: string | null;
+  tagline?: string | null;
+  /**
+   * Mô tả ngắn dưới tiêu đề
+   */
+  sub?: string | null;
+  /**
+   * Đoạn mô tả sản phẩm. Cách nhau một dòng trống = một đoạn mới.
+   */
+  description?: string | null;
+  /**
+   * Ảnh đầu tiên là ảnh chính
+   */
   gallery?: (number | Media)[] | null;
-  shortDescription?: string | null;
-  description?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
   category?: (number | null) | Category;
+  /**
+   * Các nhóm nút chọn (Application, Length, Market…)
+   */
+  options?:
+    | {
+        /**
+         * Mã ngắn không dấu, ví dụ Application
+         */
+        key: string;
+        label: string;
+        values?:
+          | {
+              value: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Bảng thông số kỹ thuật
+   */
+  specs?:
+    | {
+        label: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  features?:
+    | {
+        title: string;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  applications?:
+    | {
+        title: string;
+        items?:
+          | {
+              item: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  faq?:
+    | {
+        q: string;
+        a: string;
+        id?: string | null;
+      }[]
+    | null;
+  related?: (number | Product)[] | null;
   featured?: boolean | null;
+  /**
+   * Hiện ở trang chủ
+   */
+  showOnHome?: boolean | null;
+  /**
+   * Số nhỏ hiện trước
+   */
+  order?: number | null;
+  /**
+   * Nhãn nhỏ trên thẻ, ví dụ Formwork, Construction
+   */
+  tags?:
+    | {
+        tag: string;
+        id?: string | null;
+      }[]
+    | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -824,6 +892,7 @@ export interface Product {
   slug: string;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1419,16 +1488,72 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface ProductsSelect<T extends boolean = true> {
   name?: T;
-  price?: T;
-  gallery?: T;
-  shortDescription?: T;
+  tagline?: T;
+  sub?: T;
   description?: T;
+  gallery?: T;
   category?: T;
+  options?:
+    | T
+    | {
+        key?: T;
+        label?: T;
+        values?:
+          | T
+          | {
+              value?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  specs?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        id?: T;
+      };
+  features?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        id?: T;
+      };
+  applications?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              item?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  faq?:
+    | T
+    | {
+        q?: T;
+        a?: T;
+        id?: T;
+      };
+  related?: T;
   featured?: T;
+  showOnHome?: T;
+  order?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
   generateSlug?: T;
   slug?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

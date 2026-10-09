@@ -151,3 +151,95 @@
 .rich-text-lexical__wrap .editor-container .ContentEditable__root th {
   background: #F0F4F7;
 }
+
+/* ============================================================
+   Thanh menu bên trái của admin: dễ phân biệt nhóm / mục / mục đang mở
+   ============================================================ */
+.nav .browse-by-folder-button { display: none; }
+
+/* Tên nhóm: nhãn nhỏ, viết hoa, mờ — không giống một mục bấm được */
+.nav .nav-group { margin: 0; padding: 14px 0 6px; border-top: 1px solid rgba(255, 255, 255, 0.09); }
+.nav .nav-group:first-of-type { border-top: 0; padding-top: 6px; }
+.nav .nav-group__toggle { padding: 6px 14px; }
+.nav .nav-group__label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+.nav .nav-group__toggle:hover .nav-group__label { color: rgba(255, 255, 255, 0.78); }
+.nav .nav-group__indicator { color: rgba(255, 255, 255, 0.35); }
+.nav .nav-group__content { display: grid; gap: 2px; padding-top: 4px; }
+
+/* Mục con: biểu tượng + chữ sáng rõ */
+.nav .nav__link {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 0;
+  padding: 9px 12px 9px 16px;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav .nav__link::before {
+  content: "";
+  flex: none;
+  width: 18px;
+  height: 18px;
+  background-color: currentColor;
+  opacity: 0.65;
+  -webkit-mask: var(--nav-icon) center / contain no-repeat;
+  mask: var(--nav-icon) center / contain no-repeat;
+}
+.nav .nav__link:hover { background: rgba(255, 255, 255, 0.07); color: #fff; }
+.nav .nav__link:hover::before { opacity: 0.95; }
+
+/* Mục đang mở: nền xanh nhạt, vạch cyan bên trái, chữ trắng đậm, biểu tượng cyan */
+.nav .nav__link:has(.nav__link-indicator) {
+  background: rgba(89, 203, 232, 0.17);
+  color: #fff;
+  font-weight: 800;
+}
+.nav .nav__link:has(.nav__link-indicator)::before { background-color: #59cbe8; opacity: 1; }
+.nav .nav__link-indicator {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 3px;
+  background: #59cbe8;
+}
+
+/* Biểu tượng theo từng mục */
+#nav-posts {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h9l4 4v14H6z'/%3E%3Cpath d='M14 3v5h5M9 13h7M9 17h7'/%3E%3C/svg%3E");
+}
+#nav-categories {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h7l2 2h9v11H3z'/%3E%3C/svg%3E");
+}
+#nav-products {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l8 4v10l-8 4-8-4V7z'/%3E%3Cpath d='M4 7l8 4 8-4M12 11v10'/%3E%3C/svg%3E");
+}
+#nav-inquiries {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='M3 7l9 6 9-6'/%3E%3C/svg%3E");
+}
+#nav-global-contact-options {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6h8M18 6h2M4 12h2M12 12h8M4 18h10M20 18h0'/%3E%3Ccircle cx='15' cy='6' r='2'/%3E%3Ccircle cx='9' cy='12' r='2'/%3E%3Ccircle cx='17' cy='18' r='2'/%3E%3C/svg%3E");
+}
+#nav-users {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21c0-4 4-6 8-6s8 2 8 6'/%3E%3C/svg%3E");
+}
+#nav-pages {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='3' width='14' height='18' rx='2'/%3E%3Cpath d='M9 8h6M9 12h6M9 16h4'/%3E%3C/svg%3E");
+}
+#nav-media {
+  --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='16' rx='2'/%3E%3Ccircle cx='9' cy='10' r='2'/%3E%3Cpath d='M21 16l-5-5-8 8'/%3E%3C/svg%3E");
+}

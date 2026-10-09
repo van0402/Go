@@ -16,7 +16,7 @@ import { Banner } from '../../blocks/Banner/config'
 import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { translateLexical, translateTexts } from '../../utilities/translate'
+import { translateDoc } from '../../utilities/translate'
 import { populateAuthors } from './hooks/populateAuthors'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
 import {
@@ -90,21 +90,27 @@ export const Posts: CollectionConfig<'posts'> = {
             req,
           })
 
-          for (const target of ['fr', 'es'] as const) {
-            const upper = target.toUpperCase() as 'FR' | 'ES'
-            const [title, excerpt] = await translateTexts(
-              [en.title || '', (en as { excerpt?: string }).excerpt || ''],
-              upper,
-            )
-            const content = en.content ? await translateLexical(en.content, upper) : en.content
+          const targets = ['fr', 'es'] as const
+          const source = {
+            title: en.title || '',
+            excerpt: (en as { excerpt?: string }).excerpt || '',
+            content: en.content,
+          }
 
+          // Gọi DeepL cho FR và ES CÙNG LÚC (phần chậm nhất), mỗi ngôn ngữ chỉ một lần gọi
+          const translated = await Promise.all(
+            targets.map((target) => translateDoc(source, target.toUpperCase() as 'FR' | 'ES')),
+          )
+
+          // Ghi vào DB lần lượt (không song song) để hai lần ghi không ghi đè lẫn nhau
+          for (let i = 0; i < targets.length; i++) {
             await req.payload.update({
               collection: 'posts',
               id,
-              locale: target,
+              locale: targets[i],
               draft: true,
               // generateSlug:false — slug dùng chung mọi ngôn ngữ, không để bản dịch ghi đè slug tiếng Anh
-              data: { title, excerpt, content, generateSlug: false },
+              data: { ...translated[i], generateSlug: false },
               req,
             })
           }
@@ -293,6 +299,11 @@ export const Posts: CollectionConfig<'posts'> = {
         },
       ],
     },
+    {
+      name: 'redirectAfterPublish',
+      type: 'ui',
+      admin: { components: { Field: '@/components/admin/RedirectAfterPublish' } },
+    },
     slugField(),
   ],
   hooks: {
@@ -303,7 +314,7 @@ export const Posts: CollectionConfig<'posts'> = {
   versions: {
     drafts: {
       autosave: {
-        interval: 100, // We set this interval for optimal live preview
+        interval: 2000, // 2s: tự lưu thưa hơn để giảm số lần ghi DB (trước là 100ms)
       },
       schedulePublish: true,
     },

@@ -49,6 +49,14 @@ export const Media: CollectionConfig = {
     staticDir: path.resolve(dirname, '../../public/media'),
     adminThumbnail: 'thumbnail',
     focalPoint: true,
+    // Tự thu nhỏ ảnh gốc xuống tối đa 2000px khi upload (giữ nguyên tỉ lệ, không phóng to ảnh nhỏ).
+    // Ảnh vài chục triệu điểm ảnh sẽ không làm máy chủ yếu hết bộ nhớ khi tạo các kích cỡ phụ.
+    resizeOptions: {
+      width: 2000,
+      height: 2000,
+      fit: 'inside',
+      withoutEnlargement: true,
+    },
     imageSizes: [
       {
         name: 'thumbnail',

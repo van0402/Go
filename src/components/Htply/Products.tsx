@@ -1,61 +1,14 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
+import type { ProductCard } from '@/utilities/getProducts'
 
-const PRODUCTS = [
-  {
-    key: 'film',
-    title: 'Film Faced Plywood',
-    tags: ['Formwork', 'Construction'],
-    img: '/images/hm5.jpg',
-  },
-  {
-    key: 'wiremesh',
-    title: 'Anti-Slip Plywood — Wiremesh',
-    tags: ['Trailer Flooring', 'Scaffolding'],
-    img: '/images/hm7.jpg',
-  },
-  {
-    key: 'hexaply',
-    title: 'Anti-Slip Plywood — Hexaply',
-    tags: ['Event Stage', 'Public Space'],
-    img: '/images/hm9.jpg',
-  },
-  {
-    key: 'raw',
-    title: 'Raw Plywood',
-    tags: ['Furniture', 'Packaging'],
-    img: '/images/hm3.jpg',
-  },
-  {
-    key: 'lvl',
-    title: 'LVL',
-    tags: ['Structural', 'Construction'],
-    img: '/images/hm1.jpg',
-  },
-  {
-    key: 'marine',
-    title: 'Marine Plywood',
-    tags: ['Marine', 'Outdoor'],
-    img: '/images/hm8.jpg',
-  },
-  {
-    key: 'melamine',
-    title: 'Melamine Plywood',
-    tags: ['Furniture', 'Interior'],
-    img: '/images/hm6.jpg',
-  },
-  {
-    key: 'blockboard',
-    title: 'Block Board',
-    tags: ['Furniture', 'Doors'],
-    img: '/images/hm13.jpg',
-  },
-]
-
-export function Products() {
+export function Products({ products }: { products: ProductCard[] }) {
   const t = useTranslations('home.products')
-  const items = t.raw('items') as { desc: string }[]
+
+  // Chưa có sản phẩm nào được tick "Show on Home" thì ẩn cả mục
+  if (products.length === 0) return null
 
   return (
     <section id="products" className="products-section">
@@ -68,30 +21,32 @@ export function Products() {
         </div>
 
         <div className="p3-grid">
-          {PRODUCTS.map((p, i) => (
-            <article
+          {products.map((p, i) => (
+            <Link
+              href={`/products/${p.slug}`}
+              key={p.slug}
               className="p3-card reveal"
-              key={p.key}
               style={{
+                display: 'block',
+                color: 'inherit',
+                textDecoration: 'none',
                 transitionDelay: `${(i % 3) * 90}ms`,
                 ['--slide-x' as string]: i % 2 === 0 ? '-70px' : '70px',
               }}
             >
               <div className="p3-visual">
-                <img src={p.img} alt={p.title} />
+                <img src={p.image} alt={p.name} />
               </div>
               <div className="p3-body">
-                <h3>{p.title}</h3>
-                <p>{items[i]?.desc}</p>
+                <h3>{p.name}</h3>
+                <p>{p.desc}</p>
                 <div className="p3-tags">
                   {p.tags.map((tag) => (
-                    <span className="p3-tag" key={tag}>
-                      {tag}
-                    </span>
+                    <span className="p3-tag" key={tag}>{tag}</span>
                   ))}
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
