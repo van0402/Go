@@ -3,104 +3,36 @@
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { RevealOnScroll } from '@/components/RevealOnScroll'
-import { Link } from '@/i18n/routing'
+import { Link, useRouter } from '@/i18n/routing'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { QcGallery } from './QcGallery'
 import './HtplyProduct.css'
 import { Nav } from '@/components/Htply/Nav'
 import { SiteFooter } from '@/components/Htply/SiteFooter'
-const products = [
-  {
-    name: 'Commercial Plywood MR',
-    code: 'HTP-C01',
-    category: 'Commercial',
-    image: '/images/sp1.jpg',
-    thickness: '3–25 mm',
-    core: 'Acacia',
-    glue: 'MR',
-  },
-  {
-    name: 'Commercial Plywood Melamine',
-    code: 'HTP-C02',
-    category: 'Commercial',
-    image: '/images/spp2.jpg',
-    thickness: '6–25 mm',
-    core: 'Acacia / Eucalyptus',
-    glue: 'Melamine',
-  },
-  {
-    name: 'Hardwood Plywood',
-    code: 'HTP-C03',
-    category: 'Commercial',
-    image: '/images/sp3.jpg',
-    thickness: '6–25 mm',
-    core: 'Hardwood',
-    glue: 'MR / WBP',
-  },
-  {
-    name: 'Eucalyptus Plywood',
-    code: 'HTP-C04',
-    category: 'Commercial',
-    image: '/images/sp4.jpg',
-    thickness: '6–25 mm',
-    core: 'Eucalyptus',
-    glue: 'MR / Melamine',
-  },
-  {
-    name: 'Film Faced Plywood Brown',
-    code: 'HTP-F01',
-    category: 'Construction',
-    image: '/images/sp5.jpg',
-    thickness: '9–21 mm',
-    core: 'Acacia / Eucalyptus',
-    glue: 'WBP',
-  },
-  {
-    name: 'Film Faced Plywood Black',
-    code: 'HTP-F02',
-    category: 'Construction',
-    image: '/images/sp6.jpg',
-    thickness: '9–21 mm',
-    core: 'Hardwood',
-    glue: 'WBP',
-  },
-  {
-    name: 'Anti-Slip Plywood',
-    code: 'HTP-F03',
-    category: 'Construction',
-    image: '/images/sp7.jpg',
-    thickness: '12–21 mm',
-    core: 'Hardwood',
-    glue: 'WBP',
-  },
-  {
-    name: 'Structural Plywood',
-    code: 'HTP-F04',
-    category: 'Construction',
-    image: '/images/sp8.jpg',
-    thickness: '9–25 mm',
-    core: 'Hardwood',
-    glue: 'WBP',
-  },
-  {
-    name: 'Packing Plywood Standard',
-    code: 'HTP-P01',
-    category: 'Packaging',
-    image: '/images/sp9.jpg',
-    thickness: '3–18 mm',
-    core: 'Mixed',
-    glue: 'MR',
-  }
-]
+import type { ProductCard } from '@/utilities/getProducts'
 
-export function HtplyProduct() {
+export function HtplyProduct({ products }: { products: ProductCard[] }) {
+  const router = useRouter()
   const [activeIndex, setActiveIndex] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const active = products[activeIndex]
   const t = useTranslations('nav')
   const tp = useTranslations('productsPage')
-  const items = tp.raw('items') as { desc: string }[]
-  const activeDesc = items[activeIndex]?.desc
+
+  if (!active) {
+    return (
+      <main className="htply-products-page">
+        <Nav />
+        <section className="product-hero">
+          <div className="products-container product-hero-content">
+            <h1>{tp('heroTitle')}</h1>
+            <p>Products are coming soon.</p>
+          </div>
+        </section>
+        <SiteFooter />
+      </main>
+    )
+  }
 
   return (
     <main className="htply-products-page">
@@ -143,7 +75,7 @@ export function HtplyProduct() {
 
                 <button
                   type="button"
-                  key={product.code}
+                  key={product.slug}
                   className={`product-row reveal ${
                     activeIndex === index ? 'active' : ''
                   }`}
@@ -153,7 +85,7 @@ export function HtplyProduct() {
                   }}
                   onMouseEnter={() => setActiveIndex(index)}
                   onFocus={() => setActiveIndex(index)}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => router.push(`/products/${product.slug}`)}
                 >
 
                   <span className="product-num">
@@ -206,45 +138,28 @@ export function HtplyProduct() {
                     <h3>{active.name}</h3>
 
                     <span className="product-preview-code">
-                      {active.code}
+                      {active.tagline}
                     </span>
 
                   </div>
 
                   <p className="product-preview-desc">
-                    {activeDesc}
+                    {active.desc}
                   </p>
 
                   <div className="product-preview-specs">
-
-                    <div className="product-spec">
-                      <small>Thickness</small>
-                      <strong>{active.thickness}</strong>
-                    </div>
-
-                    <div className="product-spec">
-                      <small>Core</small>
-                      <strong>{active.core}</strong>
-                    </div>
-
-                    <div className="product-spec">
-                      <small>Glue</small>
-                      <strong>{active.glue}</strong>
-                    </div>
-
+                    {active.specs.map((sp) => (
+                      <div className="product-spec" key={sp.label}>
+                        <small>{sp.label}</small>
+                        <strong>{sp.value}</strong>
+                      </div>
+                    ))}
                   </div>
 
-                  <a href="#" className="product-preview-link">
-
-                    <span>
-                      View product details
-                    </span>
-
-                    <span>
-                      ↗
-                    </span>
-
-                  </a>
+                  <Link href={`/products/${active.slug}`} className="product-preview-link">
+                    <span>View product details</span>
+                    <span>↗</span>
+                  </Link>
 
                 </div>
 

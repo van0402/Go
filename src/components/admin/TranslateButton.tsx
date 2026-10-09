@@ -5,7 +5,7 @@ import { useDocumentInfo, useLocale } from '@payloadcms/ui'
 type State = 'idle' | 'busy' | 'done' | 'error'
 
 export default function TranslateButton() {
-  const { id } = useDocumentInfo()
+  const { id, collectionSlug } = useDocumentInfo()
   const locale = useLocale()
   const [state, setState] = useState<State>('idle')
   const [message, setMessage] = useState('')
@@ -20,7 +20,7 @@ export default function TranslateButton() {
     setState('busy')
     setMessage('')
     try {
-      const res = await fetch(`/api/posts/${id}/translate`, {
+      const res = await fetch(`/api/${collectionSlug}/${id}/translate`, {
         method: 'POST',
         credentials: 'include',
       })

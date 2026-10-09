@@ -11,7 +11,21 @@ type Opt = NonNullable<ContactOption['productOptions']>[number]
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
-export function HtplyContact({ options }: { options: ContactOption }) {
+type Prefill = {
+  product?: string
+  productName?: string
+  market?: string
+  extra?: Record<string, string>
+}
+
+export function HtplyContact({ options, prefill }: { options: ContactOption; prefill?: Prefill }) {
+  // Lời nhắn điền sẵn từ nút Request a Quote ở trang sản phẩm
+  const prefillMessage = [
+    prefill?.productName && `Product: ${prefill.productName}`,
+    ...Object.entries(prefill?.extra ?? {}).map(([k, v]) => `${k}: ${v}`),
+  ]
+    .filter(Boolean)
+    .join('\n')
   const t = useTranslations('contactPage')
   const locale = useLocale()
   const [status, setStatus] = useState<Status>('idle')
@@ -146,7 +160,7 @@ export function HtplyContact({ options }: { options: ContactOption }) {
                     </div>
                     <div className="c-field">
                       <label htmlFor="targetMarket">{t('labels.targetMarket')}</label>
-                      <input id="targetMarket" name="targetMarket" type="text" placeholder={t('placeholders.targetMarket')} />
+                      <input id="targetMarket" name="targetMarket" type="text" defaultValue={prefill?.market ?? ''} placeholder={t('placeholders.targetMarket')} />
                     </div>
                   </div>
 
@@ -154,7 +168,7 @@ export function HtplyContact({ options }: { options: ContactOption }) {
                   <div className="c-grid">
                     <div className="c-field">
                       <label htmlFor="product">{t('labels.product')}</label>
-                      <select id="product" name="product" defaultValue="">
+                      <select id="product" name="product" defaultValue={prefill?.product ?? ''}>
                         <option value="">{t('choose')}</option>
                         {list(options.productOptions).map((o) => (
                           <option key={o.value} value={o.value}>{o[labelKey]}</option>
@@ -190,7 +204,7 @@ export function HtplyContact({ options }: { options: ContactOption }) {
                     </div>
                     <div className="c-field full">
                       <label htmlFor="message">{t('labels.message')}</label>
-                      <textarea id="message" name="message" placeholder={t('placeholders.message')} />
+                      <textarea id="message" name="message" defaultValue={prefillMessage} placeholder={t('placeholders.message')} />
                     </div>
                   </div>
 

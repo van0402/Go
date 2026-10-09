@@ -83,6 +83,14 @@
   justify-content:center;
 }
 
+/* Kiểu gốc của nút chọn ngôn ngữ, đặt ở đây để mọi trang có menu đều có (trước đây nằm rải trong CSS từng trang) */
+.htply-nav-wrap .locale-switcher{display:flex;gap:4px}
+.htply-nav-wrap .locale-switcher button{
+  background:transparent;border:1px solid rgba(59,69,89,.25);
+  padding:6px 10px;border-radius:8px;
+  font-family:inherit;font-size:12px;font-weight:700;line-height:1.2;cursor:pointer;
+}
+
 .htply-nav-wrap .locale-switcher button{
   border-color:rgba(59,69,89,.25);
   color:rgba(59,69,89,.75);

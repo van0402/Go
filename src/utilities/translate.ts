@@ -72,3 +72,29 @@ export async function translateLexical<T>(
   })
   return copy as T
 }
+
+/**
+ * Dịch tiêu đề, tóm tắt và nội dung bài trong MỘT lần gọi DeepL (nhanh hơn gọi nhiều lần).
+ * Chữ rỗng được giữ nguyên.
+ */
+export async function translateDoc<T>(
+  input: { title: string; excerpt: string; content: T },
+  target: Target,
+): Promise<{ title: string; excerpt: string; content: T }> {
+  const content = input.content ? (JSON.parse(JSON.stringify(input.content)) as LexicalNode) : null
+  const nodes: LexicalNode[] = []
+  const walk = (n: LexicalNode | undefined | null) => {
+    if (!n || typeof n !== 'object') return
+    if (n.type === 'text' && typeof n.text === 'string' && n.text.trim()) nodes.push(n)
+    if (Array.isArray(n.children)) n.children.forEach(walk)
+    if (n.root) walk(n.root)
+  }
+  walk(content)
+
+  const texts = [input.title || '', input.excerpt || '', ...nodes.map((n) => n.text as string)]
+  const out = await translateTexts(texts, target)
+  nodes.forEach((n, i) => {
+    n.text = out[i + 2]
+  })
+  return { title: out[0], excerpt: out[1], content: (content ?? input.content) as T }
+}

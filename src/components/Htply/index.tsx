@@ -13,8 +13,9 @@ import { Faq } from './Faq'
 import { QcGallery } from './QcGallery'
 import { SiteFooter } from './SiteFooter'
 import { RevealOnScroll } from './RevealOnScroll'
+import type { ProductCard } from '@/utilities/getProducts'
 
-export function HtplyDemo() {
+export function HtplyDemo({ products = [] }: { products?: ProductCard[] }) {
   return (
     <div className="htply-page htply-navy">
       <RevealOnScroll />
@@ -22,7 +23,7 @@ export function HtplyDemo() {
       <main id="top">
         <Hero />
         <About />
-        <Products />
+        <Products products={products} />
         {/* <InsideBoard /> */}
         {/* <ProcessSteps /> */}
         <QualityGrid />
