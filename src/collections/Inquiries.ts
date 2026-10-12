@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { inquiryHtml, inquirySubject } from '../utilities/inquiryEmail'
 
 export const Inquiries: CollectionConfig = {
   slug: 'inquiries',
@@ -21,15 +22,12 @@ export const Inquiries: CollectionConfig = {
         const to = process.env.CONTACT_EMAIL_TO
         if (operation !== 'create' || !to) return doc
         try {
+          const base = (process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000').replace(/\/$/, '')
           await req.payload.sendEmail({
             to,
-            subject: `New quote request - ${doc.company}`,
-            html: `
-              <p><b>${doc.fullName}</b> (${doc.company}, ${doc.country})</p>
-              <p>${doc.email} - ${doc.phone}</p>
-              <p>Target market: ${doc.targetMarket ?? '-'} | Product: ${doc.product ?? '-'} | Quantity: ${doc.quantity ?? '-'}</p>
-              <p>Incoterm: ${doc.incoterm ?? '-'} | Timing: ${doc.timing ?? '-'}</p>
-              <p>${doc.message ?? ''}</p>`,
+            replyTo: doc.email || undefined, // bấm Reply là trả lời thẳng cho khách
+            subject: inquirySubject(doc),
+            html: inquiryHtml(doc, `${base}/admin/collections/inquiries/${doc.id}`),
           })
         } catch (e) {
           req.payload.logger.error(e) // email lỗi vẫn giữ dữ liệu khách
