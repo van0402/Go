@@ -3,7 +3,7 @@ import sharp from 'sharp'
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
-
+import { resendAdapter } from '@payloadcms/email-resend'
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Inquiries } from './collections/Inquiries'
@@ -17,6 +17,7 @@ import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 import { ContactOptions } from './ContactOptions/config'
+import { s3Storage } from '@payloadcms/storage-s3'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -77,7 +78,24 @@ meta: {
   collections: [Pages, Posts, Media, Categories, Products, Inquiries, Users],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer, ContactOptions],
-  plugins,
+  plugins: [
+  ...plugins,
+  s3Storage({
+    // Chỉ bật khi có S3_BUCKET: máy local không đặt biến này nên vẫn lưu ảnh trên đĩa như cũ
+    enabled: Boolean(process.env.S3_BUCKET),
+    collections: { media: true },
+    bucket: process.env.S3_BUCKET || '',
+    config: {
+      endpoint: process.env.S3_ENDPOINT,
+      region: process.env.S3_REGION,
+      forcePathStyle: true, // Supabase cần
+      credentials: {
+        accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
+        secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
+      },
+    },
+  }),
+],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {
@@ -110,4 +128,10 @@ meta: {
   defaultLocale: 'en',
   fallback: true,   // thiếu bản dịch thì dùng tiếng Anh
 },
+// 
+  email: resendAdapter({
+    defaultFromAddress: process.env.EMAIL_FROM || 'onboarding@resend.dev',
+    defaultFromName: 'HTPLY Website',
+    apiKey: process.env.RESEND_API_KEY || '',
+  }),
 })
