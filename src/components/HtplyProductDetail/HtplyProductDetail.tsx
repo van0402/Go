@@ -57,6 +57,25 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
             <h1>{product.name}</h1>
             {product.sub && <p className="pd-sub">{product.sub}</p>}
 
+            <div className="pd-badges">
+              {[...product.tags, 'B2B export', 'Europe · Middle East'].map((b) => (
+                <span className="pd-badge" key={b}>{b}</span>
+              ))}
+            </div>
+
+            {product.features.length > 0 && (
+              <div className="pd-hl">
+                <h3>Key highlights</h3>
+                <ul>
+                  {product.features.slice(0, 4).map((f) => (
+                    <li key={f.title}>
+                      <span><b>{f.title}</b>{f.text ? ` – ${f.text}` : ''}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {product.options.length > 0 && (
             <div className="pd-chips">
               {product.options.map((o) => (
@@ -81,14 +100,33 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
 
             <div className="pd-actions">
               <Link className="pd-btn primary" href={`/contact?${query}#quote`}>Request a Quote →</Link>
+              <a className="pd-btn" href="https://wa.me/84931152468" target="_blank" rel="noreferrer">WhatsApp / Zalo</a>
+            </div>
+            <div className="pd-quick">
+              <span><b>Tel:</b> +84 931 152 468</span>
+              <span><b>Mail:</b> info@htplywood.net</span>
             </div>
           </div>
         </section>
 
+        <div className="pd-facts">
+          <div className="pd-fact"><small>Factory</small><strong>~5,000 m²</strong></div>
+          <div className="pd-fact"><small>Supply capacity</small><strong>80 containers / month</strong></div>
+          <div className="pd-fact"><small>Markets</small><strong>Europe · Middle East</strong></div>
+          <div className="pd-fact"><small>Business type</small><strong>B2B export</strong></div>
+        </div>
+
         {product.description.length > 0 && (
         <section className="pd-block pd-desc">
           <h2>Product description</h2>
-          {product.description.map((p) => (<p key={p}>{p}</p>))}
+          <div className="pd-desc-grid">
+            <div>{product.description.map((p) => (<p key={p}>{p}</p>))}</div>
+            <div className="pd-desc-side">
+              <b>Need a tailored quotation?</b>
+              <p>Send us your dimensions, application and order quantity.</p>
+              <Link href={`/contact?${query}#quote`}>Request a Quote →</Link>
+            </div>
+          </div>
         </section>
         )}
 
@@ -109,9 +147,19 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
         <section className="pd-block">
           <h2>Why it matters</h2>
           <div className="pd-features">
-            {product.features.map((f) => (
-              <div className="pd-feature" key={f.title}><b>{f.title}</b><p>{f.text}</p></div>
-            ))}
+            {product.features.map((f, i, arr) => {
+              // 3 thẻ mỗi hàng; hàng cuối thiếu thẻ thì các thẻ cuối trải rộng cho khỏi lệch
+              const rest = arr.length % 3
+              const span =
+                rest === 1 && i === arr.length - 1 ? ' wide' : rest === 2 && i >= arr.length - 2 ? ' half' : ''
+              return (
+                <div className={`pd-feature${span}`} key={f.title}>
+                  <i>{i + 1}</i>
+                  <b>{f.title}</b>
+                  <p>{f.text}</p>
+                </div>
+              )
+            })}
           </div>
         </section>
         )}
@@ -154,6 +202,14 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
             </div>
           </section>
         )}
+
+        <section className="pd-quote">
+          <div>
+            <h3>Send us your requirements.</h3>
+            <p>Tell us your dimensions, application, quantity and target market. Our team replies within one business day.</p>
+          </div>
+          <Link href={`/contact?${query}#quote`}>Request a Quote →</Link>
+        </section>
       </div>
       <SiteFooter />
             {open && (

@@ -1,6 +1,6 @@
 :root,
 [data-theme='light'] {
-  --font-body: var(--font-be-vietnam-pro), Inter, Arial, sans-serif;
+  --font-body: Inter, 'Segoe UI', Arial, sans-serif;
   --theme-bg: #F5F8FA;
   --theme-text: #344158;
   --theme-input-bg: #FFFFFF;
@@ -243,3 +243,70 @@
 #nav-media {
   --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='16' rx='2'/%3E%3Ccircle cx='9' cy='10' r='2'/%3E%3Cpath d='M21 16l-5-5-8 8'/%3E%3C/svg%3E");
 }
+
+/* ============================================================
+   Màn nhập sản phẩm: 5 tab, cột phải gọn, ẩn nút kỹ thuật
+   ============================================================ */
+/* Ẩn tab "API" (chỉ dành cho lập trình viên) */
+a.doc-tab[href$="/api"] { display: none; }
+
+/* Tab của form: dạng viên thuốc */
+.tabs-field__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+  border: 0 !important;
+}
+.tabs-field__tab-button {
+  padding: 10px 16px;
+  border: 0 !important;
+  border-radius: 10px;
+  background: #e8edf1;
+  color: #4a566b;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.tabs-field__tab-button:hover { background: #dbe4ea; }
+.tabs-field__tab-button--active {
+  background: #3c445c !important;
+  color: #fff !important;
+}
+.tabs-field__tab-button--has-error { box-shadow: inset 0 0 0 2px #d34747; }
+.tabs-field__description { margin: 0 0 18px; color: #7c8798; font-size: 13px; }
+
+/* Thẻ ở cột phải (Product Summary, Completion) */
+.htply-side-card {
+  margin-bottom: 14px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid #dce7ee;
+  border-radius: 14px;
+}
+.htply-side-card h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #233047;
+}
+.htply-side-count { font-size: 12px; font-weight: 800; color: #2e9dbe; }
+.htply-side-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid #eef2f5;
+  font-size: 12.5px;
+}
+.htply-side-row:last-of-type { border-bottom: 0; }
+.htply-side-row span { color: #7c8798; }
+.htply-side-row b { color: #233047; }
+.htply-ok { color: #2f9e6b !important; }
+.htply-miss { color: #b0bac6 !important; }
+.htply-side-bar { height: 7px; margin: 0 0 10px; border-radius: 99px; background: #e7edf2; overflow: hidden; }
+.htply-side-bar i { display: block; height: 100%; background: linear-gradient(90deg, #59cbe8, #3c445c); transition: width 0.3s ease; }
+.htply-side-note { margin: 10px 0 0; font-size: 11.5px; line-height: 1.5; color: #8a97a8; }

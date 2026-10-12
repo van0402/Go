@@ -793,33 +793,56 @@ export interface Form {
  */
 export interface Product {
   id: number;
-  name: string;
   /**
-   * Dòng nhỏ, ví dụ "Structural LVL"
+   * Show this product in the Products section of the home page
+   */
+  showOnHome?: boolean | null;
+  /**
+   * Smaller numbers appear first
+   */
+  order?: number | null;
+  featured?: boolean | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  name: string;
+  category?: (number | null) | Category;
+  /**
+   * Small line above the name, e.g. “Structural LVL”
    */
   tagline?: string | null;
   /**
-   * Mô tả ngắn dưới tiêu đề
+   * 1–2 sentences under the product name
    */
   sub?: string | null;
   /**
-   * Đoạn mô tả sản phẩm. Cách nhau một dòng trống = một đoạn mới.
-   */
-  description?: string | null;
-  /**
-   * Ảnh đầu tiên là ảnh chính
+   * The first image is the cover. Drag to reorder.
    */
   gallery?: (number | Media)[] | null;
-  category?: (number | null) | Category;
   /**
-   * Các nhóm nút chọn (Application, Length, Market…)
+   * Shown as the “Technical data” table. Leave empty if you have no data: the section is hidden.
+   */
+  specs?:
+    | {
+        label: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Optional. Choice buttons shown next to “Request a Quote” (e.g. Application, Film color). Leave empty if customers cannot choose variants.
    */
   options?:
     | {
         /**
-         * Mã ngắn không dấu, ví dụ Application
+         * Short code without spaces, e.g. Application
          */
         key: string;
+        /**
+         * Name shown to customers
+         */
         label: string;
         values?:
           | {
@@ -831,15 +854,8 @@ export interface Product {
       }[]
     | null;
   /**
-   * Bảng thông số kỹ thuật
+   * Strengths of the product. The first 4 also appear as “Key highlights” next to the photo.
    */
-  specs?:
-    | {
-        label: string;
-        value: string;
-        id?: string | null;
-      }[]
-    | null;
   features?:
     | {
         title: string;
@@ -847,6 +863,9 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Each group has a name (e.g. Construction) and a list of uses inside it.
+   */
   applications?:
     | {
         title: string;
@@ -859,6 +878,13 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Leave a blank line between paragraphs to start a new one.
+   */
+  description?: string | null;
+  /**
+   * Optional. Leave empty and the FAQ section is hidden.
+   */
   faq?:
     | {
         q: string;
@@ -866,18 +892,12 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Shown at the bottom of the product page (published products only).
+   */
   related?: (number | Product)[] | null;
-  featured?: boolean | null;
   /**
-   * Hiện ở trang chủ
-   */
-  showOnHome?: boolean | null;
-  /**
-   * Số nhỏ hiện trước
-   */
-  order?: number | null;
-  /**
-   * Nhãn nhỏ trên thẻ, ví dụ Formwork, Construction
+   * Small labels on cards and badges, e.g. Formwork, Construction.
    */
   tags?:
     | {
@@ -885,11 +905,6 @@ export interface Product {
         id?: string | null;
       }[]
     | null;
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -1487,12 +1502,23 @@ export interface CategoriesSelect<T extends boolean = true> {
  * via the `definition` "products_select".
  */
 export interface ProductsSelect<T extends boolean = true> {
+  showOnHome?: T;
+  order?: T;
+  featured?: T;
+  generateSlug?: T;
+  slug?: T;
   name?: T;
+  category?: T;
   tagline?: T;
   sub?: T;
-  description?: T;
   gallery?: T;
-  category?: T;
+  specs?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        id?: T;
+      };
   options?:
     | T
     | {
@@ -1504,13 +1530,6 @@ export interface ProductsSelect<T extends boolean = true> {
               value?: T;
               id?: T;
             };
-        id?: T;
-      };
-  specs?:
-    | T
-    | {
-        label?: T;
-        value?: T;
         id?: T;
       };
   features?:
@@ -1532,6 +1551,7 @@ export interface ProductsSelect<T extends boolean = true> {
             };
         id?: T;
       };
+  description?: T;
   faq?:
     | T
     | {
@@ -1540,17 +1560,12 @@ export interface ProductsSelect<T extends boolean = true> {
         id?: T;
       };
   related?: T;
-  featured?: T;
-  showOnHome?: T;
-  order?: T;
   tags?:
     | T
     | {
         tag?: T;
         id?: T;
       };
-  generateSlug?: T;
-  slug?: T;
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
