@@ -37,7 +37,6 @@ meta: {
       beforeDashboard: ['@/components/admin/DashboardOverview'],
       graphics: {
     Logo: '@/components/admin/AdminLogo',
-    Icon: '@/components/admin/AdminIcon',
   },
   actions: ['@/components/admin/ViewSiteLink'],
     },

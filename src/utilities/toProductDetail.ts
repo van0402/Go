@@ -14,6 +14,7 @@ export function toProductDetail(p: Product): ProductDetail {
     description: (p.description || '').split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean),
     image: first?.url || '/images/hm14.jpg',
     images: media.map((m) => m.url).filter((u): u is string => Boolean(u)),
+    tags: (p.tags || []).map((t) => t.tag),
     options: (p.options || []).map((o) => ({
       key: o.key,
       label: o.label,

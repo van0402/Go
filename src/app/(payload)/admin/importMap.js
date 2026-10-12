@@ -22,6 +22,9 @@ import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0
 import { default as default_704c151efe6fce73d5d4458dd6486b83 } from '@/components/admin/RedirectAfterPublish'
 import { FolderTableCell as FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { FolderField as FolderField_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
+import { default as default_610f70b436b6946660d65ae8a90fefd9 } from '@/components/admin/ProductSummary'
+import { default as default_763807295308da11a0ab02e8ee77d57d } from '@/components/admin/ProductCompletion'
+import { default as default_5c93beb5177c7bbf25c3c7ca614e9ee6 } from '@/components/admin/ArrayRowLabel'
 import { default as default_b737b12e0c0c05397c5c192f2f7f4831 } from '@/components/admin/InquiryHeader'
 import { default as default_ff32efc137541c6552ed42594a323755 } from '@/components/admin/StatusCell'
 import { default as default_b4c0f193603af763c560a7d3255f1cfe } from '@/components/admin/InquirySummary'
@@ -30,7 +33,6 @@ import { ReindexButton as ReindexButton_aead06e4cbf6b2620c5c51c9ab283634 } from 
 import { FolderTypeField as FolderTypeField_2b8867833a34864a02ddf429b0728a40 } from '@payloadcms/next/client'
 import { RowLabel as RowLabel_ec255a65fa6fa8d1faeb09cf35284224 } from '@/Header/RowLabel'
 import { RowLabel as RowLabel_1f6ff6ff633e3695d348f4f3c58f1466 } from '@/Footer/RowLabel'
-import { default as default_d500ae2ad98a0a33d640ae0ac1a3417c } from '@/components/admin/AdminIcon'
 import { default as default_b80a86fce1072afc84cd6a430a965697 } from '@/components/admin/AdminLogo'
 import { default as default_4825072285f9364e3016113bb30951e2 } from '@/components/admin/ViewSiteLink'
 import { default as default_05d601da1b7f3b105394f9997b7afdb8 } from '@/components/admin/DashboardOverview'
@@ -63,6 +65,9 @@ export const importMap = {
   "@/components/admin/RedirectAfterPublish#default": default_704c151efe6fce73d5d4458dd6486b83,
   "@payloadcms/next/rsc#FolderTableCell": FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/next/rsc#FolderField": FolderField_f9c02e79a4aed9a3924487c0cd4cafb1,
+  "@/components/admin/ProductSummary#default": default_610f70b436b6946660d65ae8a90fefd9,
+  "@/components/admin/ProductCompletion#default": default_763807295308da11a0ab02e8ee77d57d,
+  "@/components/admin/ArrayRowLabel#default": default_5c93beb5177c7bbf25c3c7ca614e9ee6,
   "@/components/admin/InquiryHeader#default": default_b737b12e0c0c05397c5c192f2f7f4831,
   "@/components/admin/StatusCell#default": default_ff32efc137541c6552ed42594a323755,
   "@/components/admin/InquirySummary#default": default_b4c0f193603af763c560a7d3255f1cfe,
@@ -71,7 +76,6 @@ export const importMap = {
   "@payloadcms/next/client#FolderTypeField": FolderTypeField_2b8867833a34864a02ddf429b0728a40,
   "@/Header/RowLabel#RowLabel": RowLabel_ec255a65fa6fa8d1faeb09cf35284224,
   "@/Footer/RowLabel#RowLabel": RowLabel_1f6ff6ff633e3695d348f4f3c58f1466,
-  "@/components/admin/AdminIcon#default": default_d500ae2ad98a0a33d640ae0ac1a3417c,
   "@/components/admin/AdminLogo#default": default_b80a86fce1072afc84cd6a430a965697,
   "@/components/admin/ViewSiteLink#default": default_4825072285f9364e3016113bb30951e2,
   "@/components/admin/DashboardOverview#default": default_05d601da1b7f3b105394f9997b7afdb8,
