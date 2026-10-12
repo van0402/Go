@@ -6,6 +6,7 @@ import * as migration_20261006_074640_contact_options from './20261006_074640_co
 import * as migration_20261006_100654_localization_posts from './20261006_100654_localization_posts';
 import * as migration_20261008_094035_products_detail from './20261008_094035_products_detail';
 import * as migration_20261009_081159_products_home from './20261009_081159_products_home';
+import * as migration_20261012_074458_media_objectkey from './20261012_074458_media_objectkey';
 
 export const migrations = [
   {
@@ -46,6 +47,11 @@ export const migrations = [
   {
     up: migration_20261009_081159_products_home.up,
     down: migration_20261009_081159_products_home.down,
-    name: '20261009_081159_products_home'
+    name: '20261009_081159_products_home',
+  },
+  {
+    up: migration_20261012_074458_media_objectkey.up,
+    down: migration_20261012_074458_media_objectkey.down,
+    name: '20261012_074458_media_objectkey'
   },
 ];
