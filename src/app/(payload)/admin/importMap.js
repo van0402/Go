@@ -35,8 +35,10 @@ import { RowLabel as RowLabel_ec255a65fa6fa8d1faeb09cf35284224 } from '@/Header/
 import { RowLabel as RowLabel_1f6ff6ff633e3695d348f4f3c58f1466 } from '@/Footer/RowLabel'
 import { default as default_b80a86fce1072afc84cd6a430a965697 } from '@/components/admin/AdminLogo'
 import { default as default_4825072285f9364e3016113bb30951e2 } from '@/components/admin/ViewSiteLink'
+import { default as default_52affdbbcdd7c1fb1fa9e143ec8db954 } from '@/components/admin/product-editor/NavProductEditorLink'
 import { default as default_05d601da1b7f3b105394f9997b7afdb8 } from '@/components/admin/DashboardOverview'
 import { default as default_8a7ab0eb7ab5c511aba12e68480bfe5e } from '@/components/BeforeLogin'
+import { default as default_442b2b9ed47d91b617fc3a355d4262a3 } from '@/components/admin/product-editor/ProductEditorView'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 
@@ -79,8 +81,10 @@ export const importMap = {
   "@/Footer/RowLabel#RowLabel": RowLabel_1f6ff6ff633e3695d348f4f3c58f1466,
   "@/components/admin/AdminLogo#default": default_b80a86fce1072afc84cd6a430a965697,
   "@/components/admin/ViewSiteLink#default": default_4825072285f9364e3016113bb30951e2,
+  "@/components/admin/product-editor/NavProductEditorLink#default": default_52affdbbcdd7c1fb1fa9e143ec8db954,
   "@/components/admin/DashboardOverview#default": default_05d601da1b7f3b105394f9997b7afdb8,
   "@/components/BeforeLogin#default": default_8a7ab0eb7ab5c511aba12e68480bfe5e,
+  "@/components/admin/product-editor/ProductEditorView#default": default_442b2b9ed47d91b617fc3a355d4262a3,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24
 }

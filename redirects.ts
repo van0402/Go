@@ -20,5 +20,6 @@ export const redirects: NextConfig['redirects'] = async () => {
   { source: '/posts/:slug', destination: '/news/:slug', permanent: true },
   { source: '/:locale(en|fr|es)/posts', destination: '/:locale/news', permanent: true },
   { source: '/:locale(en|fr|es)/posts/:slug', destination: '/:locale/news/:slug', permanent: true },
+  { source: '/admin/collections/products/create', destination: '/admin/product-editor', permanent: false },
 ]
 }

@@ -25,26 +25,23 @@ export async function HtplyNewsPost({ post, locale }: Props) {
     <main className="htply-newspost-page">
       <Nav />
 
-      <header className="np-hero np-container">
-        <Link href="/news" className="np-back">← {t('back')}</Link>
+      <header className="np-hero np-narrow">
         <h1>{post.title}</h1>
         {post.excerpt && <p>{post.excerpt}</p>}
       </header>
 
       {hero?.url && (
-        <div className="np-container">
+        <div className="np-narrow">
           <div className="np-cover">
-            <Image src={hero.url} alt={hero.alt || post.title} fill priority quality={100} sizes="1180px" />
+            <Image src={hero.url} alt={hero.alt || post.title} fill priority quality={100} sizes="860px" />
           </div>
         </div>
       )}
 
-      <div className="np-container np-layout">
+      <div className="np-narrow np-layout">
         <article className="np-content">
           <RichText data={post.content} enableGutter={false} />
         </article>
-
-       
       </div>
 
       {related.length > 0 && (

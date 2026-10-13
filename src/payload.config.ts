@@ -39,6 +39,13 @@ meta: {
       graphics: {
     Logo: '@/components/admin/AdminLogo',
   },
+  afterNavLinks: ['@/components/admin/product-editor/NavProductEditorLink'],
+views: {
+  productEditor: {
+    Component: '@/components/admin/product-editor/ProductEditorView',
+    path: '/product-editor',
+  },
+},
   actions: ['@/components/admin/ViewSiteLink'],
     },
     importMap: {

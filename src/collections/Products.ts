@@ -1,5 +1,6 @@
 import type { CollectionConfig, Field } from 'payload'
 import { slugField } from 'payload'
+import { optionalSlug } from '../fields/optionalSlug'
 import { translateProductData } from '../utilities/translateProduct'
 import { authenticated } from '../access/authenticated'
 import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
@@ -22,18 +23,17 @@ const optionsField: Field = {
     {
       name: 'key',
       type: 'text',
-      required: true,
       label: 'Key',
       admin: { description: 'Short code without spaces, e.g. Application' },
     },
-    { name: 'label', type: 'text', required: true, localized: true, label: 'Label', admin: { description: 'Name shown to customers' } },
+    { name: 'label', type: 'text', localized: true, label: 'Label', admin: { description: 'Name shown to customers' } },
     {
       name: 'values',
       type: 'array',
       label: 'Choices',
       labels: { singular: 'Choice', plural: 'Choices' },
       admin: { initCollapsed: false, components: { RowLabel: rowLabel.RowLabel } },
-      fields: [{ name: 'value', type: 'text', required: true, localized: true, label: 'Choice' }],
+      fields: [{ name: 'value', type: 'text', localized: true, label: 'Choice' }],
     },
   ],
 }
@@ -48,8 +48,8 @@ const specsField: Field = {
     description: 'Shown as the “Technical data” table. Leave empty if you have no data: the section is hidden.',
   },
   fields: [
-    { name: 'label', type: 'text', required: true, localized: true, label: 'Name', admin: { placeholder: 'e.g. Thickness' } },
-    { name: 'value', type: 'text', required: true, localized: true, label: 'Value', admin: { placeholder: 'e.g. 9–21 mm' } },
+    { name: 'label', type: 'text', localized: true, label: 'Name', admin: { placeholder: 'e.g. Thickness' } },
+    { name: 'value', type: 'text', localized: true, label: 'Value', admin: { placeholder: 'e.g. 9–21 mm' } },
   ],
 }
 
@@ -64,7 +64,7 @@ const featuresField: Field = {
     description: 'Strengths of the product. The first 4 also appear as “Key highlights” next to the photo.',
   },
   fields: [
-    { name: 'title', type: 'text', required: true, localized: true, label: 'Title', admin: { placeholder: 'e.g. High Load Capacity' } },
+    { name: 'title', type: 'text', localized: true, label: 'Title', admin: { placeholder: 'e.g. High Load Capacity' } },
     { name: 'text', type: 'textarea', localized: true, label: 'Description' },
   ],
 }
@@ -80,14 +80,14 @@ const applicationsField: Field = {
     description: 'Each group has a name (e.g. Construction) and a list of uses inside it.',
   },
   fields: [
-    { name: 'title', type: 'text', required: true, localized: true, label: 'Group name', admin: { placeholder: 'e.g. Construction' } },
+    { name: 'title', type: 'text', localized: true, label: 'Group name', admin: { placeholder: 'e.g. Construction' } },
     {
       name: 'items',
       type: 'array',
       label: 'Uses',
       labels: { singular: 'Use', plural: 'Uses' },
       admin: { components: { RowLabel: rowLabel.RowLabel } },
-      fields: [{ name: 'item', type: 'text', required: true, localized: true, label: 'Use' }],
+      fields: [{ name: 'item', type: 'text', localized: true, label: 'Use' }],
     },
   ],
 }
@@ -103,8 +103,8 @@ const faqField: Field = {
     description: 'Optional. Leave empty and the FAQ section is hidden.',
   },
   fields: [
-    { name: 'q', type: 'text', required: true, localized: true, label: 'Question' },
-    { name: 'a', type: 'textarea', required: true, localized: true, label: 'Answer' },
+    { name: 'q', type: 'text', localized: true, label: 'Question' },
+    { name: 'a', type: 'textarea', localized: true, label: 'Answer' },
   ],
 }
 
@@ -203,7 +203,7 @@ export const Products: CollectionConfig = {
       // Trang web không dùng ô này nên ẩn khỏi màn nhập (vẫn giữ cột trong database, không cần migration)
       admin: { position: 'sidebar', hidden: true },
     },
-    slugField({ useAsSlug: 'name' }),
+    slugField({ useAsSlug: 'name', overrides: optionalSlug }),
     {
       name: 'redirectAfterPublish',
       type: 'ui',
@@ -219,7 +219,14 @@ export const Products: CollectionConfig = {
           description: 'The essentials needed to identify and present the product.',
           fields: [
             { name: 'name', type: 'text', required: true, localized: true, label: 'Product name', admin: { placeholder: 'e.g. LVL' } },
-            { name: 'category', type: 'relationship', relationTo: 'categories', label: 'Category' },
+            {
+              name: 'category',
+              type: 'relationship',
+              relationTo: 'categories',
+              label: 'Category',
+              // Chỉ chọn từ danh sách có sẵn: không mở cửa sổ tạo/sửa Category ngay trong form sản phẩm
+              admin: { allowCreate: false, allowEdit: false },
+            },
             {
               name: 'tagline',
               type: 'text',
@@ -272,8 +279,13 @@ export const Products: CollectionConfig = {
               relationTo: 'products',
               hasMany: true,
               label: 'Related products',
-              admin: { description: 'Shown at the bottom of the product page (published products only).' },
-              filterOptions: ({ id }) => ({ id: { not_in: [id] } }),
+              admin: {
+                allowCreate: false,
+                allowEdit: false,
+                description: 'Shown at the bottom of the product page (published products only).',
+              },
+              // Sản phẩm mới chưa có id: không lọc (not_in với id rỗng sẽ loại mọi sản phẩm)
+              filterOptions: ({ id }) => (id ? { id: { not_in: [id] } } : true),
             },
           ],
         },
@@ -290,7 +302,7 @@ export const Products: CollectionConfig = {
                 components: { RowLabel: rowLabel.RowLabel },
                 description: 'Small labels on cards and badges, e.g. Formwork, Construction.',
               },
-              fields: [{ name: 'tag', type: 'text', required: true, localized: true, label: 'Label' }],
+              fields: [{ name: 'tag', type: 'text', localized: true, label: 'Label' }],
             },
           ],
         },

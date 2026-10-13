@@ -826,8 +826,8 @@ export interface Product {
    */
   specs?:
     | {
-        label: string;
-        value: string;
+        label?: string | null;
+        value?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -839,14 +839,14 @@ export interface Product {
         /**
          * Short code without spaces, e.g. Application
          */
-        key: string;
+        key?: string | null;
         /**
          * Name shown to customers
          */
-        label: string;
+        label?: string | null;
         values?:
           | {
-              value: string;
+              value?: string | null;
               id?: string | null;
             }[]
           | null;
@@ -858,7 +858,7 @@ export interface Product {
    */
   features?:
     | {
-        title: string;
+        title?: string | null;
         text?: string | null;
         id?: string | null;
       }[]
@@ -868,10 +868,10 @@ export interface Product {
    */
   applications?:
     | {
-        title: string;
+        title?: string | null;
         items?:
           | {
-              item: string;
+              item?: string | null;
               id?: string | null;
             }[]
           | null;
@@ -887,8 +887,8 @@ export interface Product {
    */
   faq?:
     | {
-        q: string;
-        a: string;
+        q?: string | null;
+        a?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -901,7 +901,7 @@ export interface Product {
    */
   tags?:
     | {
-        tag: string;
+        tag?: string | null;
         id?: string | null;
       }[]
     | null;
