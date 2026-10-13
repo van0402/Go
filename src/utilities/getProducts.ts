@@ -42,8 +42,12 @@ export async function getProductCards(
       tagline: p.tagline || '',
       desc: p.sub || '',
       image: first?.url || '/images/hm14.jpg',
-      tags: (p.tags || []).map((t) => t.tag),
-      specs: (p.specs || []).slice(0, 3).map((s) => ({ label: s.label, value: s.value })),
+      // Dòng danh sách để trống trong admin thì bỏ qua
+      tags: (p.tags || []).map((t) => t.tag).filter((t): t is string => Boolean(t && t.trim())),
+      specs: (p.specs || [])
+        .filter((s): s is { label: string; value: string; id?: string | null } => Boolean(s.label?.trim() && s.value?.trim()))
+        .slice(0, 3)
+        .map((s) => ({ label: s.label, value: s.value })),
     }
   })
 }

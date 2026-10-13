@@ -310,3 +310,26 @@ a.doc-tab[href$="/api"] { display: none; }
 .htply-side-bar { height: 7px; margin: 0 0 10px; border-radius: 99px; background: #e7edf2; overflow: hidden; }
 .htply-side-bar i { display: block; height: 100%; background: linear-gradient(90deg, #59cbe8, #3c445c); transition: width 0.3s ease; }
 .htply-side-note { margin: 10px 0 0; font-size: 11.5px; line-height: 1.5; color: #8a97a8; }
+
+/* ===== Điện thoại / màn hình nhỏ ===== */
+@media (max-width: 768px) {
+  /* Header: bỏ nút View Website (đè lên chọn ngôn ngữ và làm trang tràn ngang) */
+  .app-header__actions-wrapper { display: none; }
+  .app-header__step-nav-wrapper { min-width: 0; overflow: hidden; }
+
+  /* Các tab 1-5 chạy thành một hàng, vuốt ngang thay vì xuống nhiều dòng lệch nhau */
+  .tabs-field__tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tabs-field__tabs::-webkit-scrollbar { display: none; }
+  .tabs-field__tab-button { flex: 0 0 auto; white-space: nowrap; padding: 9px 14px; }
+
+  /* Dòng "Last Modified / Created" xuống dòng thay vì bị cắt */
+  .doc-controls__meta { flex-wrap: wrap; row-gap: 4px; }
+
+  /* Không cho trang cuộn ngang */
+  .template-default, .template-default__wrap { overflow-x: clip; }
+}
