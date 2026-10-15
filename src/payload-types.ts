@@ -893,6 +893,10 @@ export interface Product {
       }[]
     | null;
   /**
+   * Optional. Catalog / datasheet pages shown side by side below the technical data (two per row on desktop, stacked on mobile).
+   */
+  datasheet?: (number | Media)[] | null;
+  /**
    * Shown at the bottom of the product page (published products only).
    */
   related?: (number | Product)[] | null;
@@ -1559,6 +1563,7 @@ export interface ProductsSelect<T extends boolean = true> {
         a?: T;
         id?: T;
       };
+  datasheet?: T;
   related?: T;
   tags?:
     | T

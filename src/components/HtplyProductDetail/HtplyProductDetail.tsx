@@ -143,6 +143,19 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
         </section>
         )}
 
+        {product.datasheet.length > 0 && (
+        <section className="pd-block">
+          <h2>Datasheet</h2>
+          <div className={`pd-sheets${product.datasheet.length === 1 ? ' one' : ''}`}>
+            {product.datasheet.map((src) => (
+              <a key={src} href={src} target="_blank" rel="noreferrer">
+                <img src={src} alt={`${product.name} datasheet`} loading="lazy" />
+              </a>
+            ))}
+          </div>
+        </section>
+        )}
+
         {product.features.length > 0 && (
         <section className="pd-block">
           <h2>Why it matters</h2>

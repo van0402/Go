@@ -6,6 +6,7 @@ import { RevealOnScroll } from '@/components/RevealOnScroll'
 import { Link, useRouter } from '@/i18n/routing'
 import { LocaleSwitcher } from '@/components/LocaleSwitcher'
 import { QcGallery } from './QcGallery'
+import { CatalogSheets } from './CatalogSheets'
 import './HtplyProduct.css'
 import { Nav } from '@/components/Htply/Nav'
 import { SiteFooter } from '@/components/Htply/SiteFooter'
@@ -172,6 +173,8 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
         </div>
 
       </section>
+
+      <CatalogSheets />
 
       <QcGallery />
 
