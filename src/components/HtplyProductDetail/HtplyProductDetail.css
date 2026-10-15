@@ -94,6 +94,13 @@
 .htply-pd-page .pd-spec th{width:34%;background:var(--ice);color:var(--navy);font-weight:600}
 .htply-pd-page .pd-spec td{color:var(--muted)}
 
+/* tờ thông số (ảnh trang catalog): 2 ảnh cạnh nhau, xếp dọc trên điện thoại */
+.htply-pd-page .pd-sheets{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start}
+.htply-pd-page .pd-sheets.one{grid-template-columns:minmax(0,560px)}
+.htply-pd-page .pd-sheets a{display:block;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(44,52,68,.08);cursor:zoom-in}
+.htply-pd-page .pd-sheets img{display:block;width:100%;height:auto}
+@media(max-width:760px){.htply-pd-page .pd-sheets{grid-template-columns:1fr}}
+
 /* điểm mạnh */
 .htply-pd-page .pd-features{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
 .htply-pd-page .pd-feature{

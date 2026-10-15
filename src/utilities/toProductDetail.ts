@@ -16,6 +16,10 @@ export function toProductDetail(p: Product): ProductDetail {
     description: (p.description || '').split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean),
     image: first?.url || '/images/hm14.jpg',
     images: media.map((m) => m.url).filter((u): u is string => Boolean(u)),
+    datasheet: (p.datasheet || [])
+      .filter((g): g is Media => typeof g === 'object' && !!g)
+      .map((m) => m.sizes?.large?.url || m.url)
+      .filter((u): u is string => Boolean(u)),
     // Các dòng danh sách có thể để trống trong admin: bỏ qua dòng thiếu nội dung khi hiển thị
     tags: (p.tags || []).filter((t) => has(t.tag)).map((t) => t.tag as string),
     options: (p.options || [])

@@ -274,6 +274,17 @@ export const Products: CollectionConfig = {
             },
             faqField,
             {
+              name: 'datasheet',
+              type: 'upload',
+              relationTo: 'media',
+              hasMany: true,
+              label: 'Datasheet images',
+              admin: {
+                description:
+                  'Optional. Catalog / datasheet pages shown side by side below the technical data (two per row on desktop, stacked on mobile).',
+              },
+            },
+            {
               name: 'related',
               type: 'relationship',
               relationTo: 'products',

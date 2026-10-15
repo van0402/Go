@@ -7,6 +7,7 @@ export type ProductDetail = {
   description: string[] // các đoạn mô tả sản phẩm
   image: string
   images: string[]
+  datasheet: string[] // ảnh trang catalog (tờ thông số), hiện cạnh nhau ở cuối bảng thông số
   tags: string[]
   options: { key: string; label: string; values: string[] }[]
   specs: { label: string; value: string }[]
