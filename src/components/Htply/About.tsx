@@ -32,10 +32,38 @@ const VALUE_BGS: (string | null)[] = [
   null,
 ]
 
+const VALUE_PROOFS = [
+  [
+    '/images/values/proofs/1.png',
+    '/images/values/proofs/2.png',
+    '/images/values/proofs/3.png',
+  ],
+  [
+    '/images/values/proofs/4.png',
+    '/images/values/proofs/5.png',
+    '/images/values/proofs/6.png',
+  ],
+  [
+    '/images/values/proofs/9.jpg',
+    '/images/values/proofs/10.jpg',
+    '/images/values/proofs/11.jpg',
+  ],
+  [
+    '/images/values/proofs/7.png',
+    '/images/values/proofs/8.png',
+    '/images/values/proofs/12.jpg',
+  ],
+  // [
+  //   '/images/values/proofs/certification-1.jpg',
+  //   '/images/values/proofs/certification-2.jpg',
+  //   '/images/values/proofs/certification-3.jpg',
+  // ],
+]
+
 export function About() {
   const t = useTranslations('home.about')
   const values = t.raw('values') as { title: string; desc: string; detail: string }[]
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState<number | null>(null)
   const cards = t.raw('cards') as AboutCard[]
 
   return (
@@ -188,14 +216,24 @@ export function About() {
                       <span>{String(i + 1).padStart(2, '0')}</span>
                       <img className="value-icon" src={VALUE_ICONS[i]} alt="" />
                     </div>
-                    <div>
-                      <b>{v.title}</b>
-                      <div className="value-more">
-                        <div>
-                          <p>{v.detail}</p>
-                        </div>
-                      </div>
-                    </div>
+                    <div className="value-content">
+  <b>{v.title}</b>
+
+  <div className="value-more">
+    <p>{v.detail}</p>
+
+    <div className="value-proof-grid">
+     {(VALUE_PROOFS[i] ?? []).map((src, j) => (
+        <div className="value-proof" key={src}>
+          <img
+            src={src}
+            alt={`${v.title} ${j + 1}`}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
                   </div>
                 ))}
               </div>
