@@ -70,13 +70,12 @@ export const dynamic = 'force-dynamic'
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      className={cn(
-        GeistSans.variable,
-        GeistMono.variable,
-        beVietnamPro.variable,
-        choplin.variable,
-        amelia.variable,
-      )}
+      
+        className={cn(
+  GeistSans.variable,
+  GeistMono.variable,
+  beVietnamPro.variable,
+)}
       lang="en"
       suppressHydrationWarning
     >

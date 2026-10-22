@@ -13,7 +13,7 @@
   position: relative;
   background: var(--ivory);
   color: var(--coffee);
-  font-family: var(--font-amelia), var(--font-be-vietnam-pro), ui-sans-serif, system-ui, -apple-system, sans-serif;
+   font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -29,7 +29,7 @@
 .htply-page .section-kicker,
 .htply-page b,
 .htply-page strong{
-  font-family: var(--font-choplin), var(--font-be-vietnam-pro), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 .htply-page:before{
   content:"";

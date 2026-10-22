@@ -2,7 +2,7 @@
 .htply-quality-page{
   --navy:#3C445C;--deep:#2C3444;--cyan:#59CBE8;--teal:#2E9DBE;
   --muted:#5C6780;--soft:#7C8798;--line:#D7DEE5;--ice:#F3F6F8;
-  font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
+  font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
   color:var(--navy);background:#fff;overflow-x:clip;min-height:100vh;
 }
 .htply-quality-page *{box-sizing:border-box}
@@ -12,7 +12,7 @@
 .htply-quality-page strong,
 .htply-quality-page .q-kicker,
 .htply-quality-page .q-eyebrow{
-  font-family:var(--font-choplin),var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
+  font-family:var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
 }
 .q-container{width:min(1180px,calc(100% - 40px));margin:0 auto}
 
