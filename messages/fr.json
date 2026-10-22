@@ -19,14 +19,47 @@
         "markets": { "label": "Marchés", "desc": "Europe et Moyen-Orient" }
       },
       "title": "La confiance intégrée à chaque panneau",
-      "intro": "HTPLY Vietnam est un exportateur de contreplaqué industriel, positionné sur le segment moyen et haut de gamme pour des clients B2B internationaux. Avec une usine d'environ 5 000 m² et une capacité d'approvisionnement allant jusqu'à 80 conteneurs/mois, HTPLY développe ses gammes de contreplaqué filmé, antidérapant et industriel, en ciblant les marchés européen et moyen-oriental. L'entreprise fonde sa stratégie d'expansion internationale sur une qualité constante, une capacité d'approvisionnement fiable et un développement durable.",
+      "intro": "HTPLY Vietnam est un exportateur de contreplaqué industriel destiné aux marchés B2B internationaux, avec une usine de 5 000 m², une capacité d’approvisionnement pouvant atteindre 80 conteneurs par mois et un engagement axé sur la qualité, la fiabilité des approvisionnements et une croissance durable.",
       "quote": "Fournir du contreplaqué ne suffit pas — HTPLY apporte la fiabilité à chaque expédition",
+      "explore": "Découvrir HTPLY",
+      "soon": "Bientôt disponible",
+      "cards": [
+        {
+          "num": "01 · Expertise produit",
+          "title": "Quatre gammes de produits ciblées",
+          "items": ["Contreplaqué filmé", "Contreplaqué antidérapant", "Contreplaqué brut / commercial", "LVL"],
+          "cta": "Voir tous les produits"
+        },
+        {
+          "num": "02 · Approche qualité",
+          "title": "Cinq points de contrôle mesurables",         
+          "items": ["Précision d'épaisseur", "Contrôle de l'humidité", "Résistance du collage", "Précision dimensionnelle", "Qualité de surface"],
+          "cta": "Voir nos contrôles"
+        },
+        {
+          "num": "03 · Preuves",
+          "title": "Des documents qui appuient nos engagements",         
+          "items": ["Certificats", "Fiches techniques", "Rapports d'essai et de contrôle qualité"],
+          "cta": "Voir les documents"
+        },
+        {
+          "num": "04 · Sur mesure",
+          "title": "Conçu selon votre spécification",
+          "items": ["Dimensions et épaisseur", "Âme et surface", "Colle et emballage"],
+          "cta": "Demander un devis"
+        }
+      ],
       "values": [
-        { "title": "Fiable", "desc": "Qualité constante, communication claire et plans d'approvisionnement prévisibles." },
-        { "title": "Durable", "desc": "Orienté vers un développement responsable et respectueux de l'environnement." },
-        { "title": "Global", "desc": "Produits et services conçus selon les normes des marchés internationaux." },
-        { "title": "Machines & technologie", "desc": "Lignes modernes de pressage à chaud, de découpe et de contrôle, optimisées pour la précision dimensionnelle et la qualité de surface." },
-        { "title": "Certification de production", "desc": "Certifié FSC, conforme aux normes d'émission de formaldéhyde E0/E0.5 pour l'exportation vers l'UE." }
+        { "title": "Fiable", "desc": "Qualité constante, communication claire et plans d'approvisionnement prévisibles.",
+          "detail": "Chaque expédition est contrôlée selon les mêmes cinq points qualité : épaisseur, humidité, collage, dimensions et surface. C'est ainsi que le premier conteneur et le dernier vous parviennent identiques." },
+        { "title": "Durable", "desc": "Orienté vers un développement responsable et respectueux de l'environnement.",
+          "detail": "Nous suivons les normes FSC pour la traçabilité du bois, optimisons la production pour limiter les pertes et maintenons un contrôle strict des niveaux de formaldéhyde en production." },
+        { "title": "Global", "desc": "Produits et services conçus selon les normes des marchés internationaux.",
+          "detail": "Les spécifications, l'emballage et la documentation sont préparés selon les exigences des acheteurs européens et du Moyen-Orient, et confirmés avec vous avant chaque commande." },
+        { "title": "Machines & technologie", "desc": "Lignes modernes de pressage à chaud, de découpe et de contrôle, optimisées pour la précision dimensionnelle et la qualité de surface.",
+          "detail": "Au-delà du pressage, la ligne couvre la découpe de précision, la découpe CNC sur mesure avec perçage, le vernis UV, la finition des chants et le contre-collage de surface, pour que les panneaux sortent d'usine prêts à l'emploi." },
+        { "title": "Certification de production", "desc": "Certifié FSC, conforme aux normes d'émission de formaldéhyde E0/E0.5 pour l'exportation vers l'UE.",
+          "detail": "La documentation de production est disponible sur demande. Consultez la page Qualité pour les documents que nous pouvons fournir." }
       ]
     },
     "products": {
@@ -51,29 +84,62 @@
         {
           "label": "Précision de l'épaisseur",
           "note": "Contrôle des tolérances",
-          "desc": "Les panneaux sont mesurés par rapport à l'épaisseur commandée afin de garder une tolérance constante d'un lot à l'autre."
+          "desc": "Les panneaux sont mesurés par rapport à l'épaisseur commandée afin de garder une tolérance constante d'un lot à l'autre.",
+          "inspect": "Régularité de l'épaisseur des panneaux par rapport à la spécification de commande confirmée.",
+          "method": "Mesure de l'épaisseur à des points de contrôle définis."
         },
         {
           "label": "Contrôle de l'humidité",
           "note": "Maintien d'un niveau stable",
-          "desc": "Le taux d'humidité est surveillé pour limiter le gauchissement et garder les panneaux stables pendant le stockage et le transport."
+          "desc": "Le taux d'humidité est surveillé pour limiter le gauchissement et garder les panneaux stables pendant le stockage et le transport.",
+          "inspect": "Teneur en humidité de panneaux ou de matériaux sélectionnés.",
+          "method": "Mesure de l'humidité selon la procédure de contrôle qualité de l'usine."
         },
         {
           "label": "Résistance du collage",
           "note": "Test d'adhérence",
-          "desc": "L'adhérence du joint de colle est testée pour confirmer que les couches restent collées sous charge et humidité."
+          "desc": "L'adhérence du joint de colle est testée pour confirmer que les couches restent collées sous charge et humidité.",
+          "inspect": "Intégrité du collage et performance d'adhérence.",
+          "method": "Méthode de contrôle ou d'essai du collage applicable."
         },
         {
           "label": "Précision dimensionnelle",
           "note": "Contrôle des dimensions et de l'équerrage",
-          "desc": "La longueur, la largeur et l'équerrage sont vérifiés pour que les feuilles respectent les spécifications de l'acheteur."
+          "desc": "La longueur, la largeur et l'équerrage sont vérifiés pour que les feuilles respectent les spécifications de l'acheteur.",
+          "inspect": "Longueur, largeur et équerrage.",
+          "method": "Mesure des dimensions par rapport à la taille de commande confirmée."
         },
         {
           "label": "Qualité de surface",
           "note": "Contrôle de la planéité et de la finition",
-          "desc": "La planéité et la finition de surface sont inspectées pour détecter les défauts avant l'emballage."
+          "desc": "La planéité et la finition de surface sont inspectées pour détecter les défauts avant l'emballage.",
+          "inspect": "Planéité, qualité de finition et défauts visibles.",
+          "method": "Inspection visuelle et contrôle de surface applicable."
         }
-      ]
+      ],
+      "explore": "Découvrir notre contrôle qualité",
+      "viewCheckpoint": "Voir le point de contrôle",
+      "strip": {
+        "title": "Besoin de documentation qualité ?",
+        "text": "Les spécifications techniques, relevés de contrôle qualité et rapports d'essai disponibles peuvent être examinés selon les exigences du produit.",
+        "cta": "Demander la documentation"
+      },
+      "drawer": {
+        "kicker": "Point de contrôle",
+        "close": "Fermer",
+        "evidence": "Preuves de qualité",
+        "photos": "Photos de contrôle qualité",
+        "request": "Demander les documents qualité",
+        "full": "Voir tout le système qualité"
+      },
+      "fields": {
+        "inspect": "Ce que nous contrôlons",
+        "stage": "Étape du contrôle",
+        "method": "Méthode",
+        "equipment": "Équipement",
+        "criteria": "Critères d'acceptation",
+        "frequency": "Fréquence des contrôles"
+      }
     },
     "factory": {
       "kicker": "04 · Usine & Capacité",
@@ -83,7 +149,36 @@
         { "value": "60", "label": "Conteneurs / mois (production)" },
         { "value": "80", "label": "Conteneurs / mois (approvisionnement)" },
         { "value": "30 jours", "label": "Délai de livraison moyen" }
-      ]
+      ],
+      "lead": "Une seule usine, des volumes planifiés et un process clair de la matière au conteneur, pour que les grosses commandes restent dans les délais.",
+      "cards": [
+        { "kicker": "Usine", "title": "Usine et entrepôt", "text": "Implantation de l'usine, organisation de l'entrepôt et espace de stockage qui garde matières et panneaux finis en mouvement.", "facts": ["5 000 m² d'emprise"], "cta": "Découvrir l'usine" },
+        { "kicker": "Machines", "title": "Équipements et technologie", "text": "Équipements de pressage, découpe, ponçage, finition et contrôle qui soutiennent une production régulière.", "facts": [], "cta": "Voir les équipements" },
+        { "kicker": "Production", "title": "Processus de production", "text": "De la préparation des matières et du pressage à la finition, au contrôle final et à l'emballage export.", "facts": ["Pressage", "Finition", "Contrôle final", "Emballage export"], "cta": "Voir le processus" }
+      ],
+      "handle": {
+        "title": "Ce que nous pouvons traiter",
+        "lead": "Les types de commandes que l'usine est équipée pour assurer.",
+        "items": [
+          { "title": "Commandes standard", "sub": "Séries de production régulières", "text": "Spécifications produit de base avec emballage standard." },
+          { "title": "Spécifications sur mesure", "sub": "Format · épaisseur · âme · surface", "text": "Selon les capacités de production et la quantité minimale de commande." },
+          { "title": "Commandes export", "sub": "Emballage · étiquetage · documents", "text": "Préparées selon les exigences confirmées de l'acheteur." },
+          { "title": "Gros volumes", "sub": "Approvisionnement par conteneurs planifié", "text": "Planification selon le volume et le plan de production." }
+        ]
+      },
+      "capability": {
+        "title": "Capacité de production",
+        "lead": "Les limites pratiques que les acheteurs demandent avant de commander.",
+        "items": [
+          { "label": "Lignes de production", "value": "" },
+          { "label": "Équipes de travail", "value": "" },
+          { "label": "Plage d'épaisseur", "value": "" },
+          { "label": "Format maximal", "value": "" },
+          { "label": "Production sur mesure", "value": "" },
+          { "label": "OEM / marque propre", "value": "" }
+        ]
+      },
+      "cta": { "text": "Besoin des capacités de l'usine pour votre commande ?", "primary": "Demander les capacités", "secondary": "Voir toute l'usine" }
     },
     "export": {
       "kicker": "05 · Export et emballage",
@@ -137,6 +232,168 @@
       "title": "Contrôle des produits finis.",
       "desc": "Chaque panneau est inspecté directement à l'usine avant l'emballage, garantissant que la surface, les dimensions et la qualité respectent les normes avant la sortie d'entrepôt.",
       "imageAlt": "Contrôle des produits finis à l'usine"
+    }
+  },
+  "qualityPage": {
+    "hero": {
+      "eyebrow": "Qualité · Documentation · Vérification",
+      "title": "Une documentation claire pour acheter en confiance.",
+      "intro": "HTPLY accompagne les acheteurs internationaux avec des spécifications techniques, des relevés qualité et la documentation liée au produit, selon les exigences du produit et du marché de destination.",
+      "primary": "Voir la documentation",
+      "secondary": "Demander des documents"
+    },
+    "provide": {
+      "kicker": "01 · Ce que nous pouvons fournir",
+      "title": "Une documentation construite autour des besoins réels des acheteurs.",
+      "intro": "Les acheteurs peuvent demander des informations complémentaires lors du devis, de l'examen du produit et de la confirmation de commande, selon le produit, la spécification et le marché de destination.",
+      "cards": [
+        {
+          "title": "Documents techniques",
+          "text": "Informations produit essentielles pour l'examen des spécifications.",
+          "items": [
+            "Spécifications du produit",
+            "Dimensions et épaisseur",
+            "Âme, colle et surface",
+            "Spécifications d'emballage"
+          ]
+        },
+        {
+          "title": "Relevés qualité",
+          "text": "Relevés d'inspection garantissant la régularité de la production.",
+          "items": [
+            "Informations de lot",
+            "Contrôles d'épaisseur",
+            "Contrôles d'humidité",
+            "Relevés d'inspection de surface"
+          ]
+        },
+        {
+          "title": "Essais et conformité",
+          "text": "Rapports et documents de conformité disponibles selon le produit ou le marché.",
+          "items": [
+            "Rapports d'essai",
+            "Documents de conformité liés au produit",
+            "Documents sur les matériaux",
+            "Examen par marché le cas échéant"
+          ]
+        },
+        {
+          "title": "Documents d'expédition",
+          "text": "Documents commerciaux et d'expédition pour les commandes export.",
+          "items": [
+            "Facture commerciale",
+            "Liste de colisage",
+            "Connaissement",
+            "Certificat d'origine et autres documents d'export applicables"
+          ]
+        }
+      ]
+    },
+    "flow": {
+      "kicker": "02 · Comment fonctionne la vérification",
+      "title": "Un processus d'examen simple avant la confirmation de commande.",
+      "step": "Étape",
+      "steps": [
+        {
+          "title": "Besoin de l'acheteur",
+          "text": "Indiquez la spécification du produit, le marché cible et la documentation nécessaire."
+        },
+        {
+          "title": "Examen des documents",
+          "text": "HTPLY vérifie les fichiers techniques, qualité et conformité disponibles."
+        },
+        {
+          "title": "Vérification produit / marché",
+          "text": "Les documents pertinents sont rapprochés des exigences du produit et de la destination."
+        },
+        {
+          "title": "Confirmation",
+          "text": "La documentation disponible est confirmée avant la passation de commande."
+        }
+      ]
+    },
+    "qc": {
+      "kicker": "03 · Contrôle qualité",
+      "title": "Cinq points de contrôle pour une production régulière.",
+      "intro": "Les mêmes cinq domaines de contrôle s'appliquent à chaque expédition.",
+      "items": [
+        {
+          "title": "Épaisseur",
+          "text": "Mesure par rapport à la spécification de la commande."
+        },
+        {
+          "title": "Humidité",
+          "text": "Contrôle avant stockage ou emballage."
+        },
+        {
+          "title": "Collage",
+          "text": "Intégrité du collage et adhérence."
+        },
+        {
+          "title": "Dimensions",
+          "text": "Vérification des dimensions et de l'équerrage."
+        },
+        {
+          "title": "Surface",
+          "text": "Planéité et inspection des défauts visibles."
+        }
+      ]
+    },
+    "docs": {
+      "kicker": "04 · Documentation disponible",
+      "title": "Des documents à examiner.",
+      "intro": "Les documents fournis dépendent du produit, de la spécification et du marché de destination. Demandez à notre équipe quels documents s'appliquent à votre commande.",
+      "items": [
+        {
+          "tag": "Produit",
+          "title": "Fiche technique du produit",
+          "text": "Spécifications techniques et détails du produit",
+          "badge": "Disponible sur demande"
+        },
+        {
+          "tag": "Qualité",
+          "title": "Relevé de contrôle qualité",
+          "text": "Selon le produit / le lot",
+          "badge": "Par produit / lot"
+        },
+        {
+          "tag": "Essais",
+          "title": "Rapport d'essai",
+          "text": "Selon les essais disponibles sur le produit",
+          "badge": "Selon disponibilité"
+        },
+        {
+          "tag": "Conformité",
+          "title": "Document de conformité",
+          "text": "Documents applicables selon le produit / le marché",
+          "badge": "À confirmer avec les ventes"
+        }
+      ]
+    },
+    "market": {
+      "kicker": "05 · Exigences par marché",
+      "title": "La documentation peut varier selon la destination.",
+      "notice": "Les exigences documentaires peuvent varier selon le type de produit, la spécification de l'acheteur et le marché de destination. HTPLY confirme la documentation pertinente lors du devis et de l'examen de la commande, afin que l'acheteur sache précisément ce qui peut être fourni.",
+      "items": [
+        {
+          "title": "Europe",
+          "text": "Exigences examinées selon le produit et la spécification de l'acheteur."
+        },
+        {
+          "title": "Moyen-Orient",
+          "text": "Documentation confirmée selon la destination et les besoins d'expédition."
+        },
+        {
+          "title": "Autres marchés",
+          "text": "L'acheteur peut transmettre les normes requises ou une liste de documents à examiner."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Besoin de documents pour votre marché cible ?",
+      "text": "Envoyez-nous la spécification de votre produit ou votre marché de destination et nous confirmerons la documentation disponible.",
+      "primary": "Demander la documentation",
+      "secondary": "Voir les produits"
     }
   },
   "aboutPage": {
@@ -250,6 +507,13 @@
     }
   },
   "productsPage": {
+    "all": "Tous",
+    "explore": "Découvrir {name}",
+    "resultOne": "{count} produit",
+    "resultMany": "{count} produits",
+    "helpTitle": "Vous ne trouvez pas le panneau qu'il vous faut ?",
+    "helpText": "Indiquez format, épaisseur, âme et surface. Nous vous proposerons la bonne option.",
+    "helpCta": "Demander un devis",
     "heroTitle": "De la structure à la qualité, une stabilité constante.",
     "items": [
       { "desc": "Une gamme de contreplaqué commercial polyvalent pour le mobilier, la fabrication et les applications nécessitant une surface stable." },
@@ -402,5 +666,11 @@
   "ctaButton": "Demander un devis",
   "related": "Articles similaires",
   "copyLink": "Copier le lien"
-}
+},
+  "floating": {
+    "label": "Contactez-nous",
+    "whatsapp": "Discuter sur WhatsApp",
+    "email": "Nous écrire",
+    "call": "Nous appeler"
+  }
 }

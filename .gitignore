@@ -11,11 +11,11 @@ next-env.d.ts
 
 # Payload default media upload directory
 public/media/
-
+tsconfig.tsbuildinfo
 public/robots.txt
 public/sitemap*.xml
-
-
+/public/Go/
+/public/productimage/
 # Playwright
 node_modules/
 /test-results/

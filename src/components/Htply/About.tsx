@@ -1,7 +1,18 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/routing'
 import { CountUp } from './CountUp'
+import { useState } from 'react'
+// 4 ô giới thiệu: Product → /products, Quality → /factory, Documents (chưa có trang) → không link, Quote → /contact
+const CARD_LINKS: (string | null)[] = ['/products', '/quality', '/quality#documents', '/contact#quote']
+const CARD_ICONS = [
+  <svg key="a" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8l9-5 9 5-9 5-9-5z" /><path d="M3 12l9 5 9-5" /><path d="M3 16l9 5 9-5" /></svg>,
+  <svg key="b" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12l2 2 4-4" /><path d="M12 3l7 3v5c0 5-3.2 8.3-7 10-3.8-1.7-7-5-7-10V6l7-3z" /></svg>,
+  <svg key="c" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M7 3h8l4 4v14H7z" /><path d="M15 3v4h4" /><path d="M10 13h6M10 17h6" /></svg>,
+  <svg key="d" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z" /><path d="M13 7l4 4" /></svg>,
+]
+type AboutCard = { num: string; title: string; text: string; items: string[]; cta: string }
 
 
 const VALUE_ICONS = [
@@ -12,9 +23,20 @@ const VALUE_ICONS = [
   '/images/icon-formaldehyde.png',
 ]
 
+// Ảnh nền cho từng mục khi rê chuột (null = giữ ảnh nền mặc định của khối)
+const VALUE_BGS: (string | null)[] = [
+  '/images/values/v-reliable.jpg',
+  null,
+  '/images/values/v-global.jpg',
+  '/images/values/v-machinery.jpg',
+  null,
+]
+
 export function About() {
   const t = useTranslations('home.about')
-  const values = t.raw('values') as { title: string; desc: string }[]
+  const values = t.raw('values') as { title: string; desc: string; detail: string }[]
+  const [active, setActive] = useState(0)
+  const cards = t.raw('cards') as AboutCard[]
 
   return (
     <section id="about" className="about-section">
@@ -103,7 +125,7 @@ export function About() {
         </div>
 
         <div className="container">
-          <div className="section-head reveal">
+          <div className="section-head ab-head reveal">
             <div>
               <div className="section-kicker">01 · About HTPLY</div>
               <h2>{t('title')}</h2>
@@ -111,22 +133,68 @@ export function About() {
             </div>
           </div>
 
+          <div className="ab-cards reveal">
+            {cards.map((c, i) => {
+              const href = CARD_LINKS[i]
+              const inner = (
+                <>
+                  {!href && <span className="ab-soon">{t('soon')}</span>}
+                  <div className="ab-ico">{CARD_ICONS[i]}</div>
+                  <div className="ab-num">{c.num}</div>
+                  <h3>{c.title}</h3>
+                  <ul>
+                    {c.items.map((it) => <li key={it}>{it}</li>)}
+                  </ul>
+                  <div className="ab-go"><span>{c.cta}</span><i>→</i></div>
+                </>
+              )
+              const cls = `ab-card${i === 3 ? ' dark' : ''}${href ? '' : ' off'}`
+              return href ? (
+                <Link key={c.title} href={href} className={cls}>{inner}</Link>
+              ) : (
+                <div key={c.title} className={cls} aria-disabled="true">{inner}</div>
+              )
+            })}
+          </div>
+
           <div className="about reveal">
-            <div className="about-card">
-              <div className="big-quote">&ldquo;{t('quote')}&rdquo;</div>
-            </div>
             <div className="about-card dark">
+              <div className="v-layers" aria-hidden="true">
+                {VALUE_BGS.map((src, i) =>
+                  src ? <i key={src} className={i === active ? 'on' : ''} style={{ backgroundImage: `url(${src})` }} /> : null,
+                )}
+              </div>
               <h3>What shapes how we work.</h3>
               <div className="value-list">
                 {values.map((v, i) => (
-                  <div className="value" key={v.title}>
+                  <div
+                    className={`value${i === active ? ' active' : ''}`}
+                    key={v.title}
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={i === active}
+                    // onMouseMove (không phải onMouseEnter): các dòng nở/đóng làm dịch chuyển bố cục dưới con trỏ đứng yên, onMouseEnter sẽ tự kích hoạt dây chuyền
+                    onMouseMove={() => active !== i && setActive(i)}
+                    onFocus={() => setActive(i)}
+                    onClick={() => setActive(i)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        setActive(i)
+                      }
+                    }}
+                  >
                     <div className="value-icon-wrap">
                       <span>{String(i + 1).padStart(2, '0')}</span>
                       <img className="value-icon" src={VALUE_ICONS[i]} alt="" />
                     </div>
                     <div>
                       <b>{v.title}</b>
-                      <div>{v.desc}</div>
+                      <div className="value-more">
+                        <div>
+                          <p>{v.detail}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -1,0 +1,55 @@
+.fc{
+  position:fixed;right:20px;bottom:24px;z-index:900;
+  display:flex;flex-direction:column;gap:10px;
+}
+.fc-btn{
+  position:relative;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;
+  color:#fff;box-shadow:0 6px 18px rgba(20,30,46,.28);transition:transform .2s,box-shadow .2s;
+}
+.fc-btn svg{width:24px;height:24px}
+.fc-btn:hover{transform:scale(1.1);box-shadow:0 10px 24px rgba(20,30,46,.35)}
+.fc-btn:focus-visible{outline:3px solid #59CBE8;outline-offset:3px}
+.fc-btn.wa{background:#25D366}
+.fc-btn.mail{background:#59CBE8;color:#2C3444}
+.fc-btn.call{background:#3C445C}
+
+/* nhãn hiện ra bên trái khi rê chuột */
+.fc-tip{
+  position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%) translateX(6px);
+  padding:7px 12px;border-radius:8px;background:#2C3444;color:#fff;font-size:13px;font-weight:600;
+  white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+}
+.fc-btn:hover .fc-tip,.fc-btn:focus-visible .fc-tip{opacity:1;transform:translateY(-50%)}
+
+/* điện thoại: xuống góc dưới, nhỏ hơn, bỏ nhãn */
+@media(max-width:700px){
+  .fc{top:auto;bottom:16px;right:12px;transform:none;gap:8px}
+  .fc-btn{width:44px;height:44px}
+  .fc-tip{display:none}
+}
+
+.fc-tip{text-align:left;line-height:1.3;font-size:14px;letter-spacing:.01em}
+.fc-tip small{display:block;font-size:11px;font-weight:600;opacity:.7;margin-bottom:2px}
+
+/* lắc nhẹ: lắc khoảng 1 giây rồi nghỉ, lặp lại; 3 nút lệch nhau để không lắc cùng lúc */
+@keyframes fc-wiggle{
+  0%,26%,100%{transform:rotate(0) translateY(0)}
+  3%{transform:rotate(-24deg) translateY(-4px)}
+  6%{transform:rotate(22deg) translateY(0)}
+  9%{transform:rotate(-20deg) translateY(-3px)}
+  12%{transform:rotate(16deg) translateY(0)}
+  15%{transform:rotate(-12deg) translateY(-2px)}
+  18%{transform:rotate(8deg) translateY(0)}
+  22%{transform:rotate(-4deg)}
+}
+.fc-btn{animation:fc-wiggle 4.5s ease-in-out infinite}
+.fc-btn:nth-child(2){animation-delay:.5s}
+.fc-btn:nth-child(3){animation-delay:1s}
+
+/* rê chuột hoặc bấm vào thì dừng lắc (để hiệu ứng phóng to hoạt động) */
+.fc-btn:hover,.fc-btn:focus-visible{animation:none}
+
+/* người dùng tắt hiệu ứng chuyển động trong hệ điều hành thì không lắc */
+@media (prefers-reduced-motion:reduce){
+  .fc-btn{animation:none}
+}
