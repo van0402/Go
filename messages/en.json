@@ -19,14 +19,47 @@
         "markets": { "label": "Markets", "desc": "Europe & Middle East" }
       },
       "title": "Trust built into every sheet",
-      "intro": "HTPLY Vietnam is an industrial plywood exporter focused on the mid-to-premium segment for international B2B customers. With a factory footprint of around 5,000 m² and a supply capacity of up to 80 containers/month, HTPLY focuses on developing Film Faced Plywood, Anti-Slip Plywood and industrial plywood lines, targeting the European and Middle Eastern markets. The company builds its global expansion strategy on consistent quality, supply capacity and sustainable development.",
+      "intro": "HTPLY Vietnam is an industrial plywood exporter serving international B2B markets, with a 5,000 m² factory, supply capacity of up to 80 containers per month, and a focus on reliable quality, scalable supply and sustainable growth.",
       "quote": "Not just supplying plywood — HTPLY brings reliability to every shipment",
+      "explore": "Explore HTPLY",
+      "soon": "Coming soon",
+      "cards": [
+        {
+          "num": "01 · Product expertise",
+          "title": "Four focused product lines",
+          "items": ["Film Faced Plywood", "Anti-Slip Plywood", "Raw / Commercial Plywood", "LVL"],
+          "cta": "View all products"
+        },
+        {
+          "num": "02 · Quality approach",
+          "title": "Five measurable checkpoints",
+          "items": ["Thickness precision", "Moisture control", "Bond strength", "Dimensional accuracy", "Surface quality"],
+          "cta": "See how we check"
+        },
+        {
+          "num": "03 · Proof",
+          "title": "Documents behind the claims",
+          "items": ["Certificates", "Technical datasheets", "Test and QC reports"],
+          "cta": "View documents"
+        },
+        {
+          "num": "04 · Made to order",
+          "title": "Built around your specification",
+          "items": ["Size & thickness", "Core & surface", "Glue & packing"],
+          "cta": "Request a Quote"
+        }
+      ],
       "values": [
-        { "title": "Reliable", "desc": "Consistent quality, clear communication and predictable supply plans." },
-        { "title": "Sustainable", "desc": "Oriented toward green, responsible development." },
-        { "title": "Global", "desc": "Products and services built to international market standards." },
-        { "title": "Machinery & technology", "desc": "Modern hot-pressing, cutting and testing lines, optimized for dimensional precision and surface quality." },
-        { "title": "Production certification", "desc": "FSC certified, compliant with E0/E0.5 formaldehyde emission standards for EU export." }
+        { "title": "Reliable", "desc": "Consistent quality, clear communication and predictable supply plans.",
+          "detail": "Every shipment is checked against the same five quality points: thickness, moisture, bonding, dimensions and surface. That is how the first container and the last one reach you looking the same." },
+        { "title": "Sustainable", "desc": "Oriented toward green, responsible development.",
+          "detail": "We follow FSC standards for wood source traceability, optimize production to minimize waste, and keep formaldehyde levels under strict control in production." },
+        { "title": "Global", "desc": "Products and services built to international market standards.",
+          "detail": "Specifications, packing and documentation are prepared around the requirements of European and Middle Eastern buyers, and confirmed with you before every order." },
+        { "title": "Machinery & technology", "desc": "Modern hot-pressing, cutting and testing lines, optimized for dimensional precision and surface quality.",
+          "detail": "Beyond pressing, the line covers precision cutting, CNC cut-to-size with hole drilling, UV coating, edge finishing and surface lamination, so panels can leave the factory ready to use." },
+        { "title": "Production certification", "desc": "FSC certified, compliant with E0/E0.5 formaldehyde emission standards for EU export.",
+          "detail": "Production documentation is available on request. See the Quality page for the documents we can provide." }
       ]
     },
     "products": {
@@ -51,39 +84,107 @@
         {
           "label": "Thickness precision",
           "note": "Tolerance control",
-          "desc": "Boards are measured against the ordered thickness so tolerance stays consistent from batch to batch."
+          "desc": "Boards are measured against the ordered thickness so tolerance stays consistent from batch to batch.",
+          "inspect": "Sheet thickness consistency against the confirmed order specification.",
+          "method": "Thickness measurement at defined control points."
         },
         {
           "label": "Moisture control",
           "note": "Maintaining a stable level",
-          "desc": "Moisture content is monitored to reduce warping and keep boards stable during storage and transit."
+          "desc": "Moisture content is monitored to reduce warping and keep boards stable during storage and transit.",
+          "inspect": "Moisture content of selected boards or materials.",
+          "method": "Moisture measurement according to the factory QC procedure."
         },
         {
           "label": "Bond strength",
           "note": "Adhesion testing",
-          "desc": "Glue-line adhesion is tested to confirm layers stay bonded under load and humidity."
+          "desc": "Glue-line adhesion is tested to confirm layers stay bonded under load and humidity.",
+          "inspect": "Bond integrity and adhesion performance.",
+          "method": "Applicable bonding review or test method."
         },
         {
           "label": "Dimensional accuracy",
           "note": "Size & squareness check",
-          "desc": "Length, width and squareness are checked so sheets fit buyer specifications."
+          "desc": "Length, width and squareness are checked so sheets fit buyer specifications.",
+          "inspect": "Length, width and squareness.",
+          "method": "Dimensional measurement against the confirmed order size."
         },
         {
           "label": "Surface quality",
           "note": "Flatness & finish check",
-          "desc": "Surface flatness and finish are inspected for defects before packing."
+          "desc": "Surface flatness and finish are inspected for defects before packing.",
+          "inspect": "Flatness, finishing quality and visible defects.",
+          "method": "Visual and applicable surface inspection."
         }
-      ]
+      ],
+      "explore": "Explore our quality control",
+      "viewCheckpoint": "View checkpoint",
+      "strip": {
+        "title": "Need quality documentation?",
+        "text": "Technical specifications, QC records and available test reports can be reviewed according to product requirements.",
+        "cta": "Request documentation"
+      },
+      "drawer": {
+        "kicker": "Checkpoint",
+        "close": "Close",
+        "evidence": "Quality evidence",
+        "photos": "QC photos",
+        "request": "Request quality documents",
+        "full": "View full quality system"
+      },
+      "fields": {
+        "inspect": "What we inspect",
+        "stage": "Inspection stage",
+        "method": "Method",
+        "equipment": "Equipment",
+        "criteria": "Acceptance criteria",
+        "frequency": "Inspection frequency"
+      }
     },
     "factory": {
       "kicker": "04 · Factory & Capacity",
       "title": "Ready to meet large-scale demand.",
+      "lead": "One factory, planned volume and a clear process from material to container, so large orders stay on schedule.",
       "stats": [
         { "value": "5,000 m²", "label": "Factory footprint" },
         { "value": "60", "label": "Containers / month (production)" },
         { "value": "80", "label": "Containers / month (supply)" },
         { "value": "30 days", "label": "Average delivery time" }
-      ]
+      ],
+  "stats": [
+    { "value": "5,000 m²", "label": "Factory footprint" },
+    { "value": "60", "label": "Containers / month (production)" },
+    { "value": "80", "label": "Containers / month (supply)" },
+    { "value": "30 days", "label": "Average delivery time" }
+  ],
+  "cards": [
+    { "kicker": "Factory", "title": "Factory & warehouse", "text": "Factory layout, warehouse organization and the storage space that keeps material and finished boards moving.", "facts": ["5,000 m² footprint"], "cta": "Explore the factory" },
+    { "kicker": "Machinery", "title": "Equipment & technology", "text": "Pressing, cutting, sanding, finishing and inspection equipment that supports steady output.", "facts": [], "cta": "View equipment" },
+    { "kicker": "Production", "title": "Production process", "text": "From material preparation and pressing through finishing, final inspection and export packing.", "facts": ["Pressing", "Finishing", "Final QC", "Export packing"], "cta": "See the process" }
+  ],
+  "handle": {
+    "title": "What we can handle",
+    "lead": "The order types the factory is set up to support.",
+    "items": [
+      { "title": "Standard orders", "sub": "Regular production runs", "text": "Core product specifications with standard packing." },
+      { "title": "Custom specifications", "sub": "Size · thickness · core · surface", "text": "Subject to production capability and minimum order quantity." },
+      { "title": "Export orders", "sub": "Packing · labeling · documents", "text": "Prepared around the buyer's confirmed requirements." },
+      { "title": "Large volume", "sub": "Planned container supply", "text": "Scheduling based on volume and the production plan." }
+    ]
+  },
+  "capability": {
+    "title": "Production capability",
+    "lead": "Practical limits buyers ask about before ordering.",
+    "items": [
+      { "label": "Production lines", "value": "" },
+      { "label": "Working shifts", "value": "" },
+      { "label": "Thickness range", "value": "" },
+      { "label": "Maximum sheet size", "value": "" },
+      { "label": "Custom production", "value": "" },
+      { "label": "OEM / private label", "value": "" }
+    ]
+  },
+  "cta": { "text": "Need factory capability details for your order?", "primary": "Request capability info", "secondary": "View full factory" }
     },
     "export": {
       "kicker": "05 · Export & Packaging",
@@ -137,6 +238,168 @@
       "title": "Finished product inspection.",
       "desc": "Every board is inspected directly at the factory before packaging, ensuring surface, dimensions and quality meet standards before leaving the warehouse.",
       "imageAlt": "Finished product inspection at the factory"
+    }
+  },
+  "qualityPage": {
+    "hero": {
+      "eyebrow": "Quality · Documentation · Verification",
+      "title": "Clear documentation for confident buying decisions.",
+      "intro": "HTPLY supports international buyers with technical specifications, quality records and product-related documentation, according to product requirements and destination markets.",
+      "primary": "View Documentation",
+      "secondary": "Request Documents"
+    },
+    "provide": {
+      "kicker": "01 · What we can provide",
+      "title": "Documentation built around real buyer needs.",
+      "intro": "Buyers may request supporting information during quotation, product review and order confirmation, depending on the product, specification and destination market.",
+      "cards": [
+        {
+          "title": "Technical Documents",
+          "text": "Core product information for specification review.",
+          "items": [
+            "Product specifications",
+            "Dimensions & thickness",
+            "Core, glue & surface details",
+            "Packing specifications"
+          ]
+        },
+        {
+          "title": "Quality Records",
+          "text": "Inspection records supporting production consistency.",
+          "items": [
+            "Batch information",
+            "Thickness checks",
+            "Moisture checks",
+            "Surface inspection records"
+          ]
+        },
+        {
+          "title": "Test & Compliance",
+          "text": "Available reports and compliance documents by product or market.",
+          "items": [
+            "Test reports",
+            "Product-related compliance files",
+            "Supporting material documents",
+            "Market-specific review where applicable"
+          ]
+        },
+        {
+          "title": "Shipping Documents",
+          "text": "Commercial and shipment documentation for export orders.",
+          "items": [
+            "Commercial Invoice",
+            "Packing List",
+            "Bill of Lading",
+            "C/O and other applicable export documents"
+          ]
+        }
+      ]
+    },
+    "flow": {
+      "kicker": "02 · How verification works",
+      "title": "A simple review process before order confirmation.",
+      "step": "Step",
+      "steps": [
+        {
+          "title": "Buyer Requirement",
+          "text": "Share product specification, target market and documentation needs."
+        },
+        {
+          "title": "Document Review",
+          "text": "HTPLY checks the available technical, QC and compliance files."
+        },
+        {
+          "title": "Product / Market Verification",
+          "text": "Relevant documents are matched against product and destination requirements."
+        },
+        {
+          "title": "Confirmation",
+          "text": "Available documentation is confirmed before final order placement."
+        }
+      ]
+    },
+    "qc": {
+      "kicker": "03 · Quality control",
+      "title": "Five checkpoints supporting production consistency.",
+      "intro": "The same five control areas apply to every shipment.",
+      "items": [
+        {
+          "title": "Thickness",
+          "text": "Measurement against order specification."
+        },
+        {
+          "title": "Moisture",
+          "text": "Control before storage or packing."
+        },
+        {
+          "title": "Bonding",
+          "text": "Bond integrity and adhesion review."
+        },
+        {
+          "title": "Dimensions",
+          "text": "Size and squareness verification."
+        },
+        {
+          "title": "Surface",
+          "text": "Flatness and visible defect inspection."
+        }
+      ]
+    },
+    "docs": {
+      "kicker": "04 · Available documentation",
+      "title": "Documents for review.",
+      "intro": "Supporting documents depend on the product, specification and destination market. Ask our team which documents apply to your order.",
+      "items": [
+        {
+          "tag": "Product",
+          "title": "Product Datasheet",
+          "text": "Technical specifications and product details",
+          "badge": "Available upon request"
+        },
+        {
+          "tag": "Quality",
+          "title": "QC Record",
+          "text": "Depending on product / batch",
+          "badge": "By product / batch"
+        },
+        {
+          "tag": "Testing",
+          "title": "Test Report",
+          "text": "Subject to available product testing",
+          "badge": "Subject to availability"
+        },
+        {
+          "tag": "Compliance",
+          "title": "Compliance Document",
+          "text": "Applicable documents by product / market",
+          "badge": "Confirm with sales"
+        }
+      ]
+    },
+    "market": {
+      "kicker": "05 · Market requirements",
+      "title": "Documentation may vary by destination.",
+      "notice": "Documentation requirements may vary depending on product type, buyer specification and destination market. HTPLY confirms the relevant documentation during quotation and order review, so buyers know exactly what can be supplied for a specific order.",
+      "items": [
+        {
+          "title": "Europe",
+          "text": "Requirements reviewed by product and buyer specification."
+        },
+        {
+          "title": "Middle East",
+          "text": "Documentation confirmed based on destination and shipment needs."
+        },
+        {
+          "title": "Other Markets",
+          "text": "Buyers may submit required standards or a document checklist for review."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Need documents for your target market?",
+      "text": "Send us your product specification or destination market and we will confirm the available documentation.",
+      "primary": "Request Documentation",
+      "secondary": "View Products"
     }
   },
   "aboutPage": {
@@ -248,6 +511,13 @@
     }
   },
   "productsPage": {
+    "all": "All",
+    "explore": "Explore {name}",
+    "resultOne": "{count} product",
+    "resultMany": "{count} products",
+    "helpTitle": "Can't find the board you need?",
+    "helpText": "Send your size, thickness, core and surface. We will suggest the right option.",
+    "helpCta": "Request a quote",
     "heroTitle": "Stability from structure to quality.",
     "items": [
       { "desc": "A flexible commercial plywood line for furniture, fabrication and applications requiring a stable surface." },
@@ -400,5 +670,11 @@
   "ctaButton": "Request a Quote",
   "related": "Related articles",
   "copyLink": "Copy link"
-}
+},
+  "floating": {
+    "label": "Contact us",
+    "whatsapp": "Chat on WhatsApp",
+    "email": "Email us",
+    "call": "Call us"
+  }
 }
