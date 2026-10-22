@@ -980,6 +980,7 @@
 .htply-page .fx-num{position:absolute;top:18px;left:20px;font-size:12px;font-weight:800;letter-spacing:.12em;opacity:.9}
 .htply-page .fx-body{position:absolute;left:0;right:0;bottom:0;padding:22px}
 .htply-page .fx-body small{display:block;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#9fe0f0}
+
 .htply-page .fx-card h3{margin:6px 0 0;font-size:20px;line-height:1.15;color:#fff;font-weight:600}
 .htply-page .fx-card.on h3{font-size:24px}
 .htply-page .fx-more{max-height:0;opacity:0;overflow:hidden;transition:max-height .55s ease,opacity .4s ease}

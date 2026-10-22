@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 
 // Ảnh nền của 3 thẻ (đã có sẵn trong public/images)
-const CARD_IMAGES = ['/images/nhamay.jpg', '/images/values/v-machinery.jpg', '/images/quality/surface-1.jpg']
+const CARD_IMAGES = ['/images/nhamay.jpg', '/images/values/proofs/1.png', '/images/quality/surface-1.jpg']
 
 type Card = { kicker: string; title: string; text: string; facts: string[]; cta: string }
 type HandleItem = { title: string; sub: string; text: string }
