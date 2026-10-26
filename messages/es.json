@@ -403,7 +403,7 @@
     },
     "intro": {
       "title": "Una marca vietnamita de contrachapado orientada al mercado global",
-      "text": "HTPLY VIETNAM se fundó en 2024, especializada en contrachapado y tableros de madera industrial para el mercado B2B internacional. Con una planta de aproximadamente 5.000 m² y una capacidad de suministro de hasta 80 contenedores/mes, HTPLY desarrolla sus líneas de contrachapado fenólico, antideslizante e industrial, dirigidas a los mercados europeo y de Oriente Medio. La empresa basa su estrategia de expansión global en una calidad constante, capacidad de suministro y desarrollo sostenible."
+      "text": "HTPLY VIETNAM se fundó en 2021, especializada en contrachapado y tableros de madera industrial para el mercado B2B internacional. Con una planta de aproximadamente 5.000 m² y una capacidad de suministro de hasta 80 contenedores/mes, HTPLY desarrolla sus líneas de contrachapado fenólico, antideslizante e industrial, dirigidas a los mercados europeo y de Oriente Medio. La empresa basa su estrategia de expansión global en una calidad constante, capacidad de suministro y desarrollo sostenible."
     },
     "metrics": {
       "factory": "Superficie de producción y almacén organizada para la actividad de exportación.",
@@ -449,7 +449,148 @@
     },
     "promise": {
       "text": "Cada tablero de contrachapado que sale de la fábrica debe representar una sola cosa: calidad verificable, un suministro en el que se puede confiar y un socio dispuesto a ir hasta el final."
+    },
+    "business": {
+  "kicker": "02 · Presencia comercial",
+  "title": "Preparados para el comercio internacional.",
+  "text": "HTPLY atiende a compradores B2B orientados a la exportación en múltiples mercados internacionales, combinando capacidad productiva con experiencia práctica en el comercio global.",
+  "revenueLabel": "Facturación anual más reciente",
+  "revenueNote": "Sujeto a confirmación oficial",
+  "marketsLabel": "Mercados activos",
+  "marketsTitle": "Mercados en los que opera HTPLY.",
+  "markets": {
+    "europe": "Europa",
+    "middleEast": "Oriente Medio",
+    "africa": "África",
+    "australia": "Australia",
+    "newZealand": "Nueva Zelanda"
+  }
+},"advantages": {
+  "kicker": "05 · Por qué HTPLY",
+  "title": "Por qué los compradores eligen HTPLY.",
+  "visualLabel": "Calidad · Abastecimiento · Servicio",
+  "visualTitle": "Lo que los compradores valoran más allá del producto.",
+  "items": [
+    {
+      "title": "Calidad controlada",
+      "desc": "Procedimientos rigurosos de control de calidad, realizados por personal capacitado y respaldados por registros completos de inspección antes del envío.",
+      "tags": [
+        "Inspección por lote",
+        "Registros de calidad",
+        "Control previo al envío"
+      ]
+    },
+    {
+      "title": "Abastecimiento transparente",
+      "desc": "Origen del producto claro y responsable, con documentación adaptada a los requisitos del comprador y de los mercados internacionales.",
+      "tags": [
+        "Trazabilidad",
+        "Abastecimiento responsable",
+        "Documentación"
+      ]
+    },
+    {
+      "title": "Servicio posventa ágil",
+      "desc": "El soporte continúa después del envío para ayudar con la documentación, el seguimiento de entrega y cualquier incidencia posventa.",
+      "tags": [
+        "Respuesta rápida",
+        "Seguimiento del envío",
+        "Soporte posventa"
+      ]
     }
+  ]
+},
+"productionProcess": {
+  "kicker": "06 · Proceso de producción",
+  "title": "De la chapa al panel terminado.",
+  "visualLabel": "Producción · Control · Consistencia",
+  "visualTitle": "Un proceso controlado detrás de cada panel terminado.",
+  "items": [
+    {
+      "title": "Preparación del material",
+      "steps": [
+        "Clasificación de chapas",
+        "Inspección visual",
+        "Control de humedad"
+      ]
+    },
+    {
+      "title": "Encolado y armado",
+      "steps": [
+        "Finger joint / composición",
+        "Encolado",
+        "Colocación de chapas"
+      ]
+    },
+    {
+      "title": "Prensado",
+      "steps": [
+        "Prensado en frío",
+        "Reparación",
+        "Prensado en caliente"
+      ]
+    },
+    {
+      "title": "Acabado de superficie",
+      "steps": [
+        "Primera masilla",
+        "Primer lijado",
+        "Segunda masilla",
+        "Segundo lijado",
+        "Recorte",
+        "Laminado superficial"
+      ]
+    },
+    {
+      "title": "Inspección y embalaje",
+      "steps": [
+        "Inspección final",
+        "Verificación del pedido",
+        "Embalaje"
+      ]
+    }
+  ]
+},
+"buyerWorkflow": {
+  "kicker": "07 · Cómo trabajamos con los compradores",
+  "title": "Claridad desde la consulta hasta la posventa.",
+  "steps": [
+    {
+      "title": "Consulta",
+      "desc": "Comparta las especificaciones del producto, la cantidad y el mercado objetivo."
+    },
+    {
+      "title": "Cotización",
+      "desc": "HTPLY revisa los requisitos y prepara las condiciones comerciales."
+    },
+    {
+      "title": "Contrato y pago",
+      "desc": "Confirmación del pedido, contrato y depósito o carta de crédito."
+    },
+    {
+      "title": "Producción",
+      "desc": "La producción se programa según las especificaciones confirmadas."
+    },
+    {
+      "title": "Control y envío",
+      "desc": "Inspección final, embalaje, documentación y envío."
+    },
+    {
+      "title": "Posventa",
+      "desc": "El soporte continúa después de la entrega para documentación y seguimiento del pedido."
+    }
+  ],
+  "payment": {
+    "label": "Pago",
+    "value": "L/C · T/T · Pago diferido con seguro de crédito",
+    "note": "Las condiciones de pago se confirman según las condiciones del pedido."
+  },
+  "incoterms": {
+    "label": "Incoterms",
+    "value": "FOB · CIF · DAP · DDP",
+    "note": "Las condiciones de entrega se seleccionan según el destino y los requisitos del comprador."
+  }
+}
   },
   "factoryPage": {
     "hero": {
