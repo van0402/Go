@@ -402,7 +402,7 @@
     },
     "intro": {
       "title": "Une marque vietnamienne de contreplaqué tournée vers le marché mondial",
-      "text": "HTPLY VIETNAM a été fondée en 2024, spécialisée dans le contreplaqué et les panneaux de bois industriels pour le marché B2B international. Avec une usine d'environ 5 000 m² et une capacité d'approvisionnement allant jusqu'à 80 conteneurs/mois, HTPLY développe ses gammes de contreplaqué filmé, antidérapant et industriel, tout en ciblant les marchés européen et moyen-oriental. L'entreprise fonde sa stratégie d'expansion internationale sur une qualité constante, une capacité d'approvisionnement fiable et un développement durable."
+      "text": "HTPLY VIETNAM a été fondée en 2021, spécialisée dans le contreplaqué et les panneaux de bois industriels pour le marché B2B international. Avec une usine d'environ 5 000 m² et une capacité d'approvisionnement allant jusqu'à 80 conteneurs/mois, HTPLY développe ses gammes de contreplaqué filmé, antidérapant et industriel, tout en ciblant les marchés européen et moyen-oriental. L'entreprise fonde sa stratégie d'expansion internationale sur une qualité constante, une capacité d'approvisionnement fiable et un développement durable."
     },
     "metrics": {
       "factory": "Surface de production et d'entreposage organisée pour l'activité export.",
@@ -448,7 +448,149 @@
     },
     "promise": {
       "text": "Chaque panneau de contreplaqué qui quitte l'usine doit représenter une seule chose : une qualité vérifiable, un approvisionnement fiable et un partenaire prêt à s'engager sur la durée."
+    },
+    "business": {
+  "kicker": "02 · Présence commerciale",
+  "title": "Conçu pour le commerce international.",
+  "text": "HTPLY accompagne des acheteurs B2B orientés vers l’export sur plusieurs marchés internationaux, en combinant capacité de production et expérience pratique du commerce mondial.",
+  "revenueLabel": "Chiffre d’affaires annuel le plus récent",
+  "revenueNote": "Sous réserve de confirmation officielle",
+  "marketsLabel": "Marchés actifs",
+  "marketsTitle": "Les marchés sur lesquels HTPLY est présent.",
+  "markets": {
+    "europe": "Europe",
+    "middleEast": "Moyen-Orient",
+    "africa": "Afrique",
+    "australia": "Australie",
+    "newZealand": "Nouvelle-Zélande"
+  },
+  "advantages": {
+  "kicker": "05 · Pourquoi HTPLY",
+  "title": "Pourquoi les acheteurs choisissent HTPLY.",
+  "visualLabel": "Qualité · Approvisionnement · Service",
+  "visualTitle": "Ce que les acheteurs apprécient au-delà du produit.",
+  "items": [
+    {
+      "title": "Qualité maîtrisée",
+      "desc": "Des procédures de contrôle qualité rigoureuses, assurées par une équipe formée et accompagnées de rapports d’inspection complets avant expédition.",
+      "tags": [
+        "Inspection des lots",
+        "Rapports QC",
+        "Contrôle avant expédition"
+      ]
+    },
+    {
+      "title": "Approvisionnement transparent",
+      "desc": "Une origine produit claire et responsable, avec une documentation adaptée aux exigences des acheteurs et des marchés internationaux.",
+      "tags": [
+        "Traçabilité",
+        "Approvisionnement responsable",
+        "Documentation"
+      ]
+    },
+    {
+      "title": "Service après-vente réactif",
+      "desc": "L’accompagnement se poursuit après l’expédition afin d’aider les acheteurs dans la documentation, le suivi de livraison et le traitement des demandes après-vente.",
+      "tags": [
+        "Réponse rapide",
+        "Suivi d’expédition",
+        "Service après-vente"
+      ]
     }
+  ]
+}
+},
+"productionProcess": {
+  "kicker": "06 · Processus de production",
+  "title": "Du placage au panneau fini.",
+  "visualLabel": "Production · Contrôle · Régularité",
+  "visualTitle": "Un processus maîtrisé derrière chaque panneau fini.",
+  "items": [
+    {
+      "title": "Préparation des matériaux",
+      "steps": [
+        "Tri du placage",
+        "Contrôle visuel",
+        "Contrôle de l’humidité"
+      ]
+    },
+    {
+      "title": "Encollage et assemblage",
+      "steps": [
+        "Jointage / assemblage",
+        "Encollage",
+        "Superposition des placages"
+      ]
+    },
+    {
+      "title": "Pressage",
+      "steps": [
+        "Pressage à froid",
+        "Réparation",
+        "Pressage à chaud"
+      ]
+    },
+    {
+      "title": "Finition de surface",
+      "steps": [
+        "Premier masticage",
+        "Premier ponçage",
+        "Deuxième masticage",
+        "Deuxième ponçage",
+        "Délignage",
+        "Laminage de surface"
+      ]
+    },
+    {
+      "title": "Contrôle et emballage",
+      "steps": [
+        "Inspection finale",
+        "Vérification de la commande",
+        "Emballage"
+      ]
+    }
+  ]
+},
+"buyerWorkflow": {
+  "kicker": "07 · Notre façon de travailler",
+  "title": "Un processus clair, de la demande au service après-vente.",
+  "steps": [
+    {
+      "title": "Demande",
+      "desc": "Communiquez les spécifications du produit, la quantité et le marché cible."
+    },
+    {
+      "title": "Devis",
+      "desc": "HTPLY examine la demande et prépare les conditions commerciales."
+    },
+    {
+      "title": "Contrat et paiement",
+      "desc": "Confirmation de la commande, du contrat et de l’acompte ou du crédit documentaire."
+    },
+    {
+      "title": "Production",
+      "desc": "La production est planifiée selon les spécifications confirmées."
+    },
+    {
+      "title": "Contrôle et expédition",
+      "desc": "Inspection finale, emballage, documentation et expédition."
+    },
+    {
+      "title": "Service après-vente",
+      "desc": "L’accompagnement se poursuit après la livraison pour la documentation et le suivi de la commande."
+    }
+  ],
+  "payment": {
+    "label": "Paiement",
+    "value": "L/C · T/T · Paiement différé avec assurance-crédit",
+    "note": "Les conditions de paiement sont confirmées selon les modalités de la commande."
+  },
+  "incoterms": {
+    "label": "Incoterms",
+    "value": "FOB · CIF · DAP · DDP",
+    "note": "Les conditions de livraison sont choisies selon la destination et les exigences de l’acheteur."
+  }
+}
   },
   "factoryPage": {
     "hero": {

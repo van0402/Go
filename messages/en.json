@@ -408,7 +408,7 @@
     },
     "intro": {
       "title": "A Vietnamese plywood brand built for the global market",
-      "text": "HTPLY VIETNAM was founded in 2024, specializing in plywood and engineered wood panels for the international B2B market. With a factory of around 5,000 m² and a supply capacity of up to 80 containers/month, HTPLY focuses on developing Film Faced Plywood, Anti-Slip Plywood and industrial plywood lines, while targeting the European and Middle Eastern markets. The company builds its global expansion strategy on consistent quality, supply capacity and sustainable development."
+      "text": "HTPLY VIETNAM was founded in 2021, specializing in plywood and engineered wood panels for the international B2B market. With a factory of around 5,000 m² and a supply capacity of up to 80 containers/month, HTPLY focuses on developing Film Faced Plywood, Anti-Slip Plywood and industrial plywood lines, while targeting the European and Middle Eastern markets. The company builds its global expansion strategy on consistent quality, supply capacity and sustainable development."
     },
     "metrics": {
       "factory": "Production and warehouse area organized for export operations.",
@@ -454,8 +454,150 @@
     },
     "promise": {
       "text": "Every plywood sheet that leaves the factory must represent one thing: verifiable quality, a supply you can rely on, and a partner ready to go the distance."
+    },
+    "business": {
+  "kicker": "02 · Business footprint",
+  "title": "Built for international business.",
+  "text": "HTPLY serves export-focused B2B buyers across multiple international markets, combining production capability with practical experience in global trade.",
+  "revenueLabel": "Latest annual revenue",
+  "revenueNote": "Subject to official confirmation",
+  "marketsLabel": "Active markets",
+  "marketsTitle": "Where HTPLY is doing business.",
+  "markets": {
+    "europe": "Europe",
+    "middleEast": "Middle East",
+    "africa": "Africa",
+    "australia": "Australia",
+    "newZealand": "New Zealand"
+  }
+},
+ "advantages": {
+  "kicker": "07 · Why HTPLY",
+  "title": "Why buyers choose HTPLY.",
+  "visualLabel": "Quality · Sourcing · Service",
+  "visualTitle": "What buyers experience beyond the product itself.",
+  "items": [
+    {
+      "title": "Controlled Quality",
+      "desc": "Professional and strict quality-control procedures, supported by trained QC staff and complete inspection records before shipment.",
+      "tags": [
+        "Batch inspection",
+        "QC records",
+        "Pre-shipment verification"
+      ]
+    },
+    {
+      "title": "Transparent Sourcing",
+      "desc": "Clear and responsible product sourcing, with documentation aligned to buyer requirements and international market expectations.",
+      "tags": [
+        "Traceability",
+        "Responsible sourcing",
+        "Documentation"
+      ]
+    },
+    {
+      "title": "Responsive After-sales",
+      "desc": "Customer support continues beyond shipment, helping buyers handle documentation, delivery follow-up and post-sale issues efficiently.",
+      "tags": [
+        "Fast response",
+        "Shipment follow-up",
+        "After-sales support"
+      ]
     }
+  ]
+},
+"productionProcess": {
+  "kicker": "03 · Production process",
+  "title": "From veneer to finished panel.",
+  "visualLabel": "Production · Control · Consistency",
+  "visualTitle": "A controlled sequence behind every finished panel.",
+  "items": [
+    {
+      "title": "Material Preparation",
+      "steps": [
+        "Veneer grading",
+        "Appearance inspection",
+        "Moisture review"
+      ]
+    },
+    {
+      "title": "Gluing & Lay-up",
+      "steps": [
+        "Finger joint / composing",
+        "Gluing",
+        "Veneer lay-up"
+      ]
+    },
+    {
+      "title": "Pressing",
+      "steps": [
+        "Cold pressing",
+        "Repairing",
+        "Hot pressing"
+      ]
+    },
+    {
+      "title": "Surface Finishing",
+      "steps": [
+        "First putty",
+        "First sanding",
+        "Second putty",
+        "Second sanding",
+        "Trimming",
+        "Face lamination"
+      ]
+    },
+    {
+      "title": "Inspection & Packing",
+      "steps": [
+        "Final inspection",
+        "Order verification",
+        "Packaging"
+      ]
+    }
+  ]
+},
+"buyerWorkflow": {
+  "kicker": "04· How we work with buyers",
+  "title": "Clear from inquiry to after-sales.",
+  "steps": [
+    {
+      "title": "Inquiry",
+      "desc": "Share product specifications, quantity and target market."
+    },
+    {
+      "title": "Quotation",
+      "desc": "HTPLY reviews the requirement and prepares commercial terms."
+    },
+    {
+      "title": "Contract & Payment",
+      "desc": "Confirm the order, contract and deposit or L/C arrangement."
+    },
+    {
+      "title": "Production",
+      "desc": "Production is scheduled according to the confirmed specification."
+    },
+    {
+      "title": "QC & Shipment",
+      "desc": "Final inspection, packing, documentation and shipment."
+    },
+    {
+      "title": "After-sales",
+      "desc": "Support continues after delivery for documents and order follow-up."
+    }
+  ],
+  "payment": {
+    "label": "Payment",
+    "value": "L/C · T/T · Deferred payment with credit insurance",
+    "note": "Payment terms are confirmed according to order conditions."
   },
+  "incoterms": {
+    "label": "Incoterms",
+    "value": "FOB · CIF · DAP · DDP",
+    "note": "Delivery terms are selected according to destination and buyer requirements."
+  }
+}
+},
   "factoryPage": {
     "hero": {
       "title": "Where quality begins with process.",

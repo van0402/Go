@@ -72,6 +72,159 @@ export function HtplyAbout() {
           </div>
         </section>
 
+        <section className="business-footprint">
+  <div className="container">
+    <div className="business-footprint-inner reveal">
+      <div className="business-footprint-copy">
+        <div>
+          <div className="section-kicker">
+            {tp('business.kicker')}
+          </div>
+
+          <h2>{tp('business.title')}</h2>
+
+          <p>{tp('business.text')}</p>
+        </div>
+
+        <div className="business-revenue">
+          <small>{tp('business.revenueLabel')}</small>
+          <strong>100B VND</strong>
+          <span>{tp('business.revenueNote')}</span>
+        </div>
+      </div>
+
+      <div className="business-markets">
+        <small>{tp('business.marketsLabel')}</small>
+
+        <h3>{tp('business.marketsTitle')}</h3>
+
+        <div className="business-market-list">
+          <span>{tp('business.markets.europe')}</span>
+          <span>{tp('business.markets.middleEast')}</span>
+          <span>{tp('business.markets.africa')}</span>
+          <span>{tp('business.markets.australia')}</span>
+          <span>{tp('business.markets.newZealand')}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section className="production-process">
+  <div className="container">
+    <div className="production-process-head reveal">
+      <div>
+        <div className="section-kicker">
+          {tp('productionProcess.kicker')}
+        </div>
+
+        <h2>{tp('productionProcess.title')}</h2>
+      </div>
+    </div>
+
+    <div className="production-process-shell reveal">
+      <div className="production-process-visual">
+        <div className="production-process-visual-copy">
+          <span>{tp('productionProcess.visualLabel')}</span>
+          <strong>{tp('productionProcess.visualTitle')}</strong>
+        </div>
+      </div>
+
+      <div className="production-process-grid">
+        {(tp.raw('productionProcess.items') as {
+          title: string
+          steps: string[]
+        }[]).map((item, i) => (
+          <article
+            className="production-stage"
+            key={item.title}
+          >
+            <div className="production-stage-number">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+
+            <h3>{item.title}</h3>
+
+            <ul>
+              {item.steps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ul>
+
+            {i < 4 && (
+              <div className="production-stage-arrow">
+                →
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section className="buyer-workflow">
+  <div className="container">
+    <div className="buyer-workflow-head reveal">
+      <div>
+        <div className="section-kicker">
+          {tp('buyerWorkflow.kicker')}
+        </div>
+
+        <h2>{tp('buyerWorkflow.title')}</h2>
+      </div>
+
+    </div>
+
+    <div className="buyer-workflow-shell reveal">
+      <div className="buyer-workflow-steps">
+        {(tp.raw('buyerWorkflow.steps') as {
+          title: string
+          desc: string
+        }[]).map((item, i) => (
+          <article className="buyer-workflow-step" key={item.title}>
+            <div className="buyer-workflow-step-num">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+
+            <h3>{item.title}</h3>
+
+            <p>{item.desc}</p>
+
+            {i < 5 && (
+              <div className="buyer-workflow-arrow">
+                →
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+
+      <div className="buyer-workflow-terms">
+        <div className="buyer-workflow-term">
+          <span>{tp('buyerWorkflow.payment.label')}</span>
+
+          <strong>
+            {tp('buyerWorkflow.payment.value')}
+          </strong>
+
+          <p>{tp('buyerWorkflow.payment.note')}</p>
+        </div>
+
+        <div className="buyer-workflow-term">
+          <span>{tp('buyerWorkflow.incoterms.label')}</span>
+
+          <strong>
+            {tp('buyerWorkflow.incoterms.value')}
+          </strong>
+
+          <p>{tp('buyerWorkflow.incoterms.note')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
         <section className="story">
           <div className="container story-grid">
             <div className="story-media reveal">
@@ -80,7 +233,7 @@ export function HtplyAbout() {
             </div>
 
             <div className="story-copy reveal" style={{ transitionDelay: '120ms' }}>
-              <div className="section-kicker">02 · Our approach</div>
+              <div className="section-kicker">05· Our approach</div>
               <h2>{tp('approach.title')}</h2>
               <p>{tp('approach.text')}</p>
 
@@ -103,7 +256,7 @@ export function HtplyAbout() {
           <div className="container">
             <div className="values-head reveal">
               <div>
-                <div className="section-kicker">03 · What we value</div>
+                <div className="section-kicker">06 · What we value</div>
                 <h2>{tp('values.title')}</h2>
               </div>
               <p>{tp('values.text')}</p>
@@ -129,10 +282,63 @@ export function HtplyAbout() {
           </div>
         </section>
 
+        <section className="buyer-advantages">
+  <div className="container">
+    <div className="buyer-advantages-head reveal">
+      <div>
+        <div className="section-kicker">
+          {tp('advantages.kicker')}
+        </div>
+
+        <h2>{tp('advantages.title')}</h2>
+      </div>
+    </div>
+
+    <div className="buyer-advantages-layout">
+      <div className="buyer-advantages-visual reveal">
+        <div className="buyer-advantages-visual-copy">
+          <span>{tp('advantages.visualLabel')}</span>
+          <strong>{tp('advantages.visualTitle')}</strong>
+        </div>
+      </div>
+
+      <div className="buyer-advantages-list">
+        {(tp.raw('advantages.items') as {
+          title: string
+          desc: string
+          tags: string[]
+        }[]).map((item, i) => (
+          <article
+            className="buyer-advantage-row reveal"
+            key={item.title}
+            style={{ transitionDelay: `${i * 90}ms` }}
+          >
+            <div className="buyer-advantage-num">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+
+            <div>
+              <h3>{item.title}</h3>
+
+              <p>{item.desc}</p>
+
+              <div className="buyer-advantage-tags">
+                {item.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
         <section className="history">
           <div className="container">
             <div className="history-head reveal">
-              <div className="section-kicker">04 · History</div>
+              <div className="section-kicker">09 · History</div>
               <h2>{tp('history.title')}</h2>
             </div>
 
@@ -155,12 +361,12 @@ export function HtplyAbout() {
         <section className="mission-vision">
           <div className="container mv-grid">
             <div className="mv-col reveal" style={{ transitionDelay: '0ms' }}>
-              <div className="section-kicker">05A · Mission</div>
+              <div className="section-kicker">Mission</div>
               <h2>{tp('mission.title')}</h2>
               <p>{tp('mission.text')}</p>
             </div>
             <div className="mv-col reveal" style={{ transitionDelay: '90ms' }}>
-              <div className="section-kicker">05B · Vision</div>
+              <div className="section-kicker">Vision</div>
               <h2>{tp('vision.title')}</h2>
               <p>{tp('vision.text')}</p>
             </div>
