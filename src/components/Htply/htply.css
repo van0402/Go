@@ -135,8 +135,8 @@
   font-size:14px;font-weight:800;letter-spacing:.03em;text-decoration:none;
   transition:background .2s ease,color .2s ease,transform .2s ease,border-color .2s ease;
 }
-.htply-page .hero-cta-primary{background:#3C445C;color:#fff;border:1px solid #3C445C}
-.htply-page .hero-cta-primary:hover{background:#59CBE8;border-color:#59CBE8;color:#2C3444;transform:translateY(-2px)}
+.htply-page .hero-cta-primary{background:#59CBE8;color:#2C3444;border:1px solid #59CBE8}
+.htply-page .hero-cta-primary:hover{background:#7DDAF0;border-color:#7DDAF0;color:#2C3444;transform:translateY(-2px)}
 .htply-page .hero-cta-secondary{background:#3C445C;color:#fff;border:1px solid rgba(255,255,255,.45)}
 .htply-page .hero-cta-secondary:hover{background:#59CBE8;border-color:#59CBE8;color:#2C3444;transform:translateY(-2px)}
 @media(max-width:620px){.htply-page .hero-cta a{flex:1 1 100%}}
@@ -506,7 +506,7 @@
   flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);
   display:flex;align-items:center;justify-content:center;font-size:18px;transition:.25s ease;
 }
-.htply-page .faq-item[open] .faq-plus{transform:rotate(45deg);background:var(--coffee);color:var(--paper)}
+.htply-page .faq-item[open] .faq-plus{transform:rotate(45deg);background:#59CBE8;border-color:#59CBE8;color:#2C3444}
 .htply-page .faq-item p{color:var(--muted);max-width:620px;margin-top:14px}
 
 .htply-page .quote{
@@ -876,7 +876,7 @@
 .htply-page a.ab-card:hover,.htply-page a.ab-card:focus-visible{
   transform:translateY(-5px);box-shadow:0 22px 50px rgba(44,52,68,.14);border-color:#59CBE8;outline:none;
 }
-.htply-page .ab-ico{width:44px;height:44px;border-radius:12px;background:#F3F6F8;display:grid;place-items:center;color:#2E9DBE;margin-bottom:18px}
+.htply-page .ab-ico{width:44px;height:44px;border-radius:12px;background:#59CBE8;display:grid;place-items:center;color:#2C3444;margin-bottom:18px}
 .htply-page .ab-ico svg{width:24px;height:24px}
 .htply-page .ab-num{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#2E9DBE}
 .htply-page .ab-card h3{margin:8px 0;font-size:24px;line-height:1.15;color:#3C445C}
@@ -1251,3 +1251,12 @@
     object-fit:cover;
   }
 }
+/* Cân bằng màu theo phản hồi khách: thêm Picton Blue, bớt nền trắng (chỉ đổi màu, bố cục giữ nguyên) */
+.htply-page #quality{background:linear-gradient(180deg,#F7FBFC 0%,#E5F2F6 100%)}
+.htply-page #faq{background:linear-gradient(180deg,#EEF7FA 0%,#F7FBFC 100%)}
+.htply-page .section-kicker::before{
+  content:"";display:inline-block;width:26px;height:4px;margin-right:12px;border-radius:2px;background:#59CBE8;flex:none;
+}
+/* Mục Products nền Picton: vạch đổi sang navy để không chìm */
+.htply-page .products-section .section-kicker::before{background:#3C445C}
+.htply-page .stat-card{border-bottom:5px solid #59CBE8}
