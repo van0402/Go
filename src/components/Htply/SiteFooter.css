@@ -38,3 +38,5 @@
   .site-footer .footer-row{display:block}
   .site-footer .footer-row > *{margin-bottom:8px}
 }
+/* Viền Picton phía trên footer */
+.site-footer{border-top:4px solid #59CBE8}

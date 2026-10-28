@@ -13,7 +13,7 @@
 
 .htply-page .export-steps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .htply-page .export-step{
-  border:1px solid var(--line);border-radius:16px;padding:20px;background:#F3F6F8;
+  border:1px solid #D7ECF3;border-radius:16px;padding:20px;background:#EEF7FA;
   transition:transform .25s ease, box-shadow .25s ease;
 }
 .htply-page .export-step:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(44,52,68,.10)}
@@ -28,19 +28,19 @@
 }
 
 .htply-page .export-cta{
-  margin-top:34px;padding:26px 30px;border-radius:22px;color:#fff;
-  background:linear-gradient(180deg,#3B4559,#2C3444);
+  margin-top:34px;padding:26px 30px;border-radius:22px;color:#2C3444;
+  background:#59CBE8;
   display:flex;align-items:center;justify-content:space-between;gap:24px;
   box-shadow:var(--shadow);
 }
-.htply-page .export-cta h3{margin:0 0 6px;font-size:clamp(20px,2.2vw,28px);line-height:1.2;color:#fff}
-.htply-page .export-cta p{margin:0;font-size:14px;line-height:1.6;color:rgba(255,255,255,.72)}
+.htply-page .export-cta h3{margin:0 0 6px;font-size:clamp(20px,2.2vw,28px);line-height:1.2;color:#2C3444}
+.htply-page .export-cta p{margin:0;font-size:14px;line-height:1.6;color:#1F4A5C}
 .htply-page .export-cta-btn{
-  flex:none;padding:14px 22px;border-radius:12px;background:#59CBE8;color:#2C3444;
+  flex:none;padding:14px 22px;border-radius:12px;background:#2C3444;color:#fff;
   font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
   transition:background .2s ease, transform .2s ease;
 }
-.htply-page .export-cta-btn:hover{background:#fff;transform:translateY(-2px)}
+.htply-page .export-cta-btn:hover{background:#3C445C;transform:translateY(-2px)}
 
 @media(max-width:900px){
   .htply-page .export-grid{grid-template-columns:1fr}
