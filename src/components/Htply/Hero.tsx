@@ -7,13 +7,13 @@ import { useParallax } from '@/hooks/useParallax'
 import { useScrollShrink } from '@/hooks/useScrollShrink'
 
 // offset = tỉ lệ so với chiều cao chữ (26px / 230px ≈ 0.11), tự co giãn theo màn hình
-const LETTERS = [
-  { src: '/images/h-navy.png', alt: 'H', offset: 0, delay: 0 },
-  { src: '/images/t-navy.png', alt: 'T', offset: 0, delay: 0.25 },
-  { src: '/images/p-navy.png', alt: 'P', offset: 0, delay: 0.5 },
-  { src: '/images/l-navy.png', alt: 'L', offset: 0, delay: 0.75 },
-  { src: '/images/y-navy.png', alt: 'Y', offset: 0, delay: 1 },
-]
+// const LETTERS = [
+//   { src: '/images/h-navy.png', alt: 'H', offset: 0, delay: 0 },
+//   { src: '/images/t-navy.png', alt: 'T', offset: 0, delay: 0.25 },
+//   { src: '/images/p-navy.png', alt: 'P', offset: 0, delay: 0.5 },
+//   { src: '/images/l-navy.png', alt: 'L', offset: 0, delay: 0.75 },
+//   { src: '/images/y-navy.png', alt: 'Y', offset: 0, delay: 1 },
+// ]
 
 const HERO_IMAGES = ['/images/hero.jpg', '/images/ner.jpg']
 
@@ -45,21 +45,6 @@ export function Hero() {
 
       <div className="container hero-grid">
         <div className="wordmark reveal" style={{ ['--slide-x' as string]: '-70px' }} aria-label="HTPLY">
-          <div className="wordmark-scale" ref={shrinkRef}>
-            <div className="halo"></div>
-            {LETTERS.map((l) => (
-              <div
-                className="wordmark-letter"
-                key={l.alt}
-                                style={{
-                  ['--offset' as string]: l.offset,
-                  ['--delay' as string]: `${l.delay}s`,
-                }}
-              >
-                <img src={l.src} alt={l.alt} />
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="reveal" style={{ ['--slide-x' as string]: '70px' }}>

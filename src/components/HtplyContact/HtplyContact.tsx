@@ -76,55 +76,10 @@ export function HtplyContact({ options, prefill }: { options: ContactOption; pre
     <div className="htply-contact-page">
       <Nav />
       <main>
-        <section className="c-hero">
-          <div className="c-container c-hero-grid">
-            <div>
-              <div className="c-eyebrow">{t('eyebrow')}</div>
-              <h1>{t('heroTitle')}</h1>
-              <p>{t('heroText')}</p>
-              <div className="c-badges">
-                {badges.map((b) => (
-                  <span className="c-badge" key={b}>{b}</span>
-                ))}
-              </div>
-            </div>
-            <div className="c-hero-visual">
-              <img src="/images/hm10.jpg" alt="" />
-              <div className="c-hero-card">
-                <strong>{t('heroCardTitle')}</strong>
-                <span>{t('heroCardText')}</span>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <section className="c-contact" id="quote">
           <div className="c-container">
             <div className="c-shell">
-              <aside className="c-aside">
-                <div className="c-kicker">{t('asideKicker')}</div>
-                <h2>{t('asideTitle')}</h2>
-                <p>{t('asideText')}</p>
-                <div className="c-trust">
-                  {trust.map((item) => (
-                    <div className="c-trust-item" key={item.title}>
-                      <div className="c-trust-icon">✓</div>
-                      <div>
-                        <strong>{item.title}</strong>
-                        <span>{item.desc}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="c-quick">
-                  <small>{t('quickKicker')}</small>
-                  <p>{t('quickText')}</p>
-                  <div className="c-quick-links">
-                    <a href="https://wa.me/84931152468" target="_blank" rel="noreferrer">{t('whatsapp')}</a>
-                    <a href="mailto:info@htplywood.net" className="alt">{t('emailUs')}</a>
-                  </div>
-                </div>
-              </aside>
 
               <section className="c-form-panel">
                 <div className="c-form-head">
@@ -226,24 +181,6 @@ export function HtplyContact({ options, prefill }: { options: ContactOption; pre
           </div>
         </section>
 
-        <section className="c-process">
-          <div className="c-container">
-            <div className="c-process-head">
-              <span className="c-eyebrow">{t('processEyebrow')}</span>
-              <h2>{t('processTitle')}</h2>
-              <p>{t('processText')}</p>
-            </div>
-            <div className="c-steps">
-              {steps.map((s) => (
-                <article className="c-step" key={s.tag}>
-                  <div className="c-step-num">{s.tag}</div>
-                  <h4>{s.title}</h4>
-                  <p>{s.desc}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
 
       </main>
       <SiteFooter />

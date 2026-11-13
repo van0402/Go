@@ -6,11 +6,11 @@ import { About } from './About'
 import { Products } from './Products'
 // import { InsideBoard } from './InsideBoard'
 // import { ProcessSteps } from './ProcessSteps'
-import { QualityGrid } from './QualityGrid'
-import { Factory } from './Factory'
-import { ExportPackaging } from './ExportPackaging'
-import { Faq } from './Faq'
-import { QcGallery } from './QcGallery'
+// import { QualityGrid } from './QualityGrid'
+// import { Factory } from './Factory'
+// import { ExportPackaging } from './ExportPackaging'
+// import { Faq } from './Faq'
+// import { QcGallery } from './QcGallery'
 import { SiteFooter } from './SiteFooter'
 import { RevealOnScroll } from './RevealOnScroll'
 import type { ProductCard } from '@/utilities/getProducts'
@@ -26,11 +26,11 @@ export function HtplyDemo({ products = [] }: { products?: ProductCard[] }) {
         <Products products={products} />
         {/* <InsideBoard /> */}
         {/* <ProcessSteps /> */}
-        <QualityGrid />
-        <Factory />
-        <ExportPackaging />
-        <Faq />
-        <QcGallery />
+        {/* <QualityGrid /> */}
+        {/* <Factory /> */}
+        {/* <ExportPackaging /> */}
+        {/* <Faq /> */}
+        {/* <QcGallery /> */}
       </main>
       <SiteFooter />
     </div>
