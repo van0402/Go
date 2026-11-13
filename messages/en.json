@@ -62,6 +62,10 @@
           "detail": "Production documentation is available on request. See the Quality page for the documents we can provide." }
       ]
     },
+    "values": {
+      "kicker": "03 · Core values",
+      "title": "What shapes how we work."
+    },
     "products": {
       "kicker": "02 · Products",
       "title": "Developed to meet real-world performance.",
@@ -472,7 +476,7 @@
   }
 },
  "advantages": {
-  "kicker": "07 · Why HTPLY",
+  "kicker": "04 · Why HTPLY",
   "title": "Why buyers choose HTPLY.",
   "visualLabel": "Quality · Sourcing · Service",
   "visualTitle": "What buyers experience beyond the product itself.",

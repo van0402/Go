@@ -62,6 +62,10 @@
           "detail": "La documentation de production est disponible sur demande. Consultez la page Qualité pour les documents que nous pouvons fournir." }
       ]
     },
+    "values": {
+      "kicker": "03 · Valeurs fondamentales",
+      "title": "Ce qui façonne notre façon de travailler."
+    },
     "products": {
       "kicker": "02 · Produits",
       "title": "Conçus pour répondre aux exigences d'utilisation réelles.",
@@ -499,6 +503,41 @@
     }
   ]
 }
+},
+"advantages": {
+  "kicker": "04 · Pourquoi HTPLY",
+  "title": "Pourquoi les acheteurs choisissent HTPLY.",
+  "visualLabel": "Qualité · Approvisionnement · Service",
+  "visualTitle": "Ce que vivent les acheteurs au-delà du produit lui-même.",
+  "items": [
+    {
+      "title": "Qualité maîtrisée",
+      "desc": "Des procédures de contrôle qualité professionnelles et rigoureuses, appuyées par des équipes QC formées et des dossiers d'inspection complets avant l'expédition.",
+      "tags": [
+        "Inspection par lot",
+        "Dossiers QC",
+        "Vérification avant expédition"
+      ]
+    },
+    {
+      "title": "Approvisionnement transparent",
+      "desc": "Un approvisionnement clair et responsable, avec une documentation alignée sur les exigences des acheteurs et les attentes des marchés internationaux.",
+      "tags": [
+        "Traçabilité",
+        "Approvisionnement responsable",
+        "Documentation"
+      ]
+    },
+    {
+      "title": "Service après-vente réactif",
+      "desc": "Le soutien client se poursuit après l'expédition et aide les acheteurs à gérer la documentation, le suivi des livraisons et les questions après-vente efficacement.",
+      "tags": [
+        "Réponse rapide",
+        "Suivi d'expédition",
+        "Support après-vente"
+      ]
+    }
+  ]
 },
 "productionProcess": {
   "kicker": "06 · Processus de production",
