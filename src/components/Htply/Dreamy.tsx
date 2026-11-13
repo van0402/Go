@@ -24,13 +24,18 @@ export function Dreamy() {
     const mm = gsap.matchMedia()
 
     const ctx = gsap.context(() => {
-      // 1. Nền: mỗi mục có cặp vòng vân trái/phải, xoay và phóng chậm theo nhịp cuộn của chính mục đó
+      // 1. Nền: mỗi mục có một chồng ván ép; các lớp tách ra khi mục đi ngang giữa màn hình rồi khép lại, chồng xoay nhẹ
       gsap.utils.toArray<HTMLElement>('.dz-srings').forEach((box) => {
+        const wrap = box.querySelector<HTMLElement>('.dz-sring')
+        const plane = box.querySelector<HTMLElement>('.dz-plane')
+        if (!wrap || !plane) return
+        const left = wrap.classList.contains('l')
         const st = { trigger: box.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1.4 }
-        const ring = box.querySelector('.dz-sring')
-        if (!ring) return
-        const fromLeft = ring.classList.contains('l')
-        gsap.fromTo(ring, { rotation: fromLeft ? -18 : 14, scale: fromLeft ? 0.94 : 1.1, yPercent: fromLeft ? -6 : 7 }, { rotation: fromLeft ? 32 : -28, scale: fromLeft ? 1.18 : 0.9, yPercent: fromLeft ? 8 : -8, ease: 'none', scrollTrigger: st })
+        gsap
+          .timeline({ scrollTrigger: st })
+          .fromTo(plane, { '--gap': 6, '--rz': left ? -44 : 44 }, { '--gap': 52, '--rz': left ? -30 : 30, ease: 'none', duration: 1 })
+          .to(plane, { '--gap': 8, '--rz': left ? -18 : 18, ease: 'none', duration: 1 })
+        gsap.fromTo(wrap, { yPercent: left ? -5 : 6 }, { yPercent: left ? 7 : -7, ease: 'none', scrollTrigger: st })
       })
 
       // 2. Banner: ảnh trôi chậm hơn trang, chữ nâng lên và mờ dần

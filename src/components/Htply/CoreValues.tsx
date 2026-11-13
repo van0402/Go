@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { SplitTitle } from './SplitTitle'
-import { SectionRings } from './RingsBg'
+import { SectionStack } from './SectionStack'
 
 type Value = { title: string; desc: string; detail: string }
 
@@ -21,7 +21,7 @@ export function CoreValues() {
 
   return (
     <section id="values" className="dz-sec dz-values">
-      <SectionRings seed={3} side="r" />
+      <SectionStack side="r" />
       <div className="dz-wrap">
         <div className="dz-kicker" data-fade>{t('kicker')}</div>
         <SplitTitle text={t('title')} />

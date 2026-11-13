@@ -4,8 +4,7 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { RevealOnScroll } from '@/components/RevealOnScroll'
 import { Link } from '@/i18n/routing'
-import { QcGallery } from './QcGallery'
-import { CatalogSheets } from './CatalogSheets'
+// import { QcGallery } from './QcGallery'
 import './HtplyProduct.css'
 import { Nav } from '@/components/Htply/Nav'
 import { SiteFooter } from '@/components/Htply/SiteFooter'
@@ -118,9 +117,8 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
         </div>
       </section>
 
-      <CatalogSheets />
 
-      <QcGallery />
+      {/* <QcGallery /> */}
 
       <SiteFooter />
     </main>

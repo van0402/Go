@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import type { ProductCard } from '@/utilities/getProducts'
 import { SplitTitle } from './SplitTitle'
-import { SectionRings } from './RingsBg'
+import { SectionStack } from './SectionStack'
 
 export function Products({ products }: { products: ProductCard[] }) {
   const t = useTranslations('home.products')
@@ -17,7 +17,7 @@ export function Products({ products }: { products: ProductCard[] }) {
 
   return (
     <section id="products" className="dz-sec dz-products">
-      <SectionRings seed={2} side="l" />
+      <SectionStack side="l" />
       <div className="dz-wrap">
         <div className="dz-phead">
           <div>
