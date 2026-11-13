@@ -63,6 +63,10 @@
           "detail": "La documentación de producción está disponible bajo petición. Consulte la página de Calidad para ver los documentos que podemos ofrecer." }
       ]
     },
+    "values": {
+      "kicker": "03 · Valores fundamentales",
+      "title": "Lo que define cómo trabajamos."
+    },
     "products": {
       "kicker": "02 · Productos",
       "title": "Desarrollados para rendir en condiciones reales de uso.",

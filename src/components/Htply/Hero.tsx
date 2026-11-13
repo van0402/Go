@@ -11,11 +11,13 @@ import { useScrollShrink } from '@/hooks/useScrollShrink'
 //   { src: '/images/h-navy.png', alt: 'H', offset: 0, delay: 0 },
 //   { src: '/images/t-navy.png', alt: 'T', offset: 0, delay: 0.25 },
 //   { src: '/images/p-navy.png', alt: 'P', offset: 0, delay: 0.5 },
-//   { src: '/images/l-navy.png', alt: 'L', offset: 0, delay: 0.75 },
+//   { src: '/images/l-navy.png', alt: 'L', offset: 0, delay: 0.75 },+
+
 //   { src: '/images/y-navy.png', alt: 'Y', offset: 0, delay: 1 },
 // ]
 
-const HERO_IMAGES = ['/images/hero.jpg', '/images/ner.jpg']
+// Bản đã nén (khoảng 300 KB mỗi ảnh) thay cho ảnh gốc 4 MB
+const HERO_IMAGES = ['/images/home/hero.jpg', '/images/home/hero2.jpg']
 
 export function Hero() {
   const parallaxRef = useParallax<HTMLElement>(0.12, 36)

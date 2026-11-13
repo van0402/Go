@@ -1,0 +1,158 @@
+/* Home "lướt ảo ảo": nền navy liền mạch + vòng vân trôi theo cuộn + chữ/ảnh hiện dần.
+   Mọi class có tiền tố dz- và nằm dưới .htply-page để không đụng CSS cũ. */
+html.lenis,html.lenis body{height:auto}
+.htply-page .lenis.lenis-smooth{scroll-behavior:auto!important}
+
+.htply-page .dz-flow,.htply-page .dz-cta{
+  --picton:#59CBE8;--picton-2:#7DDAF0;--teal:#2E9DBE;--deep:#2C3444;--navy:#3C445C;--mist:#C9D6E3;--soft:#9FB0C4;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+.htply-page .dz-flow{
+  position:relative;z-index:3;margin-top:-48px;border-radius:48px 48px 0 0;color:#fff;
+  background:linear-gradient(180deg,#27303F 0%,#2E3850 40%,#37425C 72%,#2C3444 100%);
+}
+.htply-page .dz-flow img{display:block;max-width:100%}
+.htply-page .dz-wrap{width:min(1240px,calc(100% - 64px));margin:0 auto}
+
+/* ---------- nền: vòng vân + quầng sáng ---------- */
+.htply-page .dz-bgfx{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.htply-page .dz-stick{position:sticky;top:0;height:100vh;width:100%}
+.htply-page .dz-ring{position:absolute;will-change:transform}
+.htply-page .dz-ring svg{display:block;width:100%;height:auto;animation:dz-breath 9s ease-in-out infinite alternate}
+.htply-page .dz-ring.a{width:1150px;left:-420px;top:-60px}
+.htply-page .dz-ring.b{width:950px;right:-380px;bottom:-140px}
+.htply-page .dz-ring.b svg{animation-duration:12s;animation-direction:alternate-reverse}
+@keyframes dz-breath{from{transform:scale(1)}to{transform:scale(1.045)}}
+.htply-page .dz-flow>.dz-sec{position:relative;z-index:1}
+
+/* ---------- chữ chung ---------- */
+.htply-page .dz-kicker{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.htply-page .dz-kicker::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--picton)}
+.htply-page .dz-title{margin:14px 0 0;font-size:clamp(32px,4vw,60px);line-height:1.03;letter-spacing:-.04em;font-weight:600;color:#fff}
+.htply-page .dz-lead{margin:22px 0 0;max-width:540px;font-size:17.5px;line-height:1.75;color:var(--mist)}
+.htply-page .dz-w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.htply-page .dz-w>span{display:inline-block;will-change:transform}
+
+.htply-page .dz-btn{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;padding:15px 26px;border-radius:14px;font-size:14px;font-weight:700;letter-spacing:.02em;border:1px solid transparent;transition:transform .3s var(--ease),background .25s,color .25s,box-shadow .3s}
+.htply-page .dz-btn i{font-style:normal;transition:transform .3s var(--ease)}
+.htply-page .dz-btn:hover i{transform:translateX(4px)}
+.htply-page .dz-btn.dark{background:var(--deep);color:#fff}
+.htply-page .dz-btn.dark:hover{background:var(--navy);transform:translateY(-2px)}
+
+/* ---------- thanh số liệu đè mép banner ---------- */
+.htply-page .dz-bar{position:absolute;z-index:6;left:0;right:0;top:-44px}
+.htply-page .dz-bar-in{display:grid;grid-template-columns:repeat(4,1fr);border-radius:24px;background:rgba(36,44,60,.7);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.14);border-top:3px solid var(--picton);box-shadow:0 30px 70px rgba(0,0,0,.35);overflow:hidden}
+.htply-page .dz-bar-item{padding:26px 30px;position:relative}
+.htply-page .dz-bar-item+.dz-bar-item::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:1px;background:rgba(255,255,255,.14)}
+.htply-page .dz-bar-item strong{display:block;font-size:clamp(28px,3vw,40px);line-height:1;letter-spacing:-.04em;font-weight:600;color:#fff}
+.htply-page .dz-bar-item>span{display:block;margin-top:8px;font-size:13.5px;color:var(--soft)}
+
+/* ---------- about ---------- */
+.htply-page .dz-about{padding:170px 0 120px}
+.htply-page .dz-about-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:80px;align-items:center}
+.htply-page .dz-rows{margin-top:36px;border-top:1px solid rgba(255,255,255,.16)}
+.htply-page .dz-row{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:20px 4px;border-bottom:1px solid rgba(255,255,255,.16);transition:padding .35s var(--ease),background .3s}
+.htply-page .dz-row small{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--picton)}
+.htply-page .dz-row b{display:block;font-size:18px;font-weight:600;letter-spacing:-.015em;color:#fff}
+.htply-page .dz-row em{display:block;margin-top:2px;font-style:normal;font-size:13px;color:var(--soft)}
+.htply-page .dz-ar{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;transition:background .3s,transform .35s var(--ease),color .3s}
+.htply-page .dz-row:hover{padding-left:14px;padding-right:14px;background:linear-gradient(90deg,rgba(89,203,232,.14),transparent)}
+.htply-page .dz-row:hover .dz-ar{background:var(--picton);color:var(--deep);transform:translateX(4px)}
+.htply-page .dz-row.off{cursor:default}
+.htply-page .dz-vis{position:relative;padding:0 0 40px 40px}
+.htply-page .dz-vis::before{content:"";position:absolute;right:-24px;top:34px;bottom:0;width:62%;border-radius:32px;background:linear-gradient(160deg,var(--picton),var(--teal));opacity:.92}
+.htply-page .dz-main{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/4.4;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.htply-page .dz-main img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.htply-page .dz-small{position:absolute;left:0;bottom:0;width:44%;aspect-ratio:1/1.05;border-radius:22px;overflow:hidden;border:6px solid #2F3950;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.htply-page .dz-small img{width:100%;height:100%;object-fit:cover}
+.htply-page .dz-chip{position:absolute;right:-14px;top:-8px;z-index:2;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;background:var(--deep);border:1px solid rgba(255,255,255,.14);box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.htply-page .dz-chip strong{font-size:26px;letter-spacing:-.04em;line-height:1;font-weight:600;color:var(--picton)}
+.htply-page .dz-chip span{font-size:12.5px;line-height:1.3;color:var(--mist);max-width:110px}
+
+/* ---------- products ---------- */
+.htply-page .dz-products{padding:110px 0}
+.htply-page .dz-phead{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.htply-page .dz-linkall{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:14px;padding-bottom:6px;border-bottom:2px solid var(--picton);color:#fff;transition:gap .3s var(--ease)}
+.htply-page .dz-linkall:hover{gap:16px}
+.htply-page .dz-pgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:56px}
+.htply-page .dz-pc{display:grid;grid-template-columns:44% 1fr;border-radius:26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);overflow:hidden;color:#fff;transition:box-shadow .45s var(--ease),border-color .3s,background .3s}
+.htply-page .dz-pc:hover{border-color:var(--picton);background:rgba(255,255,255,.1);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.htply-page .dz-pic{position:relative;overflow:hidden;min-height:290px;background:#EDF3F6}
+.htply-page .dz-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.htply-page .dz-pc:hover .dz-pic img{transform:scale(1.07)}
+.htply-page .dz-no{position:absolute;left:16px;top:16px;z-index:1;padding:6px 11px;border-radius:999px;background:var(--deep);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.1em}
+.htply-page .dz-bd{display:flex;flex-direction:column;padding:30px 30px 26px}
+.htply-page .dz-tags{display:flex;flex-wrap:wrap;gap:6px}
+.htply-page .dz-tags span{padding:5px 11px;border-radius:999px;background:rgba(89,203,232,.14);border:1px solid rgba(89,203,232,.3);font-size:11.5px;font-weight:700;color:var(--picton-2);letter-spacing:.02em}
+.htply-page .dz-pc h3{margin:18px 0 0;font-size:26px;line-height:1.1;letter-spacing:-.03em;font-weight:600;color:#fff}
+.htply-page .dz-pc p{margin:12px 0 0;font-size:14.5px;line-height:1.65;color:var(--mist);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.htply-page .dz-go{margin-top:auto;padding-top:22px;display:flex;align-items:center;gap:12px;font-size:13.5px;font-weight:800}
+.htply-page .dz-go i{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--picton);color:var(--deep);font-style:normal;transition:transform .35s var(--ease),background .3s}
+.htply-page .dz-pc:hover .dz-go i{transform:translateX(6px);background:#fff}
+
+/* ---------- core values ---------- */
+.htply-page .dz-values{padding:110px 0 150px}
+.htply-page .dz-vgrid{display:grid;grid-template-columns:1fr 1.08fr;gap:70px;align-items:center;margin-top:54px}
+.htply-page .dz-vlist{border-top:1px solid rgba(255,255,255,.16)}
+.htply-page .dz-v{border-bottom:1px solid rgba(255,255,255,.16)}
+.htply-page .dz-vh{width:100%;display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center;padding:22px 0;background:none;border:0;text-align:left;color:#fff;cursor:pointer}
+.htply-page .dz-vh small{font-size:13px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.45);transition:color .3s}
+.htply-page .dz-vh b{font-size:clamp(20px,2vw,26px);font-weight:600;letter-spacing:-.025em;color:rgba(255,255,255,.7);transition:color .3s,transform .4s var(--ease)}
+.htply-page .dz-pl{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .4s var(--ease),background .3s,border-color .3s,color .3s}
+.htply-page .dz-v.on .dz-vh small{color:var(--picton)}
+.htply-page .dz-v.on .dz-vh b{color:#fff;transform:translateX(6px)}
+.htply-page .dz-v.on .dz-pl{transform:rotate(45deg);background:var(--picton);border-color:var(--picton);color:var(--deep)}
+.htply-page .dz-vh:hover b{color:#fff}
+.htply-page .dz-vb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.htply-page .dz-v.on .dz-vb{grid-template-rows:1fr}
+.htply-page .dz-vb>div{overflow:hidden}
+.htply-page .dz-vb p{margin:0 0 24px 66px;max-width:470px;font-size:15.5px;line-height:1.7;color:var(--mist);opacity:0;transform:translateY(8px);transition:opacity .45s .08s,transform .45s .08s var(--ease)}
+.htply-page .dz-v.on .dz-vb p{opacity:1;transform:none}
+.htply-page .dz-vstage{position:relative;aspect-ratio:1/1.02;border-radius:30px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.14)}
+.htply-page .dz-vstage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .8s var(--ease),transform 1.6s var(--ease)}
+.htply-page .dz-vstage img.on{opacity:1;transform:scale(1)}
+.htply-page .dz-vstage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(26,32,46,.7));pointer-events:none}
+.htply-page .dz-vcap{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.htply-page .dz-bar2{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.25);overflow:hidden}
+.htply-page .dz-bar2 i{display:block;height:100%;background:var(--picton);border-radius:2px;transition:width .6s var(--ease)}
+
+/* ---------- CTA ---------- */
+.htply-page .dz-cta{position:relative;z-index:4;margin-top:-48px;border-radius:48px 48px 0 0;background:#59CBE8;color:#2C3444}
+.htply-page .dz-cta-in{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;padding:-10px 0 0px}
+.htply-page .dz-cta h3{margin:0;font-size:clamp(26px,3vw,42px);line-height:1.08;letter-spacing:-.035em;font-weight:600;color:#2C3444}
+.htply-page .dz-cta p{margin:10px 0 0;font-size:16px;color:#1F4A5C}
+
+/* ---------- co giãn ---------- */
+@media(max-width:1020px){
+  .htply-page .dz-about-grid,.htply-page .dz-vgrid{grid-template-columns:1fr;gap:56px}
+  .htply-page .dz-vis{max-width:560px}
+  .htply-page .dz-pgrid{grid-template-columns:1fr}
+  .htply-page .dz-bar-in{grid-template-columns:1fr 1fr}
+  .htply-page .dz-bar-item:nth-child(3)::before{display:none}
+  .htply-page .dz-bar-item:nth-child(n+3){border-top:1px solid rgba(255,255,255,.14)}
+  .htply-page .dz-about{padding-top:260px}
+  .htply-page .dz-ring.a{width:760px;left:-300px}
+  .htply-page .dz-ring.b{width:640px;right:-260px}
+}
+@media(max-width:640px){
+  .htply-page .dz-wrap{width:calc(100% - 36px)}
+  .htply-page .dz-pc{grid-template-columns:1fr}
+  .htply-page .dz-pic{min-height:220px}
+  .htply-page .dz-about{padding-bottom:84px}
+  .htply-page .dz-products{padding:84px 0}
+  .htply-page .dz-values{padding:84px 0 120px}
+  .htply-page .dz-bar-item{padding:20px 18px}
+  .htply-page .dz-vb p{margin-left:0}
+  .htply-page .dz-vh{grid-template-columns:40px 1fr auto}
+  .htply-page .dz-flow,.htply-page .dz-cta{border-radius:34px 34px 0 0}
+}
+@media(prefers-reduced-motion:reduce){
+  .htply-page .dz-flow *,.htply-page .dz-flow *::before,.htply-page .dz-flow *::after{animation:none!important;transition:none!important}
+}
+
+/* ---------- banner: chừa chỗ cho thanh số liệu đè mép dưới, chữ to hơn, bỏ khối chữ HTPLY rỗng ---------- */
+.htply-page .hero{padding-bottom:210px}
+.htply-page .hero .wordmark{display:none}
+.htply-page .hero .hero-grid>div:last-child{margin-top:0}
+.htply-page .hero h1{white-space:normal;max-width:900px;font-size:clamp(38px,6vw,84px);line-height:.98;letter-spacing:-.045em;font-weight:600}
+@media(max-width:1020px){.htply-page .hero{padding-bottom:300px}}
