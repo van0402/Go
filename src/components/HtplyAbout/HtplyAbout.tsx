@@ -1,225 +1,236 @@
 'use client'
 
-import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { useParallax } from '@/hooks/useParallax'
-import { RevealOnScroll } from '@/components/RevealOnScroll'
 import { Link } from '@/i18n/routing'
-import { LocaleSwitcher } from '@/components/LocaleSwitcher'
-import './htply-about.css'
 import { Nav } from '@/components/Htply/Nav'
 import { SiteFooter } from '@/components/Htply/SiteFooter'
+import { CountUp } from '@/components/Htply/CountUp'
+import { SplitTitle } from '@/components/Htply/SplitTitle'
+import { AboutStack } from './AboutStack'
+import { AboutFx } from './AboutFx'
+import './about-dreamy.css'
+
+type Item = { title: string; desc: string }
+type Advantage = Item & { tags: string[] }
+
+// Ảnh nền của 3 thẻ giá trị (hiện khi rê chuột)
+const VALUE_IMAGES = ['/images/home/cv-1.jpg', '/images/about/precise.jpg', '/images/home/cv-3.jpg']
+const HISTORY_YEARS = ['2021', '2022', '2023', '2024', '2027']
+
 export function HtplyAbout() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const heroParallaxRef = useParallax<HTMLElement>(0.12, 36)
-  const t = useTranslations('nav')
   const tp = useTranslations('aboutPage')
-  const approachPoints = tp.raw('approach.points') as { title: string; desc: string }[]
-  const valueItems = tp.raw('values.items') as { title: string; desc: string }[]
-  const historyItems = tp.raw('history.items') as { title: string; desc: string }[]
-  const historyYears = ['2024', '2024', '2025', '25–26', '2026']
+  const tc = useTranslations('home.export.cta')
+  const valueItems = tp.raw('values.items') as Item[]
+  const advantages = tp.raw('advantages.items') as Advantage[]
+  const historyItems = tp.raw('history.items') as Item[]
+  const markets = ['europe', 'middleEast', 'africa', 'australia', 'newZealand'] as const
 
   return (
     <div className="htply-about-page">
-      <RevealOnScroll scope=".htply-about-page" />
-       <Nav />
+      <AboutFx />
+      <Nav />
+
       <main>
-        <section className="hero" ref={heroParallaxRef}>
-          <div className="container hero-content">
-            <div className="eyebrow">About HTPLY Vietnam</div>
-            <h1>Built on reliability. Shaped for global supply.</h1>
-            <p>{tp('hero.intro')}</p>
+        {/* ===== Banner ===== */}
+        <section className="ad-hero">
+          <div className="ad-hero-bgw">
+            <div className="ad-hero-bg" />
+          </div>
+          <div className="ad-wrap ad-hero-in">
+            <span className="ad-pill">
+              <b />
+              About HTPLY Vietnam
+            </span>
+            <h1>
+              <span className="ad-ln">
+                <span>Built on reliability.</span>
+              </span>
+              <span className="ad-ln">
+                <span>
+                  Shaped for <em>global</em> supply.
+                </span>
+              </span>
+            </h1>
+            <p className="ad-sub">{tp('hero.intro')}</p>
           </div>
         </section>
 
-        <section className="intro">
-          <div className="container story-grid reveal">
-            <div className="story-media">
-              <img className="main" src="/images/sp8.jpg" alt="HTPLY factory overview" />
-              <img className="secondary" src="/images/spp2.jpg" alt="HTPLY timber stock" />
-            </div>
-
-            <div className="story-copy">
-              <div className="section-kicker">01 · Who we are</div>
-              <h2>{tp('intro.title')}</h2>
-              <p>{tp('intro.text')}</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="metrics">
-          <div className="container metric-grid">
-            <article className="metric reveal" style={{ transitionDelay: '0ms' }}>
-              <small>Factory footprint</small>
-              <strong>5,000 m²</strong>
-              <span>{tp('metrics.factory')}</span>
-            </article>
-            <article className="metric reveal" style={{ transitionDelay: '90ms' }}>
-              <small>Production</small>
-              <strong>60</strong>
-              <span>{tp('metrics.production')}</span>
-            </article>
-            <article className="metric reveal" style={{ transitionDelay: '180ms' }}>
-              <small>Supply capacity</small>
-              <strong>80</strong>
-              <span>{tp('metrics.supply')}</span>
-            </article>
-            <article className="metric reveal" style={{ transitionDelay: '270ms' }}>
-              <small>Main markets</small>
-              <strong>EU · ME</strong>
-              <span>{tp('metrics.markets')}</span>
-            </article>
-          </div>
-        </section>
-
-        <section className="business-footprint">
-  <div className="container">
-    <div className="business-footprint-inner reveal">
-      <div className="business-footprint-copy">
-        <div>
-          <div className="section-kicker">
-            {tp('business.kicker')}
-          </div>
-
-          <h2>{tp('business.title')}</h2>
-
-          <p>{tp('business.text')}</p>
-        </div>
-
-        <div className="business-revenue">
-          <small>{tp('business.revenueLabel')}</small>
-          <strong>100B VND</strong>
-          <span>{tp('business.revenueNote')}</span>
-        </div>
-      </div>
-
-      <div className="business-markets">
-        <small>{tp('business.marketsLabel')}</small>
-
-        <h3>{tp('business.marketsTitle')}</h3>
-
-        <div className="business-market-list">
-          <span>{tp('business.markets.europe')}</span>
-          <span>{tp('business.markets.middleEast')}</span>
-          <span>{tp('business.markets.africa')}</span>
-          <span>{tp('business.markets.australia')}</span>
-          <span>{tp('business.markets.newZealand')}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-        <section className="values">
-          <div className="container">
-            <div className="values-head reveal">
-              <div>
-                <div className="section-kicker">06 · What we value</div>
-                <h2>{tp('values.title')}</h2>
+        {/* ===== Nền navy liền mạch ===== */}
+        <div className="ad-flow">
+          {/* Thanh số liệu đè mép banner */}
+          <div className="ad-bar">
+            <div className="ad-wrap">
+              <div className="ad-bar-in">
+                <div className="ad-m">
+                  <small>Factory footprint</small>
+                  <strong>
+                    <CountUp end={5000} /> m²
+                  </strong>
+                  <span>{tp('metrics.factory')}</span>
+                </div>
+                <div className="ad-m">
+                  <small>Production</small>
+                  <strong>
+                    <CountUp end={60} />
+                  </strong>
+                  <span>{tp('metrics.production')}</span>
+                </div>
+                <div className="ad-m">
+                  <small>Supply capacity</small>
+                  <strong>
+                    <CountUp end={80} />
+                  </strong>
+                  <span>{tp('metrics.supply')}</span>
+                </div>
+                <div className="ad-m">
+                  <small>Main markets</small>
+                  <strong>EU · ME</strong>
+                  <span>{tp('metrics.markets')}</span>
+                </div>
               </div>
-              <p>{tp('values.text')}</p>
             </div>
+          </div>
 
-            <div className="values-grid">
-              {valueItems.map((v, i) => (
-                <article
-                  className="value-card reveal"
-                  key={v.title}
-                  style={{ transitionDelay: `${i * 90}ms` }}
-                >
-                  <div className="value-num">
-                    {String(i + 1).padStart(2, '0')} / {v.title.toUpperCase()}
-                  </div>
-                  <div>
+          {/* 01 · Who we are (chồng ván ép bên phải) */}
+          <section className="ad-sec ad-who">
+            <AboutStack side="r" />
+            <div className="ad-wrap ad-who-grid">
+              <div className="ad-vis">
+                <div className="ad-main ad-wipe">
+                  <img src="/images/about/who-1.jpg" alt="HTPLY factory overview" loading="lazy" />
+                </div>
+                <div className="ad-small" data-par="44">
+                  <img src="/images/about/who-2.jpg" alt="HTPLY timber stock" loading="lazy" />
+                </div>
+              </div>
+              <div>
+                <div className="ad-kicker" data-fade>01 · Who we are</div>
+                <SplitTitle text={tp('intro.title')} />
+                <p className="ad-lead" data-fade>{tp('intro.text')}</p>
+              </div>
+            </div>
+          </section>
+
+          {/* 02 · Business footprint (chồng ván ép bên trái) */}
+          <section className="ad-sec">
+            <AboutStack side="l" />
+            <div className="ad-wrap ad-biz-grid">
+              <div>
+                <div className="ad-kicker" data-fade>{tp('business.kicker')}</div>
+                <SplitTitle text={tp('business.title')} />
+                <p className="ad-lead" data-fade>{tp('business.text')}</p>
+              </div>
+              <div className="ad-panel" data-fade>
+                <div className="ad-rev">
+                  <small>{tp('business.revenueLabel')}</small>
+                  <strong>
+                    <CountUp end={100} />B VND
+                  </strong>
+                  <span>{tp('business.revenueNote')}</span>
+                </div>
+                <hr />
+                <small>{tp('business.marketsLabel')}</small>
+                <h3>{tp('business.marketsTitle')}</h3>
+                <div className="ad-chips">
+                  {markets.map((m) => (
+                    <span key={m}>{tp(`business.markets.${m}`)}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 03 · What we value */}
+          <section className="ad-sec">
+            <div className="ad-wrap">
+              <div className="ad-vhead">
+                <div>
+                  <div className="ad-kicker" data-fade>03 · What we value</div>
+                  <SplitTitle text={tp('values.title')} />
+                </div>
+                <p data-fade>{tp('values.text')}</p>
+              </div>
+              <div className="ad-vgrid">
+                {valueItems.map((v, i) => (
+                  <article className="ad-vc" key={v.title}>
+                    <img src={VALUE_IMAGES[i] ?? VALUE_IMAGES[0]} alt="" loading="lazy" />
+                    <span className="ad-no">{String(i + 1).padStart(2, '0')}</span>
                     <h3>{v.title}</h3>
                     <p>{v.desc}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="buyer-advantages">
-  <div className="container">
-    <div className="buyer-advantages-head reveal">
-      <div>
-        <div className="section-kicker">
-          {tp('advantages.kicker')}
-        </div>
-
-        <h2>{tp('advantages.title')}</h2>
-      </div>
-    </div>
-
-    <div className="buyer-advantages-layout">
-      <div className="buyer-advantages-visual reveal">
-        <div className="buyer-advantages-visual-copy">
-          <span>{tp('advantages.visualLabel')}</span>
-          <strong>{tp('advantages.visualTitle')}</strong>
-        </div>
-      </div>
-
-      <div className="buyer-advantages-list">
-        {(tp.raw('advantages.items') as {
-          title: string
-          desc: string
-          tags: string[]
-        }[]).map((item, i) => (
-          <article
-            className="buyer-advantage-row reveal"
-            key={item.title}
-            style={{ transitionDelay: `${i * 90}ms` }}
-          >
-            <div className="buyer-advantage-num">
-              {String(i + 1).padStart(2, '0')}
-            </div>
-
-            <div>
-              <h3>{item.title}</h3>
-
-              <p>{item.desc}</p>
-
-              <div className="buyer-advantage-tags">
-                {item.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
+                  </article>
                 ))}
               </div>
             </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+          </section>
 
-        <section className="history">
-          <div className="container">
-            <div className="history-head reveal">
-              <div className="section-kicker">09 · History</div>
-              <h2>{tp('history.title')}</h2>
-            </div>
-
-            <div className="history-list">
-              {historyItems.map((item, i) => (
-                <div
-                  className="history-row reveal"
-                  key={item.title}
-                  style={{ transitionDelay: `${i * 60}ms` }}
-                >
-                  <div className="history-year">{historyYears[i]}</div>
-                  <div className="history-title">{item.title}</div>
-                  <div className="history-desc">{item.desc}</div>
+          {/* 04 · Why HTPLY */}
+          <section className="ad-sec">
+            <div className="ad-wrap">
+              <div className="ad-kicker" data-fade>{tp('advantages.kicker')}</div>
+              <SplitTitle text={tp('advantages.title')} />
+              <div className="ad-adv-grid">
+                <div className="ad-adv-vis ad-wipe">
+                  <img src="/images/home/factory.jpg" alt="" loading="lazy" />
+                  <div className="ad-adv-cap">
+                    <span>{tp('advantages.visualLabel')}</span>
+                    <strong>{tp('advantages.visualTitle')}</strong>
+                  </div>
                 </div>
-              ))}
+                <div className="ad-adv-list">
+                  {advantages.map((a, i) => (
+                    <article className="ad-adv" key={a.title}>
+                      <div className="ad-n">{String(i + 1).padStart(2, '0')}</div>
+                      <div>
+                        <h3>{a.title}</h3>
+                        <p>{a.desc}</p>
+                        <div className="ad-tags">
+                          {a.tags.map((tag) => (
+                            <span key={tag}>{tag}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             </div>
+          </section>
+
+          {/* 05 · History */}
+          <section className="ad-sec" style={{ paddingBottom: 150 }}>
+            <div className="ad-wrap">
+              <div className="ad-kicker" data-fade>05 · History</div>
+              <SplitTitle text={tp('history.title')} />
+              <div className="ad-tl">
+                <div className="ad-tl-line" />
+                <div className="ad-tl-fill" />
+                {historyItems.map((item, i) => (
+                  <div className="ad-tl-row" key={`${item.title}-${i}`}>
+                    <div className="ad-tl-year">{HISTORY_YEARS[i] ?? ''}</div>
+                    <div className="ad-tl-dot" />
+                    <div className="ad-tl-body">
+                      <h3>{item.title}</h3>
+                      <p>{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/* ===== Dải Picton cuối trang ===== */}
+        <section className="ad-cta">
+          <div className="ad-wrap ad-cta-in">
+            <div>
+              <SplitTitle text={tc('title')} as="h3" />
+              <p data-fade>{tc('text')}</p>
+            </div>
+            <Link href="/contact#quote" className="ad-btn" data-fade>
+              {tc('button')} <i>→</i>
+            </Link>
           </div>
         </section>
-
-
       </main>
 
       <SiteFooter />

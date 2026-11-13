@@ -24,10 +24,14 @@ export function Dreamy() {
     const mm = gsap.matchMedia()
 
     const ctx = gsap.context(() => {
-      // 1. Nền: vòng vân và quầng sáng xoay, trôi chậm theo cuộn, mỗi lớp một tốc độ
-      const flowST = { trigger: '.dz-flow', start: 'top bottom', end: 'bottom top', scrub: 1.4 }
-      gsap.fromTo('.dz-ring.a', { rotation: -14, scale: 0.92, yPercent: -8 }, { rotation: 38, scale: 1.28, yPercent: 16, ease: 'none', scrollTrigger: flowST })
-      gsap.fromTo('.dz-ring.b', { rotation: 12, scale: 1.12, yPercent: 10 }, { rotation: -34, scale: 0.88, yPercent: -18, ease: 'none', scrollTrigger: flowST })
+      // 1. Nền: mỗi mục có cặp vòng vân trái/phải, xoay và phóng chậm theo nhịp cuộn của chính mục đó
+      gsap.utils.toArray<HTMLElement>('.dz-srings').forEach((box) => {
+        const st = { trigger: box.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1.4 }
+        const ring = box.querySelector('.dz-sring')
+        if (!ring) return
+        const fromLeft = ring.classList.contains('l')
+        gsap.fromTo(ring, { rotation: fromLeft ? -18 : 14, scale: fromLeft ? 0.94 : 1.1, yPercent: fromLeft ? -6 : 7 }, { rotation: fromLeft ? 32 : -28, scale: fromLeft ? 1.18 : 0.9, yPercent: fromLeft ? 8 : -8, ease: 'none', scrollTrigger: st })
+      })
 
       // 2. Banner: ảnh trôi chậm hơn trang, chữ nâng lên và mờ dần
       gsap.to('.hero .hero-bg', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })

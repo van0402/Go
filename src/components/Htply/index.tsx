@@ -6,7 +6,6 @@ import { Hero } from './Hero'
 import { About } from './About'
 import { Products } from './Products'
 import { CoreValues } from './CoreValues'
-import { RingsBg } from './RingsBg'
 import { DreamyCta } from './DreamyCta'
 import { Dreamy } from './Dreamy'
 import { SiteFooter } from './SiteFooter'
@@ -21,9 +20,8 @@ export function HtplyDemo({ products = [] }: { products?: ProductCard[] }) {
       <Nav />
       <main id="top">
         <Hero />
-        {/* Nền navy liền mạch: About, Products, Core values trượt trên vòng vân ván ép */}
+        {/* Nền navy liền mạch: mỗi mục (About, Products, Core values) có cặp vòng vân ván ép riêng */}
         <div className="dz-flow">
-          <RingsBg />
           <About />
           <Products products={products} />
           <CoreValues />

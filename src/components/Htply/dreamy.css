@@ -14,16 +14,16 @@ html.lenis,html.lenis body{height:auto}
 .htply-page .dz-flow img{display:block;max-width:100%}
 .htply-page .dz-wrap{width:min(1240px,calc(100% - 64px));margin:0 auto}
 
-/* ---------- nền: vòng vân + quầng sáng ---------- */
-.htply-page .dz-bgfx{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
-.htply-page .dz-stick{position:sticky;top:0;height:100vh;width:100%}
-.htply-page .dz-ring{position:absolute;will-change:transform}
-.htply-page .dz-ring svg{display:block;width:100%;height:auto;animation:dz-breath 9s ease-in-out infinite alternate}
-.htply-page .dz-ring.a{width:1150px;left:-420px;top:-60px}
-.htply-page .dz-ring.b{width:950px;right:-380px;bottom:-140px}
-.htply-page .dz-ring.b svg{animation-duration:12s;animation-direction:alternate-reverse}
-@keyframes dz-breath{from{transform:scale(1)}to{transform:scale(1.045)}}
+/* ---------- nền: mỗi mục một cặp vòng vân (trái + phải) ---------- */
 .htply-page .dz-flow>.dz-sec{position:relative;z-index:1}
+.htply-page .dz-srings{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.htply-page .dz-sring{--w:clamp(460px,56vw,880px);position:absolute;width:var(--w);top:50%;margin-top:calc(var(--w) / -2);will-change:transform}
+.htply-page .dz-sring.l{left:calc(var(--w) * -.34);top:50%}
+.htply-page .dz-sring.r{right:calc(var(--w) * -.34);top:50%}
+.htply-page .dz-sring svg{display:block;width:100%;height:auto;animation:dz-breath 9s ease-in-out infinite alternate}
+.htply-page .dz-sring.r svg{animation-duration:12s;animation-direction:alternate-reverse}
+@keyframes dz-breath{from{transform:scale(1)}to{transform:scale(1.045)}}
+.htply-page .dz-sec>.dz-wrap{position:relative;z-index:1}
 
 /* ---------- chữ chung ---------- */
 .htply-page .dz-kicker{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff}

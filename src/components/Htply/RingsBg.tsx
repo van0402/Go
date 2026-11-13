@@ -41,16 +41,13 @@ function rings(seed: number, count: number, r0: number, step: number) {
   return `<svg viewBox="-520 -520 1040 1040" xmlns="http://www.w3.org/2000/svg">${out}</svg>`
 }
 
-const RING_A = rings(7, 17, 34, 28)
-const RING_B = rings(19, 15, 40, 30)
-
-export function RingsBg() {
+// Mỗi mục có MỘT vòng vân, đặt so le: mục này bên trái thì mục kế tiếp bên phải (side = 'l' | 'r').
+// Mỗi mục một hạt giống khác nhau để hình không lặp.
+export function SectionRings({ seed = 1, side = 'l' }: { seed?: number; side?: 'l' | 'r' }) {
+  const svg = rings(seed * 7 + 3, 14, 30, 26)
   return (
-    <div className="dz-bgfx" aria-hidden="true">
-      <div className="dz-stick">
-        <div className="dz-ring a" dangerouslySetInnerHTML={{ __html: RING_A }} />
-        <div className="dz-ring b" dangerouslySetInnerHTML={{ __html: RING_B }} />
-      </div>
+    <div className="dz-srings" aria-hidden="true">
+      <div className={`dz-sring ${side}`} dangerouslySetInnerHTML={{ __html: svg }} />
     </div>
   )
 }
