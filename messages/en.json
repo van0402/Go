@@ -665,6 +665,10 @@
     "helpText": "Send your size, thickness, core and surface. We will suggest the right option.",
     "helpCta": "Request a quote",
     "heroTitle": "Stability from structure to quality.",
+    "heroSub": "Focused plywood lines for construction, industrial and export applications.",
+    "viewLabel": "Display mode",
+    "viewShowcase": "Showcase",
+    "viewGrid": "Grid",
     "items": [
       { "desc": "A flexible commercial plywood line for furniture, fabrication and applications requiring a stable surface." },
       { "desc": "Suited to orders requiring better moisture resistance and higher stability in use." },
@@ -718,6 +722,7 @@
     "formTitle": "Request a quote",
     "formSubtitle": "Tell us about your project and requirements.",
     "required": "* Required fields",
+    "summaryLabel": "Your request",
     "groupContact": "Contact information",
     "groupProduct": "Product requirements",
     "labels": {

@@ -661,6 +661,10 @@
     "helpText": "Envíenos medida, espesor, núcleo y superficie. Le sugeriremos la mejor opción.",
     "helpCta": "Solicitar presupuesto",
     "heroTitle": "Estabilidad, de la estructura a la calidad.",
+    "heroSub": "Líneas de contrachapado enfocadas a la construcción, la industria y la exportación.",
+    "viewLabel": "Modo de visualización",
+    "viewShowcase": "Escaparate",
+    "viewGrid": "Cuadrícula",
     "items": [
       { "desc": "Una línea de contrachapado comercial versátil para muebles, fabricación y aplicaciones que requieren una superficie estable." },
       { "desc": "Adecuado para pedidos que requieren mejor resistencia a la humedad y mayor estabilidad en uso." },
@@ -714,6 +718,7 @@
     "formTitle": "Solicitar cotización",
     "formSubtitle": "Cuéntenos sobre su proyecto y sus requisitos.",
     "required": "* Campos obligatorios",
+    "summaryLabel": "Su solicitud",
     "groupContact": "Información de contacto",
     "groupProduct": "Requisitos del producto",
     "labels": {

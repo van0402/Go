@@ -16,6 +16,7 @@ export function About() {
 
   return (
     <section id="about" className="dz-sec dz-about">
+      <SectionStack side="l" />
       <SectionStack side="r" />
       <div className="dz-wrap dz-about-grid">
         <div>
