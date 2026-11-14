@@ -1,4 +1,4 @@
-/* Trang About "lướt ảo ảo": nền navy liền mạch, chồng ván ép ở mục 1-2, chữ/ảnh hiện dần, timeline vẽ dần.
+/* Trang About "lướt ảo ảo": nền navy liền mạch, vòng vân gỗ ở mục 1-2, chữ/ảnh hiện dần, timeline vẽ dần.
    Mọi class có tiền tố ad- (hoặc dz- của SplitTitle), nằm dưới .htply-about-page. */
 
 .htply-about-page{
@@ -47,17 +47,14 @@
 .htply-about-page .ad-sec{position:relative;z-index:1;padding:120px 0}
 .htply-about-page .ad-sec>.ad-wrap{position:relative;z-index:1}
 
-/* chồng ván ép (xếp isometric) ở mục 1-2, đặt so le; vân gỗ các lớp xen kẽ ngang/dọc như ván ép thật */
+/* nền vòng vân gỗ ở mục 1-2, đặt so le trái/phải */
 .htply-about-page .ad-srings{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.htply-about-page .ad-sring{--w:clamp(420px,48vw,780px);position:absolute;width:var(--w);height:var(--w);top:50%;margin-top:calc(var(--w) / -2);perspective:1600px;will-change:transform}
-.htply-about-page .ad-sring.l{left:calc(var(--w) * -.12)}
-.htply-about-page .ad-sring.r{right:calc(var(--w) * -.12)}
-.htply-about-page .ad-plane{--gap:10;--rz:-34;position:absolute;left:50%;top:50%;width:70%;aspect-ratio:1.45;margin:calc(var(--w) * -.241) 0 0 -35%;transform-style:preserve-3d;transform:rotateX(62deg) rotateZ(calc(var(--rz) * 1deg))}
-.htply-about-page .ad-sring.r .ad-plane{--rz:34}
-.htply-about-page .ad-lay{position:absolute;inset:0;border-radius:24px;border:1.5px solid rgba(201,139,78,calc(.2 + var(--k) * .5));background-color:rgba(201,139,78,.045);transform:translateZ(calc(var(--i) * var(--gap) * 1px))}
-.htply-about-page .ad-lay.g1{background-image:repeating-linear-gradient(90deg,rgba(201,139,78,.13) 0 1px,transparent 1px 10px)}
-.htply-about-page .ad-lay.g2{background-image:repeating-linear-gradient(0deg,rgba(201,139,78,.13) 0 1px,transparent 1px 10px)}
-.htply-about-page .ad-lay.top{border-color:rgba(89,203,232,.8);background-color:rgba(89,203,232,.07)}
+.htply-about-page .ad-sring{--w:clamp(460px,56vw,880px);position:absolute;width:var(--w);top:50%;margin-top:calc(var(--w) / -2);will-change:transform}
+.htply-about-page .ad-sring.l{left:calc(var(--w) * -.34)}
+.htply-about-page .ad-sring.r{right:calc(var(--w) * -.34)}
+.htply-about-page .ad-sring svg{display:block;width:100%;height:auto;animation:ad-breath 9s ease-in-out infinite alternate}
+.htply-about-page .ad-sring.r svg{animation-duration:12s;animation-direction:alternate-reverse}
+@keyframes ad-breath{from{transform:scale(1)}to{transform:scale(1.045)}}
 
 /* thanh số liệu đè mép banner */
 .htply-about-page .ad-bar{position:absolute;z-index:6;left:0;right:0;top:-92px}
@@ -79,17 +76,6 @@
 .htply-about-page .ad-small img{width:100%;height:100%;object-fit:cover}
 
 /* ---------- 02 business ---------- */
-.htply-about-page .ad-biz-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center}
-.htply-about-page .ad-panel{padding:40px;border-radius:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 30px 70px rgba(0,0,0,.28)}
-.htply-about-page .ad-panel small{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--picton)}
-.htply-about-page .ad-rev strong{display:block;margin-top:10px;font-size:clamp(46px,5vw,76px);line-height:1;letter-spacing:-.05em;font-weight:600;color:#fff}
-.htply-about-page .ad-rev>span{display:block;margin-top:10px;font-size:14px;color:var(--soft)}
-.htply-about-page .ad-panel hr{border:0;height:1px;background:rgba(255,255,255,.16);margin:30px 0}
-.htply-about-page .ad-panel h3{margin:10px 0 0;font-size:24px;line-height:1.2;letter-spacing:-.025em;font-weight:600;color:#fff}
-.htply-about-page .ad-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.htply-about-page .ad-chips span{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);font-size:14px;font-weight:600;transition:background .3s,border-color .3s,transform .3s var(--ease)}
-.htply-about-page .ad-chips span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--picton)}
-.htply-about-page .ad-chips span:hover{background:rgba(89,203,232,.18);border-color:var(--picton);transform:translateY(-2px)}
 
 /* ---------- 03 values ---------- */
 .htply-about-page .ad-vhead{display:flex;align-items:flex-end;justify-content:space-between;gap:50px;flex-wrap:wrap}
@@ -151,7 +137,7 @@
 
 /* ---------- co giãn ---------- */
 @media(max-width:1020px){
-  .htply-about-page .ad-who-grid,.htply-about-page .ad-biz-grid,.htply-about-page .ad-adv-grid{grid-template-columns:1fr;gap:56px}
+  .htply-about-page .ad-who-grid,.htply-about-page .ad-adv-grid{grid-template-columns:1fr;gap:56px}
   .htply-about-page .ad-vis{max-width:560px}
   .htply-about-page .ad-vgrid{grid-template-columns:1fr}
   .htply-about-page .ad-adv-vis{position:relative;top:0;aspect-ratio:4/3}
@@ -172,7 +158,6 @@
   .htply-about-page .ad-sec{padding:84px 0}
   .htply-about-page .ad-m{padding:20px 18px}
   .htply-about-page .ad-vc{min-height:340px}.htply-about-page .ad-vc img{opacity:.4;transform:none}.htply-about-page .ad-vc::after{opacity:1}
-  .htply-about-page .ad-panel{padding:28px 22px}
   .htply-about-page .ad-flow,.htply-about-page .ad-cta{border-radius:34px 34px 0 0}
 }
 @media(prefers-reduced-motion:reduce){
@@ -180,3 +165,5 @@
   .htply-about-page .ad-pill,.htply-about-page .ad-sub{opacity:1!important}
   .htply-about-page .ad-ln>span{transform:none!important}
 }
+
+.htply-about-page .ad-map-wrap{margin-top:52px}

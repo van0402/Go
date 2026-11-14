@@ -1,81 +1,138 @@
+/* Trang Contact: đầu trang ngắn có ảnh + chữ trượt + chồng ván ép, khung form nâng lên đè lên đầu trang.
+   Form có ô nhãn nổi, nút chọn nhanh, thanh tiến độ, dòng tóm tắt; gửi xong chồng ván xếp lại. Mọi class có tiền tố ct-. */
+@property --gap{syntax:'<number>';inherits:true;initial-value:10}
+
 .htply-contact-page{
-  --navy:#3C445C;--deep:#3C445C;--cyan:#59CBE8;--ice:#F3F6F8;
-  --body:#5C6780;--muted:#6B7689;--line:#D7DEE5;
-  --shadow:0 24px 70px rgba(35,48,71,.10);
-  background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 100%);
-  color:var(--deep);
-  font-family:var(--font-amelia),var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
-  min-height:100vh;
-  overflow-x:clip;
+  --navy:#3C445C;--deep:#2C3444;--picton:#59CBE8;--picton-2:#7DDAF0;--teal:#2E9DBE;
+  --ink:#2C3444;--mute:#6B7A8F;--line:#DCE6EE;--bg:#F3F8FB;--ease:cubic-bezier(.2,.7,.2,1);
+  background:var(--bg);color:var(--ink);
+  font-family:var(--font-be-vietnam-pro),ui-sans-serif,system-ui,sans-serif;line-height:1.55;
+  min-height:100vh;overflow-x:clip;
 }
 .htply-contact-page *{box-sizing:border-box}
-.htply-contact-page h1,
-.htply-contact-page h2,
-.htply-contact-page h3,
-.htply-contact-page h4,
-.htply-contact-page b,
-.htply-contact-page strong{
-  font-family:var(--font-choplin),var(--font-be-vietnam-pro),Arial,Helvetica,sans-serif;
-}
-.htply-contact-page .c-container{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.htply-contact-page h1,.htply-contact-page h2,.htply-contact-page h3{margin-top:0;font-family:inherit}
 
-/* CONTACT SHELL */
-.htply-contact-page .c-contact{padding:20px 0 110px}
-.htply-contact-page .c-shell{display:grid;grid-template-columns:36% 64%;background:#fff;border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:var(--shadow)}
+/* ---------- đầu trang ---------- */
+.htply-contact-page .ct-top{position:relative;color:#fff;padding:114px 0 124px;border-radius:0 0 50% 50% / 0 0 clamp(36px,4.5vw,76px) clamp(36px,4.5vw,76px);overflow:hidden;background:var(--deep)}
+.htply-contact-page .ct-top-bg{position:absolute;inset:-4% 0;background:url("/images/home/hero.jpg") center 60%/cover no-repeat;animation:ct-kb 24s ease-out forwards;will-change:transform}
+@keyframes ct-kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+.htply-contact-page .ct-top::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(26,32,46,.92) 0%,rgba(26,32,46,.7) 45%,rgba(26,32,46,.35) 100%),linear-gradient(180deg,rgba(26,32,46,.2),rgba(26,32,46,.55))}
+.htply-contact-page .ct-top-in{position:relative;z-index:3;width:min(980px,calc(100% - 40px));margin:0 auto}
+.htply-contact-page .ct-eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--picton)}
+.htply-contact-page .ct-eyebrow::before{content:"";width:0;height:2px;background:var(--picton);animation:ct-grow .9s .1s var(--ease) forwards}
+@keyframes ct-grow{to{width:30px}}
+.htply-contact-page .ct-top h1{margin:12px 0 0;max-width:760px;font-size:clamp(36px,4.6vw,62px);line-height:1;letter-spacing:-.045em;font-weight:600;color:#fff}
+.htply-contact-page .ct-w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.htply-contact-page .ct-w>span{display:inline-block;transform:translateY(112%);animation:ct-up 1.1s var(--ease) forwards}
+@keyframes ct-up{to{transform:none}}
+.htply-contact-page .ct-sub{margin:12px 0 0;max-width:460px;font-size:17px;color:#D5E0EA;font-weight:300}
+.htply-contact-page .ct-reply{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:8px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);backdrop-filter:blur(8px);font-size:13px;font-weight:500}
+.htply-contact-page .ct-reply::before{content:"";width:8px;height:8px;border-radius:50%;background:#4ADE9A;box-shadow:0 0 0 4px rgba(74,222,154,.22);animation:ct-ping 2s infinite}
+@keyframes ct-ping{50%{box-shadow:0 0 0 8px rgba(74,222,154,0)}}
+.htply-contact-page .ct-eyebrow,.htply-contact-page .ct-sub,.htply-contact-page .ct-reply{opacity:0;transform:translateY(16px);animation:ct-rise .9s var(--ease) forwards}
+.htply-contact-page .ct-sub{animation-delay:.7s}
+.htply-contact-page .ct-reply{animation-delay:.85s}
+@keyframes ct-rise{to{opacity:1;transform:none}}
 
-/* FORM */
-.htply-contact-page .c-form-panel{padding:42px}
-.htply-contact-page .c-form-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px}
-.htply-contact-page .c-form-head h3{font-size:32px;margin:0;color:#3C445C;font-weight:600}
-.htply-contact-page .c-form-head p{margin:6px 0 0;color:var(--body);font-size:14px}
-.htply-contact-page .c-req-note{font-size:11px;color:var(--muted);white-space:nowrap}
-.htply-contact-page .c-group-title{margin:28px 0 14px;color:var(--navy);font-size:12px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}
-.htply-contact-page .c-group-title:first-child{margin-top:0}
-.htply-contact-page .c-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.htply-contact-page .c-field{display:flex;flex-direction:column;gap:8px}
-.htply-contact-page .c-field.full{grid-column:1/-1}
-.htply-contact-page label{font-size:12px;font-weight:800;color:var(--navy)}
-.htply-contact-page input,
-.htply-contact-page select,
-.htply-contact-page textarea{
-  width:100%;font:inherit;font-size:14px;border:1px solid #D7DEE5;background:#FBFCFD;color:var(--deep);
-  border-radius:13px;padding:14px 15px;outline:none;transition:.2s ease;
-}
-.htply-contact-page input::placeholder,
-.htply-contact-page textarea::placeholder{color:#8792A3}
-.htply-contact-page input:focus,
-.htply-contact-page select:focus,
-.htply-contact-page textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(89,203,232,.12);background:#fff}
-.htply-contact-page textarea{min-height:145px;resize:vertical}
-.htply-contact-page .c-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
-.htply-contact-page .c-submit-row{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:22px}
-.htply-contact-page .c-privacy{font-size:11px;color:var(--muted);line-height:1.5;max-width:390px}
-.htply-contact-page .c-submit{
-  border:0;font:inherit;background:linear-gradient(90deg,var(--navy),#4D6680);color:#fff;font-weight:900;
-  padding:15px 22px;border-radius:13px;cursor:pointer;min-width:190px;transition:.2s ease;
-}
-.htply-contact-page .c-submit:hover:not(:disabled){background:var(--cyan);color:var(--deep);transform:translateY(-1px)}
-.htply-contact-page .c-submit:disabled{opacity:.65;cursor:wait}
-.htply-contact-page .c-msg{margin:18px 0 0;padding:13px 15px;border-radius:12px;font-size:14px;line-height:1.5}
-.htply-contact-page .c-msg.ok{background:#e6f6ee;color:#1d6b43}
-.htply-contact-page .c-msg.bad{background:#fdeaea;color:#a02a2a}
+/* chồng ván ép trang trí bên phải đầu trang, tách lớp dần khi cuộn */
+.htply-contact-page .ct-deco{position:absolute;z-index:2;right:max(1vw,calc((100vw - 1240px)/2 - 60px));top:34px;width:min(320px,30vw);aspect-ratio:1.15;perspective:1500px;pointer-events:none;--gap:16}
+.htply-contact-page .ct-plane{position:absolute;inset:0;margin:auto;width:84%;aspect-ratio:1.45;transform-style:preserve-3d;transform:rotateX(62deg) rotateZ(-34deg);transition:--gap .35s linear}
+.htply-contact-page .ct-lay{position:absolute;inset:0;border-radius:22px;border:1.5px solid rgba(201,139,78,calc(.25 + var(--k) * .55));background-color:rgba(201,139,78,.07);transform:translateZ(calc(var(--i) * var(--gap) * 1px))}
+.htply-contact-page .ct-lay.g1{background-image:repeating-linear-gradient(90deg,rgba(201,139,78,.16) 0 1px,transparent 1px 10px)}
+.htply-contact-page .ct-lay.g2{background-image:repeating-linear-gradient(0deg,rgba(201,139,78,.16) 0 1px,transparent 1px 10px)}
+.htply-contact-page .ct-lay.cap{border-color:rgba(89,203,232,.9);background-color:rgba(89,203,232,.1)}
 
-/* RESPONSIVE */
-@media(max-width:960px){
-  
-  .htply-contact-page .c-shell{grid-template-columns:1fr}
-  
+/* ---------- khung form ---------- */
+.htply-contact-page .ct-card{position:relative;z-index:5;width:min(980px,calc(100% - 40px));margin:-96px auto 120px;background:#fff;border-radius:32px;box-shadow:0 50px 100px rgba(44,52,68,.18);overflow:hidden;opacity:0;transform:translateY(40px);animation:ct-rise 1.1s .5s var(--ease) forwards;--mx:50%;--my:0%;scroll-margin-top:100px}
+.htply-contact-page .ct-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(89,203,232,.1),transparent 60%)}
+.htply-contact-page .ct-bar{position:relative;height:5px;background:#E8F0F5}
+.htply-contact-page .ct-bar i{position:relative;display:block;height:100%;width:0;background:linear-gradient(90deg,var(--picton),var(--teal));border-radius:0 5px 5px 0;transition:width .6s var(--ease)}
+.htply-contact-page .ct-bar i::after{content:"";position:absolute;right:-1px;top:-5px;width:15px;height:15px;border-radius:50%;background:var(--picton);box-shadow:0 0 0 5px rgba(89,203,232,.25),0 0 22px rgba(89,203,232,.9);opacity:0;transition:opacity .3s}
+.htply-contact-page .ct-bar.on i::after{opacity:1}
+.htply-contact-page .ct-pad{position:relative;padding:clamp(30px,4vw,52px) clamp(26px,6vw,80px) clamp(36px,5vw,72px)}
+.htply-contact-page .ct-head{display:flex;justify-content:flex-end}
+.htply-contact-page .ct-req{font-size:12.5px;color:var(--mute)}
+.htply-contact-page .ct-group{display:flex;align-items:center;gap:14px;margin:60px 0 30px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.htply-contact-page .ct-group.first{margin-top:6px}
+.htply-contact-page .ct-group em{position:relative;font-style:normal;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--picton);color:var(--deep);font-size:12px;letter-spacing:0;transition:background .4s,color .4s,transform .5s var(--ease)}
+.htply-contact-page .ct-group em svg{position:absolute;width:16px;height:16px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .5s .1s}
+.htply-contact-page .ct-group.ok em{background:var(--deep);color:transparent;transform:scale(1.08)}
+.htply-contact-page .ct-group.ok em svg{stroke-dashoffset:0}
+.htply-contact-page .ct-group::after{content:"";flex:1;height:1px;background:var(--line)}
+.htply-contact-page .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.htply-contact-page .ct-full{grid-column:1/-1}
+.htply-contact-page .ct-stg{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.htply-contact-page .ct-stg.in{opacity:1;transform:none}
+
+/* ô nhập: nhãn nổi lên khi focus hoặc đã có chữ */
+.htply-contact-page .ct-f{position:relative}
+.htply-contact-page .ct-f input,.htply-contact-page .ct-f select,.htply-contact-page .ct-f textarea{width:100%;height:66px;padding:26px 20px 6px;border:1.5px solid var(--line);border-radius:15px;background:#FBFDFE;font:inherit;font-size:15.5px;color:var(--ink);outline:none;transition:border-color .25s,box-shadow .25s,background .25s;appearance:none;-webkit-appearance:none}
+.htply-contact-page .ct-f textarea{height:200px;padding-top:34px;resize:vertical}
+.htply-contact-page .ct-f label{position:absolute;left:21px;top:23px;margin:0;font-size:15px;font-weight:400;color:var(--mute);pointer-events:none;transform-origin:left top;transition:transform .25s var(--ease),color .25s;max-width:calc(100% - 34px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.htply-contact-page .ct-f input::placeholder,.htply-contact-page .ct-f textarea::placeholder{color:transparent;transition:color .2s}
+.htply-contact-page .ct-f input:focus::placeholder,.htply-contact-page .ct-f textarea:focus::placeholder{color:#A3B1C0}
+.htply-contact-page .ct-f input:focus,.htply-contact-page .ct-f select:focus,.htply-contact-page .ct-f textarea:focus{border-color:var(--picton);background:#fff;box-shadow:0 0 0 4px rgba(89,203,232,.2),0 12px 28px rgba(89,203,232,.12)}
+.htply-contact-page .ct-f input:focus+label,.htply-contact-page .ct-f input:not(:placeholder-shown)+label,.htply-contact-page .ct-f textarea:focus+label,.htply-contact-page .ct-f textarea:not(:placeholder-shown)+label,.htply-contact-page .ct-f select:focus+label,.htply-contact-page .ct-f.has label{transform:translateY(-13px) scale(.78);color:var(--teal);font-weight:500}
+.htply-contact-page .ct-f.sel::after{content:"";position:absolute;right:22px;top:29px;width:8px;height:8px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg);pointer-events:none}
+.htply-contact-page .ct-f input:user-invalid{border-color:#E58A8A}
+.htply-contact-page .ct-f:hover input,.htply-contact-page .ct-f:hover select,.htply-contact-page .ct-f:hover textarea{border-color:#BFD2DF}
+
+/* nút chọn nhanh (Incoterm, thời gian đặt hàng) */
+.htply-contact-page .ct-chips-title{font-size:13.5px;font-weight:500;color:var(--mute);margin-bottom:10px}
+.htply-contact-page .ct-chips{display:flex;flex-wrap:wrap;gap:10px}
+.htply-contact-page .ct-chip{position:relative;padding:12px 22px;border-radius:999px;border:1.5px solid var(--line);background:#FBFDFE;font:inherit;font-size:14.5px;font-weight:500;color:var(--navy);cursor:pointer;transition:transform .25s var(--ease),background .25s,border-color .25s,color .25s,box-shadow .25s}
+.htply-contact-page .ct-chip:hover{border-color:var(--picton);transform:translateY(-2px)}
+.htply-contact-page .ct-chip[aria-pressed=true]{background:var(--deep);border-color:var(--deep);color:#fff;box-shadow:0 12px 24px rgba(44,52,68,.25)}
+.htply-contact-page .ct-chip:focus-visible{outline:3px solid rgba(89,203,232,.5);outline-offset:2px}
+
+/* dòng tóm tắt hiện dần theo lựa chọn */
+.htply-contact-page .ct-summary{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:30px;border-radius:16px;background:linear-gradient(90deg,#EAF7FB,#F6FBFD);border:0 solid #D6EBF2;max-height:0;opacity:0;padding:0 18px;overflow:hidden;transition:max-height .5s var(--ease),opacity .4s,padding .4s,border-width .2s}
+.htply-contact-page .ct-summary.show{max-height:160px;opacity:1;padding:16px 18px;border-width:1px}
+.htply-contact-page .ct-summary small{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-right:4px}
+.htply-contact-page .ct-summary span{padding:6px 13px;border-radius:999px;background:#fff;border:1px solid #CBE5EE;font-size:13px;font-weight:500;color:var(--navy);animation:ct-pop .4s var(--ease)}
+@keyframes ct-pop{from{transform:scale(.7);opacity:0}}
+
+.htply-contact-page .ct-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.htply-contact-page .ct-privacy{margin:40px 0 0;font-size:12.5px;line-height:1.7;color:var(--mute)}
+.htply-contact-page .ct-submit{position:relative;overflow:hidden;margin-top:28px;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;height:72px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--picton),#6FD6EE);color:var(--deep);font:inherit;font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
+.htply-contact-page .ct-submit::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .8s var(--ease)}
+.htply-contact-page .ct-submit:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 22px 44px rgba(89,203,232,.45)}
+.htply-contact-page .ct-submit:hover:not(:disabled)::after{left:130%}
+.htply-contact-page .ct-submit i{font-style:normal;transition:transform .3s var(--ease)}
+.htply-contact-page .ct-submit:hover:not(:disabled) i{transform:translateX(7px)}
+.htply-contact-page .ct-submit:disabled{opacity:.7;cursor:progress}
+.htply-contact-page .ct-err{margin:18px 0 0;padding:13px 15px;border-radius:12px;background:#fdeaea;color:#a02a2a;font-size:14px;line-height:1.5}
+
+/* gửi thành công: chồng ván ép xếp lại + dấu tick */
+.htply-contact-page .ct-done{text-align:center;padding:clamp(40px,7vw,80px) 24px}
+.htply-contact-page .ct-stack{position:relative;width:min(300px,70%);aspect-ratio:1.25;margin:0 auto 10px;perspective:1200px}
+.htply-contact-page .ct-stack .ct-plane{--gap:90;transition:--gap 1.2s var(--ease)}
+.htply-contact-page .ct-done.in .ct-plane{--gap:9}
+.htply-contact-page .ct-stack .ct-lay{background-color:rgba(201,139,78,.12);border-color:rgba(201,139,78,.7)}
+.htply-contact-page .ct-stack .ct-lay.cap{border-color:var(--picton);background-color:rgba(89,203,232,.16)}
+.htply-contact-page .ct-tick{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-48px 0 0 -35px;opacity:0;transition:opacity .3s 1.1s}
+.htply-contact-page .ct-done.in .ct-tick{opacity:1}
+.htply-contact-page .ct-tick circle{fill:#fff;stroke:var(--picton);stroke-width:4;stroke-dasharray:290;stroke-dashoffset:290}
+.htply-contact-page .ct-tick path{fill:none;stroke:var(--teal);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60}
+.htply-contact-page .ct-done.in .ct-tick circle{animation:ct-draw .8s 1.1s var(--ease) forwards}
+.htply-contact-page .ct-done.in .ct-tick path{animation:ct-draw .5s 1.7s var(--ease) forwards}
+@keyframes ct-draw{to{stroke-dashoffset:0}}
+.htply-contact-page .ct-done p{margin:0 auto;max-width:470px;font-size:20px;line-height:1.6;color:var(--navy)}
+.htply-contact-page .ct-again{margin-top:26px;background:none;border:0;font:inherit;font-size:14px;color:var(--teal);cursor:pointer;border-bottom:1px solid currentColor;padding:2px 0}
+
+@media(max-width:900px){.htply-contact-page .ct-deco{opacity:.4;right:-50px;width:260px;top:60px}}
+@media(max-width:700px){
+  .htply-contact-page .ct-top{padding:104px 0 118px}
+  .htply-contact-page .ct-grid{grid-template-columns:1fr}
+  .htply-contact-page .ct-card{margin-top:-84px}
 }
-@media(max-width:640px){
-  .htply-contact-page .c-container{width:min(100% - 24px,1180px)}
-  
-  .htply-contact-page .c-form-panel{padding:26px}
-  .htply-contact-page .c-grid{grid-template-columns:1fr}
-  .htply-contact-page .c-field.full{grid-column:auto}
-  .htply-contact-page .c-submit-row,
-.htply-contact-page .c-form-head{flex-direction:column;align-items:flex-start}
-  .htply-contact-page .c-submit{width:100%}
-  
+@media(prefers-reduced-motion:reduce){
+  .htply-contact-page *,.htply-contact-page *::before,.htply-contact-page *::after{animation:none!important;transition:none!important}
+  .htply-contact-page .ct-card,.htply-contact-page .ct-eyebrow,.htply-contact-page .ct-sub,.htply-contact-page .ct-reply,.htply-contact-page .ct-stg{opacity:1!important;transform:none!important}
+  .htply-contact-page .ct-w>span{transform:none!important}
+  .htply-contact-page .ct-eyebrow::before{width:30px}
+  .htply-contact-page .ct-tick{opacity:1}
+  .htply-contact-page .ct-tick circle,.htply-contact-page .ct-tick path{stroke-dashoffset:0}
 }
 
 /* NAV: language switcher container (other pages get this from their own css) */
@@ -85,6 +142,3 @@
   padding:7px 10px;border-radius:10px;font:inherit;font-weight:800;font-size:12px;cursor:pointer;
 }
 .htply-contact-page .locale-switcher button.active{background:#EEF1F5}
-
-/* Khi cuộn tới #quote từ nút Request a Quote, chừa chỗ cho menu cố định */
-.htply-contact-page .c-contact{scroll-margin-top:100px}

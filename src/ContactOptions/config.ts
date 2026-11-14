@@ -31,7 +31,8 @@ export const ContactOptions: GlobalConfig = {
   slug: 'contact-options',
   label: 'Contact Options',
   access: { read: anyone, update: authenticated },   // form công khai cần đọc được
-  admin: { group: 'Sales' },
+  // Ẩn khỏi menu admin (không dùng nữa). Dữ liệu và form Contact vẫn đọc được như cũ; bỏ dòng "hidden" để hiện lại
+  admin: { group: 'Sales', hidden: true },
   fields: [
     optionList('productOptions', 'Product of interest'),
     optionList('quantityOptions', 'Estimated quantity'),

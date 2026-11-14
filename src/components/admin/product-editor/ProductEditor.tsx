@@ -7,14 +7,13 @@ type Feature = { id?: string; title: string; text: string }
 // items: mỗi dòng một mục; itemIds: id các dòng cũ (để giữ bản dịch FR/ES khi lưu lại)
 type App = { id?: string; title: string; items: string; itemIds?: string[] }
 type Faq = { id?: string; q: string; a: string }
-type Tag = { id?: string; tag: string }
 
 export type EditorProduct = {
   id?: number
   status: 'draft' | 'published'
   slug: string
   name: string
-  category: number | null
+  parent: number | null
   tagline: string
   sub: string
   description: string
@@ -24,7 +23,6 @@ export type EditorProduct = {
   applications: { id?: string; title: string; items: string }[]
   faq: Faq[]
   related: number[]
-  tags: Tag[]
   showOnHome: boolean
   order: number
 }
@@ -32,8 +30,8 @@ export type EditorProduct = {
 type Props = {
   initial: EditorProduct | null
   notFound: boolean
-  categories: { id: number; title: string }[]
-  products: { id: number; name: string }[]
+  products: { id: number; name: string; parent: number | null }[]
+  defaultParent?: number | null // chọn sẵn sản phẩm lớn (từ nút "Add a type" sau khi tạo sản phẩm lớn)
 }
 
 const STEPS = ['Basic', 'Specs', 'Overview', 'Benefits', 'Applications'] as const
@@ -50,21 +48,22 @@ const move = <T,>(arr: T[], from: number, to: number): T[] => {
 }
 const lines = (s: string) => s.split('\n').map((x) => x.trim()).filter(Boolean)
 
-export function ProductEditor({ initial, notFound, categories, products }: Props) {
+export function ProductEditor({ initial, notFound, products, defaultParent }: Props) {
   const [id, setId] = useState<number | undefined>(initial?.id)
   const [status, setStatus] = useState(initial?.status ?? 'draft')
   const [slug, setSlug] = useState(initial?.slug ?? '')
   const [step, setStep] = useState(0)
 
   const [name, setName] = useState(initial?.name ?? '')
-  const [category, setCategory] = useState<number | null>(initial?.category ?? null)
+  // Sản phẩm lớn mà sản phẩm này thuộc về (chọn từ danh sách); sản phẩm lớn thì để trống
+  const [parent, setParent] = useState<number | null>(initial?.parent ?? defaultParent ?? null)
+  // Các sản phẩm lớn có thể làm cha: chưa có parent và không phải chính sản phẩm đang sửa
+  const mainProducts = products.filter((x) => !x.parent && x.id !== id)
   const [tagline, setTagline] = useState(initial?.tagline ?? '')
   const [sub, setSub] = useState(initial?.sub ?? '')
   const [gallery, setGallery] = useState<EditorImage[]>(initial?.gallery ?? [])
   const [showOnHome, setShowOnHome] = useState(initial?.showOnHome ?? false)
   const [order, setOrder] = useState(initial?.order ?? 100)
-  const [tags, setTags] = useState<Tag[]>(initial?.tags ?? [])
-  const [tagDraft, setTagDraft] = useState('')
 
   const [specs, setSpecs] = useState<Spec[]>(initial?.specs ?? [])
   const [description, setDescription] = useState(initial?.description ?? '')
@@ -104,18 +103,26 @@ export function ProductEditor({ initial, notFound, categories, products }: Props
     setBusy('')
   }
 
-  async function save(kind: 'draft' | 'publish') {
+  // Trả về id sản phẩm khi lưu thành công (để nút Translate dùng ngay cho sản phẩm mới), lỗi thì trả undefined
+  async function save(kind: 'draft' | 'publish'): Promise<number | undefined> {
     if (blank(name)) {
       setMsg({ kind: 'err', text: 'Please enter the product name first (step 1).' })
       setStep(0)
-      return
+      return undefined
+    }
+    // Sản phẩm mới tạo ở đây là loại con: bắt buộc chọn nó hiển thị dưới sản phẩm lớn nào
+    // (sản phẩm lớn thì tạo ở trang "Add main product"). Sản phẩm cũ đang sửa thì để trống được.
+    if (!id && parent === null) {
+      setMsg({ kind: 'err', text: 'Choose which main product this belongs to. To create a main product use "Add main product".' })
+      setStep(0)
+      return undefined
     }
     setBusy(kind)
     setMsg(null)
     const withId = (r: { id?: string }) => (r.id ? { id: r.id } : {})
     const body = {
       name: name.trim(),
-      category,
+      parent,
       tagline,
       sub,
       description,
@@ -131,7 +138,6 @@ export function ProductEditor({ initial, notFound, categories, products }: Props
         })),
       faq: faq.filter((r) => !(blank(r.q) && blank(r.a))).map((r) => ({ ...withId(r), q: r.q, a: r.a })),
       related,
-      tags: tags.filter((t) => !blank(t.tag)).map((t) => ({ ...withId(t), tag: t.tag })),
       showOnHome,
       order,
       _status: kind === 'publish' ? 'published' : 'draft',
@@ -160,21 +166,29 @@ export function ProductEditor({ initial, notFound, categories, products }: Props
         setTimeout(() => {
           window.location.href = '/admin/collections/products'
         }, 800)
-        return // giữ trạng thái "đang xử lý" để khách không bấm thêm lần nữa
+        return doc.id as number // giữ trạng thái "đang xử lý" để khách không bấm thêm lần nữa
       }
       setMsg({ kind: 'ok', text: 'Draft saved.' })
+      setBusy('')
+      return doc.id as number
     } catch (e: any) {
       setMsg({ kind: 'err', text: e?.message || 'Save failed' })
     }
     setBusy('')
+    return undefined
   }
 
   async function translate() {
-    if (!id) return
+    // Sản phẩm mới chưa có id: lưu nháp trước rồi dịch, khỏi phải đăng lên rồi mở lại
+    let pid = id
+    if (!pid) {
+      pid = await save('draft')
+      if (!pid) return
+    }
     setBusy('translate')
     setMsg(null)
     try {
-      const res = await fetch(`/api/products/${id}/translate`, { method: 'POST', credentials: 'same-origin' })
+      const res = await fetch(`/api/products/${pid}/translate`, { method: 'POST', credentials: 'same-origin' })
       const json = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(json?.error || 'Translation failed')
       setMsg({ kind: 'ok', text: 'French and Spanish drafts created. Press Publish to put them live.' })
@@ -182,13 +196,6 @@ export function ProductEditor({ initial, notFound, categories, products }: Props
       setMsg({ kind: 'err', text: e?.message || 'Translation failed' })
     }
     setBusy('')
-  }
-
-  function addTag() {
-    const t = tagDraft.trim()
-    if (!t) return
-    setTags((x) => [...x, { tag: t }])
-    setTagDraft('')
   }
 
   const filled = [
@@ -256,13 +263,16 @@ export function ProductEditor({ initial, notFound, categories, products }: Props
                   <input value={tagline} onChange={(e) => setTagline(e.target.value)} placeholder="e.g. Structural LVL" />
                 </label>
                 <label className="ped-field">
-                  <span>Category</span>
-                  <select value={category ?? ''} onChange={(e) => setCategory(e.target.value ? Number(e.target.value) : null)}>
-                    <option value="">No category</option>
-                    {categories.map((c) => (
-                      <option key={c.id} value={c.id}>{c.title}</option>
+                  <span>{id ? 'Belongs to (main product)' : 'Show under (main product) *'}</span>
+                  <select value={parent ?? ''} onChange={(e) => setParent(e.target.value ? Number(e.target.value) : null)}>
+                    <option value="">{id ? 'None: this is a main product' : 'Choose a main product…'}</option>
+                    {mainProducts.map((x) => (
+                      <option key={x.id} value={x.id}>{x.name}</option>
                     ))}
                   </select>
+                  {!id && mainProducts.length === 0 && (
+                    <small>No main product yet. <a href="/admin/main-product-editor">Add a main product</a> first.</small>
+                  )}
                 </label>
                 <label className="ped-field">
                   <span>Page address</span>
@@ -313,24 +323,6 @@ export function ProductEditor({ initial, notFound, categories, products }: Props
                     <span>Display order (smaller first)</span>
                     <input type="number" value={order} onChange={(e) => setOrder(Number(e.target.value) || 0)} />
                   </label>
-                  <div className="ped-field">
-                    <span>Card labels</span>
-                    <div className="ped-chips">
-                      {tags.map((t, i) => (
-                        <span className="ped-chip" key={(t.id || '') + i}>
-                          {t.tag}
-                          <button type="button" onClick={() => setTags(removeAt(tags, i))} aria-label="Remove label">×</button>
-                        </span>
-                      ))}
-                      <input
-                        value={tagDraft}
-                        onChange={(e) => setTagDraft(e.target.value)}
-                        onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); addTag() } }}
-                        onBlur={addTag}
-                        placeholder="+ add label, press Enter"
-                      />
-                    </div>
-                  </div>
                 </div>
               </div>
             </>
@@ -445,9 +437,9 @@ export function ProductEditor({ initial, notFound, categories, products }: Props
           </div>
           <div className="ped-card dark">
             <h3>Translate</h3>
-            <p>Complete the English version, save it, then generate French and Spanish drafts.</p>
-            <button type="button" onClick={translate} disabled={!id || Boolean(busy)}>
-              {busy === 'translate' ? 'Translating…' : id ? 'Translate to FR + ES' : 'Save the product first'}
+            <p>Complete the English version, then generate French and Spanish drafts. A new product is saved as a draft first.</p>
+            <button type="button" onClick={translate} disabled={Boolean(busy)}>
+              {busy === 'translate' ? 'Translating…' : id ? 'Translate to FR + ES' : 'Save draft & translate to FR + ES'}
             </button>
           </div>
         </aside>

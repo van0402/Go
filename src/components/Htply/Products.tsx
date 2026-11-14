@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import type { ProductCard } from '@/utilities/getProducts'
 import { SplitTitle } from './SplitTitle'
-import { SectionRings } from './RingsBg'
+import { SectionStack } from './SectionStack'
 
 export function Products({ products }: { products: ProductCard[] }) {
   const t = useTranslations('home.products')
@@ -17,7 +17,7 @@ export function Products({ products }: { products: ProductCard[] }) {
 
   return (
     <section id="products" className="dz-sec dz-products">
-      <SectionRings seed={2} side="l" />
+      <SectionStack side="l" />
       <div className="dz-wrap">
         <div className="dz-phead">
           <div>
@@ -37,13 +37,6 @@ export function Products({ products }: { products: ProductCard[] }) {
                 <img src={p.image} alt={p.name} loading="lazy" />
               </div>
               <div className="dz-bd">
-                {p.tags.length > 0 && (
-                  <div className="dz-tags">
-                    {p.tags.slice(0, 3).map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                )}
                 <h3>{p.name}</h3>
                 {(p.desc || p.tagline) && <p>{p.desc || p.tagline}</p>}
                 <div className="dz-go">

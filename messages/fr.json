@@ -692,10 +692,15 @@
     "explore": "Découvrir {name}",
     "resultOne": "{count} produit",
     "resultMany": "{count} produits",
+    "types": "Types · {count}",
     "helpTitle": "Vous ne trouvez pas le panneau qu'il vous faut ?",
     "helpText": "Indiquez format, épaisseur, âme et surface. Nous vous proposerons la bonne option.",
     "helpCta": "Demander un devis",
     "heroTitle": "De la structure à la qualité, une stabilité constante.",
+    "heroSub": "Des gammes de contreplaqué ciblées pour la construction, l'industrie et l'export.",
+    "viewLabel": "Mode d'affichage",
+    "viewShowcase": "Vitrine",
+    "viewGrid": "Grille",
     "items": [
       { "desc": "Une gamme de contreplaqué commercial polyvalent pour le mobilier, la fabrication et les applications nécessitant une surface stable." },
       { "desc": "Adapté aux commandes nécessitant une meilleure résistance à l'humidité et une stabilité accrue à l'usage." },
@@ -749,6 +754,7 @@
     "formTitle": "Demander un devis",
     "formSubtitle": "Parlez-nous de votre projet et de vos besoins.",
     "required": "* Champs obligatoires",
+    "summaryLabel": "Votre demande",
     "groupContact": "Coordonnées",
     "groupProduct": "Besoins produit",
     "labels": {
@@ -771,6 +777,7 @@
       "phone": "+33 ...",
       "country": "Pays / région",
       "targetMarket": "UE, Moyen-Orient, autre...",
+      "quantity": "ex. 2 conteneurs de 40'",
       "message": "Précisez l’épaisseur, les dimensions, l’âme, la colle, la surface, l’emballage, le marché cible ou toute exigence technique..."
     },
     "choose": "Sélectionner...",

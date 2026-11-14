@@ -1,0 +1,90 @@
+/* Bản đồ xuất khẩu (mục 02 trang About): CSS lấy từ demo, chỉ giữ luật của các class bản đồ, thêm tiền tố .htply-about-page .ad-map */
+.htply-about-page .ad-map{--cyan:#159bbd;--ease:cubic-bezier(.2,.75,.25,1)}
+.htply-about-page .ad-map .map-shell{position:relative;isolation:isolate;margin:0 auto;width:100%;touch-action:pan-y;overflow:hidden}
+.htply-about-page .ad-map .map-svg{width:100%;height:auto;display:block;aspect-ratio:1280/600;overflow:visible}
+.htply-about-page .ad-map .ocean{fill:url(#ocean-glow)}
+.htply-about-page .ad-map .country{fill:#496076;fill-opacity:.46;stroke:#8ba4b8;stroke-opacity:.15;stroke-width:.55;vector-effect:non-scaling-stroke;transition:fill .4s,fill-opacity .4s,stroke .4s}
+.htply-about-page .ad-map .country.market-country{fill:#4c8aa1;fill-opacity:.48;stroke:#70cce0;stroke-opacity:.42}
+.htply-about-page .ad-map .country.origin-country{fill:#59cbe8;fill-opacity:.65;stroke:#b9f0fc;stroke-opacity:.85}
+.htply-about-page .ad-map .country.selected-country{fill:#59cbe8;fill-opacity:.72;stroke:#b0eaf7;stroke-opacity:.9}
+.htply-about-page .ad-map .connection{pointer-events:none;transition:opacity .35s}
+.htply-about-page .ad-map .route-under{fill:none;stroke:#59cbe8;stroke-width:7;opacity:.045;filter:url(#soft-glow)}
+.htply-about-page .ad-map .route{fill:none;stroke:#59cbe8;stroke-opacity:.54;stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:0;vector-effect:non-scaling-stroke}
+.htply-about-page .ad-map .route-light{fill:none;stroke:#c5f5ff;stroke-width:1.3;stroke-dasharray:.025 .975;stroke-dashoffset:0;opacity:0;filter:url(#soft-glow)}
+.htply-about-page .ad-map .traveller{fill:#e2fcff;filter:url(#pin-glow)}
+.htply-about-page .ad-map .traveller-halo{fill:#7ce4ff;filter:url(#soft-glow);opacity:.12}
+.htply-about-page .ad-map .map-svg.has-selection .connection{opacity:.18}
+.htply-about-page .ad-map .map-svg.has-selection .connection.selected{opacity:1}
+.htply-about-page .ad-map .connection.selected .route{stroke-opacity:1;stroke-width:1.7}
+.htply-about-page .ad-map .connection.selected .route-under{opacity:.12}
+.htply-about-page .ad-map .destination{cursor:pointer;outline:none}
+.htply-about-page .ad-map .pin-hit{fill:transparent}
+.htply-about-page .ad-map .pin{fill:#b7f0ff;stroke:#2d5267;stroke-width:1.5;transition:r .3s,fill .3s}
+.htply-about-page .ad-map .pin-ring{fill:none;stroke:#59cbe8;stroke-width:.8;opacity:.4;transition:opacity .3s}
+.htply-about-page .ad-map .destination.selected .pin,.htply-about-page .ad-map .destination:focus-visible .pin{fill:#fff;r:4.6}
+.htply-about-page .ad-map .destination.selected .pin-ring,.htply-about-page .ad-map .destination:focus-visible .pin-ring{opacity:1;stroke:#a1ecff;stroke-width:1.4}
+.htply-about-page .ad-map .destination:focus-visible .pin-hit{fill:#59cbe833}
+.htply-about-page .ad-map .arrival{fill:none;stroke:#8be5ff;stroke-width:1;opacity:0}
+.htply-about-page .ad-map .origin-pulse{fill:none;stroke:var(--cyan);stroke-width:.8;opacity:.2}
+.htply-about-page .ad-map .origin-bloom{fill:#59cbe8;filter:url(#origin-glow);opacity:.25}
+.htply-about-page .ad-map .origin-core{fill:#fff;stroke:#59cbe8;stroke-width:3;filter:url(#pin-glow)}
+.htply-about-page .ad-map .origin-ring{fill:none;stroke:#84dff6;stroke-width:1;opacity:.7}
+.htply-about-page .ad-map .origin-label{pointer-events:none}
+.htply-about-page .ad-map .origin-label path{fill:none;stroke:#6cd4ed;stroke-width:.8;opacity:.7}
+.htply-about-page .ad-map .origin-label rect{fill:#233246;fill-opacity:.94;stroke:#59cbe844;stroke-width:.8}
+.htply-about-page .ad-map .origin-label .city{font-size:13px;font-weight:600;letter-spacing:1px;fill:#edfaff}
+.htply-about-page .ad-map .origin-label .origin-sub{font-size:7.8px;letter-spacing:1.5px;fill:#8ec7db}
+.htply-about-page .ad-map .origin-label .coordinate{font-size:7.5px;fill:#799db2;letter-spacing:.5px}
+.htply-about-page .ad-map .selected-label{pointer-events:none;opacity:0;transition:opacity .25s}
+.htply-about-page .ad-map .selected-label.visible{opacity:1}
+.htply-about-page .ad-map .selected-label rect{fill:#17293c;stroke:#59cbe857;stroke-width:.8}
+.htply-about-page .ad-map .selected-label text{fill:#d9f5ff;font-size:11px;font-weight:500}
+.htply-about-page .ad-map .selected-label .sub{fill:#8cacc1;font-size:8px;font-weight:400}
+.htply-about-page .ad-map .selected-label path{fill:none;stroke:#79d9f2;stroke-opacity:.7;stroke-width:.8}
+.htply-about-page .ad-map .map-viewport{transition:transform .8s var(--ease)}
+.htply-about-page .ad-map .country{fill:#d5e3eb;fill-opacity:.95;stroke:#b5c9d7;stroke-opacity:.7;stroke-width:.65}
+.htply-about-page .ad-map .country.market-country{fill:#a7dbe7;fill-opacity:.95;stroke:#66b4cd;stroke-opacity:.8}
+.htply-about-page .ad-map .country.origin-country{fill:#2fb8d7;fill-opacity:1;stroke:#1686a4;stroke-opacity:.9;stroke-width:.85}
+.htply-about-page .ad-map .country.selected-country{fill:#56bdd6;fill-opacity:1;stroke:#258eac;stroke-opacity:1;stroke-width:1}
+.htply-about-page .ad-map .route-under{stroke:#54c9e7;opacity:.09;stroke-width:6}
+.htply-about-page .ad-map .route{stroke:#179ec4;stroke-opacity:.76;stroke-width:1.4}
+.htply-about-page .ad-map .route-light{stroke:#08789c;stroke-width:1.8;filter:none}
+.htply-about-page .ad-map .traveller{fill:#157a99;stroke:#fff;stroke-width:.7;filter:url(#pin-glow)}
+.htply-about-page .ad-map .traveller-halo{fill:#28aeca}
+.htply-about-page .ad-map .map-svg.has-selection .connection{opacity:.22}
+.htply-about-page .ad-map .connection.selected .route{stroke:#087b9e;stroke-opacity:1;stroke-width:1.9}
+.htply-about-page .ad-map .connection.selected .route-under{opacity:.17}
+.htply-about-page .ad-map .pin{fill:#1498b9;stroke:#fff;stroke-width:1.6}
+.htply-about-page .ad-map .pin-ring{stroke:#39abc7;opacity:.5}
+.htply-about-page .ad-map .destination.selected .pin,.htply-about-page .ad-map .destination:focus-visible .pin{fill:#0d7292;stroke:#fff}
+.htply-about-page .ad-map .destination.selected .pin-ring,.htply-about-page .ad-map .destination:focus-visible .pin-ring{stroke:#168eaf}
+.htply-about-page .ad-map .arrival{stroke:#149cbe}
+.htply-about-page .ad-map .origin-pulse{stroke:#20a9cd;stroke-width:1}
+.htply-about-page .ad-map .origin-bloom{fill:#47c7e4;opacity:.22}
+.htply-about-page .ad-map .origin-core{fill:#fff;stroke:#13a1c7;stroke-width:3.2}
+.htply-about-page .ad-map .origin-ring{stroke:#2da8c7;opacity:.8}
+.htply-about-page .ad-map .origin-label path{stroke:#329bb8;opacity:.8}
+.htply-about-page .ad-map .origin-label rect{fill:#fff;fill-opacity:.98;stroke:#b3d9e6;stroke-width:.9;filter:drop-shadow(0px 3px 5px #446b8610)}
+.htply-about-page .ad-map .origin-label .city{fill:#31445c}
+.htply-about-page .ad-map .origin-label .origin-sub{fill:#257c98}
+.htply-about-page .ad-map .origin-label .coordinate{fill:#66869a}
+.htply-about-page .ad-map .selected-label rect{fill:#fff;stroke:#8dcbdc;stroke-width:1;filter:drop-shadow(0px 3px 5px #446b8610)}
+.htply-about-page .ad-map .selected-label text{fill:#30455c}
+.htply-about-page .ad-map .selected-label .sub{fill:#608298}
+.htply-about-page .ad-map .selected-label path{stroke:#2e9dbd;stroke-opacity:.85}
+
+/* ---- Phần chỉnh riêng cho web (khung sáng trong trang nền navy, bản đồ sáng) ---- */
+.htply-about-page .ad-map{position:relative;border-radius:26px;overflow:hidden;background:radial-gradient(ellipse at 70% 42%,#e3f5fa 0,transparent 58%),linear-gradient(160deg,#ffffff,#f4fafc);border:1px solid #d8e7ee;box-shadow:0 30px 70px rgba(0,0,0,.28)}
+.htply-about-page .ad-map .map-shell{touch-action:auto}
+.htply-about-page .ad-map .country{fill:#dbe8ef}
+.htply-about-page .ad-map .country.market-country{fill:#9fd8e6}
+.htply-about-page .ad-map .country.selected-country{fill:#56bdd6}
+.htply-about-page .ad-map .origin-label rect{filter:drop-shadow(0 3px 6px rgba(53,67,90,.12))}
+.htply-about-page .ad-map .origin-label .city{font-size:12px;letter-spacing:1.6px}
+.htply-about-page .ad-map .destination .pin-hit{cursor:pointer}
+.htply-about-page .ad-map text{font-family:inherit}
+/* điện thoại: giữ bản đồ đủ lớn, cho kéo ngang */
+@media(max-width:700px){
+  .htply-about-page .ad-map{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .htply-about-page .ad-map .map-shell{min-width:700px}
+}

@@ -16,16 +16,10 @@ export default async function ProductEditorView({ initPageResult, params, search
   const user = req.user
   const idParam = typeof searchParams?.id === 'string' ? searchParams.id : undefined
 
-  const [cats, prods] = await Promise.all([
-    payload.find({
-      collection: 'categories', locale: 'en', depth: 0, limit: 200, pagination: false, sort: 'title',
-      overrideAccess: false, user,
-    }),
-    payload.find({
-      collection: 'products', locale: 'en', depth: 0, limit: 200, pagination: false, sort: 'name', draft: true,
-      select: { name: true }, overrideAccess: false, user,
-    }),
-  ])
+  const prods = await payload.find({
+    collection: 'products', locale: 'en', depth: 0, limit: 200, pagination: false, sort: 'name', draft: true,
+    select: { name: true, parent: true }, overrideAccess: false, user,
+  })
 
   let product: EditorProduct | null = null
   if (idParam) {
@@ -39,7 +33,7 @@ export default async function ProductEditorView({ initPageResult, params, search
         status: p._status === 'published' ? 'published' : 'draft',
         slug: p.slug || '',
         name: p.name || '',
-        category: typeof p.category === 'object' && p.category ? p.category.id : p.category ?? null,
+        parent: typeof p.parent === 'object' && p.parent ? p.parent.id : p.parent ?? null,
         tagline: p.tagline || '',
         sub: p.sub || '',
         description: p.description || '',
@@ -53,7 +47,6 @@ export default async function ProductEditorView({ initPageResult, params, search
         })),
         faq: (p.faq || []).map((f: any) => ({ id: f.id, q: f.q || '', a: f.a || '' })),
         related: (p.related || []).map((r: any) => (typeof r === 'object' ? r.id : r)),
-        tags: (p.tags || []).map((t: any) => ({ id: t.id, tag: t.tag || '' })),
         showOnHome: Boolean(p.showOnHome),
         order: typeof p.order === 'number' ? p.order : 100,
       }
@@ -76,9 +69,13 @@ export default async function ProductEditorView({ initPageResult, params, search
       <ProductEditor
         key={product?.id ?? 'new'}
         initial={product}
+        defaultParent={!idParam && typeof searchParams?.parent === 'string' && Number(searchParams.parent) ? Number(searchParams.parent) : null}
         notFound={Boolean(idParam) && !product}
-        categories={cats.docs.map((c: any) => ({ id: c.id, title: c.title }))}
-        products={prods.docs.map((p: any) => ({ id: p.id, name: p.name || '(no name)' }))}
+        products={prods.docs.map((p: any) => ({
+          id: p.id,
+          name: p.name || '(no name)',
+          parent: typeof p.parent === 'object' && p.parent ? p.parent.id : p.parent ?? null,
+        }))}
       />
     </DefaultTemplate>
   )

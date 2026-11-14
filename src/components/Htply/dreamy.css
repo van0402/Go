@@ -17,12 +17,15 @@ html.lenis,html.lenis body{height:auto}
 /* ---------- nền: mỗi mục một cặp vòng vân (trái + phải) ---------- */
 .htply-page .dz-flow>.dz-sec{position:relative;z-index:1}
 .htply-page .dz-srings{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.htply-page .dz-sring{--w:clamp(460px,56vw,880px);position:absolute;width:var(--w);top:50%;margin-top:calc(var(--w) / -2);will-change:transform}
-.htply-page .dz-sring.l{left:calc(var(--w) * -.34);top:50%}
-.htply-page .dz-sring.r{right:calc(var(--w) * -.34);top:50%}
-.htply-page .dz-sring svg{display:block;width:100%;height:auto;animation:dz-breath 9s ease-in-out infinite alternate}
-.htply-page .dz-sring.r svg{animation-duration:12s;animation-direction:alternate-reverse}
-@keyframes dz-breath{from{transform:scale(1)}to{transform:scale(1.045)}}
+.htply-page .dz-sring{--w:clamp(420px,48vw,780px);position:absolute;width:var(--w);height:var(--w);top:50%;margin-top:calc(var(--w) / -2);perspective:1600px;will-change:transform}
+.htply-page .dz-sring.l{left:calc(var(--w) * -.12)}
+.htply-page .dz-sring.r{right:calc(var(--w) * -.12)}
+.htply-page .dz-plane{--gap:10;--rz:-34;position:absolute;left:50%;top:50%;width:70%;aspect-ratio:1.45;margin:calc(var(--w) * -.241) 0 0 -35%;transform-style:preserve-3d;transform:rotateX(62deg) rotateZ(calc(var(--rz) * 1deg))}
+.htply-page .dz-sring.r .dz-plane{--rz:34}
+.htply-page .dz-lay{position:absolute;inset:0;border-radius:24px;border:1.5px solid rgba(201,139,78,calc(.2 + var(--k) * .5));background-color:rgba(201,139,78,.045);transform:translateZ(calc(var(--i) * var(--gap) * 1px))}
+.htply-page .dz-lay.g1{background-image:repeating-linear-gradient(90deg,rgba(201,139,78,.13) 0 1px,transparent 1px 10px)}
+.htply-page .dz-lay.g2{background-image:repeating-linear-gradient(0deg,rgba(201,139,78,.13) 0 1px,transparent 1px 10px)}
+.htply-page .dz-lay.top{border-color:rgba(89,203,232,.8);background-color:rgba(89,203,232,.07)}
 .htply-page .dz-sec>.dz-wrap{position:relative;z-index:1}
 
 /* ---------- chữ chung ---------- */

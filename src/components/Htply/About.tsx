@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import { SplitTitle } from './SplitTitle'
-import { SectionRings } from './RingsBg'
+import { SectionStack } from './SectionStack'
 
 // 4 dòng giới thiệu: Product → /products, Quality → /quality, Documents → /quality#documents, Quote → /contact#quote
 const CARD_LINKS = ['/products', '/quality', '/quality#documents', '/contact#quote']
@@ -16,7 +16,8 @@ export function About() {
 
   return (
     <section id="about" className="dz-sec dz-about">
-      <SectionRings seed={1} side="r" />
+      <SectionStack side="l" />
+      <SectionStack side="r" />
       <div className="dz-wrap dz-about-grid">
         <div>
           <div className="dz-kicker" data-fade>01 · About HTPLY</div>

@@ -1,7 +1,7 @@
 export type ProductDetail = {
   slug: string
   name: string
-  category: string
+  group: string // tên sản phẩm lớn chứa nó (rỗng nếu chính nó là sản phẩm lớn)
   tagline: string
   sub: string
   description: string[] // các đoạn mô tả sản phẩm

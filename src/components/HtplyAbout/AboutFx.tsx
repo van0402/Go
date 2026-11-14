@@ -29,18 +29,19 @@ export function AboutFx() {
     const mm = gsap.matchMedia()
 
     const ctx = gsap.context(() => {
-      // 1. Chồng ván ép (mục 1-2): các lớp tách ra khi mục đi ngang giữa màn hình rồi khép lại, chồng xoay nhẹ
+      // 1. Vòng vân gỗ (mục 1-2): xoay và phóng chậm theo nhịp cuộn của chính mục đó
       gsap.utils.toArray<HTMLElement>('.ad-srings').forEach((box) => {
-        const wrap = box.querySelector<HTMLElement>('.ad-sring')
-        const plane = box.querySelector<HTMLElement>('.ad-plane')
-        if (!wrap || !plane) return
-        const left = wrap.classList.contains('l')
-        const st = { trigger: box.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1.4 }
-        gsap
-          .timeline({ scrollTrigger: st })
-          .fromTo(plane, { '--gap': 6, '--rz': left ? -44 : 44 }, { '--gap': 52, '--rz': left ? -30 : 30, ease: 'none', duration: 1 })
-          .to(plane, { '--gap': 8, '--rz': left ? -18 : 18, ease: 'none', duration: 1 })
-        gsap.fromTo(wrap, { yPercent: left ? -5 : 6 }, { yPercent: left ? 7 : -7, ease: 'none', scrollTrigger: st })
+        const ring = box.querySelector<HTMLElement>('.ad-sring')
+        if (!ring) return
+        const left = ring.classList.contains('l')
+        gsap.fromTo(
+          ring,
+          { rotation: left ? -18 : 14, scale: left ? 0.94 : 1.1, yPercent: left ? -6 : 7 },
+          {
+            rotation: left ? 32 : -28, scale: left ? 1.18 : 0.9, yPercent: left ? 8 : -8, ease: 'none',
+            scrollTrigger: { trigger: box.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1.4 },
+          },
+        )
       })
 
       // 2. Banner: ảnh trôi chậm hơn trang, chữ nâng lên và mờ dần
@@ -68,9 +69,8 @@ export function AboutFx() {
         if (im) tl.fromTo(im, { scale: 1.35 }, { scale: 1, duration: 1.9, ease: 'power3.out' }, 0)
       })
 
-      // 6. Thẻ giá trị, chip thị trường, hàng lợi thế hiện lần lượt
+      // 6. Thẻ giá trị, hàng lợi thế hiện lần lượt
       gsap.from('.ad-vc', { y: 60, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.14, scrollTrigger: { trigger: '.ad-vgrid', start: 'top 86%', once: true } })
-      gsap.from('.ad-chips span', { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.09, scrollTrigger: { trigger: '.ad-chips', start: 'top 92%', once: true } })
       gsap.from('.ad-adv', { y: 40, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.16, scrollTrigger: { trigger: '.ad-adv-list', start: 'top 86%', once: true } })
 
       // 7. Timeline: đường vẽ dần theo cuộn, từng mốc sáng lên khi tới

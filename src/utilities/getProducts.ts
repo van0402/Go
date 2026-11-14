@@ -3,9 +3,12 @@ import { getPayload } from 'payload'
 import type { Media } from '@/payload-types'
 
 export type ProductCard = {
+  id: number
+  parentId: number | null
+  // Các loại con (sản phẩm có parent trỏ về sản phẩm này); chỉ sản phẩm lớn mới có
+  kids: ProductCard[]
   slug: string
   name: string
-  category: string
   tagline: string
   desc: string
   image: string
@@ -33,12 +36,14 @@ export async function getProductCards(
       ],
     },
   })
-  return res.docs.map((p) => {
+  const all: ProductCard[] = res.docs.map((p) => {
     const first = (p.gallery || []).find((g) => typeof g === 'object') as Media | undefined
     return {
+      id: p.id,
+      parentId: typeof p.parent === 'object' && p.parent ? p.parent.id : (p.parent as number | null | undefined) ?? null,
+      kids: [],
       slug: p.slug || '',
       name: p.name,
-      category: typeof p.category === 'object' && p.category ? p.category.title : '',
       tagline: p.tagline || '',
       desc: p.sub || '',
       image: first?.url || '/images/hm14.jpg',
@@ -50,4 +55,11 @@ export async function getProductCards(
         .map((s) => ({ label: s.label, value: s.value })),
     }
   })
+
+  // Chỉ trả về sản phẩm lớn; loại con gắn vào .kids của sản phẩm cha (cha chưa publish thì con cũng không hiện)
+  const kidsOf = new Map<number, ProductCard[]>()
+  for (const p of all) {
+    if (p.parentId) kidsOf.set(p.parentId, [...(kidsOf.get(p.parentId) ?? []), p])
+  }
+  return all.filter((p) => !p.parentId).map((p) => ({ ...p, kids: kidsOf.get(p.id) ?? [] }))
 }

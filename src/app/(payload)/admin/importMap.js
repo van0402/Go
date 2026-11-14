@@ -25,6 +25,7 @@ import { FolderField as FolderField_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@pa
 import { default as default_610f70b436b6946660d65ae8a90fefd9 } from '@/components/admin/ProductSummary'
 import { default as default_763807295308da11a0ab02e8ee77d57d } from '@/components/admin/ProductCompletion'
 import { default as default_5c93beb5177c7bbf25c3c7ca614e9ee6 } from '@/components/admin/ArrayRowLabel'
+import { default as default_0db9e2ffda459463e0bded5a3b77a0db } from '@/components/admin/product-editor/RedirectToProductEditor'
 import { default as default_b737b12e0c0c05397c5c192f2f7f4831 } from '@/components/admin/InquiryHeader'
 import { default as default_ff32efc137541c6552ed42594a323755 } from '@/components/admin/StatusCell'
 import { default as default_b4c0f193603af763c560a7d3255f1cfe } from '@/components/admin/InquirySummary'
@@ -35,10 +36,12 @@ import { RowLabel as RowLabel_ec255a65fa6fa8d1faeb09cf35284224 } from '@/Header/
 import { RowLabel as RowLabel_1f6ff6ff633e3695d348f4f3c58f1466 } from '@/Footer/RowLabel'
 import { default as default_b80a86fce1072afc84cd6a430a965697 } from '@/components/admin/AdminLogo'
 import { default as default_4825072285f9364e3016113bb30951e2 } from '@/components/admin/ViewSiteLink'
+import { default as default_10dde7c9e2a43566ffbf318786dfc772 } from '@/components/admin/product-editor/NavMainProductLink'
 import { default as default_52affdbbcdd7c1fb1fa9e143ec8db954 } from '@/components/admin/product-editor/NavProductEditorLink'
 import { default as default_05d601da1b7f3b105394f9997b7afdb8 } from '@/components/admin/DashboardOverview'
 import { default as default_8a7ab0eb7ab5c511aba12e68480bfe5e } from '@/components/BeforeLogin'
 import { default as default_442b2b9ed47d91b617fc3a355d4262a3 } from '@/components/admin/product-editor/ProductEditorView'
+import { default as default_79d0df2d27e80376f77cbce1449ac733 } from '@/components/admin/product-editor/MainProductEditorView'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 
@@ -71,6 +74,7 @@ export const importMap = {
   "@/components/admin/ProductSummary#default": default_610f70b436b6946660d65ae8a90fefd9,
   "@/components/admin/ProductCompletion#default": default_763807295308da11a0ab02e8ee77d57d,
   "@/components/admin/ArrayRowLabel#default": default_5c93beb5177c7bbf25c3c7ca614e9ee6,
+  "@/components/admin/product-editor/RedirectToProductEditor#default": default_0db9e2ffda459463e0bded5a3b77a0db,
   "@/components/admin/InquiryHeader#default": default_b737b12e0c0c05397c5c192f2f7f4831,
   "@/components/admin/StatusCell#default": default_ff32efc137541c6552ed42594a323755,
   "@/components/admin/InquirySummary#default": default_b4c0f193603af763c560a7d3255f1cfe,
@@ -81,10 +85,12 @@ export const importMap = {
   "@/Footer/RowLabel#RowLabel": RowLabel_1f6ff6ff633e3695d348f4f3c58f1466,
   "@/components/admin/AdminLogo#default": default_b80a86fce1072afc84cd6a430a965697,
   "@/components/admin/ViewSiteLink#default": default_4825072285f9364e3016113bb30951e2,
+  "@/components/admin/product-editor/NavMainProductLink#default": default_10dde7c9e2a43566ffbf318786dfc772,
   "@/components/admin/product-editor/NavProductEditorLink#default": default_52affdbbcdd7c1fb1fa9e143ec8db954,
   "@/components/admin/DashboardOverview#default": default_05d601da1b7f3b105394f9997b7afdb8,
   "@/components/BeforeLogin#default": default_8a7ab0eb7ab5c511aba12e68480bfe5e,
   "@/components/admin/product-editor/ProductEditorView#default": default_442b2b9ed47d91b617fc3a355d4262a3,
+  "@/components/admin/product-editor/MainProductEditorView#default": default_79d0df2d27e80376f77cbce1449ac733,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24
 }

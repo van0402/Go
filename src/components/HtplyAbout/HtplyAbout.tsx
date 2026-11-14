@@ -6,7 +6,8 @@ import { Nav } from '@/components/Htply/Nav'
 import { SiteFooter } from '@/components/Htply/SiteFooter'
 import { CountUp } from '@/components/Htply/CountUp'
 import { SplitTitle } from '@/components/Htply/SplitTitle'
-import { AboutStack } from './AboutStack'
+import { AboutRings } from './AboutRings'
+import { ExportMap } from './ExportMap'
 import { AboutFx } from './AboutFx'
 import './about-dreamy.css'
 
@@ -23,7 +24,6 @@ export function HtplyAbout() {
   const valueItems = tp.raw('values.items') as Item[]
   const advantages = tp.raw('advantages.items') as Advantage[]
   const historyItems = tp.raw('history.items') as Item[]
-  const markets = ['europe', 'middleEast', 'africa', 'australia', 'newZealand'] as const
 
   return (
     <div className="htply-about-page">
@@ -91,9 +91,9 @@ export function HtplyAbout() {
             </div>
           </div>
 
-          {/* 01 · Who we are (chồng ván ép bên phải) */}
+          {/* 01 · Who we are (vòng vân bên phải) */}
           <section className="ad-sec ad-who">
-            <AboutStack side="r" />
+            <AboutRings seed={1} side="r" />
             <div className="ad-wrap ad-who-grid">
               <div className="ad-vis">
                 <div className="ad-main ad-wipe">
@@ -111,31 +111,14 @@ export function HtplyAbout() {
             </div>
           </section>
 
-          {/* 02 · Business footprint (chồng ván ép bên trái) */}
+          {/* 02 · Business footprint (bản đồ xuất khẩu từ Việt Nam) */}
           <section className="ad-sec">
-            <AboutStack side="l" />
-            <div className="ad-wrap ad-biz-grid">
-              <div>
-                <div className="ad-kicker" data-fade>{tp('business.kicker')}</div>
-                <SplitTitle text={tp('business.title')} />
-                <p className="ad-lead" data-fade>{tp('business.text')}</p>
-              </div>
-              <div className="ad-panel" data-fade>
-                <div className="ad-rev">
-                  <small>{tp('business.revenueLabel')}</small>
-                  <strong>
-                    <CountUp end={100} />B VND
-                  </strong>
-                  <span>{tp('business.revenueNote')}</span>
-                </div>
-                <hr />
-                <small>{tp('business.marketsLabel')}</small>
-                <h3>{tp('business.marketsTitle')}</h3>
-                <div className="ad-chips">
-                  {markets.map((m) => (
-                    <span key={m}>{tp(`business.markets.${m}`)}</span>
-                  ))}
-                </div>
+            <div className="ad-wrap">
+              <div className="ad-kicker" data-fade>{tp('business.kicker')}</div>
+              <SplitTitle text={tp('business.title')} />
+              <p className="ad-lead" data-fade>{tp('business.text')}</p>
+              <div className="ad-map-wrap" data-fade>
+                <ExportMap />
               </div>
             </div>
           </section>

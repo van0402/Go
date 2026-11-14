@@ -1,4 +1,5 @@
-// Nền "vân ván ép": các vòng đồng tâm méo nhẹ, vẽ bằng code (hạt giống cố định nên server và client cho cùng kết quả)
+// Nền "vòng vân gỗ" cho trang About: các vòng đồng tâm méo nhẹ như vân thân cây, màu nâu, vẽ bằng code.
+// Hạt giống cố định nên server và client cho cùng kết quả. Chuyển động nằm trong AboutFx.tsx.
 function rng(seed: number) {
   let s = seed
   return () => (s = (s * 16807) % 2147483647) / 2147483647
@@ -41,13 +42,12 @@ function rings(seed: number, count: number, r0: number, step: number) {
   return `<svg viewBox="-520 -520 1040 1040" xmlns="http://www.w3.org/2000/svg">${out}</svg>`
 }
 
-// Mỗi mục có MỘT vòng vân, đặt so le: mục này bên trái thì mục kế tiếp bên phải (side = 'l' | 'r').
-// Mỗi mục một hạt giống khác nhau để hình không lặp.
-export function SectionRings({ seed = 1, side = 'l' }: { seed?: number; side?: 'l' | 'r' }) {
+// Mỗi mục một vòng, đặt so le: mục này bên trái thì mục kế tiếp bên phải (side = 'l' | 'r')
+export function AboutRings({ seed = 1, side = 'r' }: { seed?: number; side?: 'l' | 'r' }) {
   const svg = rings(seed * 7 + 3, 14, 30, 26)
   return (
-    <div className="dz-srings" aria-hidden="true">
-      <div className={`dz-sring ${side}`} dangerouslySetInnerHTML={{ __html: svg }} />
+    <div className="ad-srings" aria-hidden="true">
+      <div className={`ad-sring ${side}`} dangerouslySetInnerHTML={{ __html: svg }} />
     </div>
   )
 }
