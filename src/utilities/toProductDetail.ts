@@ -6,11 +6,11 @@ const has = (v?: string | null) => Boolean(v && v.trim())
 export function toProductDetail(p: Product): ProductDetail {
   const media = (p.gallery || []).filter((g): g is Media => typeof g === 'object' && !!g)
   const first = media[0]
-  const cat = typeof p.category === 'object' && p.category ? p.category.title : ''
+  const group = typeof p.parent === 'object' && p.parent ? p.parent.name : ''
   return {
     slug: p.slug || '',
     name: p.name,
-    category: cat,
+    group,
     tagline: p.tagline || '',
     sub: p.sub || '',
     description: (p.description || '').split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean),

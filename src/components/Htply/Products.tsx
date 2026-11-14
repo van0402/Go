@@ -37,13 +37,6 @@ export function Products({ products }: { products: ProductCard[] }) {
                 <img src={p.image} alt={p.name} loading="lazy" />
               </div>
               <div className="dz-bd">
-                {p.tags.length > 0 && (
-                  <div className="dz-tags">
-                    {p.tags.slice(0, 3).map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                )}
                 <h3>{p.name}</h3>
                 {(p.desc || p.tagline) && <p>{p.desc || p.tagline}</p>}
                 <div className="dz-go">

@@ -21,5 +21,7 @@ export const redirects: NextConfig['redirects'] = async () => {
   { source: '/:locale(en|fr|es)/posts', destination: '/:locale/news', permanent: true },
   { source: '/:locale(en|fr|es)/posts/:slug', destination: '/:locale/news/:slug', permanent: true },
   { source: '/admin/collections/products/create', destination: '/admin/product-editor', permanent: false },
+  // Create New của Categories cũng mở form 5 bước
+  { source: '/admin/collections/categories/create', destination: '/admin/product-editor', permanent: false },
 ]
 }

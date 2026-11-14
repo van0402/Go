@@ -17,7 +17,7 @@
 .htply-contact-page .ct-top-bg{position:absolute;inset:-4% 0;background:url("/images/home/hero.jpg") center 60%/cover no-repeat;animation:ct-kb 24s ease-out forwards;will-change:transform}
 @keyframes ct-kb{from{transform:scale(1)}to{transform:scale(1.08)}}
 .htply-contact-page .ct-top::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(26,32,46,.92) 0%,rgba(26,32,46,.7) 45%,rgba(26,32,46,.35) 100%),linear-gradient(180deg,rgba(26,32,46,.2),rgba(26,32,46,.55))}
-.htply-contact-page .ct-top-in{position:relative;z-index:3;width:min(1100px,calc(100% - 48px));margin:0 auto}
+.htply-contact-page .ct-top-in{position:relative;z-index:3;width:min(980px,calc(100% - 40px));margin:0 auto}
 .htply-contact-page .ct-eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--picton)}
 .htply-contact-page .ct-eyebrow::before{content:"";width:0;height:2px;background:var(--picton);animation:ct-grow .9s .1s var(--ease) forwards}
 @keyframes ct-grow{to{width:30px}}
@@ -43,37 +43,37 @@
 .htply-contact-page .ct-lay.cap{border-color:rgba(89,203,232,.9);background-color:rgba(89,203,232,.1)}
 
 /* ---------- khung form ---------- */
-.htply-contact-page .ct-card{position:relative;z-index:5;width:min(880px,calc(100% - 32px));margin:-96px auto 90px;background:#fff;border-radius:32px;box-shadow:0 50px 100px rgba(44,52,68,.18);overflow:hidden;opacity:0;transform:translateY(40px);animation:ct-rise 1.1s .5s var(--ease) forwards;--mx:50%;--my:0%;scroll-margin-top:100px}
+.htply-contact-page .ct-card{position:relative;z-index:5;width:min(980px,calc(100% - 40px));margin:-96px auto 120px;background:#fff;border-radius:32px;box-shadow:0 50px 100px rgba(44,52,68,.18);overflow:hidden;opacity:0;transform:translateY(40px);animation:ct-rise 1.1s .5s var(--ease) forwards;--mx:50%;--my:0%;scroll-margin-top:100px}
 .htply-contact-page .ct-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(89,203,232,.1),transparent 60%)}
 .htply-contact-page .ct-bar{position:relative;height:5px;background:#E8F0F5}
 .htply-contact-page .ct-bar i{position:relative;display:block;height:100%;width:0;background:linear-gradient(90deg,var(--picton),var(--teal));border-radius:0 5px 5px 0;transition:width .6s var(--ease)}
 .htply-contact-page .ct-bar i::after{content:"";position:absolute;right:-1px;top:-5px;width:15px;height:15px;border-radius:50%;background:var(--picton);box-shadow:0 0 0 5px rgba(89,203,232,.25),0 0 22px rgba(89,203,232,.9);opacity:0;transition:opacity .3s}
 .htply-contact-page .ct-bar.on i::after{opacity:1}
-.htply-contact-page .ct-pad{position:relative;padding:26px clamp(24px,5vw,60px) clamp(28px,5vw,60px)}
+.htply-contact-page .ct-pad{position:relative;padding:clamp(30px,4vw,52px) clamp(26px,6vw,80px) clamp(36px,5vw,72px)}
 .htply-contact-page .ct-head{display:flex;justify-content:flex-end}
 .htply-contact-page .ct-req{font-size:12.5px;color:var(--mute)}
-.htply-contact-page .ct-group{display:flex;align-items:center;gap:14px;margin:42px 0 22px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.htply-contact-page .ct-group{display:flex;align-items:center;gap:14px;margin:60px 0 30px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
 .htply-contact-page .ct-group.first{margin-top:6px}
 .htply-contact-page .ct-group em{position:relative;font-style:normal;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--picton);color:var(--deep);font-size:12px;letter-spacing:0;transition:background .4s,color .4s,transform .5s var(--ease)}
 .htply-contact-page .ct-group em svg{position:absolute;width:16px;height:16px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .5s .1s}
 .htply-contact-page .ct-group.ok em{background:var(--deep);color:transparent;transform:scale(1.08)}
 .htply-contact-page .ct-group.ok em svg{stroke-dashoffset:0}
 .htply-contact-page .ct-group::after{content:"";flex:1;height:1px;background:var(--line)}
-.htply-contact-page .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.htply-contact-page .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .htply-contact-page .ct-full{grid-column:1/-1}
 .htply-contact-page .ct-stg{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .htply-contact-page .ct-stg.in{opacity:1;transform:none}
 
 /* ô nhập: nhãn nổi lên khi focus hoặc đã có chữ */
 .htply-contact-page .ct-f{position:relative}
-.htply-contact-page .ct-f input,.htply-contact-page .ct-f select,.htply-contact-page .ct-f textarea{width:100%;height:60px;padding:23px 16px 6px;border:1.5px solid var(--line);border-radius:15px;background:#FBFDFE;font:inherit;font-size:15.5px;color:var(--ink);outline:none;transition:border-color .25s,box-shadow .25s,background .25s;appearance:none;-webkit-appearance:none}
-.htply-contact-page .ct-f textarea{height:150px;padding-top:30px;resize:vertical}
-.htply-contact-page .ct-f label{position:absolute;left:17px;top:20px;margin:0;font-size:15px;font-weight:400;color:var(--mute);pointer-events:none;transform-origin:left top;transition:transform .25s var(--ease),color .25s;max-width:calc(100% - 34px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.htply-contact-page .ct-f input,.htply-contact-page .ct-f select,.htply-contact-page .ct-f textarea{width:100%;height:66px;padding:26px 20px 6px;border:1.5px solid var(--line);border-radius:15px;background:#FBFDFE;font:inherit;font-size:15.5px;color:var(--ink);outline:none;transition:border-color .25s,box-shadow .25s,background .25s;appearance:none;-webkit-appearance:none}
+.htply-contact-page .ct-f textarea{height:200px;padding-top:34px;resize:vertical}
+.htply-contact-page .ct-f label{position:absolute;left:21px;top:23px;margin:0;font-size:15px;font-weight:400;color:var(--mute);pointer-events:none;transform-origin:left top;transition:transform .25s var(--ease),color .25s;max-width:calc(100% - 34px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .htply-contact-page .ct-f input::placeholder,.htply-contact-page .ct-f textarea::placeholder{color:transparent;transition:color .2s}
 .htply-contact-page .ct-f input:focus::placeholder,.htply-contact-page .ct-f textarea:focus::placeholder{color:#A3B1C0}
 .htply-contact-page .ct-f input:focus,.htply-contact-page .ct-f select:focus,.htply-contact-page .ct-f textarea:focus{border-color:var(--picton);background:#fff;box-shadow:0 0 0 4px rgba(89,203,232,.2),0 12px 28px rgba(89,203,232,.12)}
 .htply-contact-page .ct-f input:focus+label,.htply-contact-page .ct-f input:not(:placeholder-shown)+label,.htply-contact-page .ct-f textarea:focus+label,.htply-contact-page .ct-f textarea:not(:placeholder-shown)+label,.htply-contact-page .ct-f select:focus+label,.htply-contact-page .ct-f.has label{transform:translateY(-13px) scale(.78);color:var(--teal);font-weight:500}
-.htply-contact-page .ct-f.sel::after{content:"";position:absolute;right:18px;top:26px;width:8px;height:8px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg);pointer-events:none}
+.htply-contact-page .ct-f.sel::after{content:"";position:absolute;right:22px;top:29px;width:8px;height:8px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg);pointer-events:none}
 .htply-contact-page .ct-f input:user-invalid{border-color:#E58A8A}
 .htply-contact-page .ct-f:hover input,.htply-contact-page .ct-f:hover select,.htply-contact-page .ct-f:hover textarea{border-color:#BFD2DF}
 
@@ -93,8 +93,8 @@
 @keyframes ct-pop{from{transform:scale(.7);opacity:0}}
 
 .htply-contact-page .ct-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
-.htply-contact-page .ct-privacy{margin:28px 0 0;font-size:12.5px;line-height:1.7;color:var(--mute)}
-.htply-contact-page .ct-submit{position:relative;overflow:hidden;margin-top:22px;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;height:66px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--picton),#6FD6EE);color:var(--deep);font:inherit;font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
+.htply-contact-page .ct-privacy{margin:40px 0 0;font-size:12.5px;line-height:1.7;color:var(--mute)}
+.htply-contact-page .ct-submit{position:relative;overflow:hidden;margin-top:28px;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;height:72px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--picton),#6FD6EE);color:var(--deep);font:inherit;font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s}
 .htply-contact-page .ct-submit::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .8s var(--ease)}
 .htply-contact-page .ct-submit:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 22px 44px rgba(89,203,232,.45)}
 .htply-contact-page .ct-submit:hover:not(:disabled)::after{left:130%}

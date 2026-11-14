@@ -692,6 +692,7 @@
     "explore": "Découvrir {name}",
     "resultOne": "{count} produit",
     "resultMany": "{count} produits",
+    "types": "Types · {count}",
     "helpTitle": "Vous ne trouvez pas le panneau qu'il vous faut ?",
     "helpText": "Indiquez format, épaisseur, âme et surface. Nous vous proposerons la bonne option.",
     "helpCta": "Demander un devis",
@@ -776,6 +777,7 @@
       "phone": "+33 ...",
       "country": "Pays / région",
       "targetMarket": "UE, Moyen-Orient, autre...",
+      "quantity": "ex. 2 conteneurs de 40'",
       "message": "Précisez l’épaisseur, les dimensions, l’âme, la colle, la surface, l’emballage, le marché cible ou toute exigence technique..."
     },
     "choose": "Sélectionner...",

@@ -33,7 +33,7 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
       <div className="pd-wrap">
         <div className="pd-crumb">
   <Link href="/products">Products</Link>
-  {product.category && <> / {product.category}</>} / <b>{product.name}</b>
+  {product.group && <> / {product.group}</>} / <b>{product.name}</b>
 </div>
 
         <section className="pd-top">
@@ -53,7 +53,7 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
             )}
           </div>
           <div>
-            <div className="pd-sku">{[product.category, product.tagline].filter(Boolean).join(' · ')}</div>
+            <div className="pd-sku">{[product.group, product.tagline].filter(Boolean).join(' · ')}</div>
             <h1>{product.name}</h1>
             {product.sub && <p className="pd-sub">{product.sub}</p>}
 

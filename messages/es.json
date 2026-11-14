@@ -657,6 +657,7 @@
     "explore": "Conocer {name}",
     "resultOne": "{count} producto",
     "resultMany": "{count} productos",
+    "types": "Tipos · {count}",
     "helpTitle": "¿No encuentra el tablero que necesita?",
     "helpText": "Envíenos medida, espesor, núcleo y superficie. Le sugeriremos la mejor opción.",
     "helpCta": "Solicitar presupuesto",
@@ -741,6 +742,7 @@
       "phone": "+34 ...",
       "country": "País / región",
       "targetMarket": "UE, Oriente Medio, otro...",
+      "quantity": "p. ej. 2 contenedores de 40'",
       "message": "Indique espesor, dimensiones, material del núcleo, tipo de cola, superficie, embalaje, mercado de destino o cualquier requisito técnico..."
     },
     "choose": "Seleccionar...",

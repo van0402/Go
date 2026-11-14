@@ -29,18 +29,14 @@ function Split({ text, as: Tag = 'h2' }: { text: string; as?: 'h1' | 'h2' | 'h3'
 }
 
 export function HtplyProduct({ products }: { products: ProductCard[] }) {
-  const [filter, setFilter] = useState('all')
   const [view, setView] = useState<View>('showcase')
   const tp = useTranslations('productsPage')
 
-  const tabsRef = useRef<HTMLDivElement>(null)
-  const pillRef = useRef<HTMLSpanElement>(null)
   const viewRef = useRef<HTMLDivElement>(null)
   const vpillRef = useRef<HTMLSpanElement>(null)
 
-  // Các nhóm lấy từ trường category trong admin; sản phẩm chưa có category thì không vào tab nào (vẫn hiện ở "All")
-  const categories = Array.from(new Set(products.map((p) => p.category).filter(Boolean)))
-  const shown = filter === 'all' ? products : products.filter((p) => p.category === filter)
+  // Không còn lọc theo danh mục: trang hiện các sản phẩm lớn, loại con nằm dưới mỗi sản phẩm lớn
+  const shown = products
 
   // Nhớ kiểu hiển thị khách đã chọn (mặc định Showcase; đọc sau khi tải để không lệch với bản render ở server)
   useEffect(() => {
@@ -59,23 +55,20 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
     if (hero) requestAnimationFrame(() => window.scrollTo({ top: Math.max(0, hero.offsetHeight - 70), behavior: 'smooth' }))
   }
 
-  // Vạch trượt dưới tab đang chọn và dưới nút kiểu hiển thị
+  // Vạch trượt dưới nút kiểu hiển thị đang chọn
   useLayoutEffect(() => {
-    const place = (box: HTMLElement | null, pill: HTMLElement | null, sel: string) => {
-      const on = box?.querySelector<HTMLElement>(sel)
+    const run = () => {
+      const on = viewRef.current?.querySelector<HTMLElement>('[aria-pressed="true"]')
+      const pill = vpillRef.current
       if (!on || !pill) return
       pill.style.left = `${on.offsetLeft}px`
       pill.style.width = `${on.offsetWidth}px`
-    }
-    const run = () => {
-      place(tabsRef.current, pillRef.current, '[aria-selected="true"]')
-      place(viewRef.current, vpillRef.current, '[aria-pressed="true"]')
     }
     run()
     window.addEventListener('resize', run)
     document.fonts?.ready.then(run)
     return () => window.removeEventListener('resize', run)
-  }, [filter, view, categories.length])
+  }, [view])
 
   const n = shown.length
   const countText = n === 1 ? tp('resultOne', { count: n }) : tp('resultMany', { count: n })
@@ -95,21 +88,7 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
         <p className="ps-sub" data-fade>{tp('heroSub')}</p>
         {products.length > 0 && (
           <div className="ps-filters" data-fade>
-            {categories.length > 0 ? (
-              <div className="ps-tabs" role="tablist" ref={tabsRef}>
-                <span className="ps-pill" ref={pillRef} />
-                <button type="button" role="tab" className="ps-tab" aria-selected={filter === 'all'} onClick={() => setFilter('all')}>
-                  {tp('all')}
-                </button>
-                {categories.map((c) => (
-                  <button type="button" role="tab" key={c} className="ps-tab" aria-selected={filter === c} onClick={() => setFilter(c)}>
-                    {c}
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <span />
-            )}
+            <span />
             <div className="ps-right">
               <div className="ps-count">{countText}</div>
               <div className="ps-view" role="group" aria-label={tp('viewLabel')} ref={viewRef}>
@@ -132,15 +111,13 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
 
   return (
     <main className="htply-products-page">
-      <ProductsFx listKey={`${view}|${filter}|${products.length}`} />
+      <ProductsFx listKey={`${view}|${products.length}`} />
       <Nav />
       {hero}
 
       <div className="ps-list">
         {view === 'showcase' ? (
           shown.map((p, i) => {
-            const tag = p.category || p.tags[0] || p.name
-            const chips = p.tags.length > 0 ? p.tags.slice(0, 3) : p.category ? [p.category] : []
             const desc = p.desc || p.tagline
             return (
               <section className={`ps-row ${i % 2 ? 'flip even' : 'odd'}`} key={p.slug}>
@@ -148,23 +125,35 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
                 <div className="ps-wrap ps-row-in">
                   <div className="ps-vis">
                     <div className="ps-frame ps-wipe"><img src={p.image} alt={p.name} loading="lazy" /></div>
-                    <span className="ps-tagf">{tag}</span>
                   </div>
                   <div className="ps-info">
                     <div className="ps-num" data-fade>{String(i + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</div>
                     <Split text={p.name} />
                     {desc && <p data-fade>{desc}</p>}
-                    {chips.length > 0 && (
-                      <ul className="ps-pts" data-fade>
-                        {chips.map((c) => <li key={c}>{c}</li>)}
-                      </ul>
-                    )}
                     <div className="ps-btns" data-fade>
                       <Link href={`/products/${p.slug}`} className="ps-btn dark">{tp('explore', { name: p.name })} <i>→</i></Link>
                       <Link href="/contact#quote" className="ps-btn line">{tp('helpCta')}</Link>
                     </div>
                   </div>
                 </div>
+                {p.kids.length > 0 && (
+                  <div className="ps-wrap ps-kids">
+                    <div className="ps-kids-h"><span>{tp('types', { count: p.kids.length })}</span></div>
+                    <div className="ps-kids-g">
+                      {p.kids.map((k, j) => (
+                        <Link href={`/products/${k.slug}`} className="ps-kid" key={k.slug}>
+                          <img src={k.image} alt={k.name} loading="lazy" />
+                          <span className="ps-kn">{String(j + 1).padStart(2, '0')}</span>
+                          <span className="ps-ka" aria-hidden="true">→</span>
+                          <span className="ps-ko">
+                            <b>{k.name}</b>
+                            {(k.tagline || k.desc) && <small>{k.tagline || k.desc}</small>}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </section>
             )
           })
@@ -176,11 +165,12 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
                   <Link href={`/products/${p.slug}`} className="ps-card" key={p.slug} style={{ '--d': `${i * 0.07}s` } as React.CSSProperties}>
                     <div className="ps-pic">
                       <img src={p.image} alt={p.name} loading="lazy" />
-                      {(p.category || p.tags[0]) && <span className="ps-chip">{p.category || p.tags[0]}</span>}
+                      {p.tags[0] && <span className="ps-chip">{p.tags[0]}</span>}
                     </div>
                     <div className="ps-bd">
                       <h3>{p.name}</h3>
                       {(p.desc || p.tagline) && <p>{p.desc || p.tagline}</p>}
+                      {p.kids.length > 0 && <div className="ps-subs">{p.kids.map((k) => <span key={k.slug}>{k.name}</span>)}</div>}
                       <span className="ps-go">{tp('explore', { name: p.name })} <i>→</i></span>
                     </div>
                   </Link>

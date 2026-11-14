@@ -72,6 +72,13 @@ export function ProductsFx({ listKey }: { listKey: string }) {
       gsap.utils.toArray<HTMLElement>('.ps-list [data-fade]').forEach((el) => {
         gsap.from(el, { y: 36, opacity: 0, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 92%', once: true } })
       })
+      // Dải thẻ vuông loại con: lần lượt hiện lên (clearProps để hover bằng CSS còn hoạt động)
+      gsap.utils.toArray<HTMLElement>('.ps-list .ps-kids').forEach((k) => {
+        gsap.from(k.querySelectorAll('.ps-kids-h, .ps-kid'), {
+          y: 50, opacity: 0, duration: 0.9, ease: 'power3.out', stagger: 0.1, clearProps: 'transform,opacity',
+          scrollTrigger: { trigger: k, start: 'top 90%', once: true },
+        })
+      })
       // Ảnh: mở ra từ dưới lên bằng đường cắt, ảnh bên trong thu nhỏ dần về cỡ thật
       gsap.utils.toArray<HTMLElement>('.ps-list .ps-wipe').forEach((el) => {
         const im = el.querySelector('img')

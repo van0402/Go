@@ -4,10 +4,10 @@ import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from 
 import { useLocale, useTranslations } from 'next-intl'
 import { Nav } from '@/components/Htply/Nav'
 import { SiteFooter } from '@/components/Htply/SiteFooter'
-import type { ContactOption } from '@/payload-types'
 import './HtplyContact.css'
 
-type Opt = NonNullable<ContactOption['productOptions']>[number]
+// Sản phẩm khách có thể chọn (loại con, hoặc sản phẩm lớn không có loại con); group = tên sản phẩm lớn chứa nó
+export type ProductChoice = { value: string; label: string; group?: string }
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
@@ -36,7 +36,7 @@ const Tick = () => (
   <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.5" /></svg>
 )
 
-export function HtplyContact({ options, prefill }: { options: ContactOption; prefill?: Prefill }) {
+export function HtplyContact({ products, prefill }: { products: ProductChoice[]; prefill?: Prefill }) {
   // Lời nhắn điền sẵn từ nút Request a Quote ở trang sản phẩm
   const prefillMessage = [
     prefill?.productName && `Product: ${prefill.productName}`,
@@ -51,8 +51,6 @@ export function HtplyContact({ options, prefill }: { options: ContactOption; pre
 
   const [product, setProduct] = useState(prefill?.product ?? '')
   const [quantity, setQuantity] = useState('')
-  const [incoterm, setIncoterm] = useState('')
-  const [timing, setTiming] = useState('')
   const [country, setCountry] = useState('')
   const [okCount, setOkCount] = useState(0)
 
@@ -62,13 +60,15 @@ export function HtplyContact({ options, prefill }: { options: ContactOption; pre
 
   const title = t('formTitle')
   const badges = t.raw('badges') as string[]
-  // danh sách lựa chọn do admin quản lý (Contact Options), chỉ hiện các dòng đang bật
-  const labelKey = locale === 'fr' ? 'labelFr' : locale === 'es' ? 'labelEs' : 'labelEn'
-  const list = (items?: Opt[] | null) => (items ?? []).filter((o) => o.active !== false)
-  const labelOf = (items: Opt[] | null | undefined, value: string) => {
-    const o = list(items).find((x) => x.value === value)
-    return o ? (o[labelKey] as string) : ''
-  }
+  // Danh sách sản phẩm gom theo sản phẩm lớn (optgroup); sản phẩm lớn không có loại con đứng riêng
+  const groups = products.reduce<{ name: string; items: ProductChoice[] }[]>((acc, p) => {
+    const name = p.group ?? ''
+    const g = acc.find((x) => x.name === name)
+    if (g) g.items.push(p)
+    else acc.push({ name, items: [p] })
+    return acc
+  }, [])
+  const productLabel = products.find((p) => p.value === product)?.label ?? ''
 
   // Các ô hiện lần lượt khi vào màn hình + chồng ván đầu trang tách lớp theo cuộn (không dùng thư viện)
   useEffect(() => {
@@ -135,8 +135,6 @@ export function HtplyContact({ options, prefill }: { options: ContactOption; pre
       form.reset()
       setProduct('')
       setQuantity('')
-      setIncoterm('')
-      setTiming('')
       setCountry('')
       setOkCount(0)
       setStatus('success')
@@ -145,35 +143,9 @@ export function HtplyContact({ options, prefill }: { options: ContactOption; pre
     }
   }
 
-  const picks = [product, quantity, incoterm, timing].filter(Boolean).length
-  const summary = [
-    labelOf(options.productOptions, product),
-    labelOf(options.quantityOptions, quantity),
-    labelOf(options.incotermOptions, incoterm),
-    labelOf(options.timingOptions, timing),
-    country,
-  ].filter(Boolean)
+  const picks = [product, quantity].filter(Boolean).length
+  const summary = [productLabel, quantity.trim(), country].filter(Boolean)
   const sent = status === 'success'
-
-  // Hàm dựng JSX (không phải component) để nút không bị dựng lại, mất focus, mỗi lần chọn
-  const chips = ({ name, items, value, set }: { name: string; items: Opt[]; value: string; set: (v: string) => void }) => {
-    return (
-      <div className="ct-chips">
-        {items.map((o) => (
-          <button
-            key={o.value}
-            type="button"
-            className="ct-chip"
-            aria-pressed={value === o.value}
-            onClick={() => set(value === o.value ? '' : o.value)}
-          >
-            {o[labelKey] as string}
-          </button>
-        ))}
-        <input type="hidden" name={name} value={value} />
-      </div>
-    )
-  }
 
   return (
     <div className="htply-contact-page">
@@ -255,28 +227,28 @@ export function HtplyContact({ options, prefill }: { options: ContactOption; pre
                     <div className={`ct-f sel ct-stg${product ? ' has' : ''}`}>
                       <select id="product" name="product" value={product} onChange={(e) => setProduct(e.target.value)}>
                         <option value="" />
-                        {list(options.productOptions).map((o) => (
-                          <option key={o.value} value={o.value}>{o[labelKey]}</option>
-                        ))}
+                        {groups.map((g) =>
+                          g.name ? (
+                            <optgroup key={g.name} label={g.name}>
+                              {g.items.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+                            </optgroup>
+                          ) : (
+                            g.items.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)
+                          ),
+                        )}
                       </select>
                       <label htmlFor="product">{t('labels.product')}</label>
                     </div>
-                    <div className={`ct-f sel ct-stg${quantity ? ' has' : ''}`}>
-                      <select id="quantity" name="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)}>
-                        <option value="" />
-                        {list(options.quantityOptions).map((o) => (
-                          <option key={o.value} value={o.value}>{o[labelKey]}</option>
-                        ))}
-                      </select>
+                    <div className="ct-f ct-stg">
+                      <input
+                        id="quantity"
+                        name="quantity"
+                        type="text"
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)}
+                        placeholder={t('placeholders.quantity')}
+                      />
                       <label htmlFor="quantity">{t('labels.quantity')}</label>
-                    </div>
-                    <div className="ct-full ct-stg">
-                      <div className="ct-chips-title">{t('labels.incoterm')}</div>
-                      {chips({ name: 'incoterm', items: list(options.incotermOptions), value: incoterm, set: setIncoterm })}
-                    </div>
-                    <div className="ct-full ct-stg">
-                      <div className="ct-chips-title">{t('labels.timing')}</div>
-                      {chips({ name: 'timing', items: list(options.timingOptions), value: timing, set: setTiming })}
                     </div>
                     <div className="ct-f ct-full ct-stg">
                       <textarea id="message" name="message" defaultValue={prefillMessage} placeholder={t('placeholders.message')} />

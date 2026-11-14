@@ -801,6 +801,10 @@ export interface Product {
    * Smaller numbers appear first
    */
   order?: number | null;
+  /**
+   * Leave empty for a main product. Choose one to show this as a type (small card) under it.
+   */
+  parent?: (number | null) | Product;
   featured?: boolean | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
@@ -1508,6 +1512,7 @@ export interface CategoriesSelect<T extends boolean = true> {
 export interface ProductsSelect<T extends boolean = true> {
   showOnHome?: T;
   order?: T;
+  parent?: T;
   featured?: T;
   generateSlug?: T;
   slug?: T;

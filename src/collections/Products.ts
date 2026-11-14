@@ -1,4 +1,4 @@
-import type { CollectionConfig, Field } from 'payload'
+import type { CollectionConfig, Field, Where } from 'payload'
 import { slugField } from 'payload'
 import { optionalSlug } from '../fields/optionalSlug'
 import { translateProductData } from '../utilities/translateProduct'
@@ -118,8 +118,16 @@ export const Products: CollectionConfig = {
   },
   admin: {
     group: 'Catalog',
-    defaultColumns: ['name', 'category', 'updatedAt'],
+    defaultColumns: ['name', 'parent', 'updatedAt'],
     useAsTitle: 'name',
+    components: {
+      // Create New và bấm vào dòng sản phẩm đều mở form 5 bước tự viết thay vì form mặc định
+      views: {
+        edit: {
+          default: { Component: '@/components/admin/product-editor/RedirectToProductEditor' },
+        },
+      },
+    },
   },
   versions: { drafts: true, maxPerDoc: 20 },
   endpoints: [
@@ -196,6 +204,24 @@ export const Products: CollectionConfig = {
       admin: { position: 'sidebar', description: 'Smaller numbers appear first' },
     },
     {
+      name: 'parent',
+      type: 'relationship',
+      relationTo: 'products',
+      label: 'Parent product',
+      admin: {
+        position: 'sidebar',
+        allowCreate: false,
+        allowEdit: false,
+        description: 'Leave empty for a main product. Choose one to show this as a type (small card) under it.',
+      },
+      // Chỉ cho chọn sản phẩm lớn (chưa có parent) và không chọn chính nó → chỉ 2 cấp
+      filterOptions: ({ id }): Where => {
+        const and: Where[] = [{ parent: { exists: false } }]
+        if (id) and.push({ id: { not_in: [id] } })
+        return { and }
+      },
+    },
+    {
       name: 'featured',
       type: 'checkbox',
       defaultValue: false,
@@ -224,8 +250,8 @@ export const Products: CollectionConfig = {
               type: 'relationship',
               relationTo: 'categories',
               label: 'Category',
-              // Chỉ chọn từ danh sách có sẵn: không mở cửa sổ tạo/sửa Category ngay trong form sản phẩm
-              admin: { allowCreate: false, allowEdit: false },
+              // Không còn dùng cho sản phẩm (phân cấp bằng ô "Parent product"). Ẩn khỏi admin nhưng giữ cột trong database, không cần migration
+              admin: { allowCreate: false, allowEdit: false, hidden: true },
             },
             {
               name: 'tagline',

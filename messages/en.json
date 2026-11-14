@@ -661,6 +661,7 @@
     "explore": "Explore {name}",
     "resultOne": "{count} product",
     "resultMany": "{count} products",
+    "types": "Types · {count}",
     "helpTitle": "Can't find the board you need?",
     "helpText": "Send your size, thickness, core and surface. We will suggest the right option.",
     "helpCta": "Request a quote",
@@ -745,6 +746,7 @@
       "phone": "+84 ...",
       "country": "Country / region",
       "targetMarket": "EU, Middle East, other...",
+      "quantity": "e.g. 2 × 40' containers",
       "message": "Please include thickness, dimensions, core material, glue type, surface, packaging, target market or any technical requirements..."
     },
     "choose": "Select...",

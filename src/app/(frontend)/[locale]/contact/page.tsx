@@ -1,10 +1,13 @@
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
-import { HtplyContact } from '@/components/HtplyContact/HtplyContact'
+import { HtplyContact, type ProductChoice } from '@/components/HtplyContact/HtplyContact'
+import { getProductCards } from '@/utilities/getProducts'
 
-type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> }
+type Props = {
+  params: Promise<{ locale: 'en' | 'fr' | 'es' }>
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}
 
-export default async function Page({ searchParams }: Props) {
+export default async function Page({ params, searchParams }: Props) {
+  const { locale } = await params
   const sp = await searchParams
   const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v)
 
@@ -16,11 +19,18 @@ export default async function Page({ searchParams }: Props) {
     if (!reserved.has(k) && val) extra[k] = val
   }
 
-  const payload = await getPayload({ config: configPromise })
-  const options = await payload.findGlobal({ slug: 'contact-options' })
+  // Ô "Product of interest": các sản phẩm nhỏ (loại con) đã đăng, gom theo sản phẩm lớn.
+  // Sản phẩm lớn không có loại con thì tự đứng riêng để khách vẫn chọn được.
+  const cards = await getProductCards(locale)
+  const products: ProductChoice[] = cards.flatMap((p) =>
+    p.kids.length > 0
+      ? p.kids.map((k) => ({ value: k.slug, label: k.name, group: p.name }))
+      : [{ value: p.slug, label: p.name }],
+  )
+
   return (
     <HtplyContact
-      options={options}
+      products={products}
       prefill={{
         product: one(sp.product),
         productName: one(sp.productName),
