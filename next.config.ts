@@ -53,6 +53,16 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   redirects,
+  // Video giới thiệu ở trang chủ: cho trình duyệt nhớ 7 ngày để khách vào lại không phải tải lại 6,5 MB.
+  // Tải lên video mới thì Payload đặt tên khác (thêm -1), nên không lo bị kẹt bản cũ.
+  async headers() {
+    return [
+      {
+        source: '/api/media/file/:name(.+\\.mp4)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=604800, stale-while-revalidate=86400' }],
+      },
+    ]
+  },
   turbopack: {
     root: path.resolve(dirname),
   },

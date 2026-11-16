@@ -419,6 +419,8 @@
   inset: -40px;
   z-index: 0;
   overflow: hidden;
+  /* ảnh bìa lấy từ video: hiện ngay, và là nền duy nhất khi khách tắt chuyển động / tiết kiệm dữ liệu */
+  background: url('/images/home/hero-poster.jpg') center / cover no-repeat;
 }
 .htply-page .hero-bg-video{
   position: absolute;
@@ -427,7 +429,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  background: url('/images/home/hero.jpg') center / cover no-repeat;
+  background: url('/images/home/hero-poster.jpg') center / cover no-repeat;
   transform: translateY(var(--parallax-y, 0px));
   will-change: transform;
 }
