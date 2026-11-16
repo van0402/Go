@@ -116,7 +116,7 @@ export function HtplyAbout() {
             <div className="ad-wrap">
               <div className="ad-kicker" data-fade>{tp('business.kicker')}</div>
               <SplitTitle text={tp('business.title')} />
-              <p className="ad-lead" data-fade>{tp('business.text')}</p>
+              <p className="ad-lead ad-lead-wide" data-fade>{tp('business.text')}</p>
               <div className="ad-map-wrap" data-fade>
                 <ExportMap />
               </div>

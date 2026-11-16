@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import { useParallax } from '@/hooks/useParallax'
@@ -9,25 +10,38 @@ const HERO_VIDEO =
     ? 'http://103.56.160.214:3101/api/media/file/htply-process-23s.mp4'
     : '/api/media/file/htply-process-23s.mp4'
 
+// Khung hình lấy từ chính video: ảnh hiện ngay khi vào trang, video chạy đè lên nên nền không bị chớp tối → sáng
+const HERO_POSTER = '/images/home/hero-poster.jpg'
+
 export function Hero() {
   const parallaxRef = useParallax<HTMLElement>(0.12, 36)
   const t = useTranslations('home')
+  // Chỉ nạp và chạy video khi khách không tắt chuyển động và không bật tiết kiệm dữ liệu; còn lại chỉ hiện ảnh
+  const [playVideo, setPlayVideo] = useState(false)
+
+  useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+    setPlayVideo(!reduced && !conn?.saveData)
+  }, [])
 
   return (
     <section className="hero" ref={parallaxRef}>
       <div className="hero-bg" aria-hidden="true">
-        <video
-          className="hero-bg-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/images/home/hero.jpg"
-          tabIndex={-1}
-        >
-          <source src={HERO_VIDEO} type="video/mp4" />
-        </video>
+        {playVideo && (
+          <video
+            className="hero-bg-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={HERO_POSTER}
+            tabIndex={-1}
+          >
+            <source src={HERO_VIDEO} type="video/mp4" />
+          </video>
+        )}
       </div>
 
       <div className="container hero-grid">
