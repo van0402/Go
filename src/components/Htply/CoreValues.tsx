@@ -1,66 +1,87 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useRef, useState, type CSSProperties } from 'react'
 import { useTranslations } from 'next-intl'
-import { SplitTitle } from './SplitTitle'
 import { SectionStack } from './SectionStack'
 
-type Value = { title: string; desc: string; detail: string }
+type Value = { title: string; description: string }
+const COLORS = ['#e5b657', '#b5cf50', '#3f7004']
 
-// Ảnh nền cho từng giá trị (đã nén, nằm trong public/images/home)
-const IMAGES = [1, 2, 3, 4, 5].map((n) => `/images/home/cv-${n}.jpg`)
+function point(radius: number, angle: number) {
+  const radians = angle * Math.PI / 180
+  return [260 + radius * Math.cos(radians), 260 + radius * Math.sin(radians)]
+}
 
 export function CoreValues() {
   const t = useTranslations('home.values')
-  const ta = useTranslations('home.about')
-  const values = ta.raw('values') as Value[]
-  const [cur, setCur] = useState(0)
-
-  // onMouseMove (không phải onMouseEnter): các dòng nở/đóng làm dịch bố cục dưới con trỏ đứng yên, onMouseEnter sẽ tự kích hoạt dây chuyền
-  const pick = (i: number) => setCur((c) => (c === i ? c : i))
+  const values = t.raw('items') as Value[]
+  const [current, setCurrent] = useState(0)
+  const parts = useRef<(SVGGElement | null)[]>([])
+  const detailId = useId()
+  const value = values[current]
 
   return (
     <section id="values" className="dz-sec dz-values">
       <SectionStack side="r" />
       <div className="dz-wrap">
-        <div className="dz-kicker" data-fade>{t('kicker')}</div>
-        <SplitTitle text={t('title')} />
-
-        <div className="dz-vgrid">
-          <div className="dz-vlist" data-fade>
-            {values.map((v, i) => (
-              <div className={`dz-v${i === cur ? ' on' : ''}`} key={v.title}>
-                <button
-                  type="button"
-                  className="dz-vh"
-                  aria-expanded={i === cur}
-                  onMouseMove={() => pick(i)}
-                  onClick={() => pick(i)}
-                  onFocus={() => pick(i)}
+        <h2 className="dz-kicker" data-fade>{t('kicker').replace(/^\d+\s*·\s*/, '')}</h2>
+        <div className="dz-values-intro" data-fade>
+          <h3>{t('introTitle')}</h3>
+          <p>{t('introText')}</p>
+        </div>
+        <div className="dz-values-demo" data-fade>
+          <svg className="dz-values-wheel" viewBox="0 0 520 520" role="group" aria-label={t('wheelLabel')}>
+            {values.map((item, i) => {
+              const start = -160 + i * 120
+              const end = start + 120
+              const middle = (start + end) / 2
+              const [x, y] = point(171, middle)
+              return (
+                <g
+                  key={item.title}
+                  ref={(node) => { parts.current[i] = node }}
+                  className="dz-values-part"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={item.title}
+                  aria-pressed={current === i}
+                  aria-controls={detailId}
+                  style={{
+                    '--dx': `${Math.cos(middle * Math.PI / 180) * 3}px`,
+                    '--dy': `${Math.sin(middle * Math.PI / 180) * 3}px`,
+                  } as CSSProperties}
+                  onMouseEnter={() => setCurrent(i)}
+                  onFocus={() => setCurrent(i)}
+                  onClick={() => setCurrent(i)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault()
+                      setCurrent(i)
+                    } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+                      event.preventDefault()
+                      const next = (i + (event.key === 'ArrowRight' ? 1 : values.length - 1)) % values.length
+                      parts.current[next]?.focus()
+                    }
+                  }}
                 >
-                  <small>{String(i + 1).padStart(2, '0')}</small>
-                  <b>{v.title}</b>
-                  <span className="dz-pl">+</span>
-                </button>
-                <div className="dz-vb">
-                  <div>
-                    <p>{v.detail}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="dz-vstage dz-wipe">
-            {IMAGES.slice(0, values.length).map((src, i) => (
-              <img key={src} src={src} alt="" loading="lazy" className={i === cur ? 'on' : ''} />
-            ))}
-            <div className="dz-vcap">
-              <span>
-                {String(cur + 1).padStart(2, '0')} / {String(values.length).padStart(2, '0')}
-              </span>
-              <div className="dz-bar2">
-                <i style={{ width: `${((cur + 1) / values.length) * 100}%` }} />
+                  <path
+                    fill={COLORS[i]}
+                    d={`M${point(232, start)} A232 232 0 0 1 ${point(232, end)} L${point(171, end - 7)} L${point(103, end)} A103 103 0 0 0 ${point(103, start)} L${point(171, start - 7)} Z`}
+                  />
+                  <text x={x} y={y + 8} textAnchor="middle">{item.title}</text>
+                </g>
+              )
+            })}
+            <text className="dz-values-center" x="260" y="251" textAnchor="middle" aria-hidden="true">{t('centerTop')}</text>
+            <text className="dz-values-center" x="260" y="282" textAnchor="middle" aria-hidden="true">{t('centerBottom')}</text>
+          </svg>
+          <div className="dz-values-detail" style={{ '--accent': COLORS[current] } as CSSProperties}>
+            <p className="dz-values-eyebrow">{t('eyebrow')}</p>
+            <div className="dz-values-line" aria-hidden="true" />
+            <div id={detailId} aria-live="polite" aria-atomic="true">
+              <div className="dz-values-copy" key={current}>
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
               </div>
             </div>
           </div>

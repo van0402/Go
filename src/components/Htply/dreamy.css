@@ -52,6 +52,9 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---------- about ---------- */
 .htply-page .dz-about{padding:170px 0 120px}
+.htply-page .dz-flow .dz-kicker{display:block;margin:0;font-size:clamp(36px,4vw,60px);line-height:1.03;letter-spacing:-.04em;font-weight:600;text-transform:none}
+.htply-page .dz-flow .dz-kicker::before{content:none}
+.htply-page .dz-flow .dz-title{font-size:clamp(24px,2.2vw,32px);line-height:1.2;letter-spacing:-.02em}
 .htply-page .dz-about-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:80px;align-items:center}
 .htply-page .dz-rows{margin-top:36px;border-top:1px solid rgba(255,255,255,.16)}
 .htply-page .dz-row{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:20px 4px;border-bottom:1px solid rgba(255,255,255,.16);transition:padding .35s var(--ease),background .3s}
@@ -95,29 +98,33 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---------- core values ---------- */
 .htply-page .dz-values{padding:110px 0 150px}
-.htply-page .dz-vgrid{display:grid;grid-template-columns:1fr 1.08fr;gap:70px;align-items:center;margin-top:54px}
-.htply-page .dz-vlist{border-top:1px solid rgba(255,255,255,.16)}
-.htply-page .dz-v{border-bottom:1px solid rgba(255,255,255,.16)}
-.htply-page .dz-vh{width:100%;display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center;padding:22px 0;background:none;border:0;text-align:left;color:#fff;cursor:pointer}
-.htply-page .dz-vh small{font-size:13px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.45);transition:color .3s}
-.htply-page .dz-vh b{font-size:clamp(20px,2vw,26px);font-weight:600;letter-spacing:-.025em;color:rgba(255,255,255,.7);transition:color .3s,transform .4s var(--ease)}
-.htply-page .dz-pl{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .4s var(--ease),background .3s,border-color .3s,color .3s}
-.htply-page .dz-v.on .dz-vh small{color:var(--picton)}
-.htply-page .dz-v.on .dz-vh b{color:#fff;transform:translateX(6px)}
-.htply-page .dz-v.on .dz-pl{transform:rotate(45deg);background:var(--picton);border-color:var(--picton);color:var(--deep)}
-.htply-page .dz-vh:hover b{color:#fff}
-.htply-page .dz-vb{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
-.htply-page .dz-v.on .dz-vb{grid-template-rows:1fr}
-.htply-page .dz-vb>div{overflow:hidden}
-.htply-page .dz-vb p{margin:0 0 24px 66px;max-width:470px;font-size:15.5px;line-height:1.7;color:var(--mist);opacity:0;transform:translateY(8px);transition:opacity .45s .08s,transform .45s .08s var(--ease)}
-.htply-page .dz-v.on .dz-vb p{opacity:1;transform:none}
-.htply-page .dz-vstage{position:relative;aspect-ratio:1/1.02;border-radius:30px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.14)}
-.htply-page .dz-vstage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .8s var(--ease),transform 1.6s var(--ease)}
-.htply-page .dz-vstage img.on{opacity:1;transform:scale(1)}
-.htply-page .dz-vstage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(26,32,46,.7));pointer-events:none}
-.htply-page .dz-vcap{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff}
-.htply-page .dz-bar2{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.25);overflow:hidden}
-.htply-page .dz-bar2 i{display:block;height:100%;background:var(--picton);border-radius:2px;transition:width .6s var(--ease)}
+.htply-page .dz-values-intro{margin-top:18px;max-width:780px}
+.htply-page .dz-values-intro h3{margin:0;font-size:clamp(24px,2.2vw,32px);line-height:1.2;letter-spacing:-.02em;font-weight:600;color:#fff}
+.htply-page .dz-values-intro p{margin:18px 0 0;font-size:17px;line-height:1.75;color:var(--mist)}
+.htply-page .dz-values-demo{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center;gap:clamp(40px,6vw,90px);margin-top:40px;padding:24px 0 0;color:#fff}
+.htply-page .dz-values-wheel{display:block;width:100%;max-width:520px;margin:auto;overflow:visible}
+.htply-page .dz-values-part{cursor:pointer;outline:none;transition:filter .22s,transform .22s;transform-origin:260px 260px}
+.htply-page .dz-values-part:hover,.htply-page .dz-values-part:focus-visible{filter:brightness(1.04);transform:translate(var(--dx),var(--dy))}
+.htply-page .dz-values-part path{stroke:#2e3850;stroke-width:8;stroke-linejoin:round}
+.htply-page .dz-values-part:focus-visible path{stroke:#fff;stroke-width:3}
+.htply-page .dz-values-part text{fill:#fff;font-size:22px;font-weight:700;pointer-events:none}
+.htply-page .dz-values-center{fill:#fff;font-size:23px;font-weight:750;pointer-events:none}
+.htply-page .dz-values-detail{max-width:460px;min-width:0}
+.htply-page .dz-values-eyebrow{margin:0 0 25px;font-size:12px;letter-spacing:2.5px;font-weight:600;text-transform:uppercase;color:var(--soft)}
+.htply-page .dz-values-line{width:45px;height:4px;border-radius:2px;background:var(--accent);transition:background .2s}
+.htply-page .dz-values-copy{animation:dz-values-appear .28s ease both}
+.htply-page .dz-values-copy h3{margin:22px 0;font-size:clamp(38px,4.3vw,58px);letter-spacing:-2px;line-height:1.1;font-weight:700;color:#fff}
+.htply-page .dz-values-copy p{margin:0;min-height:7.4em;font-size:18px;line-height:1.85;color:var(--mist)}
+@keyframes dz-values-appear{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){
+  .htply-page .dz-values-demo{grid-template-columns:1fr;gap:30px;padding:20px 0 0}
+  .htply-page .dz-values-wheel{max-width:400px;margin:auto}
+  .htply-page .dz-values-detail{max-width:none}
+  .htply-page .dz-values-eyebrow{font-size:10px;margin-bottom:18px}
+  .htply-page .dz-values-copy h3{font-size:40px;margin:18px 0}
+  .htply-page .dz-values-copy p{font-size:16px}
+  .htply-page .dz-values-part text{font-size:21px}
+}
 
 /* ---------- CTA ---------- */
 .htply-page .dz-cta{position:relative;z-index:4;margin-top:-48px;border-radius:48px 48px 0 0;background:#59CBE8;color:#2C3444}
@@ -127,7 +134,7 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---------- co giãn ---------- */
 @media(max-width:1020px){
-  .htply-page .dz-about-grid,.htply-page .dz-vgrid{grid-template-columns:1fr;gap:56px}
+  .htply-page .dz-about-grid{grid-template-columns:1fr;gap:56px}
   .htply-page .dz-vis{max-width:560px}
   .htply-page .dz-pgrid{grid-template-columns:1fr}
   .htply-page .dz-bar-in{grid-template-columns:1fr 1fr}
@@ -145,8 +152,6 @@ html.lenis,html.lenis body{height:auto}
   .htply-page .dz-products{padding:84px 0}
   .htply-page .dz-values{padding:84px 0 120px}
   .htply-page .dz-bar-item{padding:20px 18px}
-  .htply-page .dz-vb p{margin-left:0}
-  .htply-page .dz-vh{grid-template-columns:40px 1fr auto}
   .htply-page .dz-flow,.htply-page .dz-cta{border-radius:34px 34px 0 0}
 }
 @media(prefers-reduced-motion:reduce){

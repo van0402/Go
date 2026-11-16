@@ -23,7 +23,7 @@
         "markets": { "label": "Marchés", "desc": "Europe et Moyen-Orient" }
       },
       "title": "La confiance intégrée à chaque panneau",
-      "intro": "HTPLY Vietnam est un exportateur de contreplaqué industriel destiné aux marchés B2B internationaux, avec une usine de 5 000 m², une capacité d’approvisionnement pouvant atteindre 80 conteneurs par mois et un engagement axé sur la qualité, la fiabilité des approvisionnements et une croissance durable.",
+      "intro": "HTPLY Vietnam est un exportateur de contreplaqué industriel destiné aux marchés B2B internationaux, avec une usine de 5 000 m², une capacité d’approvisionnement pouvant atteindre 60 conteneurs par mois et un engagement axé sur la qualité, la fiabilité des approvisionnements et une croissance durable.",
       "quote": "Fournir du contreplaqué ne suffit pas — HTPLY apporte la fiabilité à chaque expédition",
       "explore": "Découvrir HTPLY",
       "soon": "Bientôt disponible",
@@ -68,6 +68,17 @@
     },
     "values": {
       "kicker": "03 · Valeurs fondamentales",
+      "introTitle": "Trois valeurs qui guident HTPLY.",
+      "introText": "Une marque industrielle n'a pas besoin d'en dire trop. L'essentiel est que les clients puissent anticiper la qualité, les délais et notre façon de travailler.",
+      "wheelLabel": "Nos trois valeurs fondamentales",
+      "centerTop": "NOS",
+      "centerBottom": "VALEURS",
+      "eyebrow": "Nos valeurs fondamentales",
+      "items": [
+        { "title": "Fiable", "description": "Une qualité constante, des informations claires et des plans d'approvisionnement prévisibles. Une base solide pour chaque commande." },
+        { "title": "Précis", "description": "Une attention aux spécifications, un contrôle rigoureux des processus et moins de variations à chaque commande." },
+        { "title": "Long terme", "description": "Au-delà d'une seule expédition. Nous bâtissons des relations d'approvisionnement durables qui évoluent avec nos clients." }
+      ],
       "title": "Ce qui façonne notre façon de travailler."
     },
     "products": {
@@ -413,10 +424,13 @@
       "text": "HTPLY VIETNAM a été fondée en 2021, spécialisée dans le contreplaqué et les panneaux de bois industriels pour le marché B2B international. Avec une usine d'environ 5 000 m² et une capacité d'approvisionnement allant jusqu'à 80 conteneurs/mois, HTPLY développe ses gammes de contreplaqué filmé, antidérapant et industriel, tout en ciblant les marchés européen et moyen-oriental. L'entreprise fonde sa stratégie d'expansion internationale sur une qualité constante, une capacité d'approvisionnement fiable et un développement durable."
     },
     "metrics": {
+      "qualityLabel": "Contrôle qualité",
+      "qualityUnit": "points de contrôle",
+      "quality": "Épaisseur, humidité, collage, dimensions et qualité de surface.",
       "factory": "Surface de production et d'entreposage organisée pour l'activité export.",
       "production": "Conteneurs / mois avec une capacité à maintenir un approvisionnement stable.",
       "supply": "Conteneurs / mois selon le plan d'expansion de l'approvisionnement.",
-      "markets": "Orientés vers les marchés européen et moyen-oriental."
+      "markets": "Orientés vers les marchés d'Europe, du Moyen-Orient, d'Afrique et d'Australie."
     },
     "approach": {
       "title": "Du bois brut à un système d'approvisionnement fiable.",
@@ -437,6 +451,9 @@
       ]
     },
     "history": {
+      "milestonesLabel": "Les étapes de notre entreprise",
+      "futureLabel": "Perspectives d'avenir",
+      "replayLabel": "Rejouer le parcours",
       "title": "Des fondations initiales à une capacité d'approvisionnement mondiale.",
       "items": [
         { "title": "Fondation", "desc": "HTPLY VIETNAM voit le jour, élargissant son activité au marché du contreplaqué technique." },
@@ -458,6 +475,15 @@
       "text": "Chaque panneau de contreplaqué qui quitte l'usine doit représenter une seule chose : une qualité vérifiable, un approvisionnement fiable et un partenaire prêt à s'engager sur la durée."
     },
     "business": {
+  "map": {
+    "mapLabel": "Connexions de Hanoï, Vietnam vers les marchés internationaux",
+    "origin": "Hanoï, Vietnam",
+    "globalMarkets": "Marchés internationaux",
+    "explore": "Explorer les pays de destination",
+    "pause": "Mettre l'animation en pause",
+    "play": "Lancer l'animation",
+    "note": "Connexions commerciales illustratives, et non itinéraires maritimes. Carte : Natural Earth / World Atlas."
+  },
   "kicker": "02 · Présence commerciale",
   "title": "Conçu pour le commerce international.",
   "text": "HTPLY accompagne des acheteurs B2B orientés vers l’export sur plusieurs marchés internationaux, en combinant capacité de production et expérience pratique du commerce mondial.",

@@ -23,7 +23,7 @@
         "markets": { "label": "Markets", "desc": "Europe & Middle East" }
       },
       "title": "Trust built into every sheet",
-      "intro": "HTPLY Vietnam is an industrial plywood exporter serving international B2B markets, with a 5,000 m² factory, supply capacity of up to 80 containers per month, and a focus on reliable quality, scalable supply and sustainable growth.",
+      "intro": "HTPLY Vietnam is an industrial plywood exporter serving international B2B markets, with a 5,000 m² factory, supply capacity of up to 60 containers per month, and a focus on reliable quality, scalable supply and sustainable growth.",
       "quote": "Not just supplying plywood — HTPLY brings reliability to every shipment",
       "explore": "Explore HTPLY",
       "soon": "Coming soon",
@@ -68,6 +68,17 @@
     },
     "values": {
       "kicker": "03 · Core values",
+      "introTitle": "Three values that keep HTPLY on track.",
+      "introText": "An industrial brand doesn't need to say too much. What matters is that customers can predict the quality, schedule and how we handle the work.",
+      "wheelLabel": "Our three core values",
+      "centerTop": "CORE",
+      "centerBottom": "VALUES",
+      "eyebrow": "Our core values",
+      "items": [
+        { "title": "Reliable", "description": "Consistent quality, clear information and predictable supply plans. A dependable foundation for every order." },
+        { "title": "Precise", "description": "Attention to specifications, careful process control and reduced variation in every order." },
+        { "title": "Long-term", "description": "More than one shipment. We build lasting supply relationships that grow with our customers." }
+      ],
       "title": "What shapes how we work."
     },
     "products": {
@@ -416,13 +427,16 @@
     },
     "intro": {
       "title": "A Vietnamese plywood brand built for the global market",
-      "text": "HTPLY VIETNAM was founded in 2021, specializing in plywood and engineered wood panels for the international B2B market. With a factory of around 5,000 m² and a supply capacity of up to 80 containers/month, HTPLY focuses on developing Film Faced Plywood, Anti-Slip Plywood and industrial plywood lines, while targeting the European and Middle Eastern markets. The company builds its global expansion strategy on consistent quality, supply capacity and sustainable development."
+      "text": "HTPLY VIETNAM was founded in 2021, specializing in plywood and engineered wood panels for the international B2B market. With a factory of around 5,000 m² and a supply capacity of up to 60 containers/month, HTPLY focuses on developing Film Faced Plywood, Anti-Slip Plywood and industrial plywood lines, while targeting the European and Middle Eastern markets. The company builds its global expansion strategy on consistent quality, supply capacity and sustainable development."
     },
     "metrics": {
+      "qualityLabel": "Quality control",
+      "qualityUnit": "checkpoints",
+      "quality": "Thickness, moisture, bonding, dimensions and surface quality.",
       "factory": "Production and warehouse area organized for export operations.",
       "production": "Containers / month with the capacity to maintain a stable supply.",
       "supply": "Containers / month under the expansion supply plan.",
-      "markets": "Focused on the European and Middle Eastern markets."
+      "markets": "Focused on markets in Europe, the Middle East, Africa and Australia."
     },
     "approach": {
       "title": "From raw timber to a reliable supply system.",
@@ -443,6 +457,9 @@
       ]
     },
     "history": {
+      "milestonesLabel": "Company milestones",
+      "futureLabel": "Future direction",
+      "replayLabel": "Replay journey",
       "title": "From early foundations to global supply capability.",
       "items": [
         { "title": "Founded", "desc": "HTPLY VIETNAM is established, expanding into the technical plywood market." },
@@ -464,6 +481,15 @@
       "text": "Every plywood sheet that leaves the factory must represent one thing: verifiable quality, a supply you can rely on, and a partner ready to go the distance."
     },
     "business": {
+  "map": {
+    "mapLabel": "Connections from Hanoi, Vietnam to international markets",
+    "origin": "Hanoi, Vietnam",
+    "globalMarkets": "Global markets",
+    "explore": "Explore destination countries",
+    "pause": "Pause animation",
+    "play": "Play animation",
+    "note": "Illustrative market connections, not shipping routes. Map: Natural Earth / World Atlas."
+  },
   "kicker": "02 · Business footprint",
   "title": "Built for international business.",
   "text": "HTPLY serves export-focused B2B buyers across multiple international markets, combining production capability with practical experience in global trade.",
@@ -669,7 +695,7 @@
     "helpTitle": "Can't find the board you need?",
     "helpText": "Send your size, thickness, core and surface. We will suggest the right option.",
     "helpCta": "Request a quote",
-    "heroTitle": "Stability from structure to quality.",
+    "heroTitle": "Stability from structure to quality",
     "heroSub": "Focused plywood lines for construction, industrial and export applications.",
     "viewLabel": "Display mode",
     "viewShowcase": "Showcase",

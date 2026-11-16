@@ -21,8 +21,8 @@ export function Products({ products }: { products: ProductCard[] }) {
       <div className="dz-wrap">
         <div className="dz-phead">
           <div>
-            <div className="dz-kicker" data-fade>{t('kicker')}</div>
-            <SplitTitle text={t('title')} />
+            <h2 className="dz-kicker" data-fade>{t('kicker').replace(/^\d+\s*·\s*/, '')}</h2>
+            <SplitTitle as="h3" text={t('title')} />
           </div>
           <Link href="/products" className="dz-linkall" data-fade>
             {viewAll} <span>→</span>
