@@ -10,7 +10,11 @@
     "news": "News"
   },
   "home": {
-    "heroTitle": "Plywood Supplier with EU's Standards",
+    "heroKicker": "Plywood · Made in Vietnam",
+    "heroTitle": "Built for quality.",
+    "heroTitleSecondLine": "Made for the world.",
+    "heroQuote": "Get a quote",
+    "heroProducts": "Explore products",
     "about": {
       "stats": {
         "factory": { "label": "Factory", "desc": "Production & warehouse footprint" },

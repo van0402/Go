@@ -10,7 +10,11 @@
     "news": "Actualités"
   },
   "home": {
-    "heroTitle": "Fournisseur de contreplaqué aux normes européennes",
+    "heroKicker": "Contreplaqué · Fabriqué au Vietnam",
+    "heroTitle": "Conçu pour la qualité.",
+    "heroTitleSecondLine": "Fabriqué pour le monde.",
+    "heroQuote": "Demander un devis",
+    "heroProducts": "Découvrir les produits",
     "about": {
       "stats": {
         "factory": { "label": "Usine", "desc": "Surface de production et d'entreposage" },
