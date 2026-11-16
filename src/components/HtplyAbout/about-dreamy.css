@@ -17,9 +17,9 @@
 .htply-about-page .ad-wrap{width:min(1240px,calc(100% - 64px));margin:0 auto}
 
 /* ---------- chữ chung ---------- */
-.htply-about-page .ad-kicker{display:inline-flex;align-items:center;gap:12px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff}
-.htply-about-page .ad-kicker::before{content:"";width:28px;height:3px;border-radius:2px;background:var(--picton)}
+.htply-about-page .ad-kicker{display:block;margin:0;font-size:clamp(36px,4vw,60px);line-height:1.03;letter-spacing:-.04em;font-weight:600;text-transform:none;color:#fff}
 .htply-about-page .dz-title{margin:14px 0 0;font-size:clamp(32px,4vw,58px);line-height:1.04;letter-spacing:-.04em;font-weight:600;color:#fff}
+.htply-about-page .ad-flow .dz-title{font-size:clamp(24px,2.2vw,32px);line-height:1.2;letter-spacing:-.02em}
 .htply-about-page .dz-w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
 .htply-about-page .dz-w>span{display:inline-block;will-change:transform}
 .htply-about-page .ad-lead{margin:22px 0 0;max-width:560px;font-size:17px;line-height:1.75;color:var(--mist)}
@@ -63,6 +63,8 @@
 .htply-about-page .ad-m+.ad-m::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:1px;background:rgba(255,255,255,.14)}
 .htply-about-page .ad-m small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--picton)}
 .htply-about-page .ad-m strong{display:block;margin-top:10px;font-size:clamp(30px,3.2vw,44px);line-height:1;letter-spacing:-.04em;font-weight:600;color:#fff}
+.htply-about-page .ad-m .ad-quality-unit{display:inline-block;font-size:18px;line-height:1.3;letter-spacing:-.02em}
+.htply-about-page .ad-m .ad-market-codes{font-size:clamp(22px,2.1vw,28px);line-height:1.3;letter-spacing:-.03em}
 .htply-about-page .ad-m>span{display:block;margin-top:10px;font-size:13.5px;line-height:1.55;color:var(--soft)}
 
 /* ---------- 01 who we are ---------- */
@@ -114,18 +116,6 @@
 .htply-about-page .ad-tags span{padding:6px 12px;border-radius:999px;background:rgba(89,203,232,.12);border:1px solid rgba(89,203,232,.3);font-size:12px;font-weight:700;color:var(--picton-2)}
 
 /* ---------- 05 history ---------- */
-.htply-about-page .ad-tl{position:relative;margin-top:60px}
-.htply-about-page .ad-tl-line,.htply-about-page .ad-tl-fill{position:absolute;left:215px;top:0;bottom:0;width:2px;border-radius:2px}
-.htply-about-page .ad-tl-line{background:rgba(255,255,255,.14)}
-.htply-about-page .ad-tl-fill{background:linear-gradient(var(--picton),var(--teal));transform:scaleY(0);transform-origin:top}
-.htply-about-page .ad-tl-row{position:relative;display:grid;grid-template-columns:170px 40px 1fr;gap:20px;align-items:start;padding:34px 0}
-.htply-about-page .ad-tl-year{text-align:right;font-size:clamp(34px,4vw,54px);line-height:1;font-weight:700;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.35);transition:color .5s,-webkit-text-stroke-color .5s}
-.htply-about-page .ad-tl-dot{position:relative;justify-self:center;margin-top:12px;width:16px;height:16px;border-radius:50%;background:var(--deep);border:2px solid rgba(255,255,255,.35);transition:background .4s,border-color .4s,box-shadow .4s}
-.htply-about-page .ad-tl-body h3{margin:0;font-size:24px;letter-spacing:-.025em;font-weight:600;color:rgba(255,255,255,.7);transition:color .4s}
-.htply-about-page .ad-tl-body p{margin:8px 0 0;max-width:520px;font-size:15.5px;line-height:1.7;color:var(--soft)}
-.htply-about-page .ad-tl-row.on .ad-tl-year{color:#fff;-webkit-text-stroke-color:#fff}
-.htply-about-page .ad-tl-row.on .ad-tl-dot{background:var(--picton);border-color:var(--picton);box-shadow:0 0 0 7px rgba(89,203,232,.22)}
-.htply-about-page .ad-tl-row.on .ad-tl-body h3{color:#fff}
 
 /* ---------- CTA ---------- */
 .htply-about-page .ad-cta{position:relative;z-index:4;margin-top:-48px;border-radius:48px 48px 0 0;background:var(--picton);color:var(--deep)}
@@ -149,11 +139,6 @@
   .htply-about-page .ad-bar{top:-150px}
   .htply-about-page .ad-who{padding-top:300px}
   .htply-about-page .ad-hero-in{padding-bottom:300px}
-  .htply-about-page .ad-tl-line,.htply-about-page .ad-tl-fill{left:12px}
-  .htply-about-page .ad-tl-row{grid-template-columns:30px 1fr;gap:16px}
-  .htply-about-page .ad-tl-year{grid-column:2;grid-row:1;text-align:left;font-size:34px}
-  .htply-about-page .ad-tl-dot{grid-column:1;grid-row:1;margin-top:8px}
-  .htply-about-page .ad-tl-body{grid-column:2}
 }
 @media(max-width:640px){
   .htply-about-page .ad-wrap{width:calc(100% - 36px)}

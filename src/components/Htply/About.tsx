@@ -20,8 +20,8 @@ export function About() {
       <SectionStack side="r" />
       <div className="dz-wrap dz-about-grid">
         <div>
-          <div className="dz-kicker" data-fade>01 · About HTPLY</div>
-          <SplitTitle text={t('title')} />
+          <h2 className="dz-kicker" data-fade>About HTPLY</h2>
+          <SplitTitle as="h3" text={t('title')} />
           <p className="dz-lead" data-fade>{t('intro')}</p>
 
           <div className="dz-rows">

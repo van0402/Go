@@ -16,6 +16,16 @@ export type ProductCard = {
   specs: { label: string; value: string }[]
 }
 
+function productPriority(product: ProductCard): number {
+  const slug = product.slug.toLowerCase().replace(/[^a-z0-9]/g, '')
+  const name = product.name.toLowerCase().replace(/[^a-z0-9]/g, '')
+  const labels = [slug, name]
+  if (labels.some((label) => label.includes('antislip'))) return 0
+  if (labels.some((label) => label.includes('filmface'))) return 1
+  if (slug === 'raw' || labels.some((label) => label.includes('rawply'))) return 2
+  return 3
+}
+
 export async function getProductCards(
   locale: 'en' | 'fr' | 'es',
   opts: { homeOnly?: boolean } = {},
@@ -61,5 +71,8 @@ export async function getProductCards(
   for (const p of all) {
     if (p.parentId) kidsOf.set(p.parentId, [...(kidsOf.get(p.parentId) ?? []), p])
   }
-  return all.filter((p) => !p.parentId).map((p) => ({ ...p, kids: kidsOf.get(p.id) ?? [] }))
+  return all
+    .filter((p) => !p.parentId)
+    .map((p) => ({ ...p, kids: kidsOf.get(p.id) ?? [] }))
+    .sort((a, b) => productPriority(a) - productPriority(b))
 }

@@ -1,0 +1,50 @@
+/* Winding milestone road, adapted to the About page's navy background. */
+.htply-about-page .ad-journey{--journey-bg:#37425c;position:relative;margin-top:48px;color:#fff;font-family:var(--font-be-vietnam-pro,'Segoe UI'),Arial,sans-serif}
+.htply-about-page .journey-track{position:relative;height:780px;margin-bottom:120px}
+.htply-about-page .journey-road{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.htply-about-page .road-bed{fill:none;stroke:#b7c8d826;stroke-width:24;stroke-linecap:round}
+.htply-about-page .road-inset{fill:none;stroke:#b7c8d81c;stroke-width:14;stroke-linecap:round}
+.htply-about-page .road-line{fill:none;stroke:#59cbe8;stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.htply-about-page .ad-journey.has-entered .road-line{animation:ad-journey-draw 1.8s ease forwards}
+@keyframes ad-journey-draw{to{stroke-dashoffset:0}}
+.htply-about-page .road-future{fill:none;stroke:#9fb0c4;stroke-width:2;stroke-dasharray:5 9}
+.htply-about-page .journey-milestone{position:absolute;width:340px;max-width:44%;left:var(--x);top:var(--y);margin-top:-34px;z-index:2}
+.htply-about-page .journey-milestone.right{padding-left:44px}
+.htply-about-page .journey-milestone.left{transform:translateX(-100%);padding-right:44px;text-align:right}
+.htply-about-page .journey-trigger{position:relative;display:block;width:100%;text-align:inherit;background:none;border:0;padding:0;color:inherit;cursor:pointer;font:inherit;-webkit-tap-highlight-color:transparent}
+.htply-about-page .journey-year{display:block;font-size:48px;line-height:1.1;font-weight:700;letter-spacing:-2px;color:#b7c8d8;transition:color .25s}
+.htply-about-page .journey-title{display:block;margin-top:8px;font-size:18px;line-height:1.35;font-weight:600}
+.htply-about-page .journey-marker{position:absolute;width:20px;height:20px;border:5px solid var(--journey-bg);border-radius:50%;background:#6caac0;box-shadow:0 0 0 1px #a4c3d2;top:24px;left:-54px;transition:background .25s,box-shadow .25s}
+.htply-about-page .left .journey-marker{left:auto;right:-54px}
+.htply-about-page .journey-connector{position:absolute;left:-31px;top:34px;width:20px;height:1px;background:#a6bbc9}
+.htply-about-page .left .journey-connector{left:auto;right:-31px}
+.htply-about-page .journey-description{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .3s,opacity .3s}
+.htply-about-page .journey-description>div{overflow:hidden}
+.htply-about-page .journey-description p{font-size:14px;line-height:1.75;color:#c9d6e3;margin:12px 0 0}
+.htply-about-page .journey-milestone.active .journey-description{grid-template-rows:1fr;opacity:1}
+.htply-about-page .journey-milestone.active .journey-year{color:#59cbe8}
+.htply-about-page .journey-milestone.active .journey-marker{background:#59cbe8;box-shadow:0 0 0 5px #59cbe821,0 0 0 1px #59cbe8}
+.htply-about-page .journey-milestone.active .journey-connector{background:#59cbe8}
+.htply-about-page .journey-trigger:focus-visible{outline:2px solid #59cbe8;outline-offset:8px;border-radius:3px}
+.htply-about-page .next .journey-year{color:#9fb0c4}
+.htply-about-page .next .journey-marker{background:var(--journey-bg);border:4px solid var(--journey-bg);outline:1px solid #91a5b8;box-shadow:inset 0 0 0 1px #91a5b8}
+.htply-about-page .journey-badge{display:inline-block;margin-top:10px;font-size:9px;letter-spacing:1.5px;font-weight:650;text-transform:uppercase;color:#b7c8d8;border:1px solid #b7c8d84d;border-radius:4px;padding:4px 7px}
+.htply-about-page .journey-footer{border-top:1px solid #b7c8d833;padding:20px 0;display:flex;justify-content:flex-end}
+.htply-about-page .journey-replay{border:0;background:none;color:#59cbe8;font:inherit;font-size:12px;cursor:pointer;padding:0}
+.htply-about-page .journey-replay:focus-visible{outline:2px solid #59cbe8;outline-offset:4px}
+@media(max-width:900px){
+  .htply-about-page .journey-track{height:auto;margin-bottom:20px;padding-left:29px}
+  .htply-about-page .journey-road{display:none}
+  .htply-about-page .journey-track::before{content:'';position:absolute;top:18px;bottom:80px;left:7px;width:2px;background:linear-gradient(#59cbe8 0 77%,transparent 77%);border-left:2px dashed #b7c8d8}
+  .htply-about-page .journey-milestone,.htply-about-page .journey-milestone.left,.htply-about-page .journey-milestone.right{position:relative;left:auto;top:auto;transform:none;text-align:left;width:100%;max-width:none;padding:0 0 35px 20px;margin-top:0;min-height:130px}
+  .htply-about-page .journey-year{font-size:37px;letter-spacing:-1px}
+  .htply-about-page .journey-title{font-size:17px}
+  .htply-about-page .journey-marker,.htply-about-page .left .journey-marker{left:-51px;right:auto;top:12px;width:19px;height:19px}
+  .htply-about-page .journey-connector,.htply-about-page .left .journey-connector{left:-26px;right:auto;top:21px;width:17px}
+  .htply-about-page .journey-description p{font-size:13px;max-width:480px}
+  .htply-about-page .journey-milestone:last-child{padding-bottom:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .htply-about-page .ad-journey *{animation:none!important;transition:none!important}
+  .htply-about-page .road-line{stroke-dashoffset:0}
+}

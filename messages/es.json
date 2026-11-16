@@ -23,7 +23,7 @@
         "markets": { "label": "Mercados", "desc": "Europa y Oriente Medio" }
       },
       "title": "Confianza integrada en cada tablero",
-      "intro": "HTPLY Vietnam es un exportador de contrachapado industrial orientado a mercados B2B internacionales, con una fábrica de 5.000 m², una capacidad de suministro de hasta 80 contenedores al mes y un enfoque en la calidad constante, el suministro fiable y el crecimiento sostenible",
+      "intro": "HTPLY Vietnam es un exportador de contrachapado industrial orientado a mercados B2B internacionales, con una fábrica de 5.000 m², una capacidad de suministro de hasta 60 contenedores al mes y un enfoque en la calidad constante, el suministro fiable y el crecimiento sostenible",
       "quote": "No solo suministramos contrachapado — HTPLY aporta fiabilidad a cada envío",
       "explore": "Conocer HTPLY",
       "soon": "Próximamente",
@@ -69,6 +69,17 @@
     },
     "values": {
       "kicker": "03 · Valores fundamentales",
+      "introTitle": "Tres valores que mantienen a HTPLY en el rumbo correcto.",
+      "introText": "Una marca industrial no necesita decir demasiado. Lo que importa es que los clientes puedan prever la calidad, los plazos y nuestra forma de trabajar.",
+      "wheelLabel": "Nuestros tres valores fundamentales",
+      "centerTop": "NUESTROS",
+      "centerBottom": "VALORES",
+      "eyebrow": "Nuestros valores fundamentales",
+      "items": [
+        { "title": "Fiable", "description": "Calidad constante, información clara y planes de suministro predecibles. Una base fiable para cada pedido." },
+        { "title": "Preciso", "description": "Atención a las especificaciones, control cuidadoso del proceso y menor variación en cada pedido." },
+        { "title": "Largo plazo", "description": "Más allá de un solo envío. Construimos relaciones de suministro duraderas que crecen con nuestros clientes." }
+      ],
       "title": "Lo que define cómo trabajamos."
     },
     "products": {
@@ -414,10 +425,13 @@
       "text": "HTPLY VIETNAM se fundó en 2021, especializada en contrachapado y tableros de madera industrial para el mercado B2B internacional. Con una planta de aproximadamente 5.000 m² y una capacidad de suministro de hasta 80 contenedores/mes, HTPLY desarrolla sus líneas de contrachapado fenólico, antideslizante e industrial, dirigidas a los mercados europeo y de Oriente Medio. La empresa basa su estrategia de expansión global en una calidad constante, capacidad de suministro y desarrollo sostenible."
     },
     "metrics": {
+      "qualityLabel": "Control de calidad",
+      "qualityUnit": "puntos de control",
+      "quality": "Espesor, humedad, encolado, dimensiones y calidad superficial.",
       "factory": "Superficie de producción y almacén organizada para la actividad de exportación.",
       "production": "Contenedores / mes con capacidad para mantener un suministro estable.",
       "supply": "Contenedores / mes según el plan de expansión del suministro.",
-      "markets": "Enfocados en los mercados europeo y de Oriente Medio."
+      "markets": "Enfocados en los mercados de Europa, Oriente Medio, África y Australia."
     },
     "approach": {
       "title": "De la madera bruta a un sistema de suministro fiable.",
@@ -438,6 +452,9 @@
       ]
     },
     "history": {
+      "milestonesLabel": "Hitos de la empresa",
+      "futureLabel": "Rumbo futuro",
+      "replayLabel": "Repetir el recorrido",
       "title": "De los primeros pasos a una capacidad de suministro global.",
       "items": [
         { "title": "Fundación", "desc": "Nace HTPLY VIETNAM, ampliando su actividad al mercado del contrachapado técnico." },
@@ -459,6 +476,15 @@
       "text": "Cada tablero de contrachapado que sale de la fábrica debe representar una sola cosa: calidad verificable, un suministro en el que se puede confiar y un socio dispuesto a ir hasta el final."
     },
     "business": {
+  "map": {
+    "mapLabel": "Conexiones desde Hanói, Vietnam a mercados internacionales",
+    "origin": "Hanói, Vietnam",
+    "globalMarkets": "Mercados internacionales",
+    "explore": "Explorar países de destino",
+    "pause": "Pausar animación",
+    "play": "Reproducir animación",
+    "note": "Conexiones comerciales ilustrativas, no rutas marítimas. Mapa: Natural Earth / World Atlas."
+  },
   "kicker": "02 · Presencia comercial",
   "title": "Preparados para el comercio internacional.",
   "text": "HTPLY atiende a compradores B2B orientados a la exportación en múltiples mercados internacionales, combinando capacidad productiva con experiencia práctica en el comercio global.",

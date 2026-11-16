@@ -10,12 +10,7 @@ import 'lenis/dist/lenis.css'
 // Không hiển thị gì; gắn hiệu ứng vào các phần tử có class ad-* / dz-split / data-*. Tắt hẳn khi người dùng bật "giảm chuyển động".
 export function AboutFx() {
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.ad-tl-row').forEach((r) => r.classList.add('on'))
-      const fill = document.querySelector<HTMLElement>('.ad-tl-fill')
-      if (fill) fill.style.transform = 'scaleY(1)'
-      return
-    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     gsap.registerPlugin(ScrollTrigger)
 
@@ -72,12 +67,6 @@ export function AboutFx() {
       // 6. Thẻ giá trị, hàng lợi thế hiện lần lượt
       gsap.from('.ad-vc', { y: 60, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.14, scrollTrigger: { trigger: '.ad-vgrid', start: 'top 86%', once: true } })
       gsap.from('.ad-adv', { y: 40, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.16, scrollTrigger: { trigger: '.ad-adv-list', start: 'top 86%', once: true } })
-
-      // 7. Timeline: đường vẽ dần theo cuộn, từng mốc sáng lên khi tới
-      gsap.to('.ad-tl-fill', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.ad-tl', start: 'top 62%', end: 'bottom 62%', scrub: true } })
-      gsap.utils.toArray<HTMLElement>('.ad-tl-row').forEach((row) => {
-        ScrollTrigger.create({ trigger: row, start: 'top 62%', onEnter: () => row.classList.add('on'), onLeaveBack: () => row.classList.remove('on') })
-      })
 
       // 8. Chiều sâu: các thành phần trôi lệch tốc độ (chỉ trên màn hình rộng)
       mm.add('(min-width: 1021px)', () => {

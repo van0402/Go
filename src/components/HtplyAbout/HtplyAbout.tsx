@@ -8,6 +8,7 @@ import { CountUp } from '@/components/Htply/CountUp'
 import { SplitTitle } from '@/components/Htply/SplitTitle'
 import { AboutRings } from './AboutRings'
 import { ExportMap } from './ExportMap'
+import { JourneyRoad } from './JourneyRoad'
 import { AboutFx } from './AboutFx'
 import './about-dreamy.css'
 
@@ -16,14 +17,12 @@ type Advantage = Item & { tags: string[] }
 
 // Ảnh nền của 3 thẻ giá trị (hiện khi rê chuột)
 const VALUE_IMAGES = ['/images/home/cv-1.jpg', '/images/about/precise.jpg', '/images/home/cv-3.jpg']
-const HISTORY_YEARS = ['2021', '2022', '2023', '2024', '2027']
 
 export function HtplyAbout() {
   const tp = useTranslations('aboutPage')
   const tc = useTranslations('home.export.cta')
   const valueItems = tp.raw('values.items') as Item[]
   const advantages = tp.raw('advantages.items') as Advantage[]
-  const historyItems = tp.raw('history.items') as Item[]
 
   return (
     <div className="htply-about-page">
@@ -69,22 +68,22 @@ export function HtplyAbout() {
                   <span>{tp('metrics.factory')}</span>
                 </div>
                 <div className="ad-m">
-                  <small>Production</small>
-                  <strong>
-                    <CountUp end={60} />
-                  </strong>
-                  <span>{tp('metrics.production')}</span>
-                </div>
-                <div className="ad-m">
                   <small>Supply capacity</small>
                   <strong>
-                    <CountUp end={80} />
+                    <CountUp end={60} />
                   </strong>
                   <span>{tp('metrics.supply')}</span>
                 </div>
                 <div className="ad-m">
+                  <small>{tp('metrics.qualityLabel')}</small>
+                  <strong>
+                    <CountUp end={5} /> <span className="ad-quality-unit">{tp('metrics.qualityUnit')}</span>
+                  </strong>
+                  <span>{tp('metrics.quality')}</span>
+                </div>
+                <div className="ad-m">
                   <small>Main markets</small>
-                  <strong>EU · ME</strong>
+                  <strong className="ad-market-codes">EU · ME · AF · AU</strong>
                   <span>{tp('metrics.markets')}</span>
                 </div>
               </div>
@@ -104,8 +103,8 @@ export function HtplyAbout() {
                 </div>
               </div>
               <div>
-                <div className="ad-kicker" data-fade>01 · Who we are</div>
-                <SplitTitle text={tp('intro.title')} />
+                <h2 className="ad-kicker" data-fade>Who we are</h2>
+                <SplitTitle as="h3" text={tp('intro.title')} />
                 <p className="ad-lead" data-fade>{tp('intro.text')}</p>
               </div>
             </div>
@@ -114,8 +113,8 @@ export function HtplyAbout() {
           {/* 02 · Business footprint (bản đồ xuất khẩu từ Việt Nam) */}
           <section className="ad-sec">
             <div className="ad-wrap">
-              <div className="ad-kicker" data-fade>{tp('business.kicker')}</div>
-              <SplitTitle text={tp('business.title')} />
+              <h2 className="ad-kicker" data-fade>{tp('business.kicker').replace(/^\d+\s*·\s*/, '')}</h2>
+              <SplitTitle as="h3" text={tp('business.title')} />
               <p className="ad-lead ad-lead-wide" data-fade>{tp('business.text')}</p>
               <div className="ad-map-wrap" data-fade>
                 <ExportMap />
@@ -123,34 +122,12 @@ export function HtplyAbout() {
             </div>
           </section>
 
-          {/* 03 · What we value */}
-          <section className="ad-sec">
-            <div className="ad-wrap">
-              <div className="ad-vhead">
-                <div>
-                  <div className="ad-kicker" data-fade>03 · What we value</div>
-                  <SplitTitle text={tp('values.title')} />
-                </div>
-                <p data-fade>{tp('values.text')}</p>
-              </div>
-              <div className="ad-vgrid">
-                {valueItems.map((v, i) => (
-                  <article className="ad-vc" key={v.title}>
-                    <img src={VALUE_IMAGES[i] ?? VALUE_IMAGES[0]} alt="" loading="lazy" />
-                    <span className="ad-no">{String(i + 1).padStart(2, '0')}</span>
-                    <h3>{v.title}</h3>
-                    <p>{v.desc}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
 
           {/* 04 · Why HTPLY */}
           <section className="ad-sec">
             <div className="ad-wrap">
-              <div className="ad-kicker" data-fade>{tp('advantages.kicker')}</div>
-              <SplitTitle text={tp('advantages.title')} />
+              <h2 className="ad-kicker" data-fade>{tp('advantages.kicker').replace(/^\d+\s*·\s*/, '')}</h2>
+              <SplitTitle as="h3" text={tp('advantages.title')} />
               <div className="ad-adv-grid">
                 <div className="ad-adv-vis ad-wipe">
                   <img src="/images/home/factory.jpg" alt="" loading="lazy" />
@@ -182,22 +159,9 @@ export function HtplyAbout() {
           {/* 05 · History */}
           <section className="ad-sec" style={{ paddingBottom: 150 }}>
             <div className="ad-wrap">
-              <div className="ad-kicker" data-fade>05 · History</div>
-              <SplitTitle text={tp('history.title')} />
-              <div className="ad-tl">
-                <div className="ad-tl-line" />
-                <div className="ad-tl-fill" />
-                {historyItems.map((item, i) => (
-                  <div className="ad-tl-row" key={`${item.title}-${i}`}>
-                    <div className="ad-tl-year">{HISTORY_YEARS[i] ?? ''}</div>
-                    <div className="ad-tl-dot" />
-                    <div className="ad-tl-body">
-                      <h3>{item.title}</h3>
-                      <p>{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <h2 className="ad-kicker" data-fade>History</h2>
+              <SplitTitle as="h3" text={tp('history.title')} />
+              <JourneyRoad />
             </div>
           </section>
         </div>

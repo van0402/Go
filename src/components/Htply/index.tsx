@@ -23,8 +23,8 @@ export function HtplyDemo({ products = [] }: { products?: ProductCard[] }) {
         {/* Nền navy liền mạch: mỗi mục (About, Products, Core values) có cặp vòng vân ván ép riêng */}
         <div className="dz-flow">
           <About />
-          <Products products={products} />
           <CoreValues />
+          <Products products={products} />
         </div>
         <DreamyCta />
       </main>

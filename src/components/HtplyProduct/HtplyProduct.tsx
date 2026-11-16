@@ -83,7 +83,6 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
         </div>
       </div>
       <div className="ps-wrap">
-        <div className="ps-kicker">01 · Product Catalogue</div>
         <Split text={tp('heroTitle')} as="h1" />
         <p className="ps-sub" data-fade>{tp('heroSub')}</p>
         {products.length > 0 && (
