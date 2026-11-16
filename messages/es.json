@@ -10,7 +10,11 @@
     "news": "Noticias"
   },
   "home": {
-    "heroTitle": "Proveedor de contrachapado según normas europeas",
+    "heroKicker": "Contrachapado · Hecho en Vietnam",
+    "heroTitle": "Creado para la calidad.",
+    "heroTitleSecondLine": "Hecho para el mundo.",
+    "heroQuote": "Solicitar cotización",
+    "heroProducts": "Explorar productos",
     "about": {
       "stats": {
         "factory": { "label": "Fábrica", "desc": "Superficie de producción y almacén" },
