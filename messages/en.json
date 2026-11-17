@@ -10,9 +10,9 @@
     "news": "News"
   },
   "home": {
-    "heroKicker": "Plywood · Made in Vietnam",
+    "heroKicker": "Vietnam Leading Plywood Exporter",
     "heroTitle": "Built for quality.",
-    "heroTitleSecondLine": "Made for the world.",
+    "heroTitleSecondLine": "Made for the world",
     "heroQuote": "Get a quote",
     "heroProducts": "Explore products",
     "about": {
@@ -68,16 +68,16 @@
     },
     "values": {
       "kicker": "03 · Core values",
-      "introTitle": "Three values that keep HTPLY on track.",
-      "introText": "An industrial brand doesn't need to say too much. What matters is that customers can predict the quality, schedule and how we handle the work.",
+      "introTitle": "Quality you can check. Information you can see. Results you can repeat.",
+      "introText": "An industrial brand doesn't need to say too much. What matters is that customers can verify the quality, see the information and rely on the same result every time.",
       "wheelLabel": "Our three core values",
       "centerTop": "CORE",
       "centerBottom": "VALUES",
       "eyebrow": "Our core values",
       "items": [
-        { "title": "Reliable", "description": "Consistent quality, clear information and predictable supply plans. A dependable foundation for every order." },
-        { "title": "Precise", "description": "Attention to specifications, careful process control and reduced variation in every order." },
-        { "title": "Long-term", "description": "More than one shipment. We build lasting supply relationships that grow with our customers." }
+        { "title": "Quality", "description": "Every board is checked against the same five points before it ships: thickness, moisture, bonding, dimensions and surface. What leaves the factory is what the specification promises." },
+        { "title": "Transparency", "description": "Specifications, datasheets and test reports are open to you before you order. We reply with clear quotes, packing details and a straight answer on timing." },
+        { "title": "Consistency", "description": "The same process and the same checks on every batch, so the first container and the last one reach you looking the same." }
       ],
       "title": "What shapes how we work."
     },

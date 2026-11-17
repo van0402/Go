@@ -38,6 +38,21 @@ export function Dreamy() {
         gsap.fromTo(wrap, { yPercent: left ? -5 : 6 }, { yPercent: left ? 7 : -7, ease: 'none', scrollTrigger: st })
       })
 
+      // 1b. Vòng vân gỗ (mục Core values): xoay và phóng chậm theo nhịp cuộn của chính mục đó
+      gsap.utils.toArray<HTMLElement>('.ad-srings').forEach((box) => {
+        const ring = box.querySelector<HTMLElement>('.ad-sring')
+        if (!ring) return
+        const left = ring.classList.contains('l')
+        gsap.fromTo(
+          ring,
+          { rotation: left ? -18 : 14, scale: left ? 0.94 : 1.1, yPercent: left ? -6 : 7 },
+          {
+            rotation: left ? 32 : -28, scale: left ? 1.18 : 0.9, yPercent: left ? 8 : -8, ease: 'none',
+            scrollTrigger: { trigger: box.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1.4 },
+          },
+        )
+      })
+
       // 2. Banner: ảnh trôi chậm hơn trang, chữ nâng lên và mờ dần
       gsap.to('.hero .hero-bg', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
       gsap.to('.hero .hero-grid', { y: -90, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.hero', start: '12% top', end: '78% top', scrub: true } })

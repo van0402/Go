@@ -59,12 +59,6 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
             <h1>{product.name}</h1>
             {product.sub && <p className="pd-sub">{product.sub}</p>}
 
-            <div className="pd-badges">
-              {[...product.tags, 'B2B export', 'Europe · Middle East'].map((b) => (
-                <span className="pd-badge" key={b}>{b}</span>
-              ))}
-            </div>
-
             {product.features.length > 0 && (
               <div className="pd-hl">
                 <h3>Key highlights</h3>

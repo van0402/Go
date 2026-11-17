@@ -149,3 +149,6 @@
   .htply-products-page *,.htply-products-page *::before,.htply-products-page *::after{transition:none!important}
   .htply-products-page .ps-card{animation:none;opacity:1;transform:none}
 }
+
+/* ảnh và tên của sản phẩm lớn bấm được (cùng đích với nút Explore) */
+.htply-products-page .ps-vlink,.htply-products-page .ps-tlink{display:block;color:inherit;text-decoration:none}
