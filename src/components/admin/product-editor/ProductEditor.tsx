@@ -1,5 +1,7 @@
 'use client'
 import React, { useRef, useState } from 'react'
+import { ErrorBanner } from './ErrorBanner'
+import { explainError, errorToText } from './errors'
 
 export type EditorImage = { id: number; url: string; thumb: string }
 type Spec = { id?: string; label: string; value: string }
@@ -7,6 +9,28 @@ type Feature = { id?: string; title: string; text: string }
 // items: mỗi dòng một mục; itemIds: id các dòng cũ (để giữ bản dịch FR/ES khi lưu lại)
 type App = { id?: string; title: string; items: string; itemIds?: string[] }
 type Faq = { id?: string; q: string; a: string }
+// Tài liệu khách tải về; file là bản ghi Media (PDF...)
+type DownloadFile = { id: number; name: string; size: number }
+type Dl = { id?: string; label: string; type: string; file: DownloadFile | null }
+const DL_TYPES = [
+  ['catalogue', 'Catalogue'],
+  ['datasheet', 'Datasheet'],
+  ['test-report', 'Test report'],
+  ['certificate', 'Certificate'],
+  ['other', 'Other'],
+] as const
+// Đoán loại tài liệu từ tên file để người nhập khỏi phải chọn từng cái
+const guessType = (name: string): string => {
+  const n = name.toLowerCase()
+  if (/catalog/.test(n)) return 'catalogue'
+  if (/(cert|fsc|carb|iso|\bce\b|chung.?chi)/.test(n)) return 'certificate'
+  if (/(test|report|lab|kiem.?dinh|bonding|formaldehyde)/.test(n)) return 'test-report'
+  if (/(data.?sheet|datasheet|spec|tds|\bds\b)/.test(n)) return 'datasheet'
+  return 'datasheet'
+}
+const prettyName = (file: string) => file.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
+const MAX_DOC_MB = 25
+const fmtSize = (n: number) => (n >= 1048576 ? `${(n / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(n / 1024))} KB`)
 
 export type EditorProduct = {
   id?: number
@@ -22,6 +46,7 @@ export type EditorProduct = {
   features: Feature[]
   applications: { id?: string; title: string; items: string }[]
   faq: Faq[]
+  downloads: Dl[]
   related: number[]
   showOnHome: boolean
   order: number
@@ -34,7 +59,7 @@ type Props = {
   defaultParent?: number | null // chọn sẵn sản phẩm lớn (từ nút "Add a type" sau khi tạo sản phẩm lớn)
 }
 
-const STEPS = ['Basic', 'Specs', 'Overview', 'Benefits', 'Applications'] as const
+const STEPS = ['Basic', 'Specs', 'Overview', 'Benefits', 'Applications', 'Downloads'] as const
 
 const blank = (s: string) => !s.trim()
 const setAt = <T,>(arr: T[], i: number, patch: Partial<T>): T[] => arr.map((x, k) => (k === i ? { ...x, ...patch } : x))
@@ -69,6 +94,7 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
   const [description, setDescription] = useState(initial?.description ?? '')
   const [faq, setFaq] = useState<Faq[]>(initial?.faq ?? [])
   const [related, setRelated] = useState<number[]>(initial?.related ?? [])
+  const [downloads, setDownloads] = useState<Dl[]>(initial?.downloads ?? [])
   const [features, setFeatures] = useState<Feature[]>(initial?.features ?? [])
   const [apps, setApps] = useState<App[]>(
     (initial?.applications ?? []).map((a) => ({ ...a, itemIds: [] })),
@@ -77,6 +103,7 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
   const [busy, setBusy] = useState<'' | 'draft' | 'publish' | 'upload' | 'translate'>('')
   const [msg, setMsg] = useState<{ kind: 'ok' | 'err'; text: string } | null>(null)
   const fileRef = useRef<HTMLInputElement>(null)
+  const docRef = useRef<HTMLInputElement>(null)
 
   async function uploadFiles(files: FileList | File[]) {
     const list = Array.from(files).filter((f) => f.type.startsWith('image/'))
@@ -90,16 +117,48 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
         fd.append('_payload', JSON.stringify({ alt: name || f.name.replace(/\.[^.]+$/, '') }))
         const res = await fetch('/api/media', { method: 'POST', body: fd, credentials: 'same-origin' })
         const json = await res.json().catch(() => ({}))
-        if (!res.ok) throw new Error(json?.errors?.[0]?.message || `Upload failed (${res.status})`)
+        if (!res.ok) throw new Error(explainError(res.status, json))
         const d = json.doc
         setGallery((g) => [
           ...g,
           { id: d.id, url: d.sizes?.large?.url || d.sizes?.medium?.url || d.url, thumb: d.sizes?.thumbnail?.url || d.url },
         ])
       } catch (e: any) {
-        setMsg({ kind: 'err', text: `${f.name}: ${e?.message || 'upload failed'}` })
+        setMsg({ kind: 'err', text: `${f.name}: ${errorToText(e)}` })
       }
     }
+    setBusy('')
+  }
+
+  // Kéo thả / chọn nhiều tài liệu một lần: mỗi file tải lên Media rồi thành một dòng (tên và loại tự đoán, sửa được)
+  async function addDocs(files: FileList | File[]) {
+    const list = Array.from(files)
+    if (!list.length) return
+    setBusy('upload')
+    setMsg(null)
+    const failed: string[] = []
+    for (const f of list) {
+      if (f.size > MAX_DOC_MB * 1048576) {
+        failed.push(`${f.name}: larger than ${MAX_DOC_MB} MB. Please compress the file first.`)
+        continue
+      }
+      try {
+        const fd = new FormData()
+        fd.append('file', f)
+        fd.append('_payload', JSON.stringify({ alt: prettyName(f.name) }))
+        const res = await fetch('/api/media', { method: 'POST', body: fd, credentials: 'same-origin' })
+        const json = await res.json().catch(() => ({}))
+        if (!res.ok) throw new Error(explainError(res.status, json))
+        const d = json.doc
+        setDownloads((rows) => [
+          ...rows,
+          { label: prettyName(f.name), type: guessType(f.name), file: { id: d.id, name: d.filename || f.name, size: d.filesize || f.size } },
+        ])
+      } catch (e) {
+        failed.push(`${f.name}: ${errorToText(e)}`)
+      }
+    }
+    if (failed.length) setMsg({ kind: 'err', text: failed.join('  •  ') })
     setBusy('')
   }
 
@@ -137,6 +196,9 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
           items: lines(a.items).map((item, i) => ({ ...(a.itemIds?.[i] ? { id: a.itemIds[i] } : {}), item })),
         })),
       faq: faq.filter((r) => !(blank(r.q) && blank(r.a))).map((r) => ({ ...withId(r), q: r.q, a: r.a })),
+      downloads: downloads
+        .filter((r) => r.file)
+        .map((r) => ({ ...withId(r), label: r.label.trim() || r.file!.name, type: r.type, file: r.file!.id })),
       related,
       showOnHome,
       order,
@@ -151,11 +213,7 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
         body: JSON.stringify(body),
       })
       const json = await res.json().catch(() => ({}))
-      if (!res.ok) {
-        const e = json?.errors?.[0]
-        const detail = e?.data?.errors?.map((x: any) => x.message).join(', ')
-        throw new Error([e?.message, detail].filter(Boolean).join(': ') || `Save failed (${res.status})`)
-      }
+      if (!res.ok) throw new Error(explainError(res.status, json))
       const doc = json.doc
       setId(doc.id)
       setSlug(doc.slug || slug)
@@ -171,8 +229,8 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
       setMsg({ kind: 'ok', text: 'Draft saved.' })
       setBusy('')
       return doc.id as number
-    } catch (e: any) {
-      setMsg({ kind: 'err', text: e?.message || 'Save failed' })
+    } catch (e) {
+      setMsg({ kind: 'err', text: errorToText(e) })
     }
     setBusy('')
     return undefined
@@ -190,10 +248,10 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
     try {
       const res = await fetch(`/api/products/${pid}/translate`, { method: 'POST', credentials: 'same-origin' })
       const json = await res.json().catch(() => ({}))
-      if (!res.ok) throw new Error(json?.error || 'Translation failed')
+      if (!res.ok) throw new Error(explainError(res.status, json))
       setMsg({ kind: 'ok', text: 'French and Spanish drafts created. Press Publish to put them live.' })
-    } catch (e: any) {
-      setMsg({ kind: 'err', text: e?.message || 'Translation failed' })
+    } catch (e) {
+      setMsg({ kind: 'err', text: errorToText(e) })
     }
     setBusy('')
   }
@@ -205,6 +263,7 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
     !blank(description),
     features.some((r) => !blank(r.title)),
     apps.some((a) => !blank(a.title)),
+    downloads.some((r) => r.file),
   ]
   const done = filled.filter(Boolean).length
 
@@ -238,6 +297,8 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
           </select>
         </label>
       </div>
+
+      <ErrorBanner text={msg?.kind === 'err' ? msg.text : null} onClose={() => setMsg(null)} />
 
       <div className="ped-steps">
         {STEPS.map((s, i) => (
@@ -418,6 +479,50 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
             </>
           )}
 
+          {step === 5 && (
+            <>
+              <h2>Downloads</h2>
+              <p className="ped-hint">
+                PDF files customers can download for free on the product page. Drop all the files at once: the name and type are filled in for you, and you can edit them below.
+                Skip this step if there are none: the section is hidden on the website.
+              </p>
+              <p className="ped-hint">
+                <b>Where to add what:</b> a catalogue or certificate for the whole group goes in the <b>main product</b>; a datasheet or test report of one type goes in <b>that type’s own product</b>. The main product page shows both together.
+              </p>
+
+              <div
+                className="ped-upload"
+                onClick={() => docRef.current?.click()}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => { e.preventDefault(); addDocs(e.dataTransfer.files) }}
+              >
+                <b>{busy === 'upload' ? 'Uploading…' : 'Drop PDF files here, or click to choose'}</b>
+                <small>You can select many at once. Up to {MAX_DOC_MB} MB each.</small>
+              </div>
+              <input ref={docRef} type="file" accept="application/pdf,.pdf,.doc,.docx,.xls,.xlsx,.zip" multiple hidden onChange={(e) => { if (e.target.files) addDocs(e.target.files); e.target.value = '' }} />
+
+              {downloads.map((r, i) => (
+                <div className="ped-card ped-doc" key={(r.id || '') + i}>
+                  <div className="ped-doc-ic" aria-hidden="true">{(r.file?.name.split('.').pop() || 'file').slice(0, 4).toUpperCase()}</div>
+                  <div className="ped-doc-main">
+                    <input value={r.label} onChange={(e) => setDownloads(setAt(downloads, i, { label: e.target.value }))} placeholder="Document name shown to customers" />
+                    <small>{r.file ? `${r.file.name} · ${fmtSize(r.file.size)}` : 'No file'}</small>
+                  </div>
+                  <select value={r.type} onChange={(e) => setDownloads(setAt(downloads, i, { type: e.target.value }))} aria-label="Document type">
+                    {DL_TYPES.map(([v, l]) => (
+                      <option key={v} value={v}>{l}</option>
+                    ))}
+                  </select>
+                  <div className="ped-doc-act">
+                    <button type="button" disabled={i === 0} onClick={() => setDownloads(move(downloads, i, i - 1))} aria-label="Move up">↑</button>
+                    <button type="button" disabled={i === downloads.length - 1} onClick={() => setDownloads(move(downloads, i, i + 1))} aria-label="Move down">↓</button>
+                    <button type="button" onClick={() => setDownloads(removeAt(downloads, i))} aria-label="Remove document">×</button>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+
           <div className="ped-next">
             <button type="button" className="ped-btn" disabled={step === 0} onClick={() => setStep(step - 1)}>← Back</button>
             {step < STEPS.length - 1 ? (
@@ -448,7 +553,7 @@ export function ProductEditor({ initial, notFound, products, defaultParent }: Pr
       <div className="ped-footer">
         <div className="ped-status">
           <span className={`ped-pill ${status}`}>{status === 'published' ? 'Published' : 'Draft'}</span>
-          {msg && <span className={`ped-msg ${msg.kind}`}>{msg.text}</span>}
+          {msg && <span className={`ped-msg ${msg.kind}`}>{msg.kind === 'err' ? 'Not saved. Please read the red message at the top.' : msg.text}</span>}
         </div>
         <div className="ped-actions">
           {id && status === 'published' && slug && (

@@ -10,9 +10,9 @@
     "news": "Actualités"
   },
   "home": {
-    "heroKicker": "Contreplaqué · Fabriqué au Vietnam",
+    "heroKicker": "Exportateur vietnamien de contreplaqué de référence",
     "heroTitle": "Conçu pour la qualité.",
-    "heroTitleSecondLine": "Fabriqué pour le monde.",
+    "heroTitleSecondLine": "Fabriqué pour le monde",
     "heroQuote": "Demander un devis",
     "heroProducts": "Découvrir les produits",
     "about": {
@@ -68,16 +68,16 @@
     },
     "values": {
       "kicker": "03 · Valeurs fondamentales",
-      "introTitle": "Trois valeurs qui guident HTPLY.",
-      "introText": "Une marque industrielle n'a pas besoin d'en dire trop. L'essentiel est que les clients puissent anticiper la qualité, les délais et notre façon de travailler.",
+      "introTitle": "Une qualité vérifiable. Une information visible. Des résultats reproductibles.",
+      "introText": "Une marque industrielle n'a pas besoin d'en dire trop. L'essentiel est que les clients puissent vérifier la qualité, consulter l'information et compter sur le même résultat à chaque fois.",
       "wheelLabel": "Nos trois valeurs fondamentales",
       "centerTop": "NOS",
       "centerBottom": "VALEURS",
       "eyebrow": "Nos valeurs fondamentales",
       "items": [
-        { "title": "Fiable", "description": "Une qualité constante, des informations claires et des plans d'approvisionnement prévisibles. Une base solide pour chaque commande." },
-        { "title": "Précis", "description": "Une attention aux spécifications, un contrôle rigoureux des processus et moins de variations à chaque commande." },
-        { "title": "Long terme", "description": "Au-delà d'une seule expédition. Nous bâtissons des relations d'approvisionnement durables qui évoluent avec nos clients." }
+        { "title": "Qualité", "description": "Chaque panneau est contrôlé selon les mêmes cinq points avant l'expédition : épaisseur, humidité, collage, dimensions et surface. Ce qui sort de l'usine correspond à la spécification annoncée." },
+        { "title": "Transparence", "description": "Spécifications, fiches techniques et rapports d'essai sont accessibles avant la commande. Nous répondons avec des devis clairs, les détails d'emballage et un avis franc sur les délais." },
+        { "title": "Constance", "description": "Le même processus et les mêmes contrôles sur chaque lot, pour que le premier conteneur et le dernier vous parviennent à l'identique." }
       ],
       "title": "Ce qui façonne notre façon de travailler."
     },
@@ -662,17 +662,24 @@
 }
   },
   "factoryPage": {
+    "eyebrow": "Usine HTPLY · Vietnam",
+    "introKicker": "Présentation de l'usine",
+    "processKicker": "Processus de production",
+    "processText": "Sélection des matières, traitement du placage, encollage, pressage à chaud, finition et contrôle. Découvrez tout le processus en un court film.",
+    "badgeLabel": "Surface de l'usine",
+    "captions": ["Atelier de production", "Ligne de presse à chaud", "Presse multi-plateaux", "Manutention du placage", "Assemblage du placage"],
+    "video": { "label": "HTPLY Vietnam", "title": "Processus de production", "play": "Lire la vidéo" },
     "hero": {
-      "title": "Là où la qualité commence par le processus.",
+      "title": "Là où la qualité commence par le processus",
       "text": "Des matières premières à l'emballage export, chaque étape est organisée pour garantir la constance entre les lots."
     },
     "overview": {
-      "title": "Un système de production organisé pour l'export.",
+      "title": "Un système de production organisé pour l'export",
       "text1": "L'usine HTPLY est organisée pour optimiser le flux des matières, la production, le contrôle et l'emballage.",
       "text2": "Chaque zone a un rôle distinct afin de réduire les écarts dans les opérations et maintenir la constance du produit."
     },
     "flow": {
-      "title": "Du placage au produit fini.",
+      "title": "Du placage au produit fini",
       "steps": [
         { "title": "Sélection des matières", "desc": "Inspection du placage et des matières premières avant leur entrée en production." },
         { "title": "Traitement du placage", "desc": "Agencement et traitement des couches de placage pour garantir une structure de lame stable." },

@@ -123,11 +123,13 @@ export function HtplyProduct({ products }: { products: ProductCard[] }) {
                 <div className="ps-big" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
                 <div className="ps-wrap ps-row-in">
                   <div className="ps-vis">
-                    <div className="ps-frame ps-wipe"><img src={p.image} alt={p.name} loading="lazy" /></div>
+                    <Link href={`/products/${p.slug}`} className="ps-vlink" aria-label={p.name}>
+                      <div className="ps-frame ps-wipe"><img src={p.image} alt={p.name} loading="lazy" /></div>
+                    </Link>
                   </div>
                   <div className="ps-info">
                     <div className="ps-num" data-fade>{String(i + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</div>
-                    <Split text={p.name} />
+                    <Link href={`/products/${p.slug}`} className="ps-tlink"><Split text={p.name} /></Link>
                     {desc && <p data-fade>{desc}</p>}
                     <div className="ps-btns" data-fade>
                       <Link href={`/products/${p.slug}`} className="ps-btn dark">{tp('explore', { name: p.name })} <i>→</i></Link>

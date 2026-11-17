@@ -92,6 +92,32 @@ const applicationsField: Field = {
   ],
 }
 
+// Tài liệu khách tải về (PDF...): dùng cho cả sản phẩm lớn lẫn loại con
+export const DOWNLOAD_TYPES = [
+  { label: 'Catalogue', value: 'catalogue' },
+  { label: 'Datasheet', value: 'datasheet' },
+  { label: 'Test report', value: 'test-report' },
+  { label: 'Certificate', value: 'certificate' },
+  { label: 'Other', value: 'other' },
+]
+
+const downloadsField: Field = {
+  name: 'downloads',
+  type: 'array',
+  label: 'Downloads',
+  labels: { singular: 'Document', plural: 'Documents' },
+  admin: {
+    initCollapsed: true,
+    components: { RowLabel: rowLabel.RowLabel },
+    description: 'Documents customers can download (PDF). Shown in the “Downloads” section of the product page.',
+  },
+  fields: [
+    { name: 'label', type: 'text', label: 'Document name', admin: { placeholder: 'e.g. Standard Form datasheet' } },
+    { name: 'type', type: 'select', label: 'Type', defaultValue: 'datasheet', options: DOWNLOAD_TYPES },
+    { name: 'file', type: 'upload', relationTo: 'media', label: 'File' },
+  ],
+}
+
 const faqField: Field = {
   name: 'faq',
   type: 'array',
@@ -299,6 +325,7 @@ export const Products: CollectionConfig = {
               admin: { rows: 8, description: 'Leave a blank line between paragraphs to start a new one.' },
             },
             faqField,
+            downloadsField,
             {
               name: 'datasheet',
               type: 'upload',

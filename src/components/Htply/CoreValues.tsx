@@ -2,7 +2,7 @@
 
 import { useId, useRef, useState, type CSSProperties } from 'react'
 import { useTranslations } from 'next-intl'
-import { SectionStack } from './SectionStack'
+import { AboutRings } from '@/components/HtplyAbout/AboutRings'
 
 type Value = { title: string; description: string }
 const COLORS = ['#e5b657', '#b5cf50', '#3f7004']
@@ -22,7 +22,7 @@ export function CoreValues() {
 
   return (
     <section id="values" className="dz-sec dz-values">
-      <SectionStack side="r" />
+      <AboutRings seed={3} side="r" />
       <div className="dz-wrap">
         <h2 className="dz-kicker" data-fade>{t('kicker').replace(/^\d+\s*·\s*/, '')}</h2>
         <div className="dz-values-intro" data-fade>
@@ -35,7 +35,9 @@ export function CoreValues() {
               const start = -160 + i * 120
               const end = start + 120
               const middle = (start + end) / 2
-              const [x, y] = point(171, middle)
+              // tên dài (vd Transparency) đặt lùi vào gần tâm hơn một chút để không tràn mép bánh xe
+              const long = item.title.length >= 12
+              const [x, y] = point(long ? 160 : 171, middle)
               return (
                 <g
                   key={item.title}
@@ -68,7 +70,15 @@ export function CoreValues() {
                     fill={COLORS[i]}
                     d={`M${point(232, start)} A232 232 0 0 1 ${point(232, end)} L${point(171, end - 7)} L${point(103, end)} A103 103 0 0 0 ${point(103, start)} L${point(171, start - 7)} Z`}
                   />
-                  <text x={x} y={y + 8} textAnchor="middle">{item.title}</text>
+                  {/* tên dài (vd Transparency, Transparencia) thu nhỏ chữ để không tràn mép bánh xe */}
+                  <text
+                    x={x}
+                    y={y + 8}
+                    textAnchor="middle"
+                    style={long ? { fontSize: 17 } : item.title.length >= 11 ? { fontSize: 19 } : undefined}
+                  >
+                    {item.title}
+                  </text>
                 </g>
               )
             })}
@@ -77,7 +87,6 @@ export function CoreValues() {
           </svg>
           <div className="dz-values-detail" style={{ '--accent': COLORS[current] } as CSSProperties}>
             <p className="dz-values-eyebrow">{t('eyebrow')}</p>
-            <div className="dz-values-line" aria-hidden="true" />
             <div id={detailId} aria-live="polite" aria-atomic="true">
               <div className="dz-values-copy" key={current}>
                 <h3>{value.title}</h3>

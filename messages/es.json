@@ -10,9 +10,9 @@
     "news": "Noticias"
   },
   "home": {
-    "heroKicker": "Contrachapado · Hecho en Vietnam",
+    "heroKicker": "Exportador líder de contrachapado de Vietnam",
     "heroTitle": "Creado para la calidad.",
-    "heroTitleSecondLine": "Hecho para el mundo.",
+    "heroTitleSecondLine": "Hecho para el mundo",
     "heroQuote": "Solicitar cotización",
     "heroProducts": "Explorar productos",
     "about": {
@@ -69,16 +69,16 @@
     },
     "values": {
       "kicker": "03 · Valores fundamentales",
-      "introTitle": "Tres valores que mantienen a HTPLY en el rumbo correcto.",
-      "introText": "Una marca industrial no necesita decir demasiado. Lo que importa es que los clientes puedan prever la calidad, los plazos y nuestra forma de trabajar.",
+      "introTitle": "Calidad que se puede comprobar. Información que se puede ver. Resultados que se repiten.",
+      "introText": "Una marca industrial no necesita decir demasiado. Lo importante es que los clientes puedan comprobar la calidad, ver la información y confiar en el mismo resultado cada vez.",
       "wheelLabel": "Nuestros tres valores fundamentales",
       "centerTop": "NUESTROS",
       "centerBottom": "VALORES",
       "eyebrow": "Nuestros valores fundamentales",
       "items": [
-        { "title": "Fiable", "description": "Calidad constante, información clara y planes de suministro predecibles. Una base fiable para cada pedido." },
-        { "title": "Preciso", "description": "Atención a las especificaciones, control cuidadoso del proceso y menor variación en cada pedido." },
-        { "title": "Largo plazo", "description": "Más allá de un solo envío. Construimos relaciones de suministro duraderas que crecen con nuestros clientes." }
+        { "title": "Calidad", "description": "Cada tablero se revisa con los mismos cinco puntos antes del envío: espesor, humedad, adhesión, dimensiones y superficie. Lo que sale de la fábrica es lo que promete la especificación." },
+        { "title": "Transparencia", "description": "Las especificaciones, fichas técnicas e informes de ensayo están a su alcance antes de pedir. Respondemos con cotizaciones claras, detalles de embalaje y una respuesta franca sobre plazos." },
+        { "title": "Constancia", "description": "El mismo proceso y los mismos controles en cada lote, para que el primer contenedor y el último lleguen idénticos." }
       ],
       "title": "Lo que define cómo trabajamos."
     },
@@ -627,17 +627,24 @@
 }
   },
   "factoryPage": {
+    "eyebrow": "Fábrica HTPLY · Vietnam",
+    "introKicker": "Presentación de la fábrica",
+    "processKicker": "Proceso de producción",
+    "processText": "Selección de materiales, procesado de chapa, encolado, prensado en caliente, acabado e inspección. Vea todo el proceso en un breve vídeo.",
+    "badgeLabel": "Superficie de la fábrica",
+    "captions": ["Nave de producción", "Línea de prensa en caliente", "Prensa multiplatos", "Manejo de chapa", "Armado de chapa"],
+    "video": { "label": "HTPLY Vietnam", "title": "Proceso de producción", "play": "Reproducir vídeo" },
     "hero": {
-      "title": "Donde la calidad comienza con el proceso.",
+      "title": "Donde la calidad comienza con el proceso",
       "text": "Desde la materia prima hasta el embalaje de exportación, cada etapa está organizada para mantener la consistencia entre lotes."
     },
     "overview": {
-      "title": "Un sistema de producción organizado para la exportación.",
+      "title": "Un sistema de producción organizado para la exportación",
       "text1": "La fábrica de HTPLY está organizada para optimizar el flujo de materiales, la producción, la inspección y el embalaje.",
       "text2": "Cada área tiene un rol específico para reducir variaciones en la operación y mantener la consistencia del producto."
     },
     "flow": {
-      "title": "De la chapa al producto terminado.",
+      "title": "De la chapa al producto terminado",
       "steps": [
         { "title": "Selección de materia prima", "desc": "Inspección de la chapa y la materia prima antes de entrar en producción." },
         { "title": "Procesamiento de la chapa", "desc": "Disposición y tratamiento de las capas de chapa para garantizar una estructura de núcleo estable." },

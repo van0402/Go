@@ -33,7 +33,9 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
       <div className="pd-wrap">
         <div className="pd-crumb">
   <Link href="/products">Products</Link>
-  {product.group && <> / {product.group}</>} / <b>{product.name}</b>
+  {product.group && (
+    <> / {product.groupSlug ? <Link href={`/products/${product.groupSlug}`}>{product.group}</Link> : product.group}</>
+  )} / <b>{product.name}</b>
 </div>
 
         <section className="pd-top">
@@ -56,12 +58,6 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
             <div className="pd-sku">{[product.group, product.tagline].filter(Boolean).join(' · ')}</div>
             <h1>{product.name}</h1>
             {product.sub && <p className="pd-sub">{product.sub}</p>}
-
-            <div className="pd-badges">
-              {[...product.tags, 'B2B export', 'Europe · Middle East'].map((b) => (
-                <span className="pd-badge" key={b}>{b}</span>
-              ))}
-            </div>
 
             {product.features.length > 0 && (
               <div className="pd-hl">
@@ -109,13 +105,6 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
           </div>
         </section>
 
-        <div className="pd-facts">
-          <div className="pd-fact"><small>Factory</small><strong>~5,000 m²</strong></div>
-          <div className="pd-fact"><small>Supply capacity</small><strong>80 containers / month</strong></div>
-          <div className="pd-fact"><small>Markets</small><strong>Europe · Middle East</strong></div>
-          <div className="pd-fact"><small>Business type</small><strong>B2B export</strong></div>
-        </div>
-
         {product.description.length > 0 && (
         <section className="pd-block pd-desc">
           <h2>Product description</h2>
@@ -156,23 +145,17 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
         </section>
         )}
 
-        {product.features.length > 0 && (
+        {product.downloads.length > 0 && (
         <section className="pd-block">
-          <h2>Why it matters</h2>
-          <div className="pd-features">
-            {product.features.map((f, i, arr) => {
-              // 3 thẻ mỗi hàng; hàng cuối thiếu thẻ thì các thẻ cuối trải rộng cho khỏi lệch
-              const rest = arr.length % 3
-              const span =
-                rest === 1 && i === arr.length - 1 ? ' wide' : rest === 2 && i >= arr.length - 2 ? ' half' : ''
-              return (
-                <div className={`pd-feature${span}`} key={f.title}>
-                  <i>{i + 1}</i>
-                  <b>{f.title}</b>
-                  <p>{f.text}</p>
-                </div>
-              )
-            })}
+          <h2>Downloads</h2>
+          <div className="pd-dls">
+            {product.downloads.map((d) => (
+              <a key={d.url + d.label} className="pd-dl" href={d.url} target="_blank" rel="noopener noreferrer" download>
+                <span className="pd-dl-ic" aria-hidden="true">{(d.url.split('?')[0].split('.').pop() || 'FILE').slice(0, 4).toUpperCase()}</span>
+                <span className="pd-dl-t"><b>{d.label}</b><small>{[d.type.replace('-', ' '), d.size].filter(Boolean).join(' · ')}</small></span>
+                <span className="pd-dl-go">Download ↓</span>
+              </a>
+            ))}
           </div>
         </section>
         )}

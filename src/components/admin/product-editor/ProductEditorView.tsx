@@ -46,6 +46,12 @@ export default async function ProductEditorView({ initPageResult, params, search
           items: (a.items || []).map((i: any) => i.item || '').filter(Boolean).join('\n'),
         })),
         faq: (p.faq || []).map((f: any) => ({ id: f.id, q: f.q || '', a: f.a || '' })),
+        downloads: (p.downloads || []).map((d: any) => ({
+          id: d.id,
+          label: d.label || '',
+          type: d.type || 'datasheet',
+          file: d.file && typeof d.file === 'object' ? { id: d.file.id, name: d.file.filename || '', size: d.file.filesize || 0 } : null,
+        })),
         related: (p.related || []).map((r: any) => (typeof r === 'object' ? r.id : r)),
         showOnHome: Boolean(p.showOnHome),
         order: typeof p.order === 'number' ? p.order : 100,
