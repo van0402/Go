@@ -897,6 +897,17 @@ export interface Product {
       }[]
     | null;
   /**
+   * Documents customers can download (PDF). Shown in the “Downloads” section of the product page.
+   */
+  downloads?:
+    | {
+        label?: string | null;
+        type?: ('catalogue' | 'datasheet' | 'test-report' | 'certificate' | 'other') | null;
+        file?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  /**
    * Optional. Catalog / datasheet pages shown side by side below the technical data (two per row on desktop, stacked on mobile).
    */
   datasheet?: (number | Media)[] | null;
@@ -1566,6 +1577,14 @@ export interface ProductsSelect<T extends boolean = true> {
     | {
         q?: T;
         a?: T;
+        id?: T;
+      };
+  downloads?:
+    | T
+    | {
+        label?: T;
+        type?: T;
+        file?: T;
         id?: T;
       };
   datasheet?: T;

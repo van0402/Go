@@ -77,7 +77,6 @@ export function CoreValues() {
           </svg>
           <div className="dz-values-detail" style={{ '--accent': COLORS[current] } as CSSProperties}>
             <p className="dz-values-eyebrow">{t('eyebrow')}</p>
-            <div className="dz-values-line" aria-hidden="true" />
             <div id={detailId} aria-live="polite" aria-atomic="true">
               <div className="dz-values-copy" key={current}>
                 <h3>{value.title}</h3>

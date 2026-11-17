@@ -1,16 +1,30 @@
 import type { Product, Media } from '@/payload-types'
-import type { ProductDetail } from '@/data/products'
+import type { ProductDetail, ProductDownload } from '@/data/products'
 
 const has = (v?: string | null) => Boolean(v && v.trim())
+
+const fmtSize = (n?: number | null) => {
+  if (!n) return ''
+  return n >= 1048576 ? `${(n / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(n / 1024))} KB`
+}
+const DL_TYPES = ['catalogue', 'datasheet', 'test-report', 'certificate', 'other']
 
 export function toProductDetail(p: Product): ProductDetail {
   const media = (p.gallery || []).filter((g): g is Media => typeof g === 'object' && !!g)
   const first = media[0]
-  const group = typeof p.parent === 'object' && p.parent ? p.parent.name : ''
+  const parentDoc = typeof p.parent === 'object' && p.parent ? p.parent : null
+  const group = parentDoc ? parentDoc.name : ''
+  const downloads: ProductDownload[] = (p.downloads || []).flatMap((d) => {
+    const f = typeof d.file === 'object' && d.file ? d.file : null
+    if (!f?.url) return []
+    const type = (DL_TYPES.includes(d.type || '') ? d.type : 'other') as ProductDownload['type']
+    return [{ label: has(d.label) ? (d.label as string) : f.filename || 'Document', type, url: f.url, size: fmtSize(f.filesize) }]
+  })
   return {
     slug: p.slug || '',
     name: p.name,
     group,
+    groupSlug: parentDoc?.slug || '',
     tagline: p.tagline || '',
     sub: p.sub || '',
     description: (p.description || '').split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean),
@@ -45,5 +59,6 @@ export function toProductDetail(p: Product): ProductDetail {
       .filter((f) => has(f.q) && has(f.a))
       .map((f) => ({ q: f.q as string, a: f.a as string })),
     related: (p.related || []).map((r) => (typeof r === 'object' ? r.slug || '' : '')),
+    downloads,
   }
 }

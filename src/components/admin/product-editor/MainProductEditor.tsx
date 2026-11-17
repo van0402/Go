@@ -1,6 +1,8 @@
 'use client'
 import React, { useRef, useState } from 'react'
 import type { EditorImage } from './ProductEditor'
+import { ErrorBanner } from './ErrorBanner'
+import { explainError, errorToText } from './errors'
 
 export type MainProduct = {
   id?: number
@@ -46,11 +48,11 @@ export function MainProductEditor({ initial, notFound, mains }: Props) {
       fd.append('_payload', JSON.stringify({ alt: name || file.name.replace(/\.[^.]+$/, '') }))
       const res = await fetch('/api/media', { method: 'POST', body: fd, credentials: 'same-origin' })
       const json = await res.json().catch(() => ({}))
-      if (!res.ok) throw new Error(json?.errors?.[0]?.message || `Upload failed (${res.status})`)
+      if (!res.ok) throw new Error(explainError(res.status, json))
       const d = json.doc
       setImage({ id: d.id, url: d.sizes?.large?.url || d.sizes?.medium?.url || d.url, thumb: d.sizes?.thumbnail?.url || d.url })
-    } catch (e: any) {
-      setMsg({ kind: 'err', text: e?.message || 'Upload failed' })
+    } catch (e) {
+      setMsg({ kind: 'err', text: errorToText(e) })
     }
     setBusy('')
   }
@@ -81,19 +83,15 @@ export function MainProductEditor({ initial, notFound, mains }: Props) {
         body: JSON.stringify(body),
       })
       const json = await res.json().catch(() => ({}))
-      if (!res.ok) {
-        const e = json?.errors?.[0]
-        const detail = e?.data?.errors?.map((x: any) => x.message).join(', ')
-        throw new Error([e?.message, detail].filter(Boolean).join(': ') || `Save failed (${res.status})`)
-      }
+      if (!res.ok) throw new Error(explainError(res.status, json))
       const doc = json.doc
       setId(doc.id)
       setSlug(doc.slug || slug)
       setStatus(doc._status === 'published' ? 'published' : 'draft')
       if (!id) window.history.replaceState(null, '', `/admin/main-product-editor?id=${doc.id}`)
       setMsg({ kind: 'ok', text: kind === 'publish' ? 'Published.' : 'Draft saved.' })
-    } catch (e: any) {
-      setMsg({ kind: 'err', text: e?.message || 'Save failed' })
+    } catch (e) {
+      setMsg({ kind: 'err', text: errorToText(e) })
     }
     setBusy('')
   }
@@ -128,6 +126,8 @@ export function MainProductEditor({ initial, notFound, mains }: Props) {
           </select>
         </label>
       </div>
+
+      <ErrorBanner text={msg?.kind === 'err' ? msg.text : null} onClose={() => setMsg(null)} />
 
       <section className="ped-panel" style={{ maxWidth: 820 }}>
         <div className="ped-form">
@@ -174,7 +174,7 @@ export function MainProductEditor({ initial, notFound, mains }: Props) {
       <div className="ped-footer">
         <div className="ped-status">
           <span className={`ped-pill ${status}`}>{status === 'published' ? 'Published' : 'Draft'}</span>
-          {msg && <span className={`ped-msg ${msg.kind}`}>{msg.text}</span>}
+          {msg && <span className={`ped-msg ${msg.kind}`}>{msg.kind === 'err' ? 'Not saved. Please read the red message at the top.' : msg.text}</span>}
         </div>
         <div className="ped-actions">
           {id && (

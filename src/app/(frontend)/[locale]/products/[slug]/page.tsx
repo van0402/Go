@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { cache } from 'react'
 import { toProductDetail } from '@/utilities/toProductDetail'
 import { HtplyProductDetail } from '@/components/HtplyProductDetail/HtplyProductDetail'
+import { HtplyProductFamily } from '@/components/HtplyProductFamily/HtplyProductFamily'
 
 type Locale = 'en' | 'fr' | 'es'
 type Args = { params: Promise<{ locale: Locale; slug: string }> }
@@ -34,6 +35,23 @@ export default async function Page({ params }: Args) {
   if (!doc) notFound()
 
   const product = toProductDetail(doc)
+
+  // Sản phẩm lớn có loại con đã Publish: hiện trang "nhóm sản phẩm" (loại con + tài liệu tải về)
+  if (!doc.parent) {
+    const kidsRes = await (await getPayload({ config: configPromise })).find({
+      collection: 'products',
+      locale,
+      fallbackLocale: 'en',
+      depth: 2,
+      limit: 50,
+      pagination: false,
+      sort: 'order',
+      where: { and: [{ parent: { equals: doc.id } }, { _status: { equals: 'published' } }] },
+    })
+    if (kidsRes.docs.length > 0) {
+      return <HtplyProductFamily product={product} kids={kidsRes.docs.map((k) => toProductDetail(k))} />
+    }
+  }
   // chỉ hiện sản phẩm liên quan đã Publish
   const related = (doc.related || [])
     .filter((r) => typeof r === 'object' && r._status === 'published')

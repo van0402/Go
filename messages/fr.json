@@ -662,17 +662,24 @@
 }
   },
   "factoryPage": {
+    "eyebrow": "Usine HTPLY · Vietnam",
+    "introKicker": "Présentation de l'usine",
+    "processKicker": "Processus de production",
+    "processText": "Sélection des matières, traitement du placage, encollage, pressage à chaud, finition et contrôle. Découvrez tout le processus en un court film.",
+    "badgeLabel": "Surface de l'usine",
+    "captions": ["Atelier de production", "Ligne de presse à chaud", "Presse multi-plateaux", "Manutention du placage", "Assemblage du placage"],
+    "video": { "label": "HTPLY Vietnam", "title": "Processus de production", "play": "Lire la vidéo" },
     "hero": {
-      "title": "Là où la qualité commence par le processus.",
+      "title": "Là où la qualité commence par le processus",
       "text": "Des matières premières à l'emballage export, chaque étape est organisée pour garantir la constance entre les lots."
     },
     "overview": {
-      "title": "Un système de production organisé pour l'export.",
+      "title": "Un système de production organisé pour l'export",
       "text1": "L'usine HTPLY est organisée pour optimiser le flux des matières, la production, le contrôle et l'emballage.",
       "text2": "Chaque zone a un rôle distinct afin de réduire les écarts dans les opérations et maintenir la constance du produit."
     },
     "flow": {
-      "title": "Du placage au produit fini.",
+      "title": "Du placage au produit fini",
       "steps": [
         { "title": "Sélection des matières", "desc": "Inspection du placage et des matières premières avant leur entrée en production." },
         { "title": "Traitement du placage", "desc": "Agencement et traitement des couches de placage pour garantir une structure de lame stable." },

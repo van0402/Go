@@ -633,17 +633,24 @@
 }
 },
   "factoryPage": {
+    "eyebrow": "HTPLY Factory · Vietnam",
+    "introKicker": "Factory introduction",
+    "processKicker": "Production process",
+    "processText": "Material selection, veneer processing, glue application, hot pressing, finishing and inspection. See the whole process in one short film.",
+    "badgeLabel": "Factory footprint",
+    "captions": ["Production hall", "Hot press line", "Multi-layer press", "Veneer handling", "Veneer lay-up"],
+    "video": { "label": "HTPLY Vietnam", "title": "Production process", "play": "Play video" },
     "hero": {
-      "title": "Where quality begins with process.",
+      "title": "Where quality begins with process",
       "text": "From raw materials to export packaging, every stage is organized to maintain consistency across batches."
     },
     "overview": {
-      "title": "A production system organized for export.",
+      "title": "A production system organized for export",
       "text1": "The HTPLY factory is organized to optimize material flow, production, inspection and packaging.",
       "text2": "Each area has a distinct role to reduce variation in operations and maintain product consistency."
     },
     "flow": {
-      "title": "From veneer to finished product.",
+      "title": "From veneer to finished product",
       "steps": [
         { "title": "Material selection", "desc": "Inspecting veneer and raw materials before they enter production." },
         { "title": "Veneer processing", "desc": "Arranging and treating veneer layers to ensure a stable core structure." },

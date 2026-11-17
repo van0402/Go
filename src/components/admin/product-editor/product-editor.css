@@ -109,3 +109,17 @@
   .htply-ped .ped-row.one .ped-x { grid-row: auto; }
   .htply-ped .ped-footer { padding: 10px 14px; }
 }
+.htply-ped .ped-alert { position: relative; display: block; margin: 0 0 18px; padding: 16px 48px 16px 18px; border: 1px solid #f0b4b4; border-left: 5px solid #d34747; border-radius: 12px; background: #fdecec; color: #8f2a2a; box-shadow: 0 8px 24px rgba(211, 71, 71, 0.12); }
+.htply-ped .ped-alert b { display: block; margin-bottom: 4px; font-size: 15px; }
+.htply-ped .ped-alert p { margin: 0; font-size: 14px; line-height: 1.55; }
+.htply-ped .ped-alert button { position: absolute; right: 10px; top: 8px; width: 30px; height: 30px; border: 0; border-radius: 50%; background: transparent; color: #8f2a2a; font-size: 22px; line-height: 1; cursor: pointer; }
+.htply-ped .ped-alert button:hover { background: rgba(211, 71, 71, 0.15); }
+.htply-ped .ped-doc { display: grid; grid-template-columns: 44px 1fr 150px auto; gap: 12px; align-items: center; margin-top: 10px; padding: 12px 14px; }
+.htply-ped .ped-doc-ic { display: grid; place-items: end center; width: 40px; height: 48px; padding-bottom: 6px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: #c0392b; font-size: 10px; font-weight: 700; }
+.htply-ped .ped-doc-main { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.htply-ped .ped-doc-main input { width: 100%; }
+.htply-ped .ped-doc-main small { color: #7c8798; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.htply-ped .ped-doc-act { display: flex; gap: 4px; }
+.htply-ped .ped-doc-act button { width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: pointer; }
+.htply-ped .ped-doc-act button:disabled { opacity: 0.35; cursor: default; }
+@media (max-width: 760px) { .htply-ped .ped-doc { grid-template-columns: 44px 1fr; } .htply-ped .ped-doc select, .htply-ped .ped-doc-act { grid-column: 1 / 3; } }
