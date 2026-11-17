@@ -36,7 +36,7 @@
 .htply-factory-page .ft-head .ft-title{margin:0;max-width:none}
 .htply-factory-page .ft-kick{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
 .htply-factory-page .ft-kick::before{content:"";width:36px;height:2px;background:var(--picton)}
-.htply-factory-page .ft-head p{margin:0;max-width:980px;font-size:17px;line-height:1.75;font-weight:300;color:var(--mute)}
+.htply-factory-page .ft-head p{margin:0;max-width:none;font-size:17px;line-height:1.75;font-weight:300;color:var(--mute)}
 .htply-factory-page .ft-head p+p{margin-top:14px}
 .htply-factory-page .ft-bignum{position:absolute;z-index:0;right:-1%;top:30px;font-size:clamp(200px,28vw,420px);font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--ice);pointer-events:none;user-select:none}
 .htply-factory-page .ft-bignum.l{right:auto;left:-1%;color:rgba(255,255,255,.04)}
