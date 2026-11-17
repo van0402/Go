@@ -4,90 +4,88 @@ import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { useTranslations } from 'next-intl'
 import './history-ribbon.css'
 
-// Dòng thời gian "dải lụa": một dải màu uốn lượn từ trái sang phải, mỗi mốc là một nút trên dải kèm khối chữ.
+// Dòng thời gian "dải lụa" theo bản demo htply-ribbon-reference-demo: một dải màu thon dần uốn lượn từ dưới lên,
+// mỗi mốc có chữ năm, tiêu đề, mô tả và đường kẻ nối tới chấm trên dải.
 // Hình học tính một lần ở mức module (không phụ thuộc trình duyệt) nên server và client cho cùng kết quả.
 
 type Milestone = { title: string; desc: string }
 const YEARS = ['2021', '2022', '2023', '2024', '2026']
 
-const W = 1000
-const WIDTH = 74 // độ rộng dải
-const X0 = -70
-const X1 = 1070
-// Đường thoải hơn (biên độ nhỏ, độ dốc nhẹ) để cả khối thấp hơn
-const Y = (x: number) => 300 - 0.1 * (x - 500) + 60 * Math.sin((x - 70) / 150)
+const K = 0.8 // ép dọc để khối thấp hơn bản demo gốc (1 = giữ nguyên)
+const S = 1.2 // nở bề rộng dải (1 = giữ nguyên)
+const SHIFT = 64 // dịch cả khối sang trái bao nhiêu đơn vị (0 = như bản demo)
 
-const STOPS: [number, string][] = [
-  [0, '#7652b0'], [0.2, '#9063c0'], [0.38, '#6795df'], [0.54, '#4fc3d4'],
-  [0.7, '#9ed15e'], [0.85, '#f1cf58'], [1, '#e79fcf'],
-]
-const hex = (h: string) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16))
-const toHex = (a: number[]) => '#' + a.map((v) => Math.round(v).toString(16).padStart(2, '0')).join('')
-function colorAt(t: number) {
-  t = Math.min(1, Math.max(0, t))
-  for (let i = 1; i < STOPS.length; i++) {
-    if (t <= STOPS[i][0]) {
-      const [t0, c0] = STOPS[i - 1]
-      const [t1, c1] = STOPS[i]
-      const k = (t - t0) / (t1 - t0)
-      const a = hex(c0), b = hex(c1)
-      return toHex(a.map((v, j) => v + (b[j] - v) * k))
+// 6 đoạn Bézier bậc 3 của đường tâm (tọa độ gốc của bản demo), ép theo trục y
+const CURVES: [number, number][][] = (
+  [
+    [[680, 825], [930, 690], [900, 645], [525, 640]],
+    [[525, 640], [170, 635], [130, 530], [300, 503]],
+    [[300, 503], [470, 478], [775, 493], [705, 418]],
+    [[705, 418], [645, 353], [475, 357], [690, 320]],
+    [[690, 320], [895, 283], [970, 304], [880, 255]],
+    [[880, 255], [790, 206], [860, 200], [1000, 180]],
+  ] as [number, number][][]
+).map((c) => c.map(([x, y]) => [x, y * K] as [number, number]))
+
+// Đường tâm (cho hiệu ứng vẽ dần / vệt sáng) và đa giác dải thon dần (bề rộng 52 → 9 trong bản gốc)
+const { CENTER, POLY, SAMPLES } = (() => {
+  const left: [number, number][] = []
+  const right: [number, number][] = []
+  const samples: { x: number; y: number; len: number }[] = []
+  let len = 0
+  let prev: [number, number] | null = null
+  CURVES.forEach((c, j) => {
+    for (let k = 0; k <= 100; k++) {
+      if (j && k === 0) continue
+      const t = k / 100
+      const u = 1 - t
+      const x = u ** 3 * c[0][0] + 3 * u * u * t * c[1][0] + 3 * u * t * t * c[2][0] + t ** 3 * c[3][0]
+      const y = u ** 3 * c[0][1] + 3 * u * u * t * c[1][1] + 3 * u * t * t * c[2][1] + t ** 3 * c[3][1]
+      const dx = 3 * u * u * (c[1][0] - c[0][0]) + 6 * u * t * (c[2][0] - c[1][0]) + 3 * t * t * (c[3][0] - c[2][0])
+      const dy = 3 * u * u * (c[1][1] - c[0][1]) + 6 * u * t * (c[2][1] - c[1][1]) + 3 * t * t * (c[3][1] - c[2][1])
+      const n = Math.hypot(dx, dy) || 1
+      const w = (S * (52 - (43 * (j + t)) / 6)) / 2
+      left.push([x - (dy / n) * w, y + (dx / n) * w])
+      right.push([x + (dy / n) * w, y - (dx / n) * w])
+      if (prev) len += Math.hypot(x - prev[0], y - prev[1])
+      prev = [x, y]
+      samples.push({ x, y, len })
+    }
+  })
+  const pts = [...left, ...right.reverse()]
+  const poly = 'M' + pts.map(([x, y]) => `${x.toFixed(2)},${y.toFixed(2)}`).join(' L') + ' Z'
+  const f = (n: number) => n.toFixed(1)
+  const center =
+    `M${f(CURVES[0][0][0])},${f(CURVES[0][0][1])}` +
+    CURVES.map((c) => ` C${f(c[1][0])},${f(c[1][1])} ${f(c[2][0])},${f(c[2][1])} ${f(c[3][0])},${f(c[3][1])}`).join('')
+  return { CENTER: center, POLY: poly, SAMPLES: samples }
+})()
+const TOTAL = SAMPLES[SAMPLES.length - 1].len
+// tỉ lệ chiều dài đường tâm tính tới điểm gần (x, y) nhất
+const fracNear = (x: number, y: number) => {
+  let best = SAMPLES[0]
+  let bd = Infinity
+  for (const s of SAMPLES) {
+    const d = (s.x - x) ** 2 + (s.y - y) ** 2
+    if (d < bd) {
+      bd = d
+      best = s
     }
   }
-  return STOPS[STOPS.length - 1][1]
+  return best.len / TOTAL
 }
-const darker = (c: string, f: number) => toHex(hex(c).map((v) => v * f))
 
-// Đường tâm: lấy mẫu rồi nối Catmull-Rom → Bézier cho mượt
-const PATH = (() => {
-  const pts: [number, number][] = []
-  for (let x = X0; x <= X1; x += 14) pts.push([x, Y(x)])
-  let d = `M${pts[0][0]},${pts[0][1].toFixed(1)}`
-  for (let i = 0; i < pts.length - 1; i++) {
-    const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2
-    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6]
-    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6]
-    d += ` C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`
-  }
-  return d
-})()
-
-// Tỉ lệ chiều dài đường tới x (để tô sáng đoạn dải từ đầu tới mốc)
-const CUM = (() => {
-  const out: [number, number][] = []
-  let acc = 0, px = X0, py = Y(X0)
-  for (let x = X0; x <= X1; x += 1) {
-    const y = Y(x)
-    acc += Math.hypot(x - px, y - py)
-    px = x
-    py = y
-    out.push([x, acc])
-  }
-  return out
-})()
-const fracAt = (x: number) => (CUM.find(([cx]) => cx >= x) ?? CUM[CUM.length - 1])[1] / CUM[CUM.length - 1][1]
-
-// Vị trí các mốc: so le trên / dưới dải
+// Vị trí chữ và đường kẻ của từng mốc (tọa độ gốc của bản demo). lead: các điểm của đường kẻ trước chấm, dot: chấm trên dải
 const SLOTS = [
-  { x: 150, pos: 'above' as const },
-  { x: 345, pos: 'below' as const },
-  { x: 545, pos: 'above' as const, bx: 372 },
-  { x: 745, pos: 'below' as const },
-  { x: 915, pos: 'above' as const, bx: 712 },
-]
-const GAP_UP = 56
-const GAP_DOWN = 50
-
-// Khoảng y mà dải chiếm (cộng nửa bề rộng và bóng đổ) để cắt khung vừa khít
-const RIB = (() => {
-  let lo = Infinity, hi = -Infinity
-  for (let x = 0; x <= W; x += 10) {
-    const y = Y(x)
-    lo = Math.min(lo, y)
-    hi = Math.max(hi, y)
-  }
-  return { top: lo - WIDTH / 2 - 4, bottom: hi + WIDTH / 2 + 34 }
-})()
+  { x: 815, y: 548, lx: 790, dy: -110, wrapAt: 24, col: '#a984dc', dot: [767, 679], lead: [[802, 631], [788, 631]] },
+  { x: 65, y: 350, lx: 90, dy: -18, col: '#86a8ee', dot: [218, 524], lead: [[167, 458], [167, 482]] },
+  { x: 356, y: 214, col: '#4fc3d4', dot: [511, 480], lead: [[487, 328], [511, 355]] },
+  { x: 600, y: 108, col: '#a6d867', dot: [747, 310], lead: [[711, 222], [711, 256]] },
+  { x: 827, y: 46, lx: 790, dy: -26, wrapAt: 26, col: '#efc95e', dot: [977, 184], lead: [[960, 157], [977, 172]] },
+] as readonly {
+  x: number; y: number; lx?: number; dy?: number; wrapAt?: number; col: string
+  dot: readonly [number, number]; lead: readonly (readonly [number, number])[]
+}[]
 
 function wrap(text: string, max: number) {
   const out: string[] = []
@@ -133,28 +131,30 @@ export function HistoryRibbon() {
 
   const events = items.slice(0, SLOTS.length).map((item, i) => {
     const s = SLOTS[i]
-    const y = Y(s.x)
-    const col = colorAt(s.x / W)
-    const lines = wrap(item.desc, 34)
-    const blockH = 106 + 15 * (lines.length - 1) + 12
-    const bx = s.bx ?? Math.min(W - 215, Math.max(28, s.x - 22))
-    const top = s.pos === 'above' ? y - GAP_UP - blockH : y + GAP_DOWN
-    const edge = s.pos === 'above' ? top + blockH + 4 : top - 4
-    const title = item.title.toUpperCase()
+    const ty = s.y * K + (s.dy ?? 0) // mép trên khối chữ sau khi ép dọc
+    const lx = s.lx ?? s.x // vị trí ngang của khối chữ (có thể lệch so với bản demo để khỏi chạm dải)
+    const lines = wrap(item.desc, s.wrapAt ?? 30)
+    // mô tả dài hơn 2 dòng thì đẩy phần đầu đường kẻ nằm dưới khối chữ xuống theo
+    const shift = 17 * Math.max(0, lines.length - 2)
+    const lead = s.lead.map(([px, py]) => {
+      const dy = py - s.y
+      return [px + (lx - s.x), ty + dy + (dy >= 100 ? shift : 0)] as [number, number]
+    })
+    const dot: [number, number] = [s.dot[0], s.dot[1] * K]
+    const pts = [...lead, dot]
+    const leader = 'M' + pts.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join(' L')
+    const last = i === items.length - 1
+    const frac = fracNear(dot[0], dot[1])
     return {
-      i, y, col, tc: darker(col, 0.84), lines, bx, top, edge, title, blockH,
-      x: s.x, pos: s.pos,
-      nodeEdge: s.pos === 'above' ? y - 18 : y + 18,
-      tagW: Math.max(110, title.length * 8.2 + 26),
-      delay: (0.35 + 2.0 * ((s.x - X0) / (X1 - X0))).toFixed(2),
-      frac: fracAt(s.x),
-      cap: i === items.length - 1 ? t('futureLabel') : '',
+      i, x: lx, ty, col: s.col, lines, leader, dot, title: item.title,
+      cap: last ? t('futureLabel') : '',
+      frac,
+      delay: (0.3 + 2.2 * frac).toFixed(2),
     }
   })
 
-  // Khung cắt sát nội dung: từ mép trên của khối chữ/dải cao nhất tới mép dưới thấp nhất
-  const minY = Math.min(RIB.top, ...events.map((e) => e.top)) - 8
-  const maxY = Math.max(RIB.bottom, ...events.map((e) => (e.pos === 'below' ? e.top + e.blockH : e.y))) + 8
+  const minY = Math.min(...events.map((e) => e.ty - (e.cap ? 22 : 8)))
+  const maxY = 570 // cắt phần đầu dải ở phía dưới, hai đầu mờ dần vào nền
 
   const select = (i: number) => {
     setActive(i)
@@ -165,34 +165,47 @@ export function HistoryRibbon() {
 
   return (
     <div className={`hr${go ? ' go' : ''}${hot ? ' hot' : ''}`} ref={root}>
-      <svg className="hr-svg" viewBox={`0 ${minY.toFixed(0)} ${W} ${(maxY - minY).toFixed(0)}`} role="group" aria-label={t('milestonesLabel')}>
+      <svg className="hr-svg" viewBox={`${SHIFT} ${minY.toFixed(0)} 1000 ${(maxY - minY).toFixed(0)}`} role="group" aria-label={t('milestonesLabel')}>
         <defs>
-          <linearGradient id="hr-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={W} y2="0">
-            {STOPS.map(([o, c]) => <stop key={o} offset={o} stopColor={c} />)}
+          <linearGradient id="hr-g" gradientUnits="userSpaceOnUse" x1="0" y1={800 * K} x2="0" y2={180 * K}>
+            <stop offset="0" stopColor="#7652b0" />
+            <stop offset=".25" stopColor="#9063c0" />
+            <stop offset=".43" stopColor="#6795df" />
+            <stop offset=".58" stopColor="#75a6e6" />
+            <stop offset=".68" stopColor="#5fcbd6" />
+            <stop offset=".79" stopColor="#add66b" />
+            <stop offset=".88" stopColor="#b0d973" />
+            <stop offset=".94" stopColor="#f4d765" />
+            <stop offset="1" stopColor="#dd9acc" />
           </linearGradient>
-          <linearGradient id="hr-gd" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={W} y2="0">
-            {STOPS.map(([o, c]) => <stop key={o} offset={o} stopColor={darker(c, 0.78)} />)}
-          </linearGradient>
-          <filter id="hr-blur" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="11" /></filter>
-          <filter id="hr-soft" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="5" /></filter>
+          <clipPath id="hr-clip"><path d={POLY} /></clipPath>
+          <mask id="hr-reveal" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1200" height="900">
+            <path className="hr-rev" pathLength={1} d={CENTER} stroke="#fff" strokeWidth="90" fill="none" />
+          </mask>
+          <filter id="hr-soft" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="4" /></filter>
         </defs>
+
         <g aria-hidden="true">
-          <path className="hr-rb" pathLength={1} d={PATH} stroke="#0b1220" strokeOpacity=".42" strokeWidth={WIDTH - 4} filter="url(#hr-blur)" transform="translate(0 26)" />
-          <path className="hr-rb" pathLength={1} d={PATH} stroke="url(#hr-gd)" strokeWidth={WIDTH} transform="translate(0 9)" />
-          <path className="hr-rb" pathLength={1} d={PATH} stroke="url(#hr-g)" strokeWidth={WIDTH} />
-          <path className="hr-dots" pathLength={1} d={PATH} stroke="#fff" strokeOpacity=".38" strokeWidth="2" />
-          <path className="hr-prog" pathLength={1} d={PATH} strokeWidth={WIDTH} style={{ strokeDasharray: hot ? `${cur.frac} 1.2` : '0 1.2' }} />
-          <path className="hr-sheen" pathLength={1} d={PATH} strokeWidth="30" filter="url(#hr-soft)" />
+          <g mask="url(#hr-reveal)">
+            <path d={POLY} fill="#0b1220" opacity=".38" transform="translate(0 12)" />
+            <path d={POLY} fill="url(#hr-g)" transform="translate(0 7)" style={{ filter: 'brightness(.78)' }} />
+            <path d={POLY} fill="url(#hr-g)" />
+            <g clipPath="url(#hr-clip)">
+              <path className="hr-prog" pathLength={1} d={CENTER} strokeWidth="80" style={{ strokeDasharray: hot ? `${cur.frac} 1.2` : '0 1.2' }} />
+              <path className="hr-sheen" pathLength={1} d={CENTER} strokeWidth="26" filter="url(#hr-soft)" />
+            </g>
+          </g>
         </g>
+
         {events.map((e) => (
           <g
             key={e.i}
             className={`hr-event${active === e.i ? ' on' : ''}`}
             role="button"
             tabIndex={0}
-            aria-label={`${YEARS[e.i]} ${items[e.i].title}`}
+            aria-label={`${YEARS[e.i]} ${e.title}`}
             aria-pressed={active === e.i}
-            style={{ '--d': `${e.delay}s`, '--c': e.col, '--tc': e.tc } as CSSProperties}
+            style={{ '--d': `${e.delay}s`, '--c': e.col } as CSSProperties}
             onPointerEnter={(ev) => { if (ev.pointerType === 'mouse') select(e.i) }}
             onPointerLeave={(ev) => { if (ev.pointerType === 'mouse') rest() }}
             onFocus={() => select(e.i)}
@@ -205,21 +218,18 @@ export function HistoryRibbon() {
               }
             }}
           >
-            <path className="hr-leader" d={`M${e.x},${e.nodeEdge.toFixed(1)}V${e.edge.toFixed(1)}`} />
-            <circle className="hr-lead-dot" cx={e.x} cy={e.edge.toFixed(1)} r="3" />
-            <g className="hr-node" transform={`translate(${e.x} ${e.y.toFixed(1)})`}>
-              <circle className="hr-pulse" r="15" />
-              <circle className="hr-halo" r="22" />
-              <circle className="hr-ring" r="15" />
-              <circle className="hr-core" r="6.5" />
+            <path className="hr-leader" d={e.leader} />
+            <g className="hr-node" transform={`translate(${e.dot[0]} ${e.dot[1].toFixed(1)})`}>
+              <circle className="hr-pulse" r="8" />
+              <circle className="hr-halo" r="11" />
+              <circle className="hr-dot" r="4.6" />
             </g>
             <g className="hr-label">
-              {e.cap && <text className="hr-tiny hr-cap" x={e.bx} y={(e.top + 13).toFixed(1)}>{e.cap}</text>}
-              <text className="hr-year" x={e.bx} y={(e.top + 56).toFixed(1)}>{YEARS[e.i]}</text>
-              <rect className="hr-tag" x={e.bx} y={(e.top + 66).toFixed(1)} width={e.tagW.toFixed(0)} height="24" rx="12" />
-              <text className="hr-name" x={e.bx + 12} y={(e.top + 82).toFixed(1)}>{e.title}</text>
+              {e.cap && <text className="hr-cap" x={e.x} y={(e.ty - 8).toFixed(1)}>{e.cap}</text>}
+              <text className="hr-year" x={e.x} y={(e.ty + 35).toFixed(1)}>{YEARS[e.i]}</text>
+              <text className="hr-title" x={e.x} y={(e.ty + 62).toFixed(1)}>{e.title}</text>
               {e.lines.map((ln, k) => (
-                <text key={k} className="hr-tiny hr-line" x={e.bx} y={(e.top + 106 + 15 * k).toFixed(1)}>{ln}</text>
+                <text key={k} className="hr-desc" x={e.x} y={(e.ty + 84 + 17 * k).toFixed(1)}>{ln}</text>
               ))}
             </g>
           </g>
