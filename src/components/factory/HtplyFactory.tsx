@@ -57,10 +57,6 @@ export function HtplyFactory() {
             <div className="ft-hero-bg" />
           </div>
           <div className="ft-wrap ft-hero-in">
-            <span className="ft-pill">
-              <b />
-              {tf('eyebrow')}
-            </span>
             <Split text={tf('hero.title')} as="h1" />
             <p className="ft-sub" data-fade>
               {tf('hero.text')}

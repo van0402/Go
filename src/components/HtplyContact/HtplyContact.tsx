@@ -59,7 +59,6 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
   const formRef = useRef<HTMLFormElement>(null)
 
   const title = t('formTitle')
-  const badges = t.raw('badges') as string[]
   // Danh sách sản phẩm gom theo sản phẩm lớn (optgroup); sản phẩm lớn không có loại con đứng riêng
   const groups = products.reduce<{ name: string; items: ProductChoice[] }[]>((acc, p) => {
     const name = p.group ?? ''
@@ -158,7 +157,6 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
             <div className="ct-plane"><Layers /></div>
           </div>
           <div className="ct-top-in">
-            <div className="ct-eyebrow">{t('eyebrow')}</div>
             <h1 aria-label={title}>
               {title.split(' ').map((w, i, a) => (
                 <span key={i} aria-hidden="true">
@@ -168,7 +166,6 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
               ))}
             </h1>
             <p className="ct-sub">{t('formSubtitle')}</p>
-            {badges[3] && <div className="ct-reply">{badges[3]}</div>}
           </div>
         </section>
 

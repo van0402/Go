@@ -8,7 +8,7 @@ import { CountUp } from '@/components/Htply/CountUp'
 import { SplitTitle } from '@/components/Htply/SplitTitle'
 import { AboutRings } from './AboutRings'
 import { ExportMap } from './ExportMap'
-import { JourneyRoad } from './JourneyRoad'
+import { HistoryRibbon } from './HistoryRibbon'
 import { AboutFx } from './AboutFx'
 import './about-dreamy.css'
 
@@ -157,11 +157,11 @@ export function HtplyAbout() {
           </section>
 
           {/* 05 · History */}
-          <section className="ad-sec" style={{ paddingBottom: 150 }}>
+          <section className="ad-sec" style={{ paddingBottom: 80 }}>
             <div className="ad-wrap">
               <h2 className="ad-kicker" data-fade>History</h2>
               <SplitTitle as="h3" text={tp('history.title')} />
-              <JourneyRoad />
+              <HistoryRibbon />
             </div>
           </section>
         </div>

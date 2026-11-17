@@ -160,20 +160,28 @@ export function ExportMap() {
           {t('origin')} → {selected === null ? t('globalMarkets') : countryName(selected)}
         </p>
       </div>
+      {/* Một hàng cờ chạy ngang liên tục: bộ nút được vẽ 2 lần để vòng lặp liền mạch; bản thứ hai chỉ để chạy, ẩn khỏi trình đọc màn hình */}
       <div className="flagbar" role="group" aria-label={t('explore')}>
-        {MAP_POINTS.map((point, i) => (
-          <button
-            key={point.id} type="button" className={`flag-button${active === i ? ' active' : ''}`}
-            aria-pressed={selected === i} aria-controls={statusId}
-            onPointerEnter={(event) => { if (event.pointerType === 'mouse') setPreview(i) }}
-            onPointerLeave={() => setPreview(null)}
-            onFocus={() => setPreview(i)} onBlur={() => setPreview(null)}
-            onClick={() => toggle(i)}
-          >
-            <img src={point.flag} alt="" width={29} height={19} />
-            {locale === 'en' ? point.short : countryName(i)}
-          </button>
-        ))}
+        <div className="flag-track">
+          {[0, 1].map((copy) => (
+            <div className="flag-set" key={copy} aria-hidden={copy === 1 ? true : undefined}>
+              {MAP_POINTS.map((point, i) => (
+                <button
+                  key={point.id} type="button" className={`flag-button${active === i ? ' active' : ''}`}
+                  aria-pressed={copy === 0 ? selected === i : undefined} aria-controls={copy === 0 ? statusId : undefined}
+                  tabIndex={copy === 1 ? -1 : undefined}
+                  onPointerEnter={(event) => { if (event.pointerType === 'mouse') setPreview(i) }}
+                  onPointerLeave={() => setPreview(null)}
+                  onFocus={() => setPreview(i)} onBlur={() => setPreview(null)}
+                  onClick={() => toggle(i)}
+                >
+                  <img src={point.flag} alt="" width={29} height={19} />
+                  {locale === 'en' ? point.short : countryName(i)}
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
