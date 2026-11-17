@@ -5,10 +5,9 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
 import { useParallax } from '@/hooks/useParallax'
 
-const HERO_VIDEO =
-  process.env.NODE_ENV === 'development'
-    ? 'http://103.56.160.214:3101/api/media/file/htply-process-23s.mp4'
-    : '/api/media/file/htply-process-23s.mp4'
+// Video nằm ngay trong thư mục public của code (public/videos) nên chạy giống nhau ở local và trên VPS, không cần tải lên admin.
+// Video có cả âm thanh trong file, nhưng trình duyệt chỉ cho tự phát khi tắt tiếng nên banner để muted.
+const HERO_VIDEO = '/videos/htply-process-21s.mp4'
 
 // Khung hình lấy từ chính video: ảnh hiện ngay khi vào trang, video chạy đè lên nên nền không bị chớp tối → sáng
 const HERO_POSTER = '/images/home/hero-poster.jpg'
