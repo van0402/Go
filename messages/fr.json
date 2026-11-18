@@ -166,7 +166,7 @@
       "stats": [
         { "value": "5 000 m²", "label": "Surface de l'usine" },
         { "value": "60", "label": "Conteneurs / mois (production)" },
-        { "value": "80", "label": "Conteneurs / mois (approvisionnement)" },
+        { "value": "60", "label": "Conteneurs / mois (approvisionnement)" },
         { "value": "30 jours", "label": "Délai de livraison moyen" }
       ],
       "lead": "Une seule usine, des volumes planifiés et un process clair de la matière au conteneur, pour que les grosses commandes restent dans les délais.",
@@ -421,7 +421,7 @@
     },
     "intro": {
       "title": "Une marque vietnamienne de contreplaqué tournée vers le marché mondial",
-      "text": "HTPLY VIETNAM a été fondée en 2021, spécialisée dans le contreplaqué et les panneaux de bois industriels pour le marché B2B international. Avec une usine d'environ 5 000 m² et une capacité d'approvisionnement allant jusqu'à 80 conteneurs/mois, HTPLY développe ses gammes de contreplaqué filmé, antidérapant et industriel, tout en ciblant les marchés européen et moyen-oriental. L'entreprise fonde sa stratégie d'expansion internationale sur une qualité constante, une capacité d'approvisionnement fiable et un développement durable."
+      "text": "HTPLY VIETNAM a été fondée en 2021, spécialisée dans le contreplaqué et les panneaux de bois industriels pour le marché B2B international. Avec une usine d'environ 5 000 m² et une capacité d'approvisionnement allant jusqu'à 60 conteneurs/mois, HTPLY développe ses gammes de contreplaqué filmé, antidérapant et industriel, tout en ciblant les marchés européen et moyen-oriental. L'entreprise fonde sa stratégie d'expansion internationale sur une qualité constante, une capacité d'approvisionnement fiable et un développement durable."
     },
     "metrics": {
       "qualityLabel": "Contrôle qualité",
@@ -458,7 +458,7 @@
       "items": [
         { "title": "Fondation", "desc": "HTPLY VIETNAM voit le jour, élargissant son activité au marché du contreplaqué technique." },
         { "title": "Développement produit", "desc": "Construction d'un portefeuille Film Faced, Anti-Slip et Commercial Plywood pour les marchés internationaux." },
-        { "title": "Renforcement des capacités", "desc": "Capacité de production et d'approvisionnement finalisée à l'échelle de 5 000 m², avec un objectif de 80 conteneurs/mois." },
+        { "title": "Renforcement des capacités", "desc": "Capacité de production et d'approvisionnement finalisée à l'échelle de 5 000 m², avec un objectif de 60 conteneurs/mois." },
         { "title": "Standardisation qualité", "desc": "Renforcement du contrôle des matières, du pressage, de la stabilité et de la traçabilité." },
         { "title": "Expansion mondiale", "desc": "Élargissement des marchés B2B en Europe, au Moyen-Orient et à l'international." }
       ]

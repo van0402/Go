@@ -167,7 +167,7 @@
       "stats": [
         { "value": "5.000 m²", "label": "Superficie de la fábrica" },
         { "value": "60", "label": "Contenedores / mes (producción)" },
-        { "value": "80", "label": "Contenedores / mes (suministro)" },
+        { "value": "60", "label": "Contenedores / mes (suministro)" },
         { "value": "30 días", "label": "Tiempo de entrega promedio" }
       ],
       "lead": "Una sola fábrica, volumen planificado y un proceso claro del material al contenedor, para que los pedidos grandes cumplan el plazo.",
@@ -422,7 +422,7 @@
     },
     "intro": {
       "title": "Una marca vietnamita de contrachapado orientada al mercado global",
-      "text": "HTPLY VIETNAM se fundó en 2021, especializada en contrachapado y tableros de madera industrial para el mercado B2B internacional. Con una planta de aproximadamente 5.000 m² y una capacidad de suministro de hasta 80 contenedores/mes, HTPLY desarrolla sus líneas de contrachapado fenólico, antideslizante e industrial, dirigidas a los mercados europeo y de Oriente Medio. La empresa basa su estrategia de expansión global en una calidad constante, capacidad de suministro y desarrollo sostenible."
+      "text": "HTPLY VIETNAM se fundó en 2021, especializada en contrachapado y tableros de madera industrial para el mercado B2B internacional. Con una planta de aproximadamente 5.000 m² y una capacidad de suministro de hasta 60 contenedores/mes, HTPLY desarrolla sus líneas de contrachapado fenólico, antideslizante e industrial, dirigidas a los mercados europeo y de Oriente Medio. La empresa basa su estrategia de expansión global en una calidad constante, capacidad de suministro y desarrollo sostenible."
     },
     "metrics": {
       "qualityLabel": "Control de calidad",
@@ -459,7 +459,7 @@
       "items": [
         { "title": "Fundación", "desc": "Nace HTPLY VIETNAM, ampliando su actividad al mercado del contrachapado técnico." },
         { "title": "Desarrollo de producto", "desc": "Construcción de una gama Film Faced, Anti-Slip y Commercial Plywood para mercados internacionales." },
-        { "title": "Consolidación de capacidad", "desc": "Capacidad de producción y suministro consolidada a escala de 5.000 m², con el objetivo de 80 contenedores/mes." },
+        { "title": "Consolidación de capacidad", "desc": "Capacidad de producción y suministro consolidada a escala de 5.000 m², con el objetivo de 60 contenedores/mes." },
         { "title": "Estandarización de calidad", "desc": "Mayor control de materia prima, prensado, estabilidad y trazabilidad." },
         { "title": "Expansión global", "desc": "Ampliación de mercados B2B en Europa, Oriente Medio e internacionalmente." }
       ]
