@@ -1,5 +1,6 @@
 import './SiteFooter.css'
 import { Link } from '@/i18n/routing'
+import { COMPANY_EMAIL, COMPANY_EMAIL_MAILTO, COMPANY_PHONE_TEL, COMPANY_PHONE_TEXT } from '@/utilities/companyContact'
 
 export function SiteFooter() {
   return (
@@ -33,8 +34,8 @@ export function SiteFooter() {
           </div>
           <div className="footer-col">
             <b>Contact</b>
-            <a href="mailto:info@htplywood.net">info@htplywood.net</a>
-            <a href="tel:+84931152468">+84 931 152 468 (Zalo/WhatsApp)</a>
+            <a href={COMPANY_EMAIL_MAILTO}>{COMPANY_EMAIL}</a>
+            <a href={COMPANY_PHONE_TEL}>{COMPANY_PHONE_TEXT} (Zalo/WhatsApp)</a>
             <a
               href="https://www.facebook.com/profile.php?id=61589328285469"
               target="_blank"

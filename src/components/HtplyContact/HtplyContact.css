@@ -64,6 +64,28 @@
 .htply-contact-page .ct-stg{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .htply-contact-page .ct-stg.in{opacity:1;transform:none}
 
+/* liên hệ trực tiếp: hai thẻ điện thoại / email đầu form */
+.htply-contact-page .ct-reach{margin:8px 0 38px}
+.htply-contact-page .ct-reach-cap{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.htply-contact-page .ct-reach-cap::after{content:"";flex:1;height:1px;background:var(--line)}
+.htply-contact-page .ct-reach-cap span{order:3;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--mute)}
+.htply-contact-page .ct-reach-cap span::before{content:"";width:8px;height:8px;border-radius:50%;background:#4ADE9A;box-shadow:0 0 0 4px rgba(74,222,154,.22);animation:ct-ping 2s infinite}
+.htply-contact-page .ct-reach-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.htply-contact-page .ct-reach-tile{position:relative;display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:20px;background:linear-gradient(135deg,#EAF7FB,#F6FBFD);border:1px solid #D6EBF2;transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
+.htply-contact-page .ct-reach-tile:hover{transform:translateY(-3px);border-color:var(--picton);box-shadow:0 18px 36px rgba(89,203,232,.2)}
+.htply-contact-page .ct-reach-cover{position:absolute;inset:0;border-radius:20px}
+.htply-contact-page .ct-reach-ico{flex:none;display:grid;place-items:center;width:50px;height:50px;border-radius:15px;background:var(--deep);color:var(--picton);transition:background .3s,color .3s}
+.htply-contact-page .ct-reach-tile:hover .ct-reach-ico{background:var(--picton);color:var(--deep)}
+.htply-contact-page .ct-reach-ico svg,.htply-contact-page .ct-reach-copy svg{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+.htply-contact-page .ct-reach-ico svg{width:22px;height:22px;stroke-width:1.8}
+.htply-contact-page .ct-reach-txt{min-width:0;flex:1}
+.htply-contact-page .ct-reach-txt small{display:block;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.htply-contact-page .ct-reach-txt b{display:block;margin-top:1px;font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--navy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.htply-contact-page .ct-reach-copy{flex:none;position:relative;z-index:2;display:grid;place-items:center;width:38px;height:38px;padding:0;border:1px solid #CBE5EE;border-radius:50%;background:#fff;color:var(--navy);cursor:pointer;transition:background .25s,color .25s,transform .25s var(--ease)}
+.htply-contact-page .ct-reach-copy:hover{background:var(--deep);color:#fff;transform:scale(1.08)}
+.htply-contact-page .ct-reach-copy svg{width:16px;height:16px;stroke-width:2}
+.htply-contact-page .ct-reach-copy.done{background:#4ADE9A;border-color:#4ADE9A;color:var(--deep)}
+
 /* ô nhập: nhãn nổi lên khi focus hoặc đã có chữ */
 .htply-contact-page .ct-f{position:relative}
 .htply-contact-page .ct-f input,.htply-contact-page .ct-f select,.htply-contact-page .ct-f textarea{width:100%;height:66px;padding:26px 20px 6px;border:1.5px solid var(--line);border-radius:15px;background:#FBFDFE;font:inherit;font-size:15.5px;color:var(--ink);outline:none;transition:border-color .25s,box-shadow .25s,background .25s;appearance:none;-webkit-appearance:none}
@@ -89,6 +111,8 @@
 .htply-contact-page .ct-summary{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:30px;border-radius:16px;background:linear-gradient(90deg,#EAF7FB,#F6FBFD);border:0 solid #D6EBF2;max-height:0;opacity:0;padding:0 18px;overflow:hidden;transition:max-height .5s var(--ease),opacity .4s,padding .4s,border-width .2s}
 .htply-contact-page .ct-summary.show{max-height:160px;opacity:1;padding:16px 18px;border-width:1px}
 .htply-contact-page .ct-summary small{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-right:4px}
+.htply-contact-page .ct-summary .ct-chip button{margin-left:8px;padding:0;border:0;background:none;color:var(--navy);font-size:17px;line-height:1;cursor:pointer;opacity:.55;transition:opacity .2s}
+.htply-contact-page .ct-summary .ct-chip button:hover{opacity:1}
 .htply-contact-page .ct-summary span{padding:6px 13px;border-radius:999px;background:#fff;border:1px solid #CBE5EE;font-size:13px;font-weight:500;color:var(--navy);animation:ct-pop .4s var(--ease)}
 @keyframes ct-pop{from{transform:scale(.7);opacity:0}}
 
@@ -124,6 +148,8 @@
 @media(max-width:700px){
   .htply-contact-page .ct-top{padding:104px 0 118px}
   .htply-contact-page .ct-grid{grid-template-columns:1fr}
+  .htply-contact-page .ct-reach-tiles{grid-template-columns:minmax(0,1fr)}
+  .htply-contact-page .ct-reach-txt b{font-size:16px}
   .htply-contact-page .ct-card{margin-top:-84px}
 }
 @media(prefers-reduced-motion:reduce){

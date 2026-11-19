@@ -3,6 +3,7 @@
 import { useId, useRef, useState, type CSSProperties } from 'react'
 import { useTranslations } from 'next-intl'
 import { AboutRings } from '@/components/HtplyAbout/AboutRings'
+import type { HomeCoreValue } from '@/payload-types'
 
 type Value = { title: string; description: string }
 const COLORS = ['#e5b657', '#b5cf50', '#3f7004']
@@ -12,9 +13,14 @@ function point(radius: number, angle: number) {
   return [260 + radius * Math.cos(radians), 260 + radius * Math.sin(radians)]
 }
 
-export function CoreValues() {
+// Chữ do admin nhập ở global "Home · Core values"; ô nào để trống thì dùng chữ mặc định trong messages
+export function CoreValues({ data }: { data?: HomeCoreValue | null }) {
   const t = useTranslations('home.values')
-  const values = t.raw('items') as Value[]
+  const base = t.raw('items') as Value[]
+  const values: Value[] = base.map((item, i) => ({
+    title: data?.[`value${i + 1}Name` as 'value1Name'] || item.title,
+    description: data?.[`value${i + 1}Description` as 'value1Description'] || item.description,
+  }))
   const [current, setCurrent] = useState(0)
   const parts = useRef<(SVGGElement | null)[]>([])
   const detailId = useId()
@@ -24,10 +30,10 @@ export function CoreValues() {
     <section id="values" className="dz-sec dz-values">
       <AboutRings seed={3} side="r" />
       <div className="dz-wrap">
-        <h2 className="dz-kicker" data-fade>{t('kicker').replace(/^\d+\s*·\s*/, '')}</h2>
+        <h2 className="dz-kicker" data-fade>{(data?.kicker || t('kicker')).replace(/^\d+\s*·\s*/, '')}</h2>
         <div className="dz-values-intro" data-fade>
-          <h3>{t('introTitle')}</h3>
-          <p>{t('introText')}</p>
+          <h3>{data?.introTitle || t('introTitle')}</h3>
+          <p>{data?.introText || t('introText')}</p>
         </div>
         <div className="dz-values-demo" data-fade>
           <svg className="dz-values-wheel" viewBox="0 0 520 520" role="group" aria-label={t('wheelLabel')}>

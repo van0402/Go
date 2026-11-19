@@ -1,16 +1,21 @@
 'use client'
 
-import { useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useId, useRef, useState, useMemo } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { MAP_COUNTRIES, MAP_POINTS } from './export-map-data'
 import './export-map.css'
-
+import { buildPoint, type MarketInput } from './market-geometry'
 const ISO: Record<string, string> = {
   '276': 'DE', '528': 'NL', '250': 'FR', '826': 'GB', '784': 'AE',
   '682': 'SA', '710': 'ZA', '036': 'AU', '554': 'NZ',
 }
 
-export function ExportMap() {
+export function ExportMap({ markets }: { markets?: MarketInput[] }) {
+  // danh sách admin chọn; trống thì dùng 9 nước mặc định cũ
+  const points = useMemo(() => {
+    const list = markets?.length ? markets : MAP_POINTS.map((p) => ({ id: p.id, code: ISO[p.id] }))
+    return list.flatMap((m) => buildPoint(m) ?? [])
+  }, [markets])
   const rootRef = useRef<HTMLDivElement>(null)
   const paths = useRef<(SVGPathElement | null)[]>([])
   const dots = useRef<(SVGCircleElement | null)[]>([])
@@ -23,7 +28,7 @@ export function ExportMap() {
   const [paused, setPaused] = useState(false)
   const active = preview ?? selected
   const names = new Intl.DisplayNames([locale], { type: 'region' })
-  const countryName = (index: number) => names.of(ISO[MAP_POINTS[index].id]) ?? MAP_POINTS[index].name
+  const countryName = (index: number) => names.of(points[index].code) ?? points[index].name
 
   useEffect(() => {
     const scroll = rootRef.current?.querySelector<HTMLElement>('.map-scroll')
@@ -94,7 +99,7 @@ export function ExportMap() {
   }, [paused])
 
   const toggle = (index: number) => setSelected((current) => current === index ? null : index)
-  const place = active === null ? null : MAP_POINTS[active]
+  const place = active === null ? null : points[active]
   const placeName = active === null ? '' : countryName(active)
   const labelWidth = Math.min(270, placeName.length * 7 + 24)
   const labelX = place ? Math.max(10, Math.min(1260 - labelWidth, place.x - labelWidth / 2)) : 0
@@ -106,7 +111,7 @@ export function ExportMap() {
           <svg className="map-svg" viewBox="0 0 1280 550" role="group" aria-label={t('mapLabel')}>
             <g aria-hidden="true">
               {MAP_COUNTRIES.map((country, i) => {
-                const index = MAP_POINTS.findIndex((point) => point.id === country.id)
+                const index = points.findIndex((point) => point.id === country.id)
                 return (
                   <path
                     key={`${country.id}-${i}`}
@@ -120,14 +125,14 @@ export function ExportMap() {
               })}
             </g>
             <g className={`routes${active !== null ? ' focused' : ''}`} aria-hidden="true">
-              {MAP_POINTS.map((point, i) => (
+              {points.map((point, i) => (
                 <path key={point.id} ref={(node) => { paths.current[i] = node }} className={`route${active === i ? ' active' : ''}`} pathLength={1} d={point.path} />
               ))}
             </g>
             <g aria-hidden="true">
-              {MAP_POINTS.map((point, i) => <circle key={point.id} ref={(node) => { dots.current[i] = node }} r="2.7" className="traveller" opacity="0" style={{ visibility: active === null || active === i ? 'visible' : 'hidden' }} />)}
+              {points.map((point, i) => <circle key={point.id} ref={(node) => { dots.current[i] = node }} r="2.7" className="traveller" opacity="0" style={{ visibility: active === null || active === i ? 'visible' : 'hidden' }} />)}
             </g>
-            {MAP_POINTS.map((point, i) => (
+            {points.map((point, i) => (
               <g
                 key={point.id} className={`pin${active === i ? ' active' : ''}`} opacity=".2"
                 transform={`translate(${point.x} ${point.y})`}
@@ -165,7 +170,7 @@ export function ExportMap() {
         <div className="flag-track">
           {[0, 1].map((copy) => (
             <div className="flag-set" key={copy} aria-hidden={copy === 1 ? true : undefined}>
-              {MAP_POINTS.map((point, i) => (
+              {points.map((point, i) => (
                 <button
                   key={point.id} type="button" className={`flag-button${active === i ? ' active' : ''}`}
                   aria-pressed={copy === 0 ? selected === i : undefined} aria-controls={copy === 0 ? statusId : undefined}

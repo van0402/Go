@@ -5,6 +5,7 @@ import { Link } from '@/i18n/routing'
 import { Nav } from '@/components/Htply/Nav'
 import { SiteFooter } from '@/components/Htply/SiteFooter'
 import type { ProductDetail } from '@/data/products'
+import { COMPANY_EMAIL, COMPANY_PHONE_TEXT, COMPANY_PHONE_WA } from '@/utilities/companyContact'
 import './HtplyProductDetail.css'
 
 export function HtplyProductDetail({ product, related }: { product: ProductDetail; related: ProductDetail[] }) {
@@ -96,11 +97,11 @@ export function HtplyProductDetail({ product, related }: { product: ProductDetai
 
             <div className="pd-actions">
               <Link className="pd-btn primary" href={`/contact?${query}#quote`}>Request a Quote →</Link>
-              <a className="pd-btn" href="https://wa.me/84931152468" target="_blank" rel="noreferrer">WhatsApp / Zalo</a>
+              <a className="pd-btn" href={COMPANY_PHONE_WA} target="_blank" rel="noreferrer">WhatsApp / Zalo</a>
             </div>
             <div className="pd-quick">
-              <span><b>Tel:</b> +84 931 152 468</span>
-              <span><b>Mail:</b> info@htplywood.net</span>
+              <span><b>Tel:</b> {COMPANY_PHONE_TEXT}</span>
+              <span><b>Mail:</b> {COMPANY_EMAIL}</span>
             </div>
           </div>
         </section>

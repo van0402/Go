@@ -25,12 +25,12 @@
 .htply-about-page .ad-lead{margin:22px 0 0;max-width:560px;font-size:17px;line-height:1.75;color:var(--mist)}
 
 /* ---------- banner ---------- */
-.htply-about-page .ad-hero{position:relative;z-index:1;min-height:82svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--deep)}
+.htply-about-page .ad-hero{position:relative;z-index:1;min-height:70svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--deep)}
 .htply-about-page .ad-hero-bgw{position:absolute;inset:-6% 0;will-change:transform}
 .htply-about-page .ad-hero-bg{position:absolute;inset:0;background:url("/images/home/hero2.jpg") center/cover no-repeat;animation:ad-kb 22s ease-out forwards}
 @keyframes ad-kb{from{transform:scale(1)}to{transform:scale(1.07)}}
-.htply-about-page .ad-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(26,32,46,.86) 0%,rgba(26,32,46,.5) 50%,rgba(26,32,46,.1) 100%),linear-gradient(180deg,rgba(26,32,46,.35) 0%,rgba(26,32,46,0) 35%,rgba(26,32,46,.65) 100%)}
-.htply-about-page .ad-hero-in{position:relative;z-index:2;padding:170px 0 210px;will-change:transform,opacity}
+.htply-about-page .ad-hero::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 62% 58% at 12% 82%,rgba(20,26,40,.78) 0%,rgba(20,26,40,.45) 55%,rgba(20,26,40,0) 100%),linear-gradient(90deg,rgba(26,32,46,.86) 0%,rgba(26,32,46,.5) 50%,rgba(26,32,46,.1) 100%),linear-gradient(180deg,rgba(26,32,46,.35) 0%,rgba(26,32,46,0) 35%,rgba(26,32,46,.65) 100%)}
+.htply-about-page .ad-hero-in{position:relative;z-index:2;padding:330px 0 210px;will-change:transform,opacity}
 .htply-about-page .ad-pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:0;animation:ad-fade 1s .1s var(--ease) forwards}
 .htply-about-page .ad-pill b{width:8px;height:8px;border-radius:50%;background:var(--picton);box-shadow:0 0 0 4px rgba(89,203,232,.25)}
 .htply-about-page .ad-hero h1{margin:26px 0 0;max-width:900px;font-size:clamp(38px,6vw,82px);line-height:.98;letter-spacing:-.045em;font-weight:600;color:#fff}
@@ -38,6 +38,11 @@
 .htply-about-page .ad-ln>span{display:block;transform:translateY(105%);animation:ad-up 1.1s var(--ease) forwards}
 .htply-about-page .ad-ln:nth-child(2)>span{animation-delay:.12s}
 .htply-about-page .ad-hero h1 em{font-style:normal;color:var(--picton)}
+/* banner Who we are: tiêu đề là câu dài nên cỡ chữ nhỏ hơn, đoạn giới thiệu rộng hơn để banner gọn */
+/* banner Who we are: không khung nền, trái = tiêu đề, phải = đoạn giới thiệu (có bóng chữ nhẹ cho dễ đọc trên ảnh) */
+.htply-about-page .ad-who-glass{position:relative;display:block;max-width:720px;text-shadow:0 2px 18px rgba(10,14,24,.65);opacity:0;animation:ad-fade 1s .15s var(--ease) forwards}
+.htply-about-page .ad-hero h1.ad-h1-who{max-width:none;margin:0 0 40px;font-size:clamp(26px,2.7vw,40px);line-height:1.1;letter-spacing:-.035em}
+.htply-about-page .ad-who-p{margin:0;max-width:680px;font-size:16px;line-height:1.75;color:#D5E0EA;font-weight:300}
 @keyframes ad-up{to{transform:none}}
 .htply-about-page .ad-sub{margin:26px 0 0;max-width:600px;font-size:18px;line-height:1.7;color:#D5E0EA;opacity:0;animation:ad-fade 1s .45s var(--ease) forwards}
 @keyframes ad-fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -57,7 +62,7 @@
 @keyframes ad-breath{from{transform:scale(1)}to{transform:scale(1.045)}}
 
 /* thanh số liệu đè mép banner */
-.htply-about-page .ad-bar{position:absolute;z-index:6;left:0;right:0;top:-92px}
+.htply-about-page .ad-bar{position:absolute;z-index:6;left:0;right:0;top:-28px}
 .htply-about-page .ad-bar-in{display:grid;grid-template-columns:repeat(4,1fr);border-radius:26px;background:rgba(36,44,60,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.14);border-top:3px solid var(--picton);box-shadow:0 30px 70px rgba(0,0,0,.35);overflow:hidden}
 .htply-about-page .ad-m{padding:26px 28px 28px;position:relative}
 .htply-about-page .ad-m+.ad-m::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:1px;background:rgba(255,255,255,.14)}
@@ -68,7 +73,7 @@
 .htply-about-page .ad-m>span{display:block;margin-top:10px;font-size:13.5px;line-height:1.55;color:var(--soft)}
 
 /* ---------- 01 who we are ---------- */
-.htply-about-page .ad-who{padding-top:200px}
+.htply-about-page .ad-bar + .ad-sec{padding-top:264px}
 .htply-about-page .ad-who-grid{display:grid;grid-template-columns:1fr 1.02fr;gap:80px;align-items:center}
 .htply-about-page .ad-vis{position:relative;padding:0 40px 44px 0}
 .htply-about-page .ad-vis::before{content:"";position:absolute;left:-24px;top:34px;bottom:0;width:62%;border-radius:32px;background:linear-gradient(160deg,var(--picton),var(--teal));opacity:.92}
@@ -138,13 +143,16 @@
   .htply-about-page .ad-bar-in{grid-template-columns:1fr 1fr}
   .htply-about-page .ad-m:nth-child(3)::before{display:none}
   .htply-about-page .ad-m:nth-child(n+3){border-top:1px solid rgba(255,255,255,.14)}
-  .htply-about-page .ad-bar{top:-150px}
-  .htply-about-page .ad-who{padding-top:300px}
+  .htply-about-page .ad-bar{top:-86px}
+  .htply-about-page .ad-bar + .ad-sec{padding-top:364px}
   .htply-about-page .ad-hero-in{padding-bottom:300px}
 }
 @media(max-width:640px){
   .htply-about-page .ad-wrap{width:calc(100% - 36px)}
   .htply-about-page .ad-sec{padding:84px 0}
+  .htply-about-page .ad-hero-in{padding-top:250px}
+  .htply-about-page .ad-hero h1.ad-h1-who{font-size:25px;margin-bottom:30px}
+  .htply-about-page .ad-who-p{font-size:15px;line-height:1.7}
   .htply-about-page .ad-m{padding:20px 18px}
   .htply-about-page .ad-vc{min-height:340px}.htply-about-page .ad-vc img{opacity:.4;transform:none}.htply-about-page .ad-vc::after{opacity:1}
   .htply-about-page .ad-flow,.htply-about-page .ad-cta{border-radius:34px 34px 0 0}

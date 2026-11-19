@@ -18,7 +18,9 @@ import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
 import { ContactOptions } from './ContactOptions/config'
 import { s3Storage } from '@payloadcms/storage-s3'
-
+import { HomeHero } from './HomeHero/config'
+import { HomeCoreValues } from './HomeCoreValues/config'
+import { AboutPage } from './AboutPage/Config'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -91,7 +93,7 @@ views: {
   }),
   collections: [Pages, Posts, Media, Categories, Products, Inquiries, Users],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer, ContactOptions],
+  globals: [Header, Footer, ContactOptions, HomeHero, HomeCoreValues, AboutPage],
   plugins: [
   ...plugins,
   s3Storage({

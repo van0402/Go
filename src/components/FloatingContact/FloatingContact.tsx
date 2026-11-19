@@ -3,11 +3,13 @@
 import { useTranslations } from 'next-intl'
 import './FloatingContact.css'
 
-// Đổi số / email ở đây là đủ (cùng số đang dùng ở footer và trang Contact)
-const PHONE = 'tel:+84931152468'
-const EMAIL = 'mailto:info@htplywood.net'
-const PHONE_TEXT = '+84 931 152 468'
-const EMAIL_TEXT = 'info@htplywood.net'
+import { COMPANY_EMAIL, COMPANY_EMAIL_MAILTO, COMPANY_PHONE_TEL, COMPANY_PHONE_TEXT } from '@/utilities/companyContact'
+
+// Số / email lấy từ src/utilities/companyContact.ts (dùng chung với footer, trang Contact, trang sản phẩm)
+const PHONE = COMPANY_PHONE_TEL
+const EMAIL = COMPANY_EMAIL_MAILTO
+const PHONE_TEXT = COMPANY_PHONE_TEXT
+const EMAIL_TEXT = COMPANY_EMAIL
 
 export function FloatingContact() {
   const t = useTranslations('floating')

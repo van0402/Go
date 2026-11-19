@@ -1,49 +1,30 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/routing'
 import { SplitTitle } from './SplitTitle'
 import { SectionStack } from './SectionStack'
+import type { HomeHero } from '@/payload-types'
 
-// 4 dòng giới thiệu: Product → /products, Quality → /quality, Documents → /quality#documents, Quote → /contact#quote
-const CARD_LINKS = ['/products', '/quality', '/quality#documents', '/contact#quote']
-
-type AboutCard = { num: string; title: string; items: string[]; cta: string }
-
-export function About() {
+// Chữ do admin nhập ở global "Home · Hero"; ô nào để trống thì dùng chữ mặc định trong messages
+export function About({ hero }: { hero?: HomeHero | null }) {
   const t = useTranslations('home.about')
-  const cards = t.raw('cards') as AboutCard[]
 
   return (
     <section id="about" className="dz-sec dz-about">
       <SectionStack side="l" />
       <SectionStack side="r" />
       <div className="dz-wrap dz-about-grid">
-        <div>
-          <h2 className="dz-kicker" data-fade>About HTPLY</h2>
-          <SplitTitle as="h3" text={t('title')} />
-          <p className="dz-lead" data-fade>{t('intro')}</p>
-
-          <div className="dz-rows">
-            {cards.map((c, i) => (
-              <Link key={c.title} href={CARD_LINKS[i] ?? '/products'} className="dz-row" data-row>
-                <small>{String(i + 1).padStart(2, '0')}</small>
-                <div>
-                  <b>{c.title}</b>
-                  <em>{c.num.replace(/^\d+\s*·\s*/, '')}</em>
-                </div>
-                <span className="dz-ar">→</span>
-              </Link>
-            ))}
+        <div className="dz-about-txt">
+          <div>
+            <h2 className="dz-kicker" data-fade>{hero?.aboutKicker || 'About HTPLY'}</h2>
+            <SplitTitle as="h3" text={hero?.aboutTitle || t('title')} />
           </div>
+          <p className="dz-lead" data-fade>{hero?.aboutIntro || t('intro')}</p>
         </div>
 
         <div className="dz-vis">
           <div className="dz-main dz-wipe">
             <img src="/images/home/factory.jpg" alt="HTPLY factory" loading="lazy" />
-          </div>
-          <div className="dz-small" data-par="46">
-            <img src="/images/home/stack.jpg" alt="" loading="lazy" />
           </div>
         </div>
       </div>

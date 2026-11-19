@@ -63,7 +63,9 @@ html.lenis,html.lenis body{height:auto}
 .htply-page .dz-flow .dz-kicker{display:block;margin:0;font-size:clamp(36px,4vw,60px);line-height:1.03;letter-spacing:-.04em;font-weight:600;text-transform:none}
 .htply-page .dz-flow .dz-kicker::before{content:none}
 .htply-page .dz-flow .dz-title{font-size:clamp(24px,2.2vw,32px);line-height:1.2;letter-spacing:-.02em}
-.htply-page .dz-about-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:80px;align-items:center}
+.htply-page .dz-about-grid{display:grid;grid-template-columns:1fr;gap:64px;align-items:start}
+.htply-page .dz-about-txt{display:flex;flex-direction:column;gap:26px}
+.htply-page .dz-about-txt .dz-lead{margin:0;max-width:none;font-size:19px;line-height:1.85}
 .htply-page .dz-rows{margin-top:36px;border-top:1px solid rgba(255,255,255,.16)}
 .htply-page .dz-row{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;padding:20px 4px;border-bottom:1px solid rgba(255,255,255,.16);transition:padding .35s var(--ease),background .3s}
 .htply-page .dz-row small{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--picton)}
@@ -73,12 +75,10 @@ html.lenis,html.lenis body{height:auto}
 .htply-page .dz-row:hover{padding-left:14px;padding-right:14px;background:linear-gradient(90deg,rgba(89,203,232,.14),transparent)}
 .htply-page .dz-row:hover .dz-ar{background:var(--picton);color:var(--deep);transform:translateX(4px)}
 .htply-page .dz-row.off{cursor:default}
-.htply-page .dz-vis{position:relative;padding:0 0 40px 40px}
+.htply-page .dz-vis{position:relative;padding:0 0 28px}
 .htply-page .dz-vis::before{content:"";position:absolute;right:-24px;top:34px;bottom:0;width:62%;border-radius:32px;background:linear-gradient(160deg,var(--picton),var(--teal));opacity:.92}
-.htply-page .dz-main{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/4.4;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.htply-page .dz-main{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:16/8;box-shadow:0 30px 70px rgba(0,0,0,.4)}
 .htply-page .dz-main img{width:100%;height:100%;object-fit:cover;will-change:transform}
-.htply-page .dz-small{position:absolute;left:0;bottom:0;width:44%;aspect-ratio:1/1.05;border-radius:22px;overflow:hidden;border:6px solid #2F3950;box-shadow:0 20px 50px rgba(0,0,0,.4)}
-.htply-page .dz-small img{width:100%;height:100%;object-fit:cover}
 .htply-page .dz-chip{position:absolute;right:-14px;top:-8px;z-index:2;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;background:var(--deep);border:1px solid rgba(255,255,255,.14);box-shadow:0 20px 40px rgba(0,0,0,.35)}
 .htply-page .dz-chip strong{font-size:26px;letter-spacing:-.04em;line-height:1;font-weight:600;color:var(--picton)}
 .htply-page .dz-chip span{font-size:12.5px;line-height:1.3;color:var(--mist);max-width:110px}
@@ -143,7 +143,8 @@ html.lenis,html.lenis body{height:auto}
 /* ---------- co giãn ---------- */
 @media(max-width:1020px){
   .htply-page .dz-about-grid{grid-template-columns:1fr;gap:56px}
-  .htply-page .dz-vis{max-width:560px}
+  .htply-page .dz-vis{max-width:none}
+  .htply-page .dz-main{aspect-ratio:4/3}
   .htply-page .dz-pgrid{grid-template-columns:1fr}
   .htply-page .dz-bar-in{grid-template-columns:1fr 1fr}
   .htply-page .dz-bar-item:nth-child(3)::before{display:none}

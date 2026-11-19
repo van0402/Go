@@ -117,11 +117,17 @@ export interface Config {
     header: Header;
     footer: Footer;
     'contact-options': ContactOption;
+    'home-hero': HomeHero;
+    'home-core-values': HomeCoreValue;
+    'about-page': AboutPage;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'contact-options': ContactOptionsSelect<false> | ContactOptionsSelect<true>;
+    'home-hero': HomeHeroSelect<false> | HomeHeroSelect<true>;
+    'home-core-values': HomeCoreValuesSelect<false> | HomeCoreValuesSelect<true>;
+    'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
   };
   locale: 'en' | 'fr' | 'es';
   widgets: {
@@ -2041,6 +2047,284 @@ export interface ContactOption {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-hero".
+ */
+export interface HomeHero {
+  id: number;
+  /**
+   * e.g. Vietnam Leading Plywood Exporter
+   */
+  kicker?: string | null;
+  /**
+   * e.g. Built for quality.
+   */
+  titleLine1?: string | null;
+  /**
+   * e.g. Made for the world
+   */
+  titleLine2?: string | null;
+  /**
+   * e.g. Get a quote
+   */
+  ctaQuote?: string | null;
+  /**
+   * e.g. Explore products
+   */
+  ctaProducts?: string | null;
+  /**
+   * e.g. About HTPLY
+   */
+  aboutKicker?: string | null;
+  /**
+   * e.g. Trust built into every sheet
+   */
+  aboutTitle?: string | null;
+  aboutIntro?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-core-values".
+ */
+export interface HomeCoreValue {
+  id: number;
+  /**
+   * e.g. Core values
+   */
+  kicker?: string | null;
+  /**
+   * e.g. Quality you can check. Information you can see. Results you can repeat.
+   */
+  introTitle?: string | null;
+  introText?: string | null;
+  /**
+   * e.g. Quality. Keep it short (max 14 characters) so it fits inside the wheel
+   */
+  value1Name?: string | null;
+  /**
+   * Shown when a visitor hovers or taps this part of the wheel
+   */
+  value1Description?: string | null;
+  /**
+   * e.g. Transparency. Keep it short (max 14 characters) so it fits inside the wheel
+   */
+  value2Name?: string | null;
+  /**
+   * Shown when a visitor hovers or taps this part of the wheel
+   */
+  value2Description?: string | null;
+  /**
+   * e.g. Consistency. Keep it short (max 14 characters) so it fits inside the wheel
+   */
+  value3Name?: string | null;
+  /**
+   * Shown when a visitor hovers or taps this part of the wheel
+   */
+  value3Description?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-page".
+ */
+export interface AboutPage {
+  id: number;
+  /**
+   * e.g. A Vietnamese plywood brand built for the global market (max 80 characters)
+   */
+  whoTitle?: string | null;
+  /**
+   * e.g. HTPLY VIETNAM was founded in 2021… (max 600 characters)
+   */
+  whoText?: string | null;
+  /**
+   * Pick a country: the map highlight, pin, route line, flag and translated name are created automatically. Leave empty to show the default list.
+   */
+  markets?:
+    | {
+        country:
+          | '004'
+          | '008'
+          | '012'
+          | '024'
+          | '032'
+          | '051'
+          | '036'
+          | '040'
+          | '031'
+          | '044'
+          | '050'
+          | '112'
+          | '056'
+          | '084'
+          | '204'
+          | '064'
+          | '068'
+          | '070'
+          | '072'
+          | '076'
+          | '096'
+          | '100'
+          | '854'
+          | '108'
+          | '116'
+          | '120'
+          | '124'
+          | '140'
+          | '148'
+          | '152'
+          | '170'
+          | '188'
+          | '384'
+          | '191'
+          | '192'
+          | '196'
+          | '203'
+          | '180'
+          | '208'
+          | '262'
+          | '214'
+          | '218'
+          | '818'
+          | '222'
+          | '226'
+          | '232'
+          | '233'
+          | '748'
+          | '231'
+          | '238'
+          | '242'
+          | '246'
+          | '250'
+          | '260'
+          | '266'
+          | '268'
+          | '276'
+          | '288'
+          | '300'
+          | '304'
+          | '320'
+          | '324'
+          | '624'
+          | '328'
+          | '332'
+          | '340'
+          | '348'
+          | '352'
+          | '356'
+          | '360'
+          | '368'
+          | '372'
+          | '364'
+          | '376'
+          | '380'
+          | '388'
+          | '392'
+          | '400'
+          | '398'
+          | '404'
+          | '414'
+          | '417'
+          | '418'
+          | '428'
+          | '422'
+          | '426'
+          | '430'
+          | '434'
+          | '440'
+          | '442'
+          | '450'
+          | '454'
+          | '458'
+          | '466'
+          | '478'
+          | '484'
+          | '498'
+          | '496'
+          | '499'
+          | '504'
+          | '508'
+          | '104'
+          | '516'
+          | '524'
+          | '528'
+          | '540'
+          | '554'
+          | '558'
+          | '562'
+          | '566'
+          | '408'
+          | '578'
+          | '512'
+          | '586'
+          | '591'
+          | '598'
+          | '600'
+          | '156'
+          | '604'
+          | '608'
+          | '616'
+          | '620'
+          | '630'
+          | '634'
+          | '178'
+          | '270'
+          | '642'
+          | '643'
+          | '646'
+          | '682'
+          | '686'
+          | '688'
+          | '694'
+          | '703'
+          | '705'
+          | '090'
+          | '706'
+          | '710'
+          | '410'
+          | '728'
+          | '724'
+          | '144'
+          | '275'
+          | '729'
+          | '740'
+          | '752'
+          | '756'
+          | '760'
+          | '158'
+          | '762'
+          | '764'
+          | '807'
+          | '626'
+          | '768'
+          | '780'
+          | '788'
+          | '792'
+          | '795'
+          | '800'
+          | '804'
+          | '784'
+          | '826'
+          | '834'
+          | '840'
+          | '858'
+          | '860'
+          | '548'
+          | '862'
+          | '732'
+          | '887'
+          | '894'
+          | '716';
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -2128,6 +2412,58 @@ export interface ContactOptionsSelect<T extends boolean = true> {
         labelFr?: T;
         labelEs?: T;
         active?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-hero_select".
+ */
+export interface HomeHeroSelect<T extends boolean = true> {
+  kicker?: T;
+  titleLine1?: T;
+  titleLine2?: T;
+  ctaQuote?: T;
+  ctaProducts?: T;
+  aboutKicker?: T;
+  aboutTitle?: T;
+  aboutIntro?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-core-values_select".
+ */
+export interface HomeCoreValuesSelect<T extends boolean = true> {
+  kicker?: T;
+  introTitle?: T;
+  introText?: T;
+  value1Name?: T;
+  value1Description?: T;
+  value2Name?: T;
+  value2Description?: T;
+  value3Name?: T;
+  value3Description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-page_select".
+ */
+export interface AboutPageSelect<T extends boolean = true> {
+  whoTitle?: T;
+  whoText?: T;
+  markets?:
+    | T
+    | {
+        country?: T;
         id?: T;
       };
   updatedAt?: T;

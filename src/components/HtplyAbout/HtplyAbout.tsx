@@ -6,19 +6,19 @@ import { Nav } from '@/components/Htply/Nav'
 import { SiteFooter } from '@/components/Htply/SiteFooter'
 import { CountUp } from '@/components/Htply/CountUp'
 import { SplitTitle } from '@/components/Htply/SplitTitle'
-import { AboutRings } from './AboutRings'
 import { ExportMap } from './ExportMap'
 import { HistoryRibbon } from './HistoryRibbon'
 import { AboutFx } from './AboutFx'
 import './about-dreamy.css'
-
+import type { AboutPage } from '@/payload-types'
+import type { MarketInput } from './market-geometry'
 type Item = { title: string; desc: string }
 type Advantage = Item & { tags: string[] }
 
 // Ảnh nền của 3 thẻ giá trị (hiện khi rê chuột)
 const VALUE_IMAGES = ['/images/home/cv-1.jpg', '/images/about/precise.jpg', '/images/home/cv-3.jpg']
 
-export function HtplyAbout() {
+export function HtplyAbout({ data, markets }: { data?: AboutPage | null; markets?: MarketInput[] }) {
   const tp = useTranslations('aboutPage')
   const tc = useTranslations('home.export.cta')
   const valueItems = tp.raw('values.items') as Item[]
@@ -36,21 +36,17 @@ export function HtplyAbout() {
             <div className="ad-hero-bg" />
           </div>
           <div className="ad-wrap ad-hero-in">
-            <span className="ad-pill">
-              <b />
-              About HTPLY Vietnam
-            </span>
-            <h1>
-              <span className="ad-ln">
-                <span>Built on reliability.</span>
-              </span>
-              <span className="ad-ln">
-                <span>
-                  Shaped for <em>global</em> supply.
-                </span>
-              </span>
-            </h1>
-            <p className="ad-sub">{tp('hero.intro')}</p>
+            {/* Banner gọn: tấm kính ngang, bên trái tiêu đề, bên phải đoạn giới thiệu (thay cho mục Who we are cũ bên dưới) */}
+            <div className="ad-who-glass">
+              <div className="ad-who-l">
+                <h1 className="ad-h1-who">
+                  <span className="ad-ln">
+                    <span>{data?.whoTitle || tp('intro.title')}</span>
+                  </span>
+                </h1>
+              </div>
+              <p className="ad-who-p">{data?.whoText || tp('intro.text')}</p>
+            </div>
           </div>
         </section>
 
@@ -90,26 +86,6 @@ export function HtplyAbout() {
             </div>
           </div>
 
-          {/* 01 · Who we are (vòng vân bên phải) */}
-          <section className="ad-sec ad-who">
-            <AboutRings seed={1} side="r" />
-            <div className="ad-wrap ad-who-grid">
-              <div className="ad-vis">
-                <div className="ad-main ad-wipe">
-                  <img src="/images/about/who-1.jpg" alt="HTPLY factory overview" loading="lazy" />
-                </div>
-                <div className="ad-small" data-par="44">
-                  <img src="/images/about/who-2.jpg" alt="HTPLY timber stock" loading="lazy" />
-                </div>
-              </div>
-              <div>
-                <h2 className="ad-kicker" data-fade>Who we are</h2>
-                <SplitTitle as="h3" text={tp('intro.title')} />
-                <p className="ad-lead" data-fade>{tp('intro.text')}</p>
-              </div>
-            </div>
-          </section>
-
           {/* 02 · Business footprint (bản đồ xuất khẩu từ Việt Nam) */}
           <section className="ad-sec">
             <div className="ad-wrap">
@@ -117,7 +93,7 @@ export function HtplyAbout() {
               <SplitTitle as="h3" text={tp('business.title')} />
               <p className="ad-lead ad-lead-wide" data-fade>{tp('business.text')}</p>
               <div className="ad-map-wrap" data-fade>
-                <ExportMap />
+                <ExportMap markets={markets} />
               </div>
             </div>
           </section>
