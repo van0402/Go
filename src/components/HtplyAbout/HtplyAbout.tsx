@@ -7,7 +7,7 @@ import { SiteFooter } from '@/components/Htply/SiteFooter'
 import { CountUp } from '@/components/Htply/CountUp'
 import { SplitTitle } from '@/components/Htply/SplitTitle'
 import { ExportMap } from './ExportMap'
-import { HistoryRibbon } from './HistoryRibbon'
+import { HistorySteps } from './HistorySteps'
 import { AboutFx } from './AboutFx'
 import './about-dreamy.css'
 import type { AboutPage } from '@/payload-types'
@@ -137,7 +137,7 @@ export function HtplyAbout({ data, markets }: { data?: AboutPage | null; markets
             <div className="ad-wrap">
               <h2 className="ad-kicker" data-fade>History</h2>
               <SplitTitle as="h3" text={tp('history.title')} />
-              <HistoryRibbon />
+              <HistorySteps />
             </div>
           </section>
         </div>

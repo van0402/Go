@@ -1,0 +1,100 @@
+/* Lịch sử công ty: bậc thang ván gỗ (HistorySteps.tsx) */
+.htply-about-page .hs{--D:18px;--wood:url('/images/about/history-wood-face.jpg');--edge:url('/images/about/history-wood-edge.jpg');position:relative;margin-top:56px}
+.htply-about-page .hs-replay{position:absolute;right:0;top:-92px;z-index:8;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:none;color:#fff;font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:border-color .25s,color .25s}
+.htply-about-page .hs-replay:hover,.htply-about-page .hs-replay:focus-visible{border-color:var(--picton);color:var(--picton)}
+
+.htply-about-page .hs-stage{position:relative;padding-top:60px}
+.htply-about-page .hs-grid{list-style:none;margin:0;padding:0 var(--D) 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:34px;align-items:end;height:600px}
+.htply-about-page .hs-slot{--d:calc(var(--i,0) * .22s);position:relative;height:var(--h);perspective:900px}
+
+/* Mũi tên tăng trưởng */
+.htply-about-page .hs-arrow{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:6}
+.htply-about-page .hs-line{fill:none;stroke:var(--picton);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.6s var(--ease)}
+.htply-about-page .hs-arrow marker path{fill:var(--picton);opacity:0;transition:opacity .3s 1.4s}
+.htply-about-page .hs.drawn .hs-line{stroke-dashoffset:0}
+.htply-about-page .hs.drawn .hs-arrow marker path{opacity:1}
+
+/* Tấm ván */
+.htply-about-page .hs-board{position:relative;min-height:100%;height:100%;border-radius:3px;transform-style:preserve-3d;box-shadow:0 30px 40px -18px rgba(0,0,0,.6);transition:transform .25s ease-out,box-shadow .3s}
+.htply-about-page .hs.armed .hs-slot:not(.in) .hs-board{opacity:0}
+.htply-about-page .hs-slot.in .hs-board:not(.done){animation:hs-land .9s var(--ease) var(--d) both}
+@keyframes hs-land{0%{opacity:0;transform:translateY(-160px) rotate(-2deg)}55%{opacity:1;transform:translateY(0) scaleY(.965)}72%{transform:translateY(-10px) scaleY(1.01)}100%{opacity:1;transform:none}}
+.htply-about-page .hs-board.done{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px))}
+.htply-about-page .hs-board.done:hover{box-shadow:0 46px 50px -20px rgba(0,0,0,.72)}
+
+.htply-about-page .hs-face{position:absolute;inset:0;border-radius:3px;overflow:hidden;background:#d9a868 var(--wood) center var(--py,50%)/cover no-repeat}
+.htply-about-page .hs-face::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(247,230,196,.8) 0,rgba(247,230,196,.6) 190px,rgba(247,230,196,0) 300px),linear-gradient(180deg,transparent 60%,rgba(0,0,0,.19))}
+.htply-about-page .hs-face::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4) 50%,transparent);transform:skewX(-14deg)}
+.htply-about-page .hs-board.done:hover .hs-face::after{left:130%;transition:left .9s ease}
+.htply-about-page .hs-top,.htply-about-page .hs-side{position:absolute}
+.htply-about-page .hs-top{left:0;bottom:100%;width:100%;height:var(--D);transform-origin:bottom left;transform:skewX(-45deg);border-radius:2px 2px 0 0;background:var(--edge) center/100% 2000%;filter:brightness(1.12)}
+.htply-about-page .hs-side{left:100%;top:0;width:var(--D);height:100%;transform-origin:top left;transform:skewY(-45deg);background:var(--edge) center/100% 100%;filter:brightness(.8)}
+
+/* Chữ khắc trên gỗ */
+.htply-about-page .hs-txt{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:24px 20px;color:#3a2412}
+.htply-about-page .hs-year{font-size:46px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#4a2c13;text-shadow:0 1px 0 rgba(255,255,255,.35),0 -1px 0 rgba(0,0,0,.15);font-variant-numeric:tabular-nums}
+.htply-about-page .hs-txt h4{margin:12px 0 8px;font-size:17px;font-weight:800;line-height:1.25;color:#3a2412}
+.htply-about-page .hs-txt p{margin:0;font-size:13.5px;font-weight:500;line-height:1.55;color:#4d3420}
+.htply-about-page .hs-meta{margin-top:auto;padding-top:16px;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5b3d22}
+.htply-about-page .hs-meta i{flex:1;height:1px;background:rgba(91,61,34,.33)}
+.htply-about-page .hs-meta.hs-cap{margin:0 0 6px;padding:0}
+.htply-about-page .hs-slot.in .hs-txt>*{animation:hs-txt .6s var(--ease) both;animation-delay:calc(var(--d) + .55s)}
+.htply-about-page .hs-slot.in .hs-txt>*:nth-child(2){animation-delay:calc(var(--d) + .63s)}
+.htply-about-page .hs-slot.in .hs-txt>*:nth-child(3){animation-delay:calc(var(--d) + .71s)}
+.htply-about-page .hs-slot.in .hs-txt>*:nth-child(n+4){animation-delay:calc(var(--d) + .79s)}
+@keyframes hs-txt{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Bụi gỗ khi tấm ván chạm đất */
+.htply-about-page .hs-dust{position:absolute;left:0;right:0;bottom:0;height:0;pointer-events:none;z-index:7}
+.htply-about-page .hs-dust i{position:absolute;bottom:0;width:5px;height:5px;border-radius:50%;background:#e8cfa6;opacity:0}
+.htply-about-page .hs-slot.in .hs-dust i{animation:hs-dust .9s ease-out calc(var(--d) + .48s) backwards}
+@keyframes hs-dust{0%{opacity:0;transform:none}8%{opacity:.9}100%{opacity:0;transform:translate(var(--x),var(--y))}}
+.htply-about-page .hs-floor{position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.19) 15%,rgba(255,255,255,.19) 85%,transparent)}
+
+/* 2026: tấm "bản vẽ" trong suốt */
+.htply-about-page .hs-board.blue{box-shadow:none}
+.htply-about-page .blue .hs-face{background:rgba(89,203,232,.05);background-image:linear-gradient(rgba(89,203,232,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(89,203,232,.11) 1px,transparent 1px);background-size:22px 22px}
+.htply-about-page .blue .hs-face::before{display:none}
+.htply-about-page .hs-ants{position:absolute;inset:0;border-radius:3px;pointer-events:none;
+  background:linear-gradient(90deg,var(--picton) 50%,transparent 0) repeat-x top/14px 2px,linear-gradient(90deg,var(--picton) 50%,transparent 0) repeat-x bottom/14px 2px,
+  linear-gradient(0deg,var(--picton) 50%,transparent 0) repeat-y left/2px 14px,linear-gradient(0deg,var(--picton) 50%,transparent 0) repeat-y right/2px 14px;
+  animation:hs-ants 1s linear infinite}
+@keyframes hs-ants{to{background-position:14px 0,-14px 100%,0 -14px,100% 14px}}
+.htply-about-page .blue .hs-top,.htply-about-page .blue .hs-side{background:rgba(89,203,232,.17);outline:1px dashed rgba(89,203,232,.67);filter:none}
+.htply-about-page .blue .hs-txt,.htply-about-page .blue .hs-txt h4{color:#fff}
+.htply-about-page .blue .hs-year{color:var(--picton);text-shadow:0 0 24px rgba(89,203,232,.4)}
+.htply-about-page .blue .hs-txt p{color:var(--mist,#c3cbd8)}
+.htply-about-page .blue .hs-meta{color:var(--picton)}
+.htply-about-page .blue .hs-meta i{background:rgba(89,203,232,.33)}
+.htply-about-page .hs-board.blue.done{animation:hs-float 4s ease-in-out infinite}
+@keyframes hs-float{50%{translate:0 -8px}}
+.htply-about-page .hs-glow{position:absolute;inset:-30px;border-radius:30px;background:radial-gradient(closest-side,rgba(89,203,232,.2),transparent);animation:hs-pulse 3s ease-in-out infinite;pointer-events:none}
+@keyframes hs-pulse{50%{opacity:.35;transform:scale(.94)}}
+
+/* Màn hình vừa: chữ nhỏ lại cho vừa cột */
+@media(max-width:1100px){
+  .htply-about-page .hs-grid{gap:24px}
+  .htply-about-page .hs-txt{padding:20px 16px}
+  .htply-about-page .hs-year{font-size:36px}
+  .htply-about-page .hs-txt h4{font-size:15px}
+  .htply-about-page .hs-txt p{font-size:12.5px}
+}
+/* Điện thoại / máy tính bảng dọc: xếp dọc, cao theo nội dung, bỏ mũi tên */
+@media(max-width:860px){
+  .htply-about-page .hs{margin-top:40px}
+  .htply-about-page .hs-replay{position:static;margin-bottom:28px}
+  .htply-about-page .hs-stage{padding-top:20px}
+  .htply-about-page .hs-grid{grid-template-columns:1fr;height:auto;gap:46px}
+  .htply-about-page .hs-slot{height:auto;--d:0s}
+  .htply-about-page .hs-board{height:auto;min-height:190px}
+  .htply-about-page .hs-txt{height:auto;min-height:190px}
+  .htply-about-page .hs-year{font-size:42px}
+  .htply-about-page .hs-txt h4{font-size:17px}
+  .htply-about-page .hs-txt p{font-size:14px}
+  .htply-about-page .hs-arrow{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .htply-about-page .hs *,.htply-about-page .hs *::before,.htply-about-page .hs *::after{animation:none!important;transition:none!important}
+  .htply-about-page .hs.armed .hs-slot .hs-board{opacity:1}
+  .htply-about-page .hs-dust,.htply-about-page .hs-replay{display:none}
+}
