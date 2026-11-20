@@ -31,6 +31,10 @@
 .htply-about-page .ad-map .flag-button{flex:none;white-space:nowrap}
 .htply-about-page .ad-map .flagbar:hover .flag-track,.htply-about-page .ad-map .flagbar:focus-within .flag-track{animation-play-state:paused}
 @keyframes flag-run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* Ít cờ: không chạy, không làm mờ 2 mép, căn giữa */
+.htply-about-page .ad-map .flagbar.is-static{-webkit-mask-image:none;mask-image:none}
+.htply-about-page .ad-map .flagbar.is-static .flag-track{animation:none;width:auto;justify-content:center}
+.htply-about-page .ad-map .flagbar.is-static .flag-set{padding-right:0}
 .htply-about-page .ad-map .flag-button{border:1px solid transparent;border-radius:8px;background:#b7c8d8;padding:9px 11px;display:flex;align-items:center;gap:9px;color:#3c445c;line-height:1.4;font-family:inherit;font-size:12px;font-weight:500;cursor:pointer;transition:background .2s,border-color .2s}
 .htply-about-page .ad-map .flag-button img{width:29px;height:19px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px #3c445c18}
 .htply-about-page .ad-map .flag-button:hover,.htply-about-page .ad-map .flag-button.active{background:#59cbe8;border-color:#268ead;color:#3c445c}

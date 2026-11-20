@@ -26,6 +26,9 @@ export function ExportMap({ markets }: { markets?: MarketInput[] }) {
   const [selected, setSelected] = useState<number | null>(null)
   const [preview, setPreview] = useState<number | null>(null)
   const [paused, setPaused] = useState(false)
+  // Hàng cờ chỉ chạy ngang (và vẽ bộ thứ hai để lặp) khi số cờ dài hơn khung; ít nước thì đứng yên, căn giữa
+  const flagbarRef = useRef<HTMLDivElement>(null)
+  const [marquee, setMarquee] = useState(false)
   const active = preview ?? selected
   const names = new Intl.DisplayNames([locale], { type: 'region' })
   const countryName = (index: number) => names.of(points[index].code) ?? points[index].name
@@ -98,6 +101,19 @@ export function ExportMap({ markets }: { markets?: MarketInput[] }) {
     }
   }, [paused])
 
+  useEffect(() => {
+    const bar = flagbarRef.current
+    const set = bar?.querySelector<HTMLElement>('.flag-set')
+    if (!bar || !set) return
+    // Đo bộ cờ đầu tiên (không tính khoảng đệm cuối) so với chiều rộng khung
+    const measure = () => setMarquee(set.scrollWidth - 14 > bar.clientWidth)
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(bar)
+    observer.observe(set)
+    return () => observer.disconnect()
+  }, [points, locale])
+
   const toggle = (index: number) => setSelected((current) => current === index ? null : index)
   const place = active === null ? null : points[active]
   const placeName = active === null ? '' : countryName(active)
@@ -165,10 +181,11 @@ export function ExportMap({ markets }: { markets?: MarketInput[] }) {
           {t('origin')} → {selected === null ? t('globalMarkets') : countryName(selected)}
         </p>
       </div>
-      {/* Một hàng cờ chạy ngang liên tục: bộ nút được vẽ 2 lần để vòng lặp liền mạch; bản thứ hai chỉ để chạy, ẩn khỏi trình đọc màn hình */}
-      <div className="flagbar" role="group" aria-label={t('explore')}>
+      {/* Nhiều cờ: hàng chạy ngang liên tục, bộ nút vẽ 2 lần để vòng lặp liền mạch (bản thứ hai ẩn khỏi trình đọc màn hình).
+          Ít cờ (vừa khung): chỉ vẽ 1 bộ, đứng yên ở giữa, không bị lặp cờ. */}
+      <div className={`flagbar${marquee ? '' : ' is-static'}`} role="group" aria-label={t('explore')} ref={flagbarRef}>
         <div className="flag-track">
-          {[0, 1].map((copy) => (
+          {(marquee ? [0, 1] : [0]).map((copy) => (
             <div className="flag-set" key={copy} aria-hidden={copy === 1 ? true : undefined}>
               {points.map((point, i) => (
                 <button
