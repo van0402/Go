@@ -1,6 +1,7 @@
 import type { Field, GlobalConfig } from 'payload'
 import { anyone } from '@/access/anyone'
 import { authenticated } from '@/access/authenticated'
+import { translateGlobalEndpoint } from '@/utilities/translateGlobal'
 import { sectionHeading } from '@/fields/sectionHeading'
 
 // Chữ phần Core values ở trang Home. Ô nào để trống thì trang dùng chữ mặc định trong messages (home.values).
@@ -30,9 +31,12 @@ const value = (n: 1 | 2 | 3, color: string, example: string): Field[] => [
 
 export const HomeCoreValues: GlobalConfig = {
   slug: 'home-core-values',
+  endpoints: [translateGlobalEndpoint('home-core-values')],
   label: 'Home · Core values',
   access: { read: anyone, update: authenticated },
   fields: [
+    // Nút dịch EN -> FR + ES bằng DeepL (cột phải)
+    { name: 'translateButton', type: 'ui', admin: { position: 'sidebar', components: { Field: '@/components/admin/TranslateButton' } } },
     sectionHeading('introHeading', 'Heading and introduction', 'Text above the wheel on the Home page'),
     text('kicker', 'Heading', 'e.g. Core values'),
     text('introTitle', 'Intro title', 'e.g. Quality you can check. Information you can see. Results you can repeat.'),

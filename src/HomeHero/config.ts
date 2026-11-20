@@ -1,6 +1,7 @@
 import type { GlobalConfig } from 'payload'
 import { anyone } from '@/access/anyone'
 import { authenticated } from '@/access/authenticated'
+import { translateGlobalEndpoint } from '@/utilities/translateGlobal'
 import { sectionHeading as heading } from '@/fields/sectionHeading'
 
 const text = (name: string, label: string, description?: string) =>
@@ -8,9 +9,12 @@ const text = (name: string, label: string, description?: string) =>
 
 export const HomeHero: GlobalConfig = {
   slug: 'home-hero',
+  endpoints: [translateGlobalEndpoint('home-hero')],
   label: 'Home · Hero',
   access: { read: anyone, update: authenticated },
   fields: [
+    // Nút dịch EN -> FR + ES bằng DeepL (cột phải)
+    { name: 'translateButton', type: 'ui', admin: { position: 'sidebar', components: { Field: '@/components/admin/TranslateButton' } } },
     heading('heroHeading', 'Hero', 'Top banner of the Home page: small line, title and two buttons'),
     text('kicker', 'Small line above the title', 'e.g. Vietnam Leading Plywood Exporter'),
     text('titleLine1', 'Title, line 1', 'e.g. Built for quality.'),

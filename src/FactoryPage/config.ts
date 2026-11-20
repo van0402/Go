@@ -1,6 +1,7 @@
 import type { GlobalConfig } from 'payload'
 import { anyone } from '@/access/anyone'
 import { authenticated } from '@/access/authenticated'
+import { translateGlobalEndpoint } from '@/utilities/translateGlobal'
 import { sectionHeading as heading } from '@/fields/sectionHeading'
 
 // Trang Factory (/factory). Ô nào để trống thì trang dùng chữ/ảnh mặc định đang có sẵn.
@@ -15,9 +16,12 @@ const onlyVideos = { mimeType: { contains: 'video' } }
 
 export const FactoryPage: GlobalConfig = {
   slug: 'factory-page',
+  endpoints: [translateGlobalEndpoint('factory-page')],
   label: 'Factory page',
   access: { read: anyone, update: authenticated },
   fields: [
+    // Nút dịch EN -> FR + ES bằng DeepL (cột phải)
+    { name: 'translateButton', type: 'ui', admin: { position: 'sidebar', components: { Field: '@/components/admin/TranslateButton' } } },
     // ===== Banner =====
     heading('bannerHeading', 'Banner', 'Big title, paragraph and background photo at the top of the Factory page'),
     text('heroTitle', 'Title', 'e.g. Where quality begins with process', 80),

@@ -4,30 +4,47 @@ import { useDocumentInfo, useLocale } from '@payloadcms/ui'
 
 type State = 'idle' | 'busy' | 'done' | 'error'
 
+// Nút dịch EN -> FR + ES bằng DeepL. Dùng cho:
+// - bài viết / sản phẩm (collection): POST /api/<collection>/<id>/translate
+// - các trang chỉnh nội dung (global: Factory, About, Home): POST /api/globals/<slug>/translate,
+//   có thêm lựa chọn "chỉ dịch ô FR/ES còn trống"
 export default function TranslateButton() {
-  const { id, collectionSlug } = useDocumentInfo()
+  const { id, collectionSlug, globalSlug } = useDocumentInfo()
   const locale = useLocale()
   const [state, setState] = useState<State>('idle')
   const [message, setMessage] = useState('')
+  const [onlyEmpty, setOnlyEmpty] = useState(false)
+  const isGlobal = Boolean(globalSlug)
 
   const run = async () => {
-    if (
-      !window.confirm(
-        'Translate the English title, summary and content into French and Spanish?\nExisting FR/ES text of this post will be overwritten.',
-      )
-    )
-      return
+    const question = isGlobal
+      ? onlyEmpty
+        ? 'Fill the empty French and Spanish fields with a translation of the English text?\nFR/ES text you already wrote is kept.'
+        : 'Translate all English text on this page into French and Spanish?\nExisting FR/ES text on this page will be overwritten.'
+      : 'Translate the English title, summary and content into French and Spanish?\nExisting FR/ES text of this post will be overwritten.'
+    if (!window.confirm(question)) return
     setState('busy')
     setMessage('')
     try {
-      const res = await fetch(`/api/${collectionSlug}/${id}/translate`, {
+      const url = isGlobal ? `/api/globals/${globalSlug}/translate` : `/api/${collectionSlug}/${id}/translate`
+      const res = await fetch(url, {
         method: 'POST',
         credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ onlyEmpty: isGlobal && onlyEmpty }),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error || `Error ${res.status}`)
       setState('done')
-      setMessage('Done. Switch the language to FR / ES to review, then Publish.')
+      if (isGlobal && data.translated === 0) {
+        setMessage('Nothing to translate: the English fields are empty, or FR/ES are already filled in.')
+        return
+      }
+      setMessage(
+        isGlobal
+          ? 'Done. Switch the language to FR / ES to review the text, then Save.'
+          : 'Done. Switch the language to FR / ES to review, then Publish.',
+      )
       setTimeout(() => window.location.reload(), 1200)
     } catch (e) {
       setState('error')
@@ -35,7 +52,7 @@ export default function TranslateButton() {
     }
   }
 
-  if (!id) {
+  if (!isGlobal && !id) {
     return (
       <div className="htply-translate">
         <b>Translate</b>
@@ -56,7 +73,17 @@ export default function TranslateButton() {
   return (
     <div className="htply-translate">
       <b>Translate</b>
-      <p>Write the post in English, save, then translate to French and Spanish.</p>
+      <p>
+        {isGlobal
+          ? 'Write the English text and Save first. Then translate it to French and Spanish.'
+          : 'Write the post in English, save, then translate to French and Spanish.'}
+      </p>
+      {isGlobal && (
+        <label className="htply-translate-opt">
+          <input type="checkbox" checked={onlyEmpty} onChange={(e) => setOnlyEmpty(e.target.checked)} />
+          Only fill empty FR / ES fields
+        </label>
+      )}
       <button
         type="button"
         className="btn btn--style-secondary btn--size-medium"

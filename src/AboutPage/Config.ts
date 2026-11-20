@@ -4,6 +4,7 @@ import { authenticated } from '@/access/authenticated'
 import { sectionHeading } from '@/fields/sectionHeading'
 import countries from 'i18n-iso-countries'
 import en from 'i18n-iso-countries/langs/en.json'
+import { translateGlobalEndpoint } from '@/utilities/translateGlobal'
 import { MAP_COUNTRIES } from '@/components/HtplyAbout/export-map-data'
 
 countries.registerLocale(en)
@@ -16,9 +17,12 @@ const countryOptions = MAP_COUNTRIES
 
 export const AboutPage: GlobalConfig = {
   slug: 'about-page',
+  endpoints: [translateGlobalEndpoint('about-page')],
   label: 'About page',
   access: { read: anyone, update: authenticated },
   fields: [
+    // Nút dịch EN -> FR + ES bằng DeepL (cột phải)
+    { name: 'translateButton', type: 'ui', admin: { position: 'sidebar', components: { Field: '@/components/admin/TranslateButton' } } },
     sectionHeading('bannerHeading', 'Banner', 'Title and paragraph on the top banner of the About page'),
     { name: 'whoTitle', label: 'Title', type: 'text', localized: true, maxLength: 80,
       admin: { description: 'e.g. A Vietnamese plywood brand built for the global market (max 80 characters)' } },
