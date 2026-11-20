@@ -1,10 +1,8 @@
 /* Lịch sử công ty: bậc thang ván gỗ (HistorySteps.tsx) */
 .htply-about-page .hs{--D:18px;--wood:url('/images/about/history-wood-face.jpg');--edge:url('/images/about/history-wood-edge.jpg');position:relative;margin-top:56px}
-.htply-about-page .hs-replay{position:absolute;right:0;top:-92px;z-index:8;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:none;color:#fff;font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:border-color .25s,color .25s}
-.htply-about-page .hs-replay:hover,.htply-about-page .hs-replay:focus-visible{border-color:var(--picton);color:var(--picton)}
 
 .htply-about-page .hs-stage{position:relative;padding-top:60px}
-.htply-about-page .hs-grid{list-style:none;margin:0;padding:0 var(--D) 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:34px;align-items:end;height:600px}
+.htply-about-page .hs-grid{list-style:none;margin:0;padding:0 var(--D) 0 0;display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:34px;align-items:end;height:600px}
 .htply-about-page .hs-slot{--d:calc(var(--i,0) * .22s);position:relative;height:var(--h);perspective:900px}
 
 /* Mũi tên tăng trưởng */
@@ -82,7 +80,6 @@
 /* Điện thoại / máy tính bảng dọc: xếp dọc, cao theo nội dung, bỏ mũi tên */
 @media(max-width:860px){
   .htply-about-page .hs{margin-top:40px}
-  .htply-about-page .hs-replay{position:static;margin-bottom:28px}
   .htply-about-page .hs-stage{padding-top:20px}
   .htply-about-page .hs-grid{grid-template-columns:1fr;height:auto;gap:46px}
   .htply-about-page .hs-slot{height:auto;--d:0s}
@@ -96,5 +93,5 @@
 @media(prefers-reduced-motion:reduce){
   .htply-about-page .hs *,.htply-about-page .hs *::before,.htply-about-page .hs *::after{animation:none!important;transition:none!important}
   .htply-about-page .hs.armed .hs-slot .hs-board{opacity:1}
-  .htply-about-page .hs-dust,.htply-about-page .hs-replay{display:none}
+  .htply-about-page .hs-dust{display:none}
 }

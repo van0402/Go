@@ -7,7 +7,7 @@ import { SiteFooter } from '@/components/Htply/SiteFooter'
 import { CountUp } from '@/components/Htply/CountUp'
 import { SplitTitle } from '@/components/Htply/SplitTitle'
 import { ExportMap } from './ExportMap'
-import { HistorySteps } from './HistorySteps'
+import { HistorySteps, type Milestone } from './HistorySteps'
 import { AboutFx } from './AboutFx'
 import './about-dreamy.css'
 import type { AboutPage } from '@/payload-types'
@@ -18,7 +18,15 @@ type Advantage = Item & { tags: string[] }
 // Ảnh nền của 3 thẻ giá trị (hiện khi rê chuột)
 const VALUE_IMAGES = ['/images/home/cv-1.jpg', '/images/about/precise.jpg', '/images/home/cv-3.jpg']
 
-export function HtplyAbout({ data, markets }: { data?: AboutPage | null; markets?: MarketInput[] }) {
+export function HtplyAbout({
+  data,
+  markets,
+  milestones,
+}: {
+  data?: AboutPage | null
+  markets?: MarketInput[]
+  milestones?: Milestone[]
+}) {
   const tp = useTranslations('aboutPage')
   const tc = useTranslations('home.export.cta')
   const valueItems = tp.raw('values.items') as Item[]
@@ -136,8 +144,8 @@ export function HtplyAbout({ data, markets }: { data?: AboutPage | null; markets
           <section className="ad-sec" style={{ paddingBottom: 80 }}>
             <div className="ad-wrap">
               <h2 className="ad-kicker" data-fade>History</h2>
-              <SplitTitle as="h3" text={tp('history.title')} />
-              <HistorySteps />
+              <SplitTitle as="h3" text={data?.historyTitle || tp('history.title')} />
+              <HistorySteps milestones={milestones} />
             </div>
           </section>
         </div>

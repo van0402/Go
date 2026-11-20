@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { useDocumentInfo, useLocale } from '@payloadcms/ui'
+import { useDocumentInfo, useFormModified, useLocale } from '@payloadcms/ui'
 
 type State = 'idle' | 'busy' | 'done' | 'error'
 
@@ -15,8 +15,14 @@ export default function TranslateButton() {
   const [message, setMessage] = useState('')
   const [onlyEmpty, setOnlyEmpty] = useState(false)
   const isGlobal = Boolean(globalSlug)
+  const modified = useFormModified() // có chỗ sửa chưa bấm Save
 
   const run = async () => {
+    // Dịch lấy chữ EN đã lưu trong DB. Chưa Save thì chữ mới gõ không được dịch, và trang tải lại sẽ mất chữ đó.
+    if (modified) {
+      window.alert('You have unsaved changes.\nClick Save first, then click Translate.')
+      return
+    }
     const question = isGlobal
       ? onlyEmpty
         ? 'Fill the empty French and Spanish fields with a translation of the English text?\nFR/ES text you already wrote is kept.'
@@ -92,6 +98,9 @@ export default function TranslateButton() {
       >
         {state === 'busy' ? 'Translating…' : 'Translate to FR + ES'}
       </button>
+      {modified && state !== 'busy' && (
+        <p className="htply-translate-err">Unsaved changes: click Save first, then Translate.</p>
+      )}
       {message && <p className={state === 'error' ? 'htply-translate-err' : ''}>{message}</p>}
     </div>
   )

@@ -9,8 +9,8 @@ import './history-steps.css'
 // Hiệu ứng khi cuộn tới: ván rơi xuống nảy nhẹ, bụi gỗ, số năm đếm lên, mũi tên tăng trưởng vẽ dần.
 // Rê chuột: tấm ván nghiêng 3D theo chuột và có vệt sáng lướt qua.
 
-type Milestone = { title: string; desc: string }
-const YEARS = [2021, 2022, 2023, 2024, 2026]
+export type Milestone = { year: number; title: string; desc: string; future?: boolean }
+const YEARS = [2021, 2022, 2023, 2024, 2026] // năm mặc định khi admin chưa nhập
 const STAGGER = 220 // ms giữa hai tấm ván
 const LAND = 480 // ms từ lúc bắt đầu rơi tới lúc chạm đất (khớp keyframes hs-land)
 const GRAIN = ['10%', '85%', '35%', '65%'] // mỗi tấm lấy một đoạn vân khác nhau của cùng tấm ván
@@ -22,16 +22,19 @@ const DUST = Array.from({ length: 12 }, (_, k) => ({
   y: `${-10 - ((k * 29) % 36)}px`,
 }))
 
-export function HistorySteps() {
+export function HistorySteps({ milestones }: { milestones?: Milestone[] }) {
   const t = useTranslations('aboutPage.history')
-  const items = (t.raw('items') as Milestone[]).slice(0, YEARS.length)
-  const last = items.length - 1
+  // Admin đã nhập thì dùng bản admin; chưa nhập thì dùng danh sách mặc định (tấm cuối là "tương lai")
+  const defaults = (t.raw('items') as { title: string; desc: string }[])
+    .slice(0, YEARS.length)
+    .map((m, i, a) => ({ ...m, year: YEARS[i], future: i === a.length - 1 }))
+  const items: Milestone[] = milestones?.length ? milestones : defaults
+  const n = items.length
 
   const root = useRef<HTMLDivElement>(null)
   const grid = useRef<HTMLDivElement>(null)
   const [armed, setArmed] = useState(false) // JS đã chạy: mới ẩn ván để chờ hiệu ứng (không JS vẫn thấy đủ)
   const [go, setGo] = useState(false)
-  const [run, setRun] = useState(0) // tăng lên khi bấm "Replay" để vẽ lại từ đầu
   const [arrow, setArrow] = useState({ d: '', len: 0 })
   const [drawn, setDrawn] = useState(false)
 
@@ -63,7 +66,7 @@ export function HistorySteps() {
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
-  }, [run])
+  }, [])
 
   // Số năm đếm lên lúc tấm ván chạm đất (gọi khi hiệu ứng rơi bắt đầu)
   const countUp = (board: HTMLElement, end: number) => {
@@ -107,16 +110,16 @@ export function HistorySteps() {
     const ro = new ResizeObserver(measure)
     if (grid.current) ro.observe(grid.current)
     return () => ro.disconnect()
-  }, [run])
+  }, [])
 
   // Mũi tên vẽ dần sau khi cả hàng ván đã rơi xong (chỉ hiện trên máy tính)
   useEffect(() => {
     if (!go) return
     setDrawn(false)
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const timer = window.setTimeout(() => setDrawn(true), reduce ? 0 : YEARS.length * STAGGER + 500)
+    const timer = window.setTimeout(() => setDrawn(true), reduce ? 0 : n * STAGGER + 500)
     return () => clearTimeout(timer)
-  }, [go, run])
+  }, [go])
 
   // Nghiêng 3D theo chuột (chỉ khi tấm ván đã rơi xong)
   const tilt = (e: PointerEvent<HTMLDivElement>) => {
@@ -135,11 +138,7 @@ export function HistorySteps() {
 
   return (
     <div className={`hs${armed ? ' armed' : ''}${go ? ' go' : ''}${drawn ? ' drawn' : ''}`} ref={root}>
-      <button type="button" className="hs-replay" onClick={() => setRun((n) => n + 1)}>
-        <span aria-hidden="true">↻</span> {t('replayLabel')}
-      </button>
-
-      <div className="hs-stage" ref={grid} key={run}>
+      <div className="hs-stage" ref={grid}>
         {arrow.d && (
           <svg className="hs-arrow" aria-hidden="true" style={{ '--len': arrow.len } as CSSProperties}>
             <defs>
@@ -151,21 +150,21 @@ export function HistorySteps() {
           </svg>
         )}
 
-        <ol className="hs-grid" aria-label={t('milestonesLabel')}>
+        <ol className="hs-grid" aria-label={t('milestonesLabel')} style={{ '--n': n } as CSSProperties}>
         {items.map((m, i) => {
-          const future = i === last
+          const future = Boolean(m.future)
           return (
             <li
               key={i}
               className="hs-slot"
-              style={{ '--h': `${44 + i * 14}%`, '--i': i } as CSSProperties}
+              style={{ '--h': `${n > 1 ? 44 + (i * 56) / (n - 1) : 70}%`, '--i': i } as CSSProperties}
             >
               {future && <span className="hs-glow" aria-hidden="true" />}
               <div
                 className={`hs-board${future ? ' blue' : ''}`}
                 style={{ '--py': GRAIN[i] ?? '50%' } as CSSProperties}
                 onAnimationStart={(e) => {
-                  if (e.target === e.currentTarget && e.animationName.endsWith('hs-land')) countUp(e.currentTarget, YEARS[i])
+                  if (e.target === e.currentTarget && e.animationName.endsWith('hs-land')) countUp(e.currentTarget, m.year)
                 }}
                 onAnimationEnd={(e) => {
                   if (e.target === e.currentTarget && e.animationName.endsWith('hs-land')) e.currentTarget.classList.add('done')
@@ -178,11 +177,11 @@ export function HistorySteps() {
                 <span className="hs-face" aria-hidden="true">{future && <span className="hs-ants" />}</span>
                 <div className="hs-txt">
                   {future && <div className="hs-meta hs-cap">{t('futureLabel')}</div>}
-                  <div className="hs-year">{YEARS[i]}</div>
+                  <div className="hs-year">{m.year}</div>
                   <h4>{m.title}</h4>
                   <p>{m.desc}</p>
                   <div className="hs-meta" aria-hidden="true">
-                    {`HTPLY · ${YEARS[i]}`}
+                    {`HTPLY · ${m.year}`}
                     <i />
                   </div>
                 </div>

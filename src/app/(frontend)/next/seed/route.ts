@@ -6,6 +6,12 @@ import { headers } from 'next/headers'
 export const maxDuration = 60 // This function can run for a maximum of 60 seconds
 
 export async function POST(): Promise<Response> {
+  // Seed XOÁ SẠCH mọi collection rồi nạp dữ liệu mẫu. Trên máy chủ thật luôn tắt,
+  // trừ khi cố ý đặt ALLOW_SEED=true (chỉ dùng cho môi trường thử nghiệm).
+  if (process.env.NODE_ENV === 'production' && process.env.ALLOW_SEED !== 'true') {
+    return new Response('Not found', { status: 404 })
+  }
+
   const payload = await getPayload({ config })
   const requestHeaders = await headers()
 

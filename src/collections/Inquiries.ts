@@ -1,7 +1,14 @@
-import type { CollectionConfig } from 'payload'
+import { APIError, type CollectionConfig } from 'payload'
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
 import { inquiryHtml, inquirySubject } from '../utilities/inquiryEmail'
+import { clientIp, hitRateLimit } from '../utilities/rateLimit'
+
+// Chống spam form báo giá (mỗi lần gửi = 1 email qua Resend)
+const PER_IP_LIMIT = 5 // tối đa 5 lần / IP ...
+const PER_IP_WINDOW_MS = 10 * 60 * 1000 // ... trong 10 phút
+const GLOBAL_LIMIT = 100 // tổng tất cả khách tối đa 100 lần ...
+const GLOBAL_WINDOW_MS = 60 * 60 * 1000 // ... trong 1 giờ
 
 export const Inquiries: CollectionConfig = {
   slug: 'inquiries',
@@ -17,6 +24,29 @@ export const Inquiries: CollectionConfig = {
     defaultColumns: ['fullName', 'company', 'country', 'email', 'status', 'createdAt'],
   },
   hooks: {
+    beforeOperation: [
+      ({ operation, req }) => {
+        // Chỉ giới hạn khách vãng lai gửi form; admin tạo tay không bị chặn
+        if (operation !== 'create' || req.user) return
+        const ip = clientIp(req.headers)
+        if (
+          !hitRateLimit(`inquiry:ip:${ip}`, PER_IP_LIMIT, PER_IP_WINDOW_MS) ||
+          !hitRateLimit('inquiry:all', GLOBAL_LIMIT, GLOBAL_WINDOW_MS)
+        ) {
+          throw new APIError('Too many requests, please try again later.', 429, undefined, true)
+        }
+      },
+    ],
+    beforeChange: [
+      ({ data, operation, req }) => {
+        // Khách gửi qua API công khai không được tự đặt trạng thái hay ghi chú nội bộ
+        if (operation === 'create' && !req.user) {
+          data.status = 'new'
+          delete data.internalNote
+        }
+        return data
+      },
+    ],
     afterChange: [
       async ({ doc, operation, req }) => {
         const to = process.env.CONTACT_EMAIL_TO

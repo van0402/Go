@@ -45,5 +45,36 @@ export const AboutPage: GlobalConfig = {
       },
       fields: [{ name: 'country', label: 'Country', type: 'select', required: true, options: countryOptions }],
     },
+
+    sectionHeading('historyHeading', 'History', 'The wooden staircase at the bottom of the About page'),
+    { name: 'historyTitle', label: 'Subtitle', type: 'text', localized: true, maxLength: 90,
+      admin: { description: 'e.g. From early foundations to global supply capability.' } },
+    {
+      name: 'milestones',
+      label: 'Boards',
+      type: 'array',
+      maxRows: 6,
+      labels: { singular: 'Board', plural: 'Boards' },
+      admin: {
+        initCollapsed: true,
+        components: { RowLabel: '@/components/admin/ArrayRowLabel' },
+        description: 'One row = one wooden board, from left (lowest) to right (highest). Drag ⠿ to change the order. Up to 6 boards. Leave empty to show the default list.',
+      },
+      fields: [
+        {
+          type: 'row',
+          fields: [
+            { name: 'year', label: 'Year', type: 'number', required: true, min: 1990, max: 2100,
+              admin: { width: '30%', description: 'e.g. 2021' } },
+            { name: 'future', label: 'Future goal (blue see-through board)', type: 'checkbox',
+              admin: { width: '70%', description: 'Tick for a plan that has not happened yet. Usually only the last board.' } },
+          ],
+        },
+        { name: 'title', label: 'Title', type: 'text', localized: true, maxLength: 40,
+          admin: { description: 'Short, 1–3 words. e.g. Founded' } },
+        { name: 'desc', label: 'Short text', type: 'textarea', localized: true, maxLength: 160,
+          admin: { rows: 3, description: 'One or two sentences (max 160 characters) so it fits on the board.' } },
+      ],
+    },
   ],
 }

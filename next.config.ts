@@ -16,6 +16,11 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  // VPS có 10 CPU: mặc định next build chạy ~9 tiến trình song song, mỗi cái nạp cả Payload (~0.5-1 GB),
+  // vượt RAM còn trống và làm treo máy khi deploy. Giới hạn 2 tiến trình: build chậm hơn chút nhưng không vọt RAM.
+  experimental: {
+    cpus: Number(process.env.NEXT_BUILD_CPUS) || 2,
+  },
   // Temporarily required on Windows until Next.js fixes Turbopack Sass resolution.
   // See: https://github.com/vercel/next.js/issues/86431
   sassOptions: {

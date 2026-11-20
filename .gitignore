@@ -24,3 +24,6 @@ node_modules/
 /playwright/.cache/
 .env 
 .swc-cache/
+
+# Cấu hình VPS (có mật khẩu DB), không đẩy lên GitHub
+/deploy/

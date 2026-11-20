@@ -12,10 +12,13 @@ export default function ArrayRowLabel() {
     .map((k) => data?.[k])
     .find((v) => typeof v === 'string' && v.trim()) as string | undefined
   const n = String((rowNumber ?? 0) + 1).padStart(2, '0')
+  // Danh sách có năm (History): hiện "2021 · Founded"
+  const year = typeof data?.year === 'number' ? String(data.year) : ''
+  const text = [year, pick].filter(Boolean).join(' · ')
   return (
     <span>
       <b style={{ opacity: 0.45, marginRight: 8 }}>{n}</b>
-      {pick || 'New item'}
+      {text || 'New item'}
     </span>
   )
 }

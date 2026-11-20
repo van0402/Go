@@ -2322,6 +2322,34 @@ export interface AboutPage {
         id?: string | null;
       }[]
     | null;
+  /**
+   * e.g. From early foundations to global supply capability.
+   */
+  historyTitle?: string | null;
+  /**
+   * One row = one wooden board, from left (lowest) to right (highest). Drag ⠿ to change the order. Up to 6 boards. Leave empty to show the default list.
+   */
+  milestones?:
+    | {
+        /**
+         * e.g. 2021
+         */
+        year: number;
+        /**
+         * Tick for a plan that has not happened yet. Usually only the last board.
+         */
+        future?: boolean | null;
+        /**
+         * Short, 1–3 words. e.g. Founded
+         */
+        title?: string | null;
+        /**
+         * One or two sentences (max 160 characters) so it fits on the board.
+         */
+        desc?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -2530,6 +2558,16 @@ export interface AboutPageSelect<T extends boolean = true> {
     | T
     | {
         country?: T;
+        id?: T;
+      };
+  historyTitle?: T;
+  milestones?:
+    | T
+    | {
+        year?: T;
+        future?: T;
+        title?: T;
+        desc?: T;
         id?: T;
       };
   updatedAt?: T;
