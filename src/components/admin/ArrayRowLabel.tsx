@@ -8,7 +8,7 @@ import { useRowLabel } from '@payloadcms/ui'
  */
 export default function ArrayRowLabel() {
   const { data, rowNumber } = useRowLabel<Record<string, unknown>>()
-  const pick = ['title', 'label', 'q', 'tag', 'key', 'value', 'item']
+  const pick = ['title', 'label', 'caption', 'q', 'tag', 'key', 'value', 'item']
     .map((k) => data?.[k])
     .find((v) => typeof v === 'string' && v.trim()) as string | undefined
   const n = String((rowNumber ?? 0) + 1).padStart(2, '0')

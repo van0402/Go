@@ -40,10 +40,39 @@ function Split({ text, as: Tag = 'h2' }: { text: string; as?: 'h1' | 'h2' }) {
   )
 }
 
-export function HtplyFactory() {
+// Dữ liệu admin nhập ở global "Factory page". Chuỗi rỗng = dùng mặc định (messages / ảnh có sẵn).
+export type FactoryData = {
+  heroTitle: string
+  heroText: string
+  heroImage: string
+  overviewTitle: string
+  overviewText1: string
+  overviewText2: string
+  photos: { src: string; caption: string }[]
+  badgeValue: string
+  badgeLabel: string
+  flowTitle: string
+  processText: string
+  video: string
+  videoPoster: string
+  videoLabel: string
+  videoTitle: string
+  videoDuration: string
+}
+
+export function HtplyFactory({ data }: { data?: FactoryData }) {
   const tf = useTranslations('factoryPage')
-  const captions = tf.raw('captions') as string[]
+  const defaultCaptions = tf.raw('captions') as string[]
   const [playing, setPlaying] = useState(false)
+
+  // Ảnh collage: admin có nhập danh sách thì dùng (tối đa 5, giữ vị trí bố cục p1..p5);
+  // dòng nào thiếu ảnh/chú thích thì lấy ảnh/chú thích mặc định ở cùng vị trí
+  const custom = data?.photos ?? []
+  const photos = (custom.length ? custom.slice(0, PHOTOS.length) : PHOTOS.map(() => ({ src: '', caption: '' }))).map(
+    (p, i) => ({ ...PHOTOS[i], src: p.src || PHOTOS[i].src, caption: p.caption || defaultCaptions[i] || '' }),
+  )
+  const video = data?.video || PROCESS_VIDEO
+  const poster = data?.videoPoster || VIDEO_POSTER
 
   return (
     <div className="htply-factory-page">
@@ -54,12 +83,15 @@ export function HtplyFactory() {
         {/* ===== Banner ===== */}
         <section className="ft-hero">
           <div className="ft-hero-bgw">
-            <div className="ft-hero-bg" />
+            <div
+              className="ft-hero-bg"
+              style={data?.heroImage ? { backgroundImage: `url("${data.heroImage}")` } : undefined}
+            />
           </div>
           <div className="ft-wrap ft-hero-in">
-            <Split text={tf('hero.title')} as="h1" />
+            <Split text={data?.heroTitle || tf('hero.title')} as="h1" />
             <p className="ft-sub" data-fade>
-              {tf('hero.text')}
+              {data?.heroText || tf('hero.text')}
             </p>
           </div>
         </section>
@@ -72,27 +104,27 @@ export function HtplyFactory() {
           <div className="ft-wrap">
             <div className="ft-head">
               <div>
-                <Split text={tf('overview.title')} />
+                <Split text={data?.overviewTitle || tf('overview.title')} />
               </div>
               <div>
-                <p data-fade>{tf('overview.text1')}</p>
-                <p data-fade>{tf('overview.text2')}</p>
+                <p data-fade>{data?.overviewText1 || tf('overview.text1')}</p>
+                <p data-fade>{data?.overviewText2 || tf('overview.text2')}</p>
               </div>
             </div>
 
             <div className="ft-collage">
-              {PHOTOS.map((p, i) => (
-                <div className={`ft-ph ft-wipe ${p.cls}`} key={p.src}>
-                  <img src={p.src} alt={captions[i] ?? ''} data-par={p.par} loading="lazy" />
+              {photos.map((p, i) => (
+                <div className={`ft-ph ft-wipe ${p.cls}`} key={i}>
+                  <img src={p.src} alt={p.caption} data-par={p.par} loading="lazy" />
                   <span className="ft-cap">
                     <b>{String(i + 1).padStart(2, '0')}</b>
-                    {captions[i]}
+                    {p.caption}
                   </span>
                 </div>
               ))}
               <div className="ft-badge" data-fade>
-                <strong>5,000 m²</strong>
-                <span>{tf('badgeLabel')}</span>
+                <strong>{data?.badgeValue || '5,000 m²'}</strong>
+                <span>{data?.badgeLabel || tf('badgeLabel')}</span>
               </div>
             </div>
           </div>
@@ -106,17 +138,17 @@ export function HtplyFactory() {
           <div className="ft-wrap">
             <div className="ft-head">
               <div>
-                <Split text={tf('flow.title')} />
+                <Split text={data?.flowTitle || tf('flow.title')} />
               </div>
               <div>
-                <p data-fade>{tf('processText')}</p>
+                <p data-fade>{data?.processText || tf('processText')}</p>
               </div>
             </div>
 
             <div className="ft-vstage">
               <div className={`ft-vframe${playing ? ' on' : ''}`}>
                 {playing && (
-                  <video src={PROCESS_VIDEO} poster={VIDEO_POSTER} controls autoPlay playsInline preload="auto" />
+                  <video src={video} poster={poster} controls autoPlay playsInline preload="auto" />
                 )}
                 <button type="button" className="ft-vposter" onClick={() => setPlaying(true)} aria-label={tf('video.play')}>
                   <span className="ft-play">
@@ -126,10 +158,10 @@ export function HtplyFactory() {
                   </span>
                   <span className="ft-vlabel">
                     <span>
-                      <small>{tf('video.label')}</small>
-                      <b>{tf('video.title')}</b>
+                      <small>{data?.videoLabel || tf('video.label')}</small>
+                      <b>{data?.videoTitle || tf('video.title')}</b>
                     </span>
-                    <i>0:23</i>
+                    <i>{data?.videoDuration || '0:23'}</i>
                   </span>
                 </button>
               </div>

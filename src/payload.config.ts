@@ -21,6 +21,7 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { HomeHero } from './HomeHero/config'
 import { HomeCoreValues } from './HomeCoreValues/config'
 import { AboutPage } from './AboutPage/Config'
+import { FactoryPage } from './FactoryPage/config'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -93,7 +94,7 @@ views: {
   }),
   collections: [Pages, Posts, Media, Categories, Products, Inquiries, Users],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer, ContactOptions, HomeHero, HomeCoreValues, AboutPage],
+  globals: [Header, Footer, ContactOptions, HomeHero, HomeCoreValues, AboutPage, FactoryPage],
   plugins: [
   ...plugins,
   s3Storage({

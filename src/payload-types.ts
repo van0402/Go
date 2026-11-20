@@ -120,6 +120,7 @@ export interface Config {
     'home-hero': HomeHero;
     'home-core-values': HomeCoreValue;
     'about-page': AboutPage;
+    'factory-page': FactoryPage;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
@@ -128,6 +129,7 @@ export interface Config {
     'home-hero': HomeHeroSelect<false> | HomeHeroSelect<true>;
     'home-core-values': HomeCoreValuesSelect<false> | HomeCoreValuesSelect<true>;
     'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
+    'factory-page': FactoryPageSelect<false> | FactoryPageSelect<true>;
   };
   locale: 'en' | 'fr' | 'es';
   widgets: {
@@ -2325,6 +2327,70 @@ export interface AboutPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "factory-page".
+ */
+export interface FactoryPage {
+  id: number;
+  /**
+   * e.g. Where quality begins with process
+   */
+  heroTitle?: string | null;
+  /**
+   * e.g. From raw materials to export packaging…
+   */
+  heroText?: string | null;
+  /**
+   * Wide landscape photo (at least 1920 px wide). Leave empty to keep the current photo.
+   */
+  heroImage?: (number | null) | Media;
+  /**
+   * e.g. A production system organized for export
+   */
+  overviewTitle?: string | null;
+  overviewText1?: string | null;
+  overviewText2?: string | null;
+  /**
+   * Up to 5 photos, shown in this order in the collage. A row left without a photo or caption keeps the default one. Leave the list empty to keep all current photos.
+   */
+  photos?:
+    | {
+        caption?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  badgeValue?: string | null;
+  /**
+   * e.g. Factory footprint
+   */
+  badgeLabel?: string | null;
+  /**
+   * e.g. From veneer to finished product
+   */
+  flowTitle?: string | null;
+  processText?: string | null;
+  /**
+   * MP4 file, ideally under 20 MB so it loads fast. Leave empty to keep the current video.
+   */
+  video?: (number | null) | Media;
+  /**
+   * Image shown before the video plays.
+   */
+  videoPoster?: (number | null) | Media;
+  /**
+   * e.g. HTPLY Vietnam
+   */
+  videoLabel?: string | null;
+  /**
+   * e.g. Production process
+   */
+  videoTitle?: string | null;
+  videoDuration?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -2466,6 +2532,37 @@ export interface AboutPageSelect<T extends boolean = true> {
         country?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "factory-page_select".
+ */
+export interface FactoryPageSelect<T extends boolean = true> {
+  heroTitle?: T;
+  heroText?: T;
+  heroImage?: T;
+  overviewTitle?: T;
+  overviewText1?: T;
+  overviewText2?: T;
+  photos?:
+    | T
+    | {
+        caption?: T;
+        image?: T;
+        id?: T;
+      };
+  badgeValue?: T;
+  badgeLabel?: T;
+  flowTitle?: T;
+  processText?: T;
+  video?: T;
+  videoPoster?: T;
+  videoLabel?: T;
+  videoTitle?: T;
+  videoDuration?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

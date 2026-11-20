@@ -10,6 +10,7 @@ import * as migration_20261012_074458_media_objectkey from './20261012_074458_me
 import * as migration_20261114_080550_add_product_parent from './20261114_080550_add_product_parent';
 import * as migration_20261117_025750_add_product_downloads from './20261117_025750_add_product_downloads';
 import * as migration_20261119_092303_add_home_and_about_globals from './20261119_092303_add_home_and_about_globals';
+import * as migration_20261120_022018_add_factory_page from './20261120_022018_add_factory_page';
 
 export const migrations = [
   {
@@ -70,6 +71,11 @@ export const migrations = [
   {
     up: migration_20261119_092303_add_home_and_about_globals.up,
     down: migration_20261119_092303_add_home_and_about_globals.down,
-    name: '20261119_092303_add_home_and_about_globals'
+    name: '20261119_092303_add_home_and_about_globals',
+  },
+  {
+    up: migration_20261120_022018_add_factory_page.up,
+    down: migration_20261120_022018_add_factory_page.down,
+    name: '20261120_022018_add_factory_page'
   },
 ];
