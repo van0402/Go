@@ -20,6 +20,7 @@ type Prefill = {
 }
 
 const REQUIRED = ['fullName', 'company', 'email', 'phone', 'country'] as const
+const OTHER_PRODUCT = ':other'
 const LAYERS = Array.from({ length: 8 }, (_, i) => i)
 
 // 8 lớp ván ép xếp isometric (đầu trang và màn hình "đã gửi")
@@ -70,6 +71,7 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
   const cardRef = useRef<HTMLElement>(null)
   const decoRef = useRef<HTMLDivElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
+  const otherProductRef = useRef<HTMLInputElement>(null)
 
   const title = t('formTitle')
   // Danh sách sản phẩm gom theo sản phẩm lớn (optgroup); sản phẩm lớn không có loại con đứng riêng
@@ -81,7 +83,12 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
     return acc
   }, [])
   const labelOf = (v: string) => products.find((p) => p.value === v)?.label ?? (v === prefill?.product && prefill?.productName ? prefill.productName : v)
-  const pickedLabels = picked.map(labelOf)
+  const pickedLabels = picked.map((v) => v === OTHER_PRODUCT ? t('otherProductOption') : labelOf(v))
+  const showOtherProduct = picked.includes(OTHER_PRODUCT)
+
+  useEffect(() => {
+    if (showOtherProduct) otherProductRef.current?.focus()
+  }, [showOtherProduct])
 
   // Các ô hiện lần lượt khi vào màn hình + chồng ván đầu trang tách lớp theo cuộn (không dùng thư viện)
   useEffect(() => {
@@ -142,6 +149,8 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
 
     if (d.website) return // ô ẩn bị điền = bot, bỏ qua
 
+    const product = picked.map((value) => value === OTHER_PRODUCT ? d.otherProduct.trim() : value).join(', ')
+
     setStatus('sending')
     try {
       const res = await fetch('/api/inquiries', {
@@ -154,7 +163,7 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
           phone: d.phone,
           country: d.country,
           targetMarket: d.targetMarket || undefined,
-          product: picked.length ? picked.join(', ') : undefined,
+          product: product || undefined,
           quantity: d.quantity || undefined,
           incoterm: d.incoterm || undefined,
           timing: d.timing || undefined,
@@ -287,6 +296,7 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
                             items.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)
                           )
                         })}
+                        {!showOtherProduct && <option value={OTHER_PRODUCT}>{t('otherProductOption')}</option>}
                       </select>
                       <label htmlFor="product">{t('labels.product')}</label>
                     </div>
@@ -301,6 +311,20 @@ export function HtplyContact({ products, prefill }: { products: ProductChoice[];
                       />
                       <label htmlFor="quantity">{t('labels.quantity')}</label>
                     </div>
+                    {showOtherProduct && (
+                      <div className="ct-f ct-full">
+                        <input
+                          id="otherProduct"
+                          name="otherProduct"
+                          type="text"
+                          ref={otherProductRef}
+                          placeholder={t('placeholders.otherProduct')}
+                          required
+                          pattern={'.*\\S.*'}
+                        />
+                        <label htmlFor="otherProduct">{t('labels.otherProduct')} *</label>
+                      </div>
+                    )}
                     <div className="ct-f ct-full ct-stg">
                       <textarea id="message" name="message" defaultValue={prefillMessage} placeholder={t('placeholders.message')} />
                       <label htmlFor="message">{t('labels.message')}</label>

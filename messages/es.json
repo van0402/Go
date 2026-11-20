@@ -767,6 +767,7 @@
     "summaryLabel": "Su solicitud",
     "groupContact": "Información de contacto",
     "groupProduct": "Requisitos del producto",
+    "otherProductOption": "Otro",
     "labels": {
       "fullName": "Nombre completo",
       "company": "Empresa",
@@ -775,6 +776,7 @@
       "country": "País",
       "targetMarket": "Mercado de destino",
       "product": "Producto de interés",
+      "otherProduct": "Nombre del producto",
       "quantity": "Cantidad estimada",
       "incoterm": "Incoterm preferido",
       "timing": "Plazo previsto del pedido",
@@ -787,6 +789,7 @@
       "phone": "+34 ...",
       "country": "País / región",
       "targetMarket": "UE, Oriente Medio, otro...",
+      "otherProduct": "Indique el producto que necesita",
       "quantity": "p. ej. 2 contenedores de 40'",
       "message": "Indique espesor, dimensiones, material del núcleo, tipo de cola, superficie, embalaje, mercado de destino o cualquier requisito técnico..."
     },

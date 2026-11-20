@@ -802,6 +802,7 @@
     "summaryLabel": "Votre demande",
     "groupContact": "Coordonnées",
     "groupProduct": "Besoins produit",
+    "otherProductOption": "Autre",
     "labels": {
       "fullName": "Nom complet",
       "company": "Société",
@@ -810,6 +811,7 @@
       "country": "Pays",
       "targetMarket": "Marché cible",
       "product": "Produit souhaité",
+      "otherProduct": "Nom du produit",
       "quantity": "Quantité estimée",
       "incoterm": "Incoterm souhaité",
       "timing": "Délai de commande prévu",
@@ -822,6 +824,7 @@
       "phone": "+33 ...",
       "country": "Pays / région",
       "targetMarket": "UE, Moyen-Orient, autre...",
+      "otherProduct": "Indiquez le produit dont vous avez besoin",
       "quantity": "ex. 2 conteneurs de 40'",
       "message": "Précisez l’épaisseur, les dimensions, l’âme, la colle, la surface, l’emballage, le marché cible ou toute exigence technique..."
     },

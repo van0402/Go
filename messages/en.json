@@ -771,6 +771,7 @@
     "summaryLabel": "Your request",
     "groupContact": "Contact information",
     "groupProduct": "Product requirements",
+    "otherProductOption": "Other",
     "labels": {
       "fullName": "Full name",
       "company": "Company",
@@ -779,6 +780,7 @@
       "country": "Country",
       "targetMarket": "Target market",
       "product": "Product of interest",
+      "otherProduct": "Product name",
       "quantity": "Estimated quantity",
       "incoterm": "Preferred Incoterm",
       "timing": "Expected order timing",
@@ -791,6 +793,7 @@
       "phone": "+84 ...",
       "country": "Country / region",
       "targetMarket": "EU, Middle East, other...",
+      "otherProduct": "Enter the product you need",
       "quantity": "e.g. 2 × 40' containers",
       "message": "Please include thickness, dimensions, core material, glue type, surface, packaging, target market or any technical requirements..."
     },
