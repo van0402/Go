@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { staticMeta } from '@/utilities/seo'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { HtplyAbout } from '@/components/HtplyAbout/HtplyAbout'
@@ -27,4 +29,9 @@ export default async function Page({ params }: { params: Promise<{ locale: 'en' 
   })
 
   return <HtplyAbout data={about} markets={markets} milestones={milestones} />
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return staticMeta(locale, 'about', '/about')
 }

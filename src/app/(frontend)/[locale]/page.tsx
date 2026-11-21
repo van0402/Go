@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { staticMeta } from '@/utilities/seo'
 import { HtplyDemo } from '@/components/Htply'
 import { getProductCards } from '@/utilities/getProducts'
 import { getPayload } from 'payload'
@@ -14,4 +16,9 @@ export default async function Page({ params }: { params: Promise<{ locale: 'en' 
   const coreValues = await payload.findGlobal({ slug: 'home-core-values', locale, fallbackLocale: false })
 
   return <HtplyDemo products={products} hero={hero} coreValues={coreValues} />
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return staticMeta(locale, 'home', '')
 }

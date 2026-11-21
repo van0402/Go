@@ -2,54 +2,28 @@ import { getServerSideSitemap } from 'next-sitemap'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { unstable_cache } from 'next/cache'
+import { sitemapEntries } from '@/utilities/seo'
 
+// Mỗi bài News đã Publish có đủ 3 ngôn ngữ: /en/news/..., /fr/news/..., /es/news/...
 const getPostsSitemap = unstable_cache(
   async () => {
     const payload = await getPayload({ config })
-    const SITE_URL =
-      process.env.NEXT_PUBLIC_SERVER_URL ||
-      process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-      'https://example.com'
-
-    const results = await payload.find({
+    const now = new Date().toISOString()
+    const { docs } = await payload.find({
       collection: 'posts',
-      overrideAccess: false,
       draft: false,
       depth: 0,
       limit: 1000,
       pagination: false,
-      where: {
-        _status: {
-          equals: 'published',
-        },
-      },
-      select: {
-        slug: true,
-        updatedAt: true,
-      },
+      where: { _status: { equals: 'published' } },
+      select: { slug: true, updatedAt: true },
     })
-
-    const dateFallback = new Date().toISOString()
-
-    const sitemap = results.docs
-      ? results.docs
-          .filter((post) => Boolean(post?.slug))
-          .map((post) => ({
-            loc: `${SITE_URL}/news/${post?.slug}`,
-            lastmod: post.updatedAt || dateFallback,
-          }))
-      : []
-
-    return sitemap
+    return docs.filter((p) => p.slug).flatMap((p) => sitemapEntries(`/news/${p.slug}`, p.updatedAt || now))
   },
-  ['posts-sitemap'],
-  {
-    tags: ['posts-sitemap'],
-  },
+  ['posts-sitemap-v2'],
+  { tags: ['posts-sitemap'], revalidate: 3600 },
 )
 
 export async function GET() {
-  const sitemap = await getPostsSitemap()
-
-  return getServerSideSitemap(sitemap)
+  return getServerSideSitemap(await getPostsSitemap())
 }

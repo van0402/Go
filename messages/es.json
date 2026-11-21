@@ -872,5 +872,14 @@
     "whatsapp": "Chatear por WhatsApp",
     "email": "Escríbanos",
     "call": "Llámenos"
+  },
+  "seo": {
+    "home": { "title": "HTPLY Vietnam | Fabricante y exportador de contrachapado", "description": "HTPLY VIETNAM fabrica y exporta contrachapado con film, antideslizante, crudo y LVL desde Vietnam a Europa, Oriente Medio y el resto del mundo." },
+    "about": { "title": "Sobre HTPLY | Marca vietnamita de contrachapado", "description": "Conozca HTPLY VIETNAM: nuestra historia, valores, mercados de exportación y capacidad de producción de contrachapado técnico." },
+    "products": { "title": "Productos de contrachapado | HTPLY Vietnam", "description": "Contrachapado con film, antideslizante, crudo y LVL desarrollados para construcción, transporte e industria. Solicite un presupuesto." },
+    "factory": { "title": "Nuestra fábrica | HTPLY Vietnam", "description": "Conozca la fábrica de HTPLY: proceso de producción, prensado y control de calidad." },
+    "quality": { "title": "Control de calidad | HTPLY Vietnam", "description": "Cómo HTPLY controla los materiales, el prensado, la estabilidad y la trazabilidad para ofrecer una calidad constante." },
+    "contact": { "title": "Contacto y solicitud de presupuesto | HTPLY Vietnam", "description": "Envíe sus necesidades de contrachapado a HTPLY VIETNAM. Indique producto, cantidad y destino y le responderemos con un presupuesto." },
+    "news": { "title": "Noticias | HTPLY Vietnam", "description": "Últimas noticias, novedades de producto y análisis del sector del contrachapado de HTPLY VIETNAM." }
   }
 }

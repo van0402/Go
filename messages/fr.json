@@ -907,5 +907,14 @@
     "whatsapp": "Discuter sur WhatsApp",
     "email": "Nous écrire",
     "call": "Nous appeler"
+  },
+  "seo": {
+    "home": { "title": "HTPLY Vietnam | Fabricant et exportateur de contreplaqué", "description": "HTPLY VIETNAM fabrique et exporte du contreplaqué filmé, antidérapant, brut et du LVL depuis le Vietnam vers l'Europe, le Moyen-Orient et le monde entier." },
+    "about": { "title": "À propos de HTPLY | Marque vietnamienne de contreplaqué", "description": "Découvrez HTPLY VIETNAM : notre histoire, nos valeurs, nos marchés d'export et notre capacité de production de contreplaqué technique." },
+    "products": { "title": "Produits contreplaqué | HTPLY Vietnam", "description": "Contreplaqué filmé, antidérapant, brut et LVL conçus pour la construction, le transport et l'industrie. Demandez un devis." },
+    "factory": { "title": "Notre usine | HTPLY Vietnam", "description": "Découvrez l'usine HTPLY : processus de production, pressage et contrôle qualité." },
+    "quality": { "title": "Contrôle qualité | HTPLY Vietnam", "description": "Comment HTPLY maîtrise les matières premières, le pressage, la stabilité et la traçabilité pour une qualité de contreplaqué constante." },
+    "contact": { "title": "Contact et demande de devis | HTPLY Vietnam", "description": "Envoyez vos besoins en contreplaqué à HTPLY VIETNAM. Indiquez produit, quantité et destination, nous vous répondrons avec un devis." },
+    "news": { "title": "Actualités | HTPLY Vietnam", "description": "Dernières actualités, nouveautés produits et analyses du secteur du contreplaqué par HTPLY VIETNAM." }
   }
 }

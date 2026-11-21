@@ -876,5 +876,14 @@
     "whatsapp": "Chat on WhatsApp",
     "email": "Email us",
     "call": "Call us"
+  },
+  "seo": {
+    "home": { "title": "HTPLY Vietnam | Plywood Manufacturer & Exporter", "description": "HTPLY VIETNAM manufactures and exports film faced, anti-slip, raw plywood and LVL from Vietnam to Europe, the Middle East and worldwide." },
+    "about": { "title": "About HTPLY | Vietnamese Plywood Brand", "description": "Learn about HTPLY VIETNAM: our history, values, export markets and production capacity for technical plywood." },
+    "products": { "title": "Plywood Products | HTPLY Vietnam", "description": "Film faced, anti-slip, raw plywood and LVL developed for construction, transport and industrial use. Request a quote." },
+    "factory": { "title": "Our Factory | HTPLY Vietnam", "description": "Take a look inside the HTPLY plywood factory: production process, pressing and quality control." },
+    "quality": { "title": "Quality Control | HTPLY Vietnam", "description": "How HTPLY controls materials, pressing, stability and traceability to deliver consistent plywood quality." },
+    "contact": { "title": "Contact & Request a Quote | HTPLY Vietnam", "description": "Send your plywood requirements to HTPLY VIETNAM. Tell us the product, quantity and destination and we will reply with a quote." },
+    "news": { "title": "News & Insights | HTPLY Vietnam", "description": "Latest news, product updates and plywood industry insights from HTPLY VIETNAM." }
   }
 }

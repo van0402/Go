@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { staticMeta } from '@/utilities/seo'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { HtplyFactory, type FactoryData } from '@/components/factory/HtplyFactory'
@@ -34,4 +36,9 @@ export default async function Page({ params }: { params: Promise<{ locale: 'en' 
   }
 
   return <HtplyFactory data={data} />
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return staticMeta(locale, 'factory', '/factory')
 }

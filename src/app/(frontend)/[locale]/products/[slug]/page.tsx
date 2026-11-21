@@ -6,6 +6,7 @@ import { cache } from 'react'
 import { toProductDetail } from '@/utilities/toProductDetail'
 import { HtplyProductDetail } from '@/components/HtplyProductDetail/HtplyProductDetail'
 import { HtplyProductFamily } from '@/components/HtplyProductFamily/HtplyProductFamily'
+import { buildMeta } from '@/utilities/seo'
 
 type Locale = 'en' | 'fr' | 'es'
 type Args = { params: Promise<{ locale: Locale; slug: string }> }
@@ -64,8 +65,10 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { locale, slug } = await params
   const doc = await getProductDoc(decodeURIComponent(slug), locale)
   if (!doc) return {}
-  return {
+  return buildMeta({
+    locale,
+    path: `/products/${doc.slug || slug}`,
     title: `${doc.name} | HTPLY Vietnam`,
     description: doc.sub || undefined,
-  }
+  })
 }

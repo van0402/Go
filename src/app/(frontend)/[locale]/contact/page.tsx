@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { staticMeta } from '@/utilities/seo'
 import { HtplyContact, type ProductChoice } from '@/components/HtplyContact/HtplyContact'
 import { getProductCards } from '@/utilities/getProducts'
 
@@ -39,4 +41,9 @@ export default async function Page({ params, searchParams }: Props) {
       }}
     />
   )
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return staticMeta(locale, 'contact', '/contact')
 }

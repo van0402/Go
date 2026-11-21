@@ -71,7 +71,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html
       
-        className={cn(
+  className={cn(
   GeistSans.variable,
   GeistMono.variable,
   beVietnamPro.variable,
@@ -97,9 +97,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
+  title: 'HTPLY Vietnam',
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
   },
 }

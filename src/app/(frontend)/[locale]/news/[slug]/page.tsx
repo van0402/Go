@@ -6,7 +6,7 @@ import { getPayload } from 'payload'
 import React, { cache } from 'react'
 import { HtplyNewsPost } from '@/components/HtplyNews/HtplyNewsPost'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
-
+import { buildMeta } from '@/utilities/seo'
 type Locale = 'en' | 'fr' | 'es'
 type Args = { params: Promise<{ locale: Locale; slug: string }> }
 
@@ -52,8 +52,12 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { locale, slug } = await params
   const post = await queryPost(decodeURIComponent(slug), locale, draft)
   if (!post) return {}
-  return {
-    title: post.meta?.title || post.title,
+    const hero = post.heroImage && typeof post.heroImage === 'object' ? post.heroImage.url : null
+  return buildMeta({
+    locale,
+    path: `/news/${post.slug || slug}`,
+    title: `${post.meta?.title || post.title} | HTPLY Vietnam`,
     description: post.meta?.description || post.excerpt || undefined,
-  }
+    image: hero || undefined,
+  })
 }
